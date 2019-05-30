@@ -11,14 +11,6 @@ import './Contact/ContactContainer/ContactContainer.scss'
 import './Contact/Socials/SocialButton.scss'
 import './Copyright/Copyright.scss'
 
-
-
-
-
-
-
-
-
 class Footer extends Component {
     state = {  }
     render() { 
