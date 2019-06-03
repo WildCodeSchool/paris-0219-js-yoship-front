@@ -1,6 +1,6 @@
 import React from 'react';
 import './Register.scss';
-import Button from '../Button/Button';
+import Button from '../../Button/Button';
 
 class Register extends React.Component {
 
