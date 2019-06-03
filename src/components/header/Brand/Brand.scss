@@ -1,0 +1,29 @@
+.header_brand{
+    color: #ffffff;
+    font-family: nunito;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: .0625em;
+    margin-left: 10px;
+}
+
+.header_brand_black{
+    color: black;
+    font-family: nunito;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: .0625em;
+    margin-left: 10px;
+}
+.header_brand_div {
+    display:flex;
+    align-items: center;
+}
+.header_logo{
+    border-radius: .25rem;
+    height: 50px;
+    width: 50px;
+}
+
+
+
