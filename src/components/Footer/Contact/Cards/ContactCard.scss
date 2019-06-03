@@ -1,0 +1,62 @@
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    border-bottom: .25rem solid #c9a959;
+    margin: 0em 1em;
+    padding: 1.5rem 0 !important;
+    width: 350px;
+}
+
+.card-title {
+    font-size: .8rem;
+    letter-spacing: .15rem;
+    font-weight: 500;
+    line-height: 1.2;
+    font-family: 'Varela Round',sans-serif;
+}
+
+.text-primary {
+    color: #c9a959 !important;
+}
+
+.card hr {
+    border-color: #c9a959;
+    border-width: .25rem;
+    width: 3rem;
+    margin-bottom: 1.5rem !important;
+    margin-top: 1.5rem !important;
+}
+
+.card i {
+    margin-bottom: .5rem!important;
+}
+
+.card a {
+    color: #c9a959!important;
+}
+
+.card-subtitle {
+    font-size: 80%;
+    font-weight: 400;
+    color: rgba(0,0,0,.5) !important;
+}
+
+/* Tablet */
+
+@media screen and (max-width: 768px) {
+    
+    .card {
+        margin: 0.5em 0em ;
+        width: 100%;
+    }
+
+}
