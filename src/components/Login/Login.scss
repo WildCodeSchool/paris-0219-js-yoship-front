@@ -1,0 +1,97 @@
+body {
+    letter-spacing: 0.025em;
+    font-family: Nunito,sans-serif;
+    min-height: 13vh;
+    font-size: calc(6px + 1vmin);
+    text-align: center;
+    box-sizing: border-box;
+    font-weight: 400;
+  }
+
+.container-form-login{
+    padding: 15rem 5rem 5rem;
+    /* border: red solid 10px; */
+    display: block;
+    color: #212529;
+    margin: auto;
+    grid-template-columns: repeat(1, 80%);
+    justify-content: center;
+    grid-template-rows: repeat(7, auto);
+    font-family: Nunito, sans-serif;
+    letter-spacing: .0625em;
+    font-size: 1rem;
+    background-color: #f1f1f1;
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
+
+.label-email-login{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: inline-block;
+    margin-bottom: .9rem;
+    font-weight: 400;
+}
+
+.picto-mail{
+    text-align: center;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    padding: .360rem .75rem; 
+    margin:0;
+    font-size: 1rem;
+    line-height: 1;
+    color: #495057;
+    width: 5%;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;  
+}
+
+.input-email-login{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    width: 100%;
+}
+
+.group-email{
+    display: flex;
+    flex-direction: row;
+}
+
+.label-password-login{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    font-weight: 400;
+    display: inline-block;
+    margin-bottom: .9rem;
+}
+
+.input-password-login{
+    width: 100%;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.input-checkbox-login{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: inline-block;
+    margin: auto;
+    font-weight: 400;
+}
+
+.button-login{
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+input:focus{
+    border: 1px solid rgb(128, 189, 255);
+}
