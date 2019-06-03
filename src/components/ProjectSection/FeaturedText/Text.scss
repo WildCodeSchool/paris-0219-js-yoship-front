@@ -1,0 +1,21 @@
+
+.text {
+    text-align: left;
+    width: 35%;
+    display: block;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    padding: 0px 0px 0px 2rem;
+    border-left: .5rem solid #c9a959;
+};
+
+
+.size {
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 1.5rem;
+    color: #212529;;
+    font-weight: 500;
+    margin-bottom: 0!important;
+ }
