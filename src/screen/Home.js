@@ -7,18 +7,16 @@ import TrackingSection from "../components/TrackingSection/TrackingSection/Track
 
 const Home = () => {
 
-    return  (
-    
-    <div>
-
-    <PageHeader/>
-    <ProjectSection/>
-    <TrackingSection />
-    <Contact />
-    <Footer />
-    </div>
-
-    )}
+    return (
+        <div>
+            <PageHeader />
+            <ProjectSection />
+            <TrackingSection />
+            <Contact />
+            <Footer />
+        </div>
+    )
+}
 
 
 export default Home

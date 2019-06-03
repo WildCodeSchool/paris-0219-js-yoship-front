@@ -9,16 +9,15 @@ import Register from './../screen/Register'
 
 function App() {
   return (
-    <div>    
-
-    <Header/>
-    <Switch>
+    <div>
+      <Header />
+      <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/tracking" component={Tracking} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
       </Switch>
-      </div>
+    </div>
    
   );
 }
