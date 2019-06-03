@@ -1,0 +1,203 @@
+/* body {
+    font-family: Nunito,sans-serif;
+    font-size: calc(6px + 1vmin);
+    text-align: center;
+    box-sizing: border-box;
+    font-weight: 400;
+    min-height:35rem;
+} */
+
+/* style formulaire */
+
+/* all the elements, input, label */
+.group-form-register{
+       /* margin-top: 10rem; */
+       padding: 15rem 5rem 5rem;
+       display: grid;
+       grid-template-columns: repeat(2, 50%);
+       margin-bottom: 1rem;
+       grid-gap: 0;
+       color: #212529;
+       grid-template-rows: repeat(8, 1);
+       font-family: Nunito, sans-serif;
+       text-align: center;
+       letter-spacing: .0625em;
+       font-size: 1rem;
+       background-color: #f1f1f1;
+       /* margin: auto; */
+       box-sizing: border-box;
+       line-height: 24px;
+       width: 100%;
+       /* padding: 5rem; */
+}
+/* label first-name */
+.label-first-register{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: inline-block;
+    margin-bottom: .9rem;
+}
+/* input first name */
+.first-name-register{
+    grid-column-start: 1;
+    grid-column-end: 2;    
+    // display: block;
+    width: 90%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+/* label last-name */
+.label-last-register{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: inline-block;
+    margin-bottom: .9rem;
+}
+/* input last-name */
+.last-name-register{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    width: 90%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+/* label email*/
+.label-email-register{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: inline-block;
+    margin-bottom: .9rem;
+}
+/* input email */
+.email-register{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    width: 90%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+/* label phone */
+.label-phone-register{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: inline-block;
+    margin-bottom: .9rem;
+}
+/* input phone */
+.phone-register{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    width: 90%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+/* label password */
+.label-password-register{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: inline-block;
+    margin-bottom: .9rem;
+}
+/* input password */
+.password-register{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    width: 90%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+/* label password confirmation */
+.label-paswordcon-register{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: inline-block;
+    margin-bottom: .9rem;
+}
+/* input password confirmation */
+.password-confirmation-register{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    width: 90%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+/* all the inputs */
+input:focus{
+    border: 1px solid rgb(128, 189, 255);
+}
+/* checkbox terms and conditions */
+.checkbox-register{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin-left: auto;
+    margin-right:auto;
+    margin-bottom: .9rem;
+}
+
+/* bouton submit */
+.button-login{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+@media screen and (max-width: 750px)
+{
+    .group-form-register{
+        display: flex;
+        flex-direction: column;
+        color:#212529;
+        grid-template-columns: repeat(8,1);
+        font-family: Nunito, sans-serif;
+        text-align: center;
+        letter-spacing: .0625em;
+        font-size: 1rem;
+        background-color: #f1f1f1;
+        box-sizing: border-box;
+        line-height: 10px;
+        padding: 1rem;
+    }
+}
