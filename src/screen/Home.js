@@ -3,7 +3,7 @@ import PageHeader from '../components/Header/PageHeader/PageHeader';
 import ProjectSection from '../components/ProjectSection/ProjectSection';
 import Contact from '../components/Contact/Contact/Contact';
 import Footer from '../components/Footer/Footer'
-import TrackingSection from "../components/TrackingSection/TrackingSection/TrackingSection";
+import TrackingSection from "../components/TrackingSection/TrackingSection";
 
 const Home = () => {
 
