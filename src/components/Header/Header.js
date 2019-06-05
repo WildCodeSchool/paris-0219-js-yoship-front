@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {NavLink } from 'react-router-dom';
 
 import Brand from './Brand/Brand'
-// import ContainerLink from "./ContainerLink/ContainerLink";
+import GeneralBurger from './Burger/GeneralBurger'
 import Tab from './Tab/Tab'
 
 import './Header.scss'
@@ -39,6 +39,7 @@ class Header extends Component{
 
     return  (  
       <header className={headerClass}>
+        <div className="burger-btn"><GeneralBurger /></div>
         <NavLink exact to="/" className={this.state.background? "header_link" : "header_link_black"} onClick={this.pictureBackground}>
           <Brand background={this.state.background} isTop={this.state.isTop}/>
         </NavLink>

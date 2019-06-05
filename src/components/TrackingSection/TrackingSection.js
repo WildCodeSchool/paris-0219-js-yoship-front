@@ -29,7 +29,7 @@ class TrackingSection extends Component {
           <input type="text" placeholder="Enter your tracking number..." className="form_control"/>
           
         <div id='buttontracking' >
-        <Button text="LET'S SEE !"/>
+        <Button className="tracking_button" text="LET'S SEE !"/>
         </div>
         </form>
         

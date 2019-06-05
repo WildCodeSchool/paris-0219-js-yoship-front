@@ -1,4 +1,7 @@
-
+.burger-btn {
+    display: none;
+  }
+  
 .header_header{
     display: flex;
     align-items: center;
@@ -80,3 +83,11 @@
 }
 
 
+@media (max-width: 980px) {
+    .header_link_div {
+        display: none;
+    }
+    .burger-btn {
+        display: contents;
+    }
+}

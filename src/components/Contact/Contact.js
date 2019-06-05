@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import FrenchPhoneField from './FrenchPhoneField';
 import './Contact.scss';
-import logoPaperPlane from '../../../assets/images/logoPaperPlane.svg';
+import logoPaperPlane from '../../assets/images/logoPaperPlane.svg';
 import { InputGroup, InputGroupAddon, Input, FormGroup, CustomInput, Form } from 'reactstrap';
 
 class Contact extends React.Component {
