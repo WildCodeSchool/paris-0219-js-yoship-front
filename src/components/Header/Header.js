@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {NavLink } from 'react-router-dom';
 
 import Brand from './Brand/Brand'
-// import ContainerLink from "./ContainerLink/ContainerLink";
+import ResponsiveNavbar from './Burger/ResponsiveNavbar'
 import Tab from './Tab/Tab'
 
 import './Header.scss'
@@ -11,8 +11,8 @@ class Header extends Component{
   state = {
     background : true,
     isTop: true
-
   }
+  
   componentDidMount () {
     document.addEventListener('scroll', () => {
       const isTop = window.scrollY < 100;
@@ -39,6 +39,7 @@ class Header extends Component{
 
     return  (  
       <header className={headerClass}>
+        <div className="burger-btn"><ResponsiveNavbar /></div>
         <NavLink exact to="/" className={this.state.background? "header_link" : "header_link_black"} onClick={this.pictureBackground}>
           <Brand background={this.state.background} isTop={this.state.isTop}/>
         </NavLink>
