@@ -1,15 +1,11 @@
 import React from 'react'
-import Text from './FeaturedText/Text'
-import './ProjectSection.scss'
-import './Video/Video.scss'
-import './FeaturedText/Text.scss'
-import ContainerVideo from './Video/ContainerVideo';
+import Project from './Project';
+import './Project.scss'
 
 // Project Section
 
 const ProjectSection = () =>
-    <div className="projectsection">
-        <ContainerVideo />
-        <Text />
-    </div>
+
+        <Project />
+
 export default ProjectSection
