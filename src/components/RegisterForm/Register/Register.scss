@@ -1,40 +1,36 @@
-/* body {
-    font-family: Nunito,sans-serif;
-    font-size: calc(6px + 1vmin);
-    text-align: center;
-    box-sizing: border-box;
-    font-weight: 400;
-    min-height:35rem;
-} */
 
 /* style formulaire */
 
 /* all the elements, input, label */
 .group-form-register{
-       /* margin-top: 10rem; */
-       padding: 15rem 5rem 5rem;
-       display: grid;
-       grid-template-columns: repeat(2, 50%);
-       margin-bottom: 1rem;
-       grid-gap: 0;
-       color: #212529;
-       grid-template-rows: repeat(8, 1);
-       font-family: Nunito, sans-serif;
-       text-align: center;
-       letter-spacing: .0625em;
-       font-size: 1rem;
-       background-color: #f1f1f1;
-       /* margin: auto; */
-       box-sizing: border-box;
-       line-height: 24px;
-       width: 100%;
-       /* padding: 5rem; */
+    color: #212529;
+    font-family: Nunito, sans-serif;
+    text-align: center;
+    letter-spacing: .0625em;
+    font-size: 1rem;
+    background-color: #f1f1f1;
+    box-sizing: border-box;
+    line-height: 24px;
+    min-height: 35rem;
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+}
+
+.group-form-container{
+    grid-template-rows: repeat(8, auto);
+    // padding-right: 15px;
+    // padding-left: 15px;
+    // margin-right: auto;
+    // margin-left: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 40%);
+    grid-gap: 10px;
+    justify-content: center;
 }
 /* label first-name */
 .label-first-register{
     grid-column-start: 1;
     grid-column-end: 2;
-    display: inline-block;
     margin-bottom: .9rem;
 }
 /* input first name */
@@ -42,7 +38,6 @@
     grid-column-start: 1;
     grid-column-end: 2;    
     // display: block;
-    width: 90%;
     padding: .375rem .75rem;
     font-size: 1rem;
     font-weight: 400;
@@ -57,14 +52,12 @@
 .label-last-register{
     grid-column-start: 2;
     grid-column-end: 3;
-    display: inline-block;
     margin-bottom: .9rem;
 }
 /* input last-name */
 .last-name-register{
     grid-column-start: 2;
     grid-column-end: 3;
-    width: 90%;
     padding: .375rem .75rem;
     font-size: 1rem;
     font-weight: 400;
@@ -86,7 +79,6 @@
 .email-register{
     grid-column-start: 1;
     grid-column-end: 2;
-    width: 90%;
     padding: .375rem .75rem;
     font-size: 1rem;
     font-weight: 400;
@@ -108,7 +100,6 @@
 .phone-register{
     grid-column-start: 2;
     grid-column-end: 3;
-    width: 90%;
     padding: .375rem .75rem;
     font-size: 1rem;
     font-weight: 400;
@@ -130,7 +121,6 @@
 .password-register{
     grid-column-start: 1;
     grid-column-end: 2;
-    width: 90%;
     padding: .375rem .75rem;
     font-size: 1rem;
     font-weight: 400;
@@ -152,7 +142,6 @@
 .password-confirmation-register{
     grid-column-start: 2;
     grid-column-end: 3;
-    width: 90%;
     padding: .375rem .75rem;
     font-size: 1rem;
     font-weight: 400;
@@ -186,11 +175,11 @@ input:focus{
 
 @media screen and (max-width: 750px)
 {
-    .group-form-register{
+    .group-form-container{
         display: flex;
         flex-direction: column;
         color:#212529;
-        grid-template-columns: repeat(8,1);
+        grid-template-columns: repeat(8,auto);
         font-family: Nunito, sans-serif;
         text-align: center;
         letter-spacing: .0625em;
