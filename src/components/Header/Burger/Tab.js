@@ -16,4 +16,4 @@ const Tab = ({icon, tab}) => {
     )
 }
 
-export default Tab
+export default Tab;

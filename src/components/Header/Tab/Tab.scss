@@ -1,3 +1,13 @@
-.header_tab{
+.header_tab {
     padding: 1rem 1.5rem;
+}
+
+@media (max-width: 980px) {
+    .header_tab {
+        font-size: 1rem;
+        margin: -25px;
+        padding: 1rem 1.5rem;
+        padding: 2rem 1.5rem;
+        text-align: left;
+    }
 }
