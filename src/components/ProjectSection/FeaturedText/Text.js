@@ -12,3 +12,4 @@
 // </text>
 
 
+// export default Text;
