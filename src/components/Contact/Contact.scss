@@ -1,0 +1,141 @@
+/* GENERAL TAG CSS */
+@font-face {
+    font-family: 'Varela Round', sans-serif;
+    src: url("https://fonts.googleapis.com/css?family=Varela+Round&display=swap") format("woff2"),
+}
+ 
+/* CONTACT FORM CSS */
+#contact-wrapper {
+    display: grid;
+    flex-wrap: nowrap;
+    grid-template-columns: repeat(2, 40%);
+    grid-template-rows: repeat(7, auto);
+    grid-gap: 10px;
+    justify-content: center;
+    /* add on SCSS */
+    background-color: #f1f1f1 ;
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 0.0625em;
+}
+
+.contact-logo {
+    grid-column-start: 1;
+    grid-column-end:3; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo-plane {
+    background-size: 30px 30px;
+    margin-top: 150px;
+    max-height: 30px;
+    max-width: 30px;
+}
+
+.contact-title {
+    grid-column-start: 1;
+    grid-column-end: 3; 
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-firstname {
+    grid-column-start: 1;
+    grid-column-end: 2;
+} 
+
+.contact-lastname {
+    grid-column-start: 2;
+    grid-column-end: 3;
+} 
+
+.contact-email {
+    grid-column-start: 1;
+    grid-column-end: 2;
+} 
+
+.contact-phone {
+    grid-column-start: 2;
+    grid-column-end: 3;
+} 
+
+.contact-status {
+    grid-column-start: 1;
+    grid-column-end: 3; 
+} 
+
+.contact-status select {
+    width: 100%;
+}
+
+.contact-message {
+    grid-column-start: 1;
+    grid-column-end: 3; 
+    margin-top: -15px;
+} 
+
+.contact-button {
+    color: white;
+    grid-column-start: 1;
+    grid-column-end: 3; 
+    justify-items: center;
+    margin-bottom: 130px;
+    margin-top: -15px;
+}
+
+.contact-button {
+    background-color: #C9A959;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1);
+    font-family: 'Varela Round', 'sans-serif';
+    font-size: 80%;
+    /* padding: 1.25rem 2rem; */
+    letter-spacing: .15rem;
+    text-transform: uppercase;
+    -webkit-box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1);
+    width: 6rem;
+}
+
+.contact-button:hover {
+    background-color: #B99A6F;
+}
+
+.contact-button:focus {
+    background-color: #B99A6F;
+    color: white;
+    justify-self: center;
+    align-self: center;
+}
+
+input.contact-button {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    padding-right: 2rem;
+    padding-left: 1.75rem;
+} 
+
+@media screen and (max-width: 576px) {
+    #contact-wrapper {
+    grid-template-columns: repeat(1, 80%);
+    }
+    .contact-logo, 
+    .contact-title,
+    .contact-firstname,
+    .contact-lastname,
+    .contact-email, 
+    .contact-phone,
+    .contact-status,
+    .contact-message,
+    .contact-button {
+        grid-column-start: 1;
+        grid-column-end: 2;   
+    }
+    .logo-plane {
+        margin-top: 75px;
+    }
+}
+
