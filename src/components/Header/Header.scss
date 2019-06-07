@@ -1,6 +1,10 @@
 body{
     margin:0;
 }
+.burger-btn {
+    display: none;
+  }
+  
 .header_header{
     display: flex;
     align-items: center;
@@ -80,4 +84,11 @@ body{
     border-bottom: 0.25rem solid #C9A959;
 }
 
-
+@media (max-width: 980px) {
+    .header_link_div {
+        display: none;
+    }
+    .burger-btn {
+        display: contents;
+    }
+}

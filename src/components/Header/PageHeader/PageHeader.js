@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button from '../Button/Button';
+import Button from '../../Button/Button';
 
 import './PageHeader.scss'
 
@@ -10,7 +10,7 @@ const PageHeader = () => (
             <h1>YOSHIP EXPERIENCE DELIVERY</h1>
             <h2>A new way of delivery for luxury brands and demanding clients.<br/>
             This is not a simple package, this is an YoShip experience.</h2>
-            <Button title= "GET STARTED"/>
+            <Button text= "GET STARTED"/>
         </header>
     </>
 )

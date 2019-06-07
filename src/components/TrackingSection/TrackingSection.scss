@@ -3,150 +3,189 @@ body {
     letter-spacing: 0.0625em;
 }
 
-#buttontracking  {
-    font-size: 120%;
-    position: relative;
-    right: -13.5em;
-    top: -2.8em;
-    padding: 22px 32px;
-
-}
-
-.logo_white {
-    color: white;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1em;
-
-}
-
-.tracking_section {
+.container-section {
     padding: 10rem 0;
     background: linear-gradient(to bottom, rgba(22, 22, 22, 0.6) 0%, rgba(22, 22, 22, 0.8) 75%, #161616 100%), url("../../assets/images/tracking-background.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover; 
+    width: 100%;
+}
+
+.form_inline {
+    display: grid;
+    grid-template-columns: 563.08px 158.92px;
+    grid-template-rows: 59px;
+    width: 730px;
+    height: 59px;
+    position: relative;
+    top: -17px;
+    margin-left: auto;
+    margin-right: auto;
     
+}
+.form_control {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    margin-right: 8px;
+}
+.tracking_section .form_inline button {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    padding: 20px 32px;
+    font-size: 80%;
+    width: 100%;
+    height: 100%
+
 
 }
-.tracking_section, ::after, ::before {
+
+.logo_white {
+    color: white;
+}
+
+
+
+.tracking_section {
+    width: 760px;
+    height: 249px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+    
+
+
+.container-section, ::after, ::before {
     box-sizing: border-box;
+    text-align: center;
 }
 
 
 .tracking_section .form_inline input {
     box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
-    padding: 30px 32px;
-    height: 19px;
+    padding: 20px 32px;
     font-family: 'Varela Round', 'sans-serif';
     font-size: 80%;
     text-transform: uppercase;
     letter-spacing: .15rem;
     border: 0;
     border-radius: .25rem;
-    width: 65%;
-    position: relative;
-    top: 2.5em;
-    left: -11%;
     line-height: 1.8;
 }
+    
 
 .text-white {
     color: white;
     text-align: center!important;
-    width: 760px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 1em;
     position: relative;
-    top: -2.3em;
+    font-family: 'Nunito', sans-serif;
 }
 
-.text-white h2 {
+.tracking_section h2 {
     font-size: 2rem;
+    letter-spacing: .0625em;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: .5rem;
     font-weight: 500;
     line-height: 1.2;
-    margin-top: .2rem;
 }
 
-.text-white p {
-    font-size: 80%;
-    font-weight: 400;
+.tracking_section p {
+    font-size: 12.8px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    letter-spacing: .0625em;
     line-height: 2em;
-    
 }
 
-@media (min-width: 576px) and (max-width: 800px) {
-    
-    Button {
-           font-size: 95.7%!important;
-           position: relative;
-           right:-43.5%;
-           top: -2.8em;
-           line-height: 1.5;
-           width: 159px;      
-    }
-    .form_inline .form_control {
-        display: inline-block;
-        vertical-align: middle;
-        margin-right: .5rem!important;
-    }
-
-    .tracking_section .form_inline  {
-            font-size: 80%;
-            width: 87%;
-            position: relative;
-            left: 3%;
-    }
-
-    .text-white{
-            width: 600px;
-    }           
-}
-    
-        
-    
-
-@media (max-width: 575px) {
-    
+@media (max-width: 1199px) {
     .form_inline {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        align-content: center;
+        display: grid;
+        grid-template-columns: 443.06px 158.92px;
+        grid-template-rows: 59px;
+        width: 610px;
+        height: 59px;
     }
-    
-    .tracking_section form {
-        display: flex;
-        flex-direction: column; 
-           
-    }
-
-    .tracking_section .form_inline .form_control {
-        width: 281px;
-        height: 19px;
-        padding: 20px 32px;
-        left: 1px;
-     }
-
-    .text-white {
-        width: auto;
-    }
-
-    .text-white p {
-        width: 335.2px;
-        margin-left:auto;
+    .tracking_section {
+        margin-left: auto;
         margin-right: auto;
+        width:   639.98px;   
+    }
+
+} 
+
+@media (max-width: 991px) {
+    .tracking_section {
+        margin-left: auto;
+        margin-right: auto;
+        width:   600px;   
+    }
+    .form_inline {
+        display: grid;
+        grid-template-columns: 403.08px 158.92px;
+        grid-template-rows: 59px;
+        width: 570px;
+        height: 59px;
     }
 }
 
+@media (max-width:768px) {
+    .tracking_section {
+        margin-left: auto;
+        margin-right: auto;
+        width:   540px;   
+    }
+    .form_inline {
+        display: grid;
+        grid-template-columns: 343.08px 158.92px;
+        grid-template-rows: 59px;
+        width: 510px;
+        height: 59px;
+    }
+}
 
-
-       
-       
-
-
-
+@media (max-width:576px) {
+    .tracking_section {
+        margin-left: auto;
+        margin-right: auto;
+        width: 95%;   
+    }
+    .form_inline {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 59px 59px;
+        width: 95%;
+        height: 59px;
+    }
+    .tracking_section .form_inline button {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        padding: 20px 32px;
+        font-size: 80%;
+        width: 159px;
+        height: 59px;
+    }
+    .form_control {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        margin-right:0;
+        height: 59px;
+        position: relative;
+        top: -16px;
+    }  
     
+
+}
+
+
