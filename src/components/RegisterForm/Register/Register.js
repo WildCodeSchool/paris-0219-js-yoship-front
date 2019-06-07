@@ -9,7 +9,6 @@ class Register extends React.Component {
         return (
             <Form method="post" className="group-form-register">
                 {/* label + input fisrt name */}
-                <div className="group-form-container">
                 <p>
                     <label className="label-first-register" for="first name">First name</label>
                     <Input className="first-name-register" name="first name" type="text" placeholder="First name" />
@@ -43,8 +42,8 @@ class Register extends React.Component {
                 <p className="checkbox-register">
                     <Input type="checkbox" /><label> Agree to terms and conditions</label>
                 </p>
-                <span className="button-login"><Button /></span>
-                </div>
+                <span className="button-login"><Button text="SUBMIT FORM" /></span>
+                
             </Form>
         )
     }

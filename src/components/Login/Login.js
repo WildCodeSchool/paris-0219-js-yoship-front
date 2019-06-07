@@ -27,7 +27,7 @@ class Login extends React.Component {
             <Input type="checkbox" /><label> Check me out</label><br/>
             </div>
             {/* boutton submt */}
-            <span className="button-login"><Button /></span>
+            <span className="button-login"><Button text="SUBMIT"/></span>
         </form>
        
         

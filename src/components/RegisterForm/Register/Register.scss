@@ -14,19 +14,13 @@
     min-height: 35rem;
     padding-top: 12rem;
     padding-bottom: 12rem;
-}
-
-.group-form-container{
     grid-template-rows: repeat(8, auto);
-    // padding-right: 15px;
-    // padding-left: 15px;
-    // margin-right: auto;
-    // margin-left: auto;
     display: grid;
     grid-template-columns: repeat(2, 40%);
     grid-gap: 10px;
     justify-content: center;
 }
+
 /* label first-name */
 .label-first-register{
     grid-column-start: 1;
@@ -175,7 +169,7 @@ input:focus{
 
 @media screen and (max-width: 750px)
 {
-    .group-form-container{
+    .group-form-register{
         display: flex;
         flex-direction: column;
         color:#212529;

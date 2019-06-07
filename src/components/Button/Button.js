@@ -1,17 +1,14 @@
 import React from 'react';
 import './Button.scss';
 
-class Button extends React.Component {
 
-    render() {
+    const Button = ({text}) => {
         return (
         <div>
-            <p>
-                <button className="login-button">SUBMIT FORM</button> 
-            </p>
+    
+                <button className="login-button">{text}</button> 
+    
         </div>
         )
     }
-}
-
-export default Button;
+    export default Button; 
