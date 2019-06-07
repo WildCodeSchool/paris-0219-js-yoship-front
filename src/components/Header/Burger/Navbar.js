@@ -8,7 +8,9 @@ import Brand from '../Brand/Brand';
 const Navbar = props => (
     <div className="toolbar">
         <div className="toolbar_navigation">
-            <NavLink exact to="/"><Brand /></NavLink>
+            <NavLink exact to="/">
+                <Brand />
+            </NavLink>
             <div className="toolbar_toggle-button">
                 <BurgerButton click={props.drawerClickHandler}/> 
             </div>
