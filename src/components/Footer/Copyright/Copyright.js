@@ -4,8 +4,8 @@ import './Copyright.scss'
 
 const Copyright = () => {
     return (
-      <footer class="bg-black small text-center text-white-50">
-        <div class="container">
+      <footer className="bg-black small text-center text-white-50">
+        <div className="container">
           Copyright &copy; YoShip Experience Delivery 2019
         </div>
       </footer>
