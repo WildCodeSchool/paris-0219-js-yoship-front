@@ -6,12 +6,11 @@ body {
     text-align: center;
     box-sizing: border-box;
     font-weight: 400;
+    margin: 0;
   }
 
 .container-form-login{
     padding: 15rem 5rem 5rem;
-    /* border: red solid 10px; */
-    display: block;
     color: #212529;
     margin: auto;
     grid-template-columns: repeat(1, 80%);
@@ -21,12 +20,6 @@ body {
     letter-spacing: .0625em;
     font-size: 1rem;
     background-color: #f1f1f1;
-    padding-top: 12rem;
-    padding-bottom: 12rem;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
 }
 
 
@@ -38,21 +31,6 @@ body {
     font-weight: 400;
 }
 
-.picto-mail{
-    text-align: center;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
-    padding: .360rem .75rem; 
-    margin:0;
-    font-size: 1rem;
-    line-height: 1;
-    color: #495057;
-    width: 5%;
-    background-color: #e9ecef;
-    border: 1px solid #ced4da;  
-}
 
 .input-email-login{
     grid-column-start: 1;
@@ -92,6 +70,24 @@ body {
     grid-column-end: 2;
 }
 
-input:focus{
-    border: 1px solid rgb(128, 189, 255);
+.container-form-login::placeholder{
+    color: #6c757d;
+    opacity: 1;
+}
+
+@media screen and (max-width: 750px)
+{
+    .container-form-login{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        color:#212529;
+        font-family: Nunito, sans-serif;
+        text-align: center;
+        letter-spacing: .0625em;
+        font-size: 1rem;
+        background-color: #f1f1f1;
+        box-sizing: border-box;
+        padding: 5rem;
+    }
 }
