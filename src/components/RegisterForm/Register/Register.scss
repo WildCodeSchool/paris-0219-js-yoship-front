@@ -163,8 +163,6 @@ input:focus{
 .button-login{
     grid-column-start: 1;
     grid-column-end: 3;
-    margin-left: auto;
-    margin-right:auto;
 }
 
 @media screen and (max-width: 750px)
@@ -173,7 +171,6 @@ input:focus{
         display: flex;
         flex-direction: column;
         color:#212529;
-        grid-template-columns: repeat(8,auto);
         font-family: Nunito, sans-serif;
         text-align: center;
         letter-spacing: .0625em;

@@ -23,11 +23,11 @@ class Login extends React.Component {
             <Input className="input-password-login" name="Password" type="text" placeholder="Enter your password"/>
             </p>
             {/* checkbox check me out  */}
-            <div className="group-check">
+            <span className="group-check">
             <Input type="checkbox" /><label> Check me out</label><br/>
-            </div>
-            {/* boutton submt */}
+            </span>
             <span className="button-login"><Button text="SUBMIT"/></span>
+            {/* boutton submt */}
         </form>
        
         

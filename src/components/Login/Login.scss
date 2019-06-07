@@ -7,7 +7,6 @@ body {
     box-sizing: border-box;
     font-weight: 400;
     margin: 0;
-
   }
 
 .container-form-login{
@@ -21,8 +20,6 @@ body {
     letter-spacing: .0625em;
     font-size: 1rem;
     background-color: #f1f1f1;
-    padding-top: 12rem;
-    padding-bottom: 12rem;
 }
 
 
@@ -76,4 +73,21 @@ body {
 .container-form-login::placeholder{
     color: #6c757d;
     opacity: 1;
+}
+
+@media screen and (max-width: 750px)
+{
+    .container-form-login{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        color:#212529;
+        font-family: Nunito, sans-serif;
+        text-align: center;
+        letter-spacing: .0625em;
+        font-size: 1rem;
+        background-color: #f1f1f1;
+        box-sizing: border-box;
+        padding: 5rem;
+    }
 }
