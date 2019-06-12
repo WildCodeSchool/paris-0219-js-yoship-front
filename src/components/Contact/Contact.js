@@ -81,7 +81,10 @@ class Contact extends React.Component {
                     bsSize="sm" 
                 />
                     
-                <InputGroup size="sm" className="contact-email">
+                <InputGroup 
+                    className="contact-email"
+                    size="sm"
+                >
                     <InputGroupAddon addonType="prepend">@</InputGroupAddon>
                         <Input
                             name="email"
@@ -90,6 +93,7 @@ class Contact extends React.Component {
                             type="email"
                             value={this.state.email}
                             onChange={this.handleChange} 
+                            bsSize="sm"
                         />
                 </InputGroup>
                 
@@ -97,7 +101,7 @@ class Contact extends React.Component {
                 
                 <FormGroup className="contact-status">
                     <CustomInput bsSize="sm" type="select" id="exampleCustomSelect" name="customSelect">
-                        <option selected="selected">Select your status : </option>>
+                        <option value={this.state.value}>Select your status : </option>>
                         <option value={this.state.value}>I am a privileged client</option>
                         <option value={this.state.value}>I am a Yoship driver</option>
                         <option value={this.state.value}>I am a Luxury brand</option>
@@ -105,10 +109,12 @@ class Contact extends React.Component {
                     </CustomInput>
                 </FormGroup>
                 
-                <FormGroup bsSize="sm"  size="sm" className="contact-message">
+                <FormGroup  
+                    //size="sm" 
+                    className="contact-message">
                     <Input 
                         bsSize="sm"
-                        size="sm" 
+                        // size="sm" 
                         type="textarea" 
                         name="text" 
                         id="exampleText"
@@ -122,7 +128,7 @@ class Contact extends React.Component {
                 <input 
                     className="contact-button"
                     type="Submit"
-                    value="Send" 
+                    defaultValue="Send" 
                 />
             </Form>
         </div>

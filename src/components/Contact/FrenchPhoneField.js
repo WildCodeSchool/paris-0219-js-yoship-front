@@ -37,7 +37,7 @@ class FrenchPhoneField extends React.Component {
     const { name, placeholder, required } = this.props
     return (
       <Input 
-        autocomplete="tel"
+        autoComplete="tel"
         name={name}
         onChange={this.handleChange}
         placeholder={placeholder}

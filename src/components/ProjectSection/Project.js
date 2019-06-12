@@ -11,7 +11,7 @@ const Example = (props) => {
                 <div className="row align-items-center no-gutters mb-4 mb-lg-5">
                     <Col xl="8" lg="7">
                         <Card>
-                            <iframe className="video-fluid mb-3 mb-lg-0" src="https://www.youtube.com/embed/u9R8Mst7sk4?autoplay=0&showinfo=0&controls=1" allowFullScreen></iframe>
+                            <iframe title="Car" className="video-fluid mb-3 mb-lg-0" src="https://www.youtube.com/embed/u9R8Mst7sk4?autoplay=0&showinfo=0&controls=1" allowFullScreen></iframe>
                         </Card>
                     </Col>
                     <Col xl="4" lg="5">
