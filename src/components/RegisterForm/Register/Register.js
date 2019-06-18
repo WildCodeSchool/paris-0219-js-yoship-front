@@ -3,6 +3,7 @@ import './Register.scss';
 import Button from '../../Button/Button';
 import { Input, Form} from 'reactstrap';
 
+
 class Register extends React.Component {
 
     render() {
@@ -26,7 +27,7 @@ class Register extends React.Component {
                 {/* label + Input phone */}
                 <p>
                     <label className="label-phone-register" for="phone">Phone number</label>
-                    <Input className="phone-register" name="Phone number" type="phone" placeholder="Phone number" />
+                    <Input className="phone-register"  placeholder="Phone number" />
                 </p>
                 {/* label + Input password */}
                 <p>

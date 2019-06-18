@@ -16,7 +16,7 @@ class Contact extends React.Component {
         driver: '',
         brand: '',
         else: '',
-        message: '',
+        text: '',
     };
 
     handleChange = (event) => {
@@ -58,16 +58,15 @@ class Contact extends React.Component {
                     <img src={logoPaperPlane} className="logo-plane" alt="logo"/>
                 </div>
                 <div className="contact-title"><h2>Contact us !</h2></div>
-                
+
                 <Input 
                     className="contact-firstname"
-                    name="first name"
-                    placeholder="Firstname"
-                    requiered="requiered"
+                    name="firstname"
+                    placeholder="First name"
                     type="text"
+                    requiered="requiered"
                     value={this.state.firstname}
                     onChange={this.handleChange}
-                    bsSize="sm" 
                 />
   
                 <Input
@@ -78,29 +77,24 @@ class Contact extends React.Component {
                     requiered="requiered"
                     value={this.state.lastname}
                     onChange={this.handleChange}
-                    bsSize="sm" 
                 />
                     
-                <InputGroup 
-                    className="contact-email"
-                    size="sm"
-                >
+                <InputGroup className="contact-email">
                     <InputGroupAddon addonType="prepend">@</InputGroupAddon>
                         <Input
                             name="email"
                             placeholder="Email address"
-                            requiered="requiered"
                             type="email"
+                            requiered="requiered"
                             value={this.state.email}
                             onChange={this.handleChange} 
-                            bsSize="sm"
                         />
                 </InputGroup>
                 
                 <span className="contact-phone"><FrenchPhoneField /></span>
                 
                 <FormGroup className="contact-status">
-                    <CustomInput bsSize="sm" type="select" id="exampleCustomSelect" name="customSelect">
+                    <CustomInput bsSize="default" type="select" id="exampleCustomSelect" name="customSelect">
                         <option value={this.state.value}>Select your status : </option>>
                         <option value={this.state.value}>I am a privileged client</option>
                         <option value={this.state.value}>I am a Yoship driver</option>
@@ -108,20 +102,15 @@ class Contact extends React.Component {
                         <option value={this.state.value}>Someone else</option>
                     </CustomInput>
                 </FormGroup>
-                
-                <FormGroup  
-                    //size="sm" 
-                    className="contact-message">
+
+                <FormGroup className="contact-message">
                     <Input 
-                        bsSize="sm"
-                        // size="sm" 
-                        type="textarea" 
-                        name="text" 
-                        id="exampleText"
-                        placeholder="Write your message..."
-                        rows={5} 
-                        value={this.state.message}
-                        onChange={this.handleChange} 
+                    type="textarea" 
+                    name="text"
+                    placeholder="Write your message..."
+                    rows={5} 
+                    value={this.state.message}
+                    onChange={this.handleChange} 
                     />
                 </FormGroup>
 
@@ -132,7 +121,6 @@ class Contact extends React.Component {
                 />
             </Form>
         </div>
-        
         );
     }
 }
