@@ -8,12 +8,6 @@ class FrenchPhoneField extends React.Component {
     required: false,
   }
 
-  //static propTypes = {
-    //name: PropTypes.string.isRequired,
-    //placeholder: PropTypes.string,
-    //required: PropTypes.bool,
-  //}
-
   constructor(props) {
     super(props)
     this.state = { value: '' }
@@ -27,7 +21,7 @@ class FrenchPhoneField extends React.Component {
       .replace(/\D+/, '')
       .replace(/^330?/, '0')
       // Stick to first 10, ignore later digits
-      .slice(0, 10)
+      .slice(0, 13)
       // Add a space after any 2-digit group followed by more digits
       .replace(/(\d{2})(?=\d)/g, '$1 ')
     this.setState({ value })
@@ -44,7 +38,7 @@ class FrenchPhoneField extends React.Component {
         required={required}
         type="tel"
         value={this.state.value}
-        bsSize="sm" />
+      />
     )
   }
 }

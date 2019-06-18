@@ -8,17 +8,20 @@
 #contact-wrapper {
     display: grid;
     flex-wrap: nowrap;
-    grid-template-columns: repeat(2, 40%);
+    grid-template-columns: repeat(2, 42%);
     grid-template-rows: repeat(7, auto);
-    grid-gap: 10px;
+    grid-column-gap: 10px;
+    grid-row-gap: 15px;
     justify-content: center;
     /* add on SCSS */
     background-color: #f1f1f1 ;
     font-family: 'Nunito', sans-serif;
+    font-size: 1rem !important;
     letter-spacing: 0.0625em;
 }
 
 .contact-logo {
+    color: #212529;
     grid-column-start: 1;
     grid-column-end:3; 
     margin-left: auto;
@@ -27,6 +30,7 @@
 
 .logo-plane {
     background-size: 30px 30px;
+    color: #212529;
     margin-top: 150px;
     max-height: 30px;
     max-width: 30px;
@@ -35,7 +39,7 @@
 .contact-title {
     grid-column-start: 1;
     grid-column-end: 3; 
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -91,7 +95,7 @@
     box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1);
     font-family: 'Varela Round', 'sans-serif';
     font-size: 80%;
-    /* padding: 1.25rem 2rem; */
+    padding: 1.25rem 2rem;
     letter-spacing: .15rem;
     text-transform: uppercase;
     -webkit-box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1);
@@ -120,7 +124,7 @@ input.contact-button {
 
 @media screen and (max-width: 576px) {
     #contact-wrapper {
-    grid-template-columns: repeat(1, 80%);
+    grid-template-columns: repeat(1, 90%);
     }
     .contact-logo, 
     .contact-title,
@@ -133,9 +137,6 @@ input.contact-button {
     .contact-button {
         grid-column-start: 1;
         grid-column-end: 2;   
-    }
-    .logo-plane {
-        margin-top: 75px;
     }
 }
 
