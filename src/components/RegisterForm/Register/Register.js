@@ -4,6 +4,7 @@ import { Input, Col, Container, Button, Progress } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
 import { Field, formInputData, formValidation } from 'reactjs-input-validator';
 
+
 class Register extends React.Component {
     state = {
         redirect: false,

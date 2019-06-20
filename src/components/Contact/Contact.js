@@ -16,7 +16,7 @@ class Contact extends React.Component {
         driver: '',
         brand: '',
         else: '',
-        message: '',
+        text: '',
     };
 
     handleChange = (event) => {
@@ -89,8 +89,8 @@ class Contact extends React.Component {
                         <Input
                             name="email"
                             placeholder="Email address"
-                            requiered="requiered"
                             type="email"
+                            requiered="requiered"
                             value={this.state.email}
                             onChange={this.handleChange}
                             bsSize="sm"
