@@ -12,7 +12,7 @@ const Navbar = props => (
                 <Brand />
             </NavLink>
             <div className="toolbar_toggle-button">
-                <BurgerButton click={props.drawerClickHandler}/> 
+                <BurgerButton /> 
             </div>
         </div>
     </div>

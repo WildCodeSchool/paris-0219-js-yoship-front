@@ -1,20 +1,25 @@
+// button burger 
+.essaiiii1{
+    position:relative;
+}
+
 .toggle-button {   
     align-items: center;   
     background: transparent; 
     border: 1px solid #c9a959;
     border-radius: 13%;
-    box-sizing: border-box;    
-    cursor: zoom-in;                                                                                 
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     height: 34px; 
+    outline: none;
     justify-content: space-around;
     margin-right: 0;
     margin-top: -20px;
     position: absolute;
     padding: 0;
     right: 0;
-    width: 34px;
+    width: 34px;                                                                                 
 }
 
 .toggle-button:focus { 
@@ -31,4 +36,56 @@
 
 .coloricon {
     color: #c9a959;
+}
+
+
+
+
+
+
+
+// menu burger content
+.burger-button-nav .ul-burger-nav {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: 2rem;
+    list-style: none;
+    margin-top: 600px;
+    z-index: 0;
+    padding: auto;
+    margin-top: 170px;
+    height: 100%;
+    width: 100%;
+}
+
+.burger-button-nav a {
+    color: black;
+    font-size: 1.2rem;
+    outline: none; 
+    text-decoration: none;
+    cursor: pointer;
+}
+.li-items-burger{
+    
+}
+.ul-burger-nav li a:hover,
+.ul-burger-nav li a:active {
+    color: #c9a959;
+}
+
+.ul-burger-nav li {
+    margin: 0.5rem 0;
+}
+
+.burger-button-nav{
+    transform: translateY(0);
+
+}
+
+@media (min-width: 980px) {
+    .burger-button-nav {
+        display: none;
+    }
 }
