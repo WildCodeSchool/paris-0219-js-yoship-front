@@ -9,9 +9,9 @@ class FrenchPhoneField extends React.Component {
   }
 
   //static propTypes = {
-    //name: PropTypes.string.isRequired,
-    //placeholder: PropTypes.string,
-    //required: PropTypes.bool,
+  //name: PropTypes.string.isRequired,
+  //placeholder: PropTypes.string,
+  //required: PropTypes.bool,
   //}
 
   constructor(props) {
@@ -36,7 +36,7 @@ class FrenchPhoneField extends React.Component {
   render() {
     const { name, placeholder, required } = this.props
     return (
-      <Input 
+      <Input
         autoComplete="tel"
         name={name}
         onChange={this.handleChange}

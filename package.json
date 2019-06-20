@@ -17,6 +17,7 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "^3.0.1",
     "react-youtube": "^7.9.0",
+    "reactjs-input-validator": "^0.16.4",
     "reactstrap": "^8.0.0"
   },
   "scripts": {

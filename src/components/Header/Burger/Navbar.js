@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import BurgerButton from './BurgerButton';
 import './Navbar.scss';
@@ -12,7 +12,7 @@ const Navbar = props => (
                 <Brand />
             </NavLink>
             <div className="toolbar_toggle-button">
-                <BurgerButton click={props.drawerClickHandler}/> 
+                <BurgerButton click={props.drawerClickHandler} />
             </div>
         </div>
     </div>
