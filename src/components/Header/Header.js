@@ -1,16 +1,21 @@
 import React, { Component } from "react";
 import {NavLink } from 'react-router-dom';
+import {Container} from 'reactstrap';
+
 
 import Brand from './Brand/Brand'
-import ResponsiveNavbar from './Burger/ResponsiveNavbar'
+import BurgerButton from "./Burger/BurgerButton";
+// import SideNav from "./Burger/SideNav"
 import Tab from './Tab/Tab'
 
 import './Header.scss'
 
+
 class Header extends Component{
   state = {
     background : true,
-    isTop: true
+    isTop: true,
+    sideDrawerOpen: false,
   }
   
   componentDidMount () {
@@ -21,6 +26,12 @@ class Header extends Component{
       }
     });
   }
+
+  drawerClickHandler = () => {
+    this.setState((prevState) => {
+      return{sideDrawerOpen: !prevState.sideDrawerOpen}
+    });
+  };
 
   whiteBackground = () => {
     this.setState({background : false}) 
@@ -38,27 +49,36 @@ class Header extends Component{
     const linkRegister= this.state.background && this.state.isTop? "header_link_gold" : "header_link_black"
 
     return  (  
-      <header className={headerClass}>
-        <div className="burger-btn"><ResponsiveNavbar /></div>
-        <NavLink exact to="/" className={this.state.background? "header_link" : "header_link_black"} onClick={this.pictureBackground}>
-          <Brand background={this.state.background} isTop={this.state.isTop}/>
-        </NavLink>
-      
-        <div className="header_link_div">
-          <NavLink to="/tracking" activeClassName="selected" className={linkClass} onClick={this.whiteBackground}>
-            <Tab icon="map-marker-alt" tab="Tracking"/>
+        <header className={headerClass}>
+                <Container>
+
+          <NavLink exact to="/" onClick={this.pictureBackground}>
+            <Brand background={this.state.background} isTop={this.state.isTop}/>
           </NavLink>
-      
-          <NavLink to="/login" activeClassName="selected" className={linkClass} onClick={this.whiteBackground}>
-            <Tab icon="user-tie" tab="Login"/>
-          </NavLink>
-      
-          <NavLink to="/register" activeClassName="selected" className={linkRegister} onClick={this.whiteBackground}>
-            <Tab icon="user-plus" tab="Register"/>
-          </NavLink>
-          </div>
+
         
-      </header>
+          <div className= {this.state.sideDrawerOpen?"side-nav":"header_link_div"}>
+            <NavLink to="/tracking" activeClassName="selected" className={linkClass} onClick={this.whiteBackground}>
+              <Tab icon="map-marker-alt" tab="Tracking"/>
+            </NavLink>
+        
+            <NavLink to="/login" activeClassName="selected" className={linkClass} onClick={this.whiteBackground}>
+              <Tab icon="user-tie" tab="Login"/>
+            </NavLink>
+        
+            <NavLink to="/register" activeClassName="selected" className={linkRegister} onClick={this.whiteBackground}>
+              <Tab icon="user-plus" tab="Register"/>
+            </NavLink>
+          </div>
+
+          <div className="burger-btn">
+            <BurgerButton click={this.drawerClickHandler}/>
+          </div>
+
+          {/* <SideNav show={this.state.sideDrawerOpen} drawerClickHandler={this.drawerClickHandler} /> */}
+          </Container>
+
+        </header>
     )
   }
 }
