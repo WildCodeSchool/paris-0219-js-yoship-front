@@ -10,7 +10,6 @@ body{
     align-items: center;
     flex-direction: row;
     min-height: 56px;
-    padding: 8px 10vw;
     position: fixed;
     width: 100%;
     z-index: 1;
@@ -23,8 +22,6 @@ body{
     align-items: center;
     flex-direction: row;
     min-height: 56px;
-    padding: 8px 10vw;
-    position: absolute;
     position: fixed;
     width: 100%;
     z-index: 1;
@@ -111,4 +108,30 @@ body{
         position: absolute;
         right: 0; 
     }
+
+    .header_link:hover {
+        color: black;
+    }
+
+    .header_link_black:hover{
+        color: black;
+        text-decoration: none;
+    
+    }
+    
+    .header_link_gold:hover {
+        color:  #C9A959;
+    }
+
+    .selected{
+        display: none;
+    }
 }
+
+
+@media (min-width: 980px) {
+    .side-nav {
+        display: none;
+    }
+}
+
