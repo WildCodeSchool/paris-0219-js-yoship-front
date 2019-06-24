@@ -3,6 +3,7 @@ import './Register.scss';
 import { Input, Col, Container, Button, Progress } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
 import { Field, formInputData, formValidation } from 'reactjs-input-validator';
+import ProfilMon from '../../Monprofil/MonProfil'
 
 
 class Register extends React.Component {
@@ -158,7 +159,7 @@ class Register extends React.Component {
                             </div>
                         </div>
                     </div>
-
+<ProfilMon /> 
 
 
                 </section>
