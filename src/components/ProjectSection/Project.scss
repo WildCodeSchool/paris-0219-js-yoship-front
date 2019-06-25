@@ -1,3 +1,4 @@
+@import "../../assets/scss/variables.scss";
 
   .project-section {
     font-family: Nunito,sans-serif;
@@ -21,6 +22,6 @@
    
   .project-section .featured-text {
     padding: 0 0 0 2rem;
-    border-left: 0.5rem solid #C9A959;
+    border-left: 0.5rem solid $primary-color;
   }
   };

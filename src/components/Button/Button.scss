@@ -1,5 +1,7 @@
+@import "../../assets/scss/variables.scss";
+
 .login-button{
-    background-color: #C9A959;
+    background-color: $primary-color;
     color:white;
     cursor: pointer;
     box-shadow: 0 0.1875rem .1875rem 0 rgba(0, 0, 0,.1);
@@ -14,5 +16,5 @@
 }
 
 .login-button:hover{
-    background-color: #b99a6f;
+    background-color: $primary-color-hovered;
 }
