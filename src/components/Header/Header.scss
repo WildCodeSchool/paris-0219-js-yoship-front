@@ -103,7 +103,8 @@ body{
     }
 
     .burger-btn {
-        display: block;
+        display: flex;
+        align-items: center;
         margin-right: 20px;
         position: absolute;
         right: 0; 

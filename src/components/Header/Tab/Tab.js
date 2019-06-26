@@ -7,11 +7,11 @@ import "./Tab.scss"
 
 library.add(faMapMarkerAlt, faUserTie, faUserPlus)
 
-const Tab = ({icon, tab}) => {
-    return   (
-      <div className= "header_tab">
-        <FontAwesomeIcon icon={icon} /> {tab}
-      </div>
+const Tab = ({ icon, tab }) => {
+    return (
+        <div className="header_tab">
+            <FontAwesomeIcon icon={icon} /> {tab}
+        </div>
     )
 }
 
