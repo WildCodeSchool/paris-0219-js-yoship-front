@@ -5,6 +5,11 @@ import ImageUpload from '../ImageUpload'
 import "./Profil.scss"
 import ReactFileReader from 'react-file-reader';
 
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
+
+import allTheActions from '../../../actions'
+
 class Profil extends React.Component {
 
   state = {
@@ -120,7 +125,7 @@ class Profil extends React.Component {
           <CardText icon="user-plus" >Addres : {this.state.globalAddres}</CardText>
           <CardText icon="user-plus" >Postcode : {this.state.globalPostCode} </CardText>
           <CardText icon="user-plus" >City :  {this.state.globalCity}</CardText>
-          <CardText icon="user-plus" >Country : {this.state.globalCountry}</CardText>
+          <CardText icon="user-plus" >Country : {this.props.city}</CardText>
 
         
           </Col>
@@ -177,4 +182,15 @@ class Profil extends React.Component {
   }
 }
 
-export default Profil;
+const mapStateToProps = state => {
+  return {
+      city: state.formReducer.city
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Profil)
