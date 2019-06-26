@@ -1,6 +1,6 @@
 const initialState = {
   lastName: '',
-  firstname: '',
+  firstName: '',
   phone: '',
   email: '',
   dateOfBirth: '',
@@ -16,7 +16,7 @@ const formReducer = (state = initialState, action) => {
       return {
         ...state,
         lastName: action.payload.lastName,
-        firstname: action.payload.firstName,
+        firstName: action.payload.firstName,
         phone: action.payload.phone,
         email: action.payload.email,
         dateOfBirth: action.payload.dateOfBirth,

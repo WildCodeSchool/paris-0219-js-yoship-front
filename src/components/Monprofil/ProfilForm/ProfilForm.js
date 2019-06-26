@@ -188,7 +188,7 @@ class FormProfil extends Component {
         <p>  {this.state.globalCity} </p>
         <p>  {this.state.globalCountry} </p>
 
-        <form onSubmit={() => this.props.formAction.form(this.state)}>
+        <form >
 
           <fieldset>
 
@@ -273,9 +273,10 @@ class FormProfil extends Component {
               value={this.state.country}
             />
             <hr />
-            <input type="submit" value="Seed" />
+            
           </fieldset>
         </form>
+        <button onClick={() => this.props.formAction.form(this.state)}>Register</button>
       </section>
 
 
