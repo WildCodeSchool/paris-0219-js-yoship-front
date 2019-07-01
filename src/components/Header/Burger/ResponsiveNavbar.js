@@ -12,24 +12,24 @@ class ResponsiveNavbar extends React.Component {
 
   drawerClickHandler = () => {
     this.setState((prevState) => {
-      return{sideDrawerOpen: !prevState.sideDrawerOpen}
+      return { sideDrawerOpen: !prevState.sideDrawerOpen }
     });
   };
 
-  render () {
+  render() {
 
     return (
       <div>
-        <header className="toolbar"> 
+        <header className="toolbar">
           <SideNav show={this.state.sideDrawerOpen} drawerClickHandler={this.drawerClickHandler} />
           <nav className="toolbar_navigation">
-            <Navbar drawerClickHandler={this.drawerClickHandler}/>
+            <Navbar drawerClickHandler={this.drawerClickHandler} />
           </nav>
         </header>
       </div>
     );
   }
- 
+
 }
 
 export default ResponsiveNavbar;

@@ -1,12 +1,12 @@
 import React from 'react';
+
 import { Card, Container, Col } from 'reactstrap';
+
 import './Project.scss'
 
-const Example = (props) => {
+const projectSection = (props) => {
     return (
         <section id="project" className="project-section bg-light">
-
-
             <Container>
                 <div className="row align-items-center no-gutters mb-4 mb-lg-5">
                     <Col xl="8" lg="7">
@@ -21,8 +21,6 @@ const Example = (props) => {
                             <p className="text-black-50 mb-0"><br /> Licensed drivers have their own workspaces, bundling all services needed to track their customers, manage their invoices and to deliver new orders.</p>
                             <p className="text-black-50 mb-0"><br /> Also registered luxury brands and companies, have access to their orders with sales statistics and reports, from approved drivers according to coming deliveries.</p>
                         </div>
-
-
                     </Col>
 
                 </div>
@@ -31,4 +29,4 @@ const Example = (props) => {
     );
 };
 
-export default Example;
+export default projectSection;
