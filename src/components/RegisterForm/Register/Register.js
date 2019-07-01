@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import allTheActions from '../../../actions'
 import './Register.scss';
 import { Input, Col, Container, Button, Progress } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
@@ -8,9 +11,40 @@ import ProfilMon from '../../Monprofil/MonProfil'
 
 class Register extends React.Component {
     state = {
+
+    fullName: '',
+    globalFullName: '',
+
+    firstName: '',
+    globalFirstName: '',
+
+    pseudo: '',
+    globalPseudo: '',
+
+
+    email: '',
+    globalEmail: '',
+
+    isNumeric: '',
+    globalisNumeric: '',
+
+    password: '',
+    globalpassword: '',
+
+    postCode: '',
+    globalPostCode: '',
+
+    city: '',
+    globalCity: '',
+
+    country: '',
+    globalCountry: '',
+
         redirect: false,
         data: {},
-    };
+    }  
+        changeHandler = (e) => {
+    this.setState({ [e.target.name]: e.target.value }) }
 
     handleChange = (event, inputValue, inputName, validationState, isRequired) => {
         const value = (event && event.target.value) || inputValue;
@@ -18,7 +52,10 @@ class Register extends React.Component {
         data[inputName] = { value, validation: validationState, isRequired };
         this.setState({
             data,
-        });
+        })
+        this.setState({ event})
+        
+        ;
         // if you want access to your form data
         const formData = formInputData(this.state.data); // eslint-disable-line no-unused-vars
         // tells you if the entire form validation is true or false
@@ -38,7 +75,14 @@ class Register extends React.Component {
             this.setState({ callAPI: true, shouldValidateInputs: !isFormValid });
         }
     }
-    render() {
+    componentDidMount = () => { }
+
+  handleFiles = files => {
+    console.log(files)
+  }
+    render(
+        
+    ) {
         const passwordValue = this.state.data.password && this.state.data.password.value;
         const redirect = this.state.redirect;
 
@@ -148,7 +192,7 @@ class Register extends React.Component {
 
                             <div>
 
-                                <Button type="submit" onClick={this.handleSubmit} className="button-login-submit">SUBMIT FORM</Button>
+                                <Button type="submit"  onClick={this.handleSubmit}className="button-login-submit">SUBMIT FORM</Button>
 
                             </div>
 
@@ -167,5 +211,15 @@ class Register extends React.Component {
         }
     }
 }
+const mapStateToProps = state => {
+    return {
+    }
+  }
+  
+  const mapDispatchToProps = dispatch => {
+    return {
+      formAction: bindActionCreators(allTheActions.formActions, dispatch)
+    }
+}
 
-export default Register;
+      export default connect(mapStateToProps, mapDispatchToProps)(Register)

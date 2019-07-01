@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from 'react-router-dom';
 import Tab from '../Tab/Tab'
 import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, } from 'reactstrap';
 import './DropToggleItem.scss'
@@ -24,9 +25,11 @@ class Dropmenu extends Component {
                   </DropdownItem >
                         <DropdownItem divider />
                         <div className="dropdownitemdrop">
+                        <NavLink to="/profil" >
                             <DropdownItem >
                                 Mon profil
                   </DropdownItem>
+                  </NavLink>
                             <DropdownItem >
                                 Ma voiture
                   </DropdownItem>
