@@ -1,5 +1,5 @@
 import React from "react";
-import Formation from '../components/Login/StepFormation/Formation'
+import FormCar from '../components/MyCar/FormCar';
 import Footer from '../components/Footer/Footer'
 
 
@@ -12,6 +12,5 @@ const MyCar = () => {
         </div>
     )
 }
-
 
 export default MyCar;
