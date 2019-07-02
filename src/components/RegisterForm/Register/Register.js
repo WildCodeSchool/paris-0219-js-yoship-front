@@ -13,39 +13,12 @@ import axios from 'axios'
 class Register extends React.Component {
     state = {
 
-    firtname: '',
-    globalfirstname: '',
-
-    name  : '',
-    globalname  : '',
-
-    pseudo: '',
-    globalPseudo: '',
-
-
-    mail: '',
-    globalmail: '',
-
-    phone: '',
-    globalphone: '',
-
-    password: '',
-    globalpassword: '',
-
-    postCode: '',
-    globalPostCode: '',
-
-    city: '',
-    globalCity: '',
-
-    country: '',
-    globalCountry: '',
-
         redirect: false,
         data: {},
-    }  
-        changeHandler = (e) => {
-    this.setState({ [e.target.name]: e.target.value }) }
+    }
+    // changeHandler = (e) => {
+    //     this.setState({ [e.target.name]: e.target.value })
+    // }
 
     handleChange = (event, inputValue, inputName, validationState, isRequired) => {
         const value = (event && event.target.value) || inputValue;
@@ -54,27 +27,35 @@ class Register extends React.Component {
         this.setState({
             data,
         })
-        this.setState({ event})
-        
-        ;
+        this.setState({ event })
         // if you want access to your form data
         const formData = formInputData(this.state.data); // eslint-disable-line no-unused-vars
         // tells you if the entire form validation is true or false
         const isFormValid = formValidation(this.state.data); // eslint-disable-line no-unused-vars
     }
 
+
     handleSubmit = (event) => {
         event.preventDefault();
         const isFormValid = formValidation(this.state.data);
 
         if (isFormValid) {
-            // do anything including ajax calls
-            console.log(this.state.data)
-            axios.post(`http://localhost:3012/users`,(this.state.data))
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-            })
+            const data = this.state.data
+            const dataToSend = {
+                dateOfBirth: data.dateOfBirth.value,
+                firstname: data.firstname.value,
+                mail: data.mail.value,
+                name: data.name.value,
+                password: data.password.value,
+                phone: data.phone.value,
+                pseudo: data.pseudo.value
+            }
+            console.log(dataToSend)
+            axios.post(`http://localhost:3012/users`, (dataToSend))
+                .then(res => {
+                    console.log(res);
+                    console.log(res.data);
+                })
             this.setState({ callAPI: true });
             this.setState({ redirect: true })
 
@@ -84,11 +65,11 @@ class Register extends React.Component {
     }
     componentDidMount = () => { }
 
-  handleFiles = files => {
-    console.log(files)
-  }
+    handleFiles = files => {
+        console.log(files)
+    }
     render(
-        
+
     ) {
         const passwordValue = this.state.data.password && this.state.data.password.value;
         const redirect = this.state.redirect;
@@ -96,6 +77,7 @@ class Register extends React.Component {
         if (redirect) {
             return <Redirect to="/" />
         } else {
+
             return (
                 <section id="register" className="register">
                     <Container>
@@ -103,6 +85,8 @@ class Register extends React.Component {
                             {/* label + input fisrt name */}
 
                             <Col xl="5" lg="5">
+
+
                                 <Field
                                     required label="First Name" name="firstname" placeholder="First name"
                                     onChange={this.handleChange}
@@ -122,18 +106,18 @@ class Register extends React.Component {
 
                             <Col xl="5" lg="5">
 
-                            <Field
+                                <Field
                                     required label="dateOfBirth" name="dateOfBirth" placeholder="dateOfBirth"
                                     onChange={this.handleChange}
                                     value={this.state.data.dateOfBirth}
                                     shouldValidateInputs={this.state.shouldValidateInputs} />
-                              
-                                  
-                                <label for="naissance">Date de naissance :</label>
 
 
+                                {/* <label for="naissance">Date de naissance :</label> */}
+                                {/* 
 
-                                {/* <Input
+
+                                <Input
                                     type="date"
                                     name="naissance"
                                     id="naissance"
@@ -190,7 +174,7 @@ class Register extends React.Component {
                                 />
                             </Col>
                             {/* label + Input password confirmation */}
-                            {/* <Col xl="5" lg="5">
+                            <Col xl="5" lg="5">
 
                                 <Field
                                     validator="equals" required comparison={passwordValue}
@@ -200,7 +184,7 @@ class Register extends React.Component {
                                     value={this.state.data.confirmPassword}
                                     shouldValidateInputs={this.state.shouldValidateInputs}
                                 />
-                            </Col> */}
+                            </Col>
 
                         </div>
                     </Container>
@@ -211,7 +195,7 @@ class Register extends React.Component {
 
                             <div>
 
-                                <Button type="submit"  onClick={this.handleSubmit}className="button-login-submit">SUBMIT FORM</Button>
+                                <Button type="submit" onClick={this.handleSubmit} className="button-login-submit">SUBMIT FORM</Button>
 
                             </div>
 
@@ -233,12 +217,12 @@ class Register extends React.Component {
 const mapStateToProps = state => {
     return {
     }
-  }
-  
-  const mapDispatchToProps = dispatch => {
+}
+
+const mapDispatchToProps = dispatch => {
     return {
-      formAction: bindActionCreators(allTheActions.formActions, dispatch)
+        formAction: bindActionCreators(allTheActions.formActions, dispatch)
     }
 }
 
-      export default connect(mapStateToProps, mapDispatchToProps)(Register)
+export default connect(mapStateToProps, mapDispatchToProps)(Register)
