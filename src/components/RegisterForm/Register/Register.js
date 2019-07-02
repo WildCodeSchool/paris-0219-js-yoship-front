@@ -7,26 +7,27 @@ import { Input, Col, Container, Button, Progress } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
 import { Field, formInputData, formValidation } from 'reactjs-input-validator';
 import ProfilMon from '../../Monprofil/MonProfil'
+import axios from 'axios'
 
 
 class Register extends React.Component {
     state = {
 
-    fullName: '',
-    globalFullName: '',
+    firtname: '',
+    globalfirstname: '',
 
-    firstName: '',
-    globalFirstName: '',
+    name  : '',
+    globalname  : '',
 
     pseudo: '',
     globalPseudo: '',
 
 
-    email: '',
-    globalEmail: '',
+    mail: '',
+    globalmail: '',
 
-    isNumeric: '',
-    globalisNumeric: '',
+    phone: '',
+    globalphone: '',
 
     password: '',
     globalpassword: '',
@@ -68,6 +69,12 @@ class Register extends React.Component {
 
         if (isFormValid) {
             // do anything including ajax calls
+            console.log(this.state.data)
+            axios.post(`http://localhost:3012/users`,(this.state.data))
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+            })
             this.setState({ callAPI: true });
             this.setState({ redirect: true })
 
@@ -97,9 +104,9 @@ class Register extends React.Component {
 
                             <Col xl="5" lg="5">
                                 <Field
-                                    required label="First Name" name="fullName" placeholder="First name"
+                                    required label="First Name" name="firstname" placeholder="First name"
                                     onChange={this.handleChange}
-                                    value={this.state.data.fullName}
+                                    value={this.state.data.firstname}
                                     shouldValidateInputs={this.state.shouldValidateInputs} />
                             </Col>
 
@@ -107,21 +114,33 @@ class Register extends React.Component {
 
                             <Col xl="5" lg="5">
                                 <Field
-                                    required label="Last name" name="firstName" placeholder="Last name"
+                                    required label="Last name" name="name" placeholder="Last name"
                                     onChange={this.handleChange}
-                                    value={this.state.data.firstName}
+                                    value={this.state.data.name}
                                     shouldValidateInputs={this.state.shouldValidateInputs} />
                             </Col>
 
                             <Col xl="5" lg="5">
 
+                            <Field
+                                    required label="dateOfBirth" name="dateOfBirth" placeholder="dateOfBirth"
+                                    onChange={this.handleChange}
+                                    value={this.state.data.dateOfBirth}
+                                    shouldValidateInputs={this.state.shouldValidateInputs} />
+                              
+                                  
                                 <label for="naissance">Date de naissance :</label>
-                                <Input
+
+
+
+                                {/* <Input
                                     type="date"
                                     name="naissance"
                                     id="naissance"
                                     placeholder="date placeholder"
-                                />
+                                    onChange={this.handleChange}
+                                    value={this.state.data.dateOfBirth
+                                />  */}
 
                             </Col>
 
@@ -139,9 +158,9 @@ class Register extends React.Component {
 
                                 <Field
                                     validator="isEmail" required
-                                    label="Email" name="email" placeholder="Email"
+                                    label="Email" name="mail" placeholder="Email"
                                     onChange={this.handleChange}
-                                    value={this.state.data.email}
+                                    value={this.state.data.mail}
                                     shouldValidateInputs={this.state.shouldValidateInputs}
                                 />
                             </Col>
@@ -150,9 +169,9 @@ class Register extends React.Component {
                                 <Field
                                     validator="isNumeric" required minLength={10}
                                     minLengthErrMsg="Try one with atleast 10 numbers"
-                                    label="Phone number" name="isNumeric" placeholder="Phone number"
+                                    label="Phone number" name="phone" placeholder="Phone number"
                                     onChange={this.handleChange}
-                                    value={this.state.data.isNumeric}
+                                    value={this.state.data.phone}
                                     shouldValidateInputs={this.state.shouldValidateInputs}
                                 />
                             </Col>
@@ -171,7 +190,7 @@ class Register extends React.Component {
                                 />
                             </Col>
                             {/* label + Input password confirmation */}
-                            <Col xl="5" lg="5">
+                            {/* <Col xl="5" lg="5">
 
                                 <Field
                                     validator="equals" required comparison={passwordValue}
@@ -181,7 +200,7 @@ class Register extends React.Component {
                                     value={this.state.data.confirmPassword}
                                     shouldValidateInputs={this.state.shouldValidateInputs}
                                 />
-                            </Col>
+                            </Col> */}
 
                         </div>
                     </Container>
@@ -203,7 +222,7 @@ class Register extends React.Component {
                             </div>
                         </div>
                     </div>
-<ProfilMon /> 
+
 
 
                 </section>
