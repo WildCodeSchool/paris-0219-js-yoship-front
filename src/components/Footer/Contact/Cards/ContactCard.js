@@ -16,8 +16,8 @@ class ContactCard extends Component {
               <a href={this.props.link}>{this.props.description}</a>
             </div>
           ) : (
-            <div className="card-subtitle">{this.props.description}</div>
-          )}
+              <div className="card-subtitle">{this.props.description}</div>
+            )}
         </div>
       </div>
     );
