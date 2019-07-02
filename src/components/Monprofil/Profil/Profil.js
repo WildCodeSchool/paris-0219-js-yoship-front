@@ -1,8 +1,6 @@
+
 import React from 'react';
-import {
-  Col, Container, Card, CardImg, CardText,
-  CardTitle,
-} from 'reactstrap';
+import {Col, Container, Card, CardImg, CardText,CardTitle,} from 'reactstrap';
 import ImageUpload from '../ImageUpload'
 import "./Profil.scss"
 import ReactFileReader from 'react-file-reader';
@@ -46,6 +44,12 @@ class Profil extends React.Component {
     country: '',
     globalCountry: '',
 
+    pseudo: '',
+    globalPseudo: '',
+    
+    isNumeric: '',
+    globalisNumeric: '',
+
 
   }
   changeHandler = (e) => {
@@ -68,6 +72,8 @@ class Profil extends React.Component {
       globalPostCode: `${this.state.postCode}`,
       globalCity: `${this.state.city}`,
       globalCountry: `${this.state.country}`,
+      globalPseudo: `${this.state.pseudo}`,
+      globalisNumeric: `${this.state.isNumeric}`,
     })
   }
 
@@ -92,7 +98,7 @@ class Profil extends React.Component {
 
             <Col xl="5" lg="5">
               <CardTitle icon="user-plus" ><h4> {this.props.lastName} {this.props.firstName} (User ID:2323)</h4></CardTitle>
-              <CardText icon="user-plus" >Your phone : {this.props.phone}</CardText>
+              <CardText icon="user-plus" >Your phone : {this.props.isNumeric}</CardText>
               <CardText icon="user-plus" >Email Addres : {this.props.email} </CardText>
               <CardText icon="user-plus" >Status :  </CardText>
 
@@ -116,6 +122,7 @@ class Profil extends React.Component {
               <CardText icon="user-plus" >Role :</CardText>
               <CardText icon="user-plus" >date of birth : {this.props.dateOfBirth} </CardText>
               <CardText icon="user-plus" >Password :</CardText>
+              <CardText icon="user-plus">Pseudo : {this.props.pseudo}  </CardText>
 
 
 
