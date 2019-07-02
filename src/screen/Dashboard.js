@@ -9,8 +9,6 @@ import Footer from '../components/Footer/Footer'
 
 
 class Dashboard extends Component {
-    _isMounted = false;
-
     state = {
         authorized: false
     }
@@ -28,12 +26,11 @@ class Dashboard extends Component {
           })
           .then(res => {
             console.log(res)
-            if (this._isMounted) {
 
             this.setState({
-              authorized: true
+              authorized: true,
+              name: res.data[0].name
             })
-        }
           })
           .catch(error => {
             console.log(error);
@@ -43,21 +40,18 @@ class Dashboard extends Component {
           })
       }
 
-      componentWillUnmount() {
-        this._isMounted = false;
-      }
-
     render() { 
-        const { authorized } = this.state;
+        const { authorized, name } = this.state;
 
         if (!authorized) {
-          return  <Redirect to="/login" />
+            return <p>This page is protected, you need to be <NavLink to="/login" className="link">logged in</NavLink> to view it</p>;
         }
 
         return (
             
             <div>
                 <p>Dashboard !</p>
+                <p>{name}</p>
                 <Footer />
             </div>
 
