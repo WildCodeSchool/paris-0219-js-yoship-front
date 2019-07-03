@@ -10,13 +10,17 @@ import Footer from '../components/Footer/Footer'
 
 class Dashboard extends Component {
     state = {
-        authorized: false
+        authorized: false,
+        loading: true
     }
 
     componentDidMount = () => {
-        const token = localStorage.getItem("token")
-        const uuid = localStorage.getItem("uuid")
 
+      // Getting localStorage data
+      const token = localStorage.getItem("token")
+      const uuid = localStorage.getItem("uuid")
+
+      if (this.state.loading) {
         axios({
           method: 'Get',
           url: `http://localhost:3031/users/${uuid}`, 
@@ -26,8 +30,8 @@ class Dashboard extends Component {
           })
           .then(res => {
             console.log(res)
-
             this.setState({
+              loading: false,
               authorized: true,
               name: res.data[0].name
             })
@@ -35,27 +39,28 @@ class Dashboard extends Component {
           .catch(error => {
             console.log(error);
             this.setState({
+              loading: false,
               authorized: false
             })
           })
+        }
       }
 
     render() { 
-        const { authorized, name } = this.state;
+        const { authorized, name, loading } = this.state;
 
-        if (!authorized) {
-            return <p>This page is protected, you need to be <NavLink to="/login" className="link">logged in</NavLink> to view it</p>;
+        if (authorized && !loading) {
+          return (
+              <div>
+                  <p>Dashboard !</p>
+                  <p>{name}</p>
+                  <Footer />
+              </div>
+            );
+        } else {
+            return < Redirect to="/login" />
         }
 
-        return (
-            
-            <div>
-                <p>Dashboard !</p>
-                <p>{name}</p>
-                <Footer />
-            </div>
-
-          );
     }
 }
  
