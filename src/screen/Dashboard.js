@@ -49,7 +49,10 @@ class Dashboard extends Component {
     render() { 
         const { authorized, name, loading } = this.state;
 
-        if (authorized && !loading) {
+        if (!authorized && !loading) {
+            return < Redirect to="/login" />
+        } else {
+
           return (
               <div>
                   <p>Dashboard !</p>
@@ -57,8 +60,6 @@ class Dashboard extends Component {
                   <Footer />
               </div>
             );
-        } else {
-            return < Redirect to="/login" />
         }
 
     }
