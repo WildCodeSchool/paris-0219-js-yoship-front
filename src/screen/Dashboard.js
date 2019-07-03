@@ -23,7 +23,7 @@ class Dashboard extends Component {
       if (this.state.loading) {
         axios({
           method: 'Get',
-          url: `http://localhost:3031/users/${uuid}`, 
+          url: `http://localhost:3023/users/${uuid}`, 
            headers: {
              'x-access-token': `${token}`,
            },

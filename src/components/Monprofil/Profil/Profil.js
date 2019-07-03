@@ -18,7 +18,15 @@ class Profil extends React.Component {
   }
 
   getData = () => {
-    axios.get(`http://localhost:3021/users/034f668f-a3e4-4ad9-ab03-26d4f29082dc`)
+    const token = localStorage.getItem("token")
+    const uuid = localStorage.getItem("uuid")
+    axios({
+      method: 'Get',
+      url: `http://localhost:3023/users/${uuid}`,
+      headers: {
+        'x-access-token' : `${token}`
+      }
+    })
       .then(res => {
         const result = res.data
         this.setState({ result, loading: false })

@@ -53,7 +53,7 @@ class Register extends React.Component {
                 role: "driver"
             }
             
-            axios.post(`http://localhost:3021/users`, (dataToSend))
+            axios.post(`http://localhost:3023/register`, (dataToSend))
                 .then(res => {
                     console.log(res);
                     console.log(res.data);

@@ -24,7 +24,7 @@ class Login extends React.Component {
           console.log("test")
         e.preventDefault();
         axios
-          .post("http://localhost:3031/login", {
+          .post("http://localhost:3023/login", {
             password: e.target.password.value,
             mail: e.target.email.value
           })
