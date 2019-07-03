@@ -39,7 +39,7 @@ class Register extends React.Component {
         event.preventDefault();
         const isFormValid = formValidation(this.state.data);
 
-        if (isFormValid) {
+        if (isFormValid && document.getElementById('terms').checked) {
             const data = this.state.data
             const dataToSend = {
                 dateOfBirth: data.dateOfBirth.value,
@@ -60,9 +60,16 @@ class Register extends React.Component {
             this.setState({ redirect: true })
 
         } else {
+            alert('Agree to terms and conditions')
             this.setState({ callAPI: true, shouldValidateInputs: !isFormValid });
         }
     }
+
+
+
+
+
+
     componentDidMount = () => { }
 
     handleFiles = files => {
@@ -88,7 +95,7 @@ class Register extends React.Component {
 
 
                                 <Field
-                                    required label="First Name" name="firstname" placeholder="First name"
+                                    required label="First Name :" name="firstname" placeholder="First name"
                                     onChange={this.handleChange}
                                     value={this.state.data.firstname}
                                     shouldValidateInputs={this.state.shouldValidateInputs} />
@@ -98,7 +105,7 @@ class Register extends React.Component {
 
                             <Col xl="5" lg="5">
                                 <Field
-                                    required label="Last name" name="name" placeholder="Last name"
+                                    required label="Last name :" name="name" placeholder="Last name"
                                     onChange={this.handleChange}
                                     value={this.state.data.name}
                                     shouldValidateInputs={this.state.shouldValidateInputs} />
@@ -107,7 +114,7 @@ class Register extends React.Component {
                             <Col xl="5" lg="5">
 
                                 <Field
-                                    required label="dateOfBirth" name="dateOfBirth" placeholder="dateOfBirth"
+                                    required label="Date Of Birth :" name="dateOfBirth" placeholder="17-04-1990"
                                     onChange={this.handleChange}
                                     value={this.state.data.dateOfBirth}
                                     shouldValidateInputs={this.state.shouldValidateInputs} />
@@ -131,7 +138,7 @@ class Register extends React.Component {
                             <Col xl="5" lg="5">
 
                                 <Field
-                                    required label="Pseudo" name="pseudo" placeholder="Pseudo"
+                                    required label="Pseudo :" name="pseudo" placeholder="Pseudo"
                                     onChange={this.handleChange}
                                     value={this.state.data.pseudo}
                                     shouldValidateInputs={this.state.shouldValidateInputs} />
@@ -142,7 +149,7 @@ class Register extends React.Component {
 
                                 <Field
                                     validator="isEmail" required
-                                    label="Email" name="mail" placeholder="Email"
+                                    label="Email :" name="mail" placeholder="Email"
                                     onChange={this.handleChange}
                                     value={this.state.data.mail}
                                     shouldValidateInputs={this.state.shouldValidateInputs}
@@ -153,7 +160,7 @@ class Register extends React.Component {
                                 <Field
                                     validator="isNumeric" required minLength={10}
                                     minLengthErrMsg="Try one with atleast 10 numbers"
-                                    label="Phone number" name="phone" placeholder="Phone number"
+                                    label="Phone number :" name="phone" placeholder="Phone number"
                                     onChange={this.handleChange}
                                     value={this.state.data.phone}
                                     shouldValidateInputs={this.state.shouldValidateInputs}
@@ -167,7 +174,7 @@ class Register extends React.Component {
                                 <Field
                                     validator="isAlphanumeric" required minLength={4}
                                     minLengthErrMsg="Short passwords are easy to guess. Try one with atleast 4 characters"
-                                    label="Create a password" name="password" type="password" placeholder="Password"
+                                    label="Create a password :" name="password" type="password" placeholder="Password"
                                     onChange={this.handleChange}
                                     value={this.state.data.password}
                                     shouldValidateInputs={this.state.shouldValidateInputs}
@@ -179,7 +186,7 @@ class Register extends React.Component {
                                 <Field
                                     validator="equals" required comparison={passwordValue}
                                     validatorErrMsg="These passwords don't match. Try again?"
-                                    label="Confirm password" name="confirmPassword" type="password" placeholder="Password"
+                                    label="Confirm password :" name="confirmPassword" type="password" placeholder="Password"
                                     onChange={this.handleChange}
                                     value={this.state.data.confirmPassword}
                                     shouldValidateInputs={this.state.shouldValidateInputs}
@@ -190,8 +197,22 @@ class Register extends React.Component {
                     </Container>
                     {/* checkbox terms and conditions  */}
                     <div className="not">
+
+
+
+
                         <div className="checkbox">
-                            <label> <Input type="checkbox"></Input> Agree to terms and conditions</label>
+
+                       
+<div> 
+
+                            <label> <Input type="checkbox" id ="terms" >   </Input> 
+                            Agree to terms and conditions
+                            </label>
+
+
+
+                            </div>
 
                             <div>
 
