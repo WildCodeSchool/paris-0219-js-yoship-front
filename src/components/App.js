@@ -11,7 +11,7 @@ import StepVerification from '../screen/Verification';
 import StepFormation from '../screen/Formation'
 import StepStatus from '../screen/Status'
 import ScrollToTopRoute from './Header/ScrollToTop'
-import Questions from './Monprofil/Questions/Questions';
+import Questions from '../screen/Questions'
 
 function App() {
   return (
