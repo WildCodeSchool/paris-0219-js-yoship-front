@@ -35,6 +35,8 @@ class Profil extends React.Component {
 
   }
 
+  
+
   componentDidMount = () => {
     this.getData()
   }
