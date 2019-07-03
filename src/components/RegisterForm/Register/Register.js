@@ -8,6 +8,7 @@ import { Redirect } from 'react-router-dom';
 import { Field, formInputData, formValidation } from 'reactjs-input-validator';
 import ProfilMon from '../../Monprofil/MonProfil'
 import axios from 'axios'
+import { directiveLiteral } from '@babel/types';
 
 
 class Register extends React.Component {
@@ -48,10 +49,11 @@ class Register extends React.Component {
                 name: data.name.value,
                 password: data.password.value,
                 phone: data.phone.value,
-                pseudo: data.pseudo.value
+                pseudo: data.pseudo.value,
+                role: "driver"
             }
-            console.log(dataToSend)
-            axios.post(`http://localhost:3012/users`, (dataToSend))
+            
+            axios.post(`http://localhost:3021/users`, (dataToSend))
                 .then(res => {
                     console.log(res);
                     console.log(res.data);
