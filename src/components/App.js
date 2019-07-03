@@ -12,13 +12,13 @@ import StepStatus from '../screen/Status'
 import ScrollToTopRoute from './Header/ScrollToTop'
 import Monprofil from '../screen/Profil';
 import MyCar from '../screen/MyCar'
+import Dashboard from '../screen/Dashboard'
 
 function App() {
   return (
     <div>
       <Header />
       <Switch>
-
         <ScrollToTopRoute exact path="/" component={Home} />
         <ScrollToTopRoute path="/tracking" component={Tracking} />
         <ScrollToTopRoute path="/login" component={Login} />
@@ -28,7 +28,7 @@ function App() {
         <ScrollToTopRoute path="/status" component={StepStatus} />
         <ScrollToTopRoute path="/profil" component={Monprofil} />
         <ScrollToTopRoute path="/mycar" component={MyCar} />
-
+        <ScrollToTopRoute path="/dashboard" component={Dashboard} />
       </Switch>
 
     </div>

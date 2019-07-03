@@ -8,7 +8,7 @@ import ProfilForm from './ProfilForm/ProfilForm'
 const Profilmon = () =>
 <div>  
         <Profil />
-        <ProfilForm />
+       
         </div>  
 
 export default Profilmon ;
