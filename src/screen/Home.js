@@ -6,7 +6,6 @@ import Footer from '../components/Footer/Footer'
 import TrackingSection from "../components/TrackingSection/TrackingSection";
 
 const Home = () => {
-
     return (
         <div>
             <PageHeader />

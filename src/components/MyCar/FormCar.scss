@@ -1,0 +1,103 @@
+/* GENERAL TAG CSS */
+@font-face {
+    font-family: 'Varela Round', sans-serif;
+    src: url("https://fonts.googleapis.com/css?family=Varela+Round&display=swap") format("woff2"),
+}
+
+.car-bloc-fuels {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.car-button 
+    {
+    grid-column-end: 3; 
+    grid-column-start: 1;
+    justify-self: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.car-container {
+    display: grid;
+    flex-wrap: nowrap;
+    grid-column-gap: 10px;
+    grid-row-gap: 15px;
+    grid-template-columns: 25% 40%;
+    grid-template-rows: repeat(auto);
+    justify-content: center;
+    padding-bottom: 50px;
+    padding-top: 90px;
+    text-align: start;
+    /* add on SCSS */
+    background-color: #f1f1f1 ;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem !important;
+    letter-spacing: 0.0625em;
+}
+
+#car-description {
+    height: 200px;
+}
+
+.car-title {
+    grid-column-end: 3; 
+    grid-column-start: 1;
+    justify-items: left;
+}
+
+@media screen and (max-width: 1103px) {
+    .car-bloc-fuels {
+        flex-direction: column;
+    }
+    .car-container {
+        margin-top: 70px;
+    }
+}
+
+@media screen and (min-width: 577px) and (max-width: 814px) {
+    .car-container {
+        grid-template-columns: 35% 35%;
+        margin-top: 50px;
+    }
+    #car-description {
+        grid-column-start: 1;
+        grid-column-end: 3; 
+        justify-items: center;
+    }
+}
+
+@media screen and (max-width: 576px) {        
+    .car-container {
+        grid-template-columns: repeat(1, 90%);
+        text-align: start;
+        padding-top: 30px;
+        padding-bottom: 0;
+        grid-column-gap: 0;
+        grid-row-gap: 0;
+        margin-top: 30px;
+    }
+    .car-bloc-fuels,
+    .car-brand,
+    .car-button, 
+    .car.color,
+    .car-description,
+    .car-fuel,
+    .car-horsepower,
+    .car-kilometers,
+    .car-leasing,
+    .car-license-plate,
+    .car-maintenance,
+    .car-model,
+    .car-title,
+    .car-year {
+        grid-column-end: 2;
+        grid-column-start: 1;
+        margin-top: 10px;
+    }
+    .car-bloc-fuels {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: auto;
+    }
+}
