@@ -30,9 +30,11 @@ class Dropmenu extends Component {
                                 Mon profil
                   </DropdownItem>
                   </NavLink>
+                        <NavLink to="/mycar">
                             <DropdownItem >
                                 Ma voiture
-                  </DropdownItem>
+                            </DropdownItem>
+                        </NavLink>
                             <DropdownItem >
                                 Mes documents
                   </DropdownItem>
