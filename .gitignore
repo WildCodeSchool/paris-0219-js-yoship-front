@@ -32,4 +32,8 @@ chrome-user-data
 *.swp
 
 .env
+<<<<<<< HEAD
 package-lock.json
+=======
+package-lock.json
+>>>>>>> 5f48b9309cdadb1b9caf28869fbaff268a4912d9

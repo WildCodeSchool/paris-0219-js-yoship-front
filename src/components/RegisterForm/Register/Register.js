@@ -1,53 +1,230 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import allTheActions from '../../../actions'
 import './Register.scss';
-import Button from '../../Button/Button';
-import { Input, Form} from 'reactstrap';
+import { Input, Col, Container, Button, Progress } from 'reactstrap';
+import { Redirect } from 'react-router-dom';
+import { Field, formInputData, formValidation } from 'reactjs-input-validator';
+import ProfilMon from '../../Monprofil/MonProfil'
+import axios from 'axios'
+import { directiveLiteral } from '@babel/types';
 
 
 class Register extends React.Component {
+    state = {
 
-    render() {
-        return (
-            <Form method="post" className="group-form-register">
-                {/* label + input fisrt name */}
-                <p>
-                    <label className="label-first-register" for="first name">First name</label>
-                    <Input className="first-name-register" name="first name" type="text" placeholder="First name" />
-                </p>
-                {/* label + Input last-name */}
-                <p>
-                    <label className="label-last-register" for="Last name">Last name</label>
-                    <Input className="last-name-register" name="Last name" type="text" placeholder="Last name" />
-                </p>
-                {/* label + Input email */}
-                <p>
-                    <label className="label-email-register" for="Email">Email</label>
-                    <Input className="email-register" name="Email" type="text" placeholder="Email adress" />
-                </p>
-                {/* label + Input phone */}
-                <p>
-                    <label className="label-phone-register" for="phone">Phone number</label>
-                    <Input className="phone-register"  placeholder="Phone number" />
-                </p>
-                {/* label + Input password */}
-                <p>
-                    <label className="label-password-register" for="password">Password</label>
-                    <Input className="password-register" name="Password" type="text" placeholder="Password" />
-                </p>
-                {/* label + Input password confirmation */}
-                <p>
-                    <label className="label-paswordcon-register" for="password">Password confirmation</label>
-                    <Input className="password-confirmation-register" name="Password confirmation" type="text" placeholder="Password confirmation" />
-                </p>
-                {/* checkbox terms and conditions  */}
-                <p className="checkbox-register">
-                    <Input type="checkbox" /><label> Agree to terms and conditions</label>
-                </p>
-                <span className="button-login"><Button text="SUBMIT FORM" /></span>
-                
-            </Form>
-        )
+        redirect: false,
+        data: {},
+    }
+    // changeHandler = (e) => {
+    //     this.setState({ [e.target.name]: e.target.value })
+    // }
+
+    handleChange = (event, inputValue, inputName, validationState, isRequired) => {
+        const value = (event && event.target.value) || inputValue;
+        const { data } = this.state;
+        data[inputName] = { value, validation: validationState, isRequired };
+        this.setState({
+            data,
+        })
+        this.setState({ event })
+        // if you want access to your form data
+        const formData = formInputData(this.state.data); // eslint-disable-line no-unused-vars
+        // tells you if the entire form validation is true or false
+        const isFormValid = formValidation(this.state.data); // eslint-disable-line no-unused-vars
+    }
+
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        const isFormValid = formValidation(this.state.data);
+
+        if (isFormValid) {
+            const data = this.state.data
+            const dataToSend = {
+                dateOfBirth: data.dateOfBirth.value,
+                firstname: data.firstname.value,
+                mail: data.mail.value,
+                name: data.name.value,
+                password: data.password.value,
+                phone: data.phone.value,
+                pseudo: data.pseudo.value,
+                role: "driver"
+            }
+            
+            axios.post(`http://localhost:3023/register`, (dataToSend))
+                .then(res => {
+                    console.log(res);
+                    console.log(res.data);
+                })
+            this.setState({ callAPI: true });
+            this.setState({ redirect: true })
+
+        } else {
+            this.setState({ callAPI: true, shouldValidateInputs: !isFormValid });
+        }
+    }
+    componentDidMount = () => { }
+
+    handleFiles = files => {
+        console.log(files)
+    }
+    render(
+
+    ) {
+        const passwordValue = this.state.data.password && this.state.data.password.value;
+        const redirect = this.state.redirect;
+
+        if (redirect) {
+            return <Redirect to="/" />
+        } else {
+
+            return (
+                <section id="register" className="register">
+                    <Container>
+                        <div className="row align-items-center no-gutters mb-4 mb-lg-5">
+                            {/* label + input fisrt name */}
+
+                            <Col xl="5" lg="5">
+
+
+                                <Field
+                                    required label="First Name" name="firstname" placeholder="First name"
+                                    onChange={this.handleChange}
+                                    value={this.state.data.firstname}
+                                    shouldValidateInputs={this.state.shouldValidateInputs} />
+                            </Col>
+
+                            {/* label + Input last-name */}
+
+                            <Col xl="5" lg="5">
+                                <Field
+                                    required label="Last name" name="name" placeholder="Last name"
+                                    onChange={this.handleChange}
+                                    value={this.state.data.name}
+                                    shouldValidateInputs={this.state.shouldValidateInputs} />
+                            </Col>
+
+                            <Col xl="5" lg="5">
+
+                                <Field
+                                    required label="dateOfBirth" name="dateOfBirth" placeholder="dateOfBirth"
+                                    onChange={this.handleChange}
+                                    value={this.state.data.dateOfBirth}
+                                    shouldValidateInputs={this.state.shouldValidateInputs} />
+
+
+                                {/* <label for="naissance">Date de naissance :</label> */}
+                                {/* 
+
+
+                                <Input
+                                    type="date"
+                                    name="naissance"
+                                    id="naissance"
+                                    placeholder="date placeholder"
+                                    onChange={this.handleChange}
+                                    value={this.state.data.dateOfBirth
+                                />  */}
+
+                            </Col>
+
+                            <Col xl="5" lg="5">
+
+                                <Field
+                                    required label="Pseudo" name="pseudo" placeholder="Pseudo"
+                                    onChange={this.handleChange}
+                                    value={this.state.data.pseudo}
+                                    shouldValidateInputs={this.state.shouldValidateInputs} />
+
+                            </ Col>
+                            {/* label + Input email */}
+                            <Col xl="5" lg="5">
+
+                                <Field
+                                    validator="isEmail" required
+                                    label="Email" name="mail" placeholder="Email"
+                                    onChange={this.handleChange}
+                                    value={this.state.data.mail}
+                                    shouldValidateInputs={this.state.shouldValidateInputs}
+                                />
+                            </Col>
+                            <Col xl="5" lg="5">
+
+                                <Field
+                                    validator="isNumeric" required minLength={10}
+                                    minLengthErrMsg="Try one with atleast 10 numbers"
+                                    label="Phone number" name="phone" placeholder="Phone number"
+                                    onChange={this.handleChange}
+                                    value={this.state.data.phone}
+                                    shouldValidateInputs={this.state.shouldValidateInputs}
+                                />
+                            </Col>
+
+                            {/* label + Input phone */}
+
+                            {/* label + Input password */}
+                            <Col xl="5" lg="5">
+                                <Field
+                                    validator="isAlphanumeric" required minLength={4}
+                                    minLengthErrMsg="Short passwords are easy to guess. Try one with atleast 4 characters"
+                                    label="Create a password" name="password" type="password" placeholder="Password"
+                                    onChange={this.handleChange}
+                                    value={this.state.data.password}
+                                    shouldValidateInputs={this.state.shouldValidateInputs}
+                                />
+                            </Col>
+                            {/* label + Input password confirmation */}
+                            <Col xl="5" lg="5">
+
+                                <Field
+                                    validator="equals" required comparison={passwordValue}
+                                    validatorErrMsg="These passwords don't match. Try again?"
+                                    label="Confirm password" name="confirmPassword" type="password" placeholder="Password"
+                                    onChange={this.handleChange}
+                                    value={this.state.data.confirmPassword}
+                                    shouldValidateInputs={this.state.shouldValidateInputs}
+                                />
+                            </Col>
+
+                        </div>
+                    </Container>
+                    {/* checkbox terms and conditions  */}
+                    <div className="not">
+                        <div className="checkbox">
+                            <label> <Input type="checkbox"></Input> Agree to terms and conditions</label>
+
+                            <div>
+
+                                <Button type="submit" onClick={this.handleSubmit} className="button-login-submit">SUBMIT FORM</Button>
+
+                            </div>
+
+                            <div>
+                                <div className="barprogress">Etapes 1 sur 3</div>
+                                <Progress animated value="33.333" />
+                                <div className="barprogress">Début du processus</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </section>
+            )
+        }
+    }
+}
+const mapStateToProps = state => {
+    return {
     }
 }
 
-export default Register;
+const mapDispatchToProps = dispatch => {
+    return {
+        formAction: bindActionCreators(allTheActions.formActions, dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register)
