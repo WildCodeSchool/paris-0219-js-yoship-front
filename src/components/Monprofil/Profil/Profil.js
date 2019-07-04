@@ -24,7 +24,7 @@ class Profil extends React.Component {
       method: 'Get',
       url: `http://localhost:3023/users/${uuid}`,
       headers: {
-        'x-access-token' : `${token}`
+        'x-access-token': `${token}`
       }
     })
       .then(res => {
@@ -48,7 +48,7 @@ class Profil extends React.Component {
     if (this.state.loading) {
       return (<div>loading</div>)
     } else {
-      console.log("render",this.state.result[0].firstname)
+      const data = this.state.result[0]
       return (
         <section id="project" className="project-section bg-light">
           <Container>
@@ -65,10 +65,10 @@ class Profil extends React.Component {
               </Col>
 
               <Col xl="5" lg="5">
-                <CardTitle icon="user-plus" ><h4> {this.props.lastName} {this.state.result[0].firstname} (User ID:2323)</h4></CardTitle>
-                <CardText icon="user-plus" >Your phone : {this.props.isNumeric}</CardText>
-                <CardText icon="user-plus" >Email Addres : {this.props.email} </CardText>
-                <CardText icon="user-plus" >Status :  </CardText>
+                <CardTitle icon="user-plus" ><h4> {data.name} {data.firstname} (User ID:2323)</h4></CardTitle>
+                <CardText icon="user-plus" >Your phone : {data.phone}</CardText>
+                <CardText icon="user-plus" >Email Addres : {data.mail} </CardText>
+                <CardText icon="user-plus" >Status : {data.role} </CardText>
 
 
 
@@ -87,10 +87,10 @@ class Profil extends React.Component {
 
 
               <Col xl="4" lg="4">
-                <CardText icon="user-plus" >Role :</CardText>
-                <CardText icon="user-plus" >date of birth : {this.props.dateOfBirth} </CardText>
-                <CardText icon="user-plus" >Password :</CardText>
-                <CardText icon="user-plus">Pseudo : {this.props.pseudo}  </CardText>
+                <CardText icon="user-plus" >Role : {data.role} </CardText>
+                <CardText icon="user-plus" >date of birth : {data.dateOfBirth}{this.props.dateOfBirth} </CardText>
+                <CardText icon="user-plus" >Password : {data.password}</CardText>
+                <CardText icon="user-plus">Pseudo : {data.pseudo}  </CardText>
 
 
 
