@@ -6,13 +6,12 @@ import axios from 'axios'
 
 // Components
 import { Input, CardImg, Col, Container, Button } from 'reactstrap';
-// import Button from '../Button/Button'
 
 // Styling
 import './Login.scss';
 
-// Config
-const config = require("../../config");
+// Import config
+const config = require('../../config/config')
 
 class Login extends React.Component {
 
@@ -71,6 +70,8 @@ class Login extends React.Component {
     render() {
         // State declaration
         const { redirect } = this.state;
+        const config = process.env.REACT_APP_SERVER_PORT
+        console.log(process.env.REACT_APP_SERVER_PORT)
 
         // When form submited, redirected to /dashboard
         if (redirect) {

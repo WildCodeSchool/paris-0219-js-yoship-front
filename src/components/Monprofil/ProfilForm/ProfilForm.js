@@ -13,37 +13,25 @@ import './ProfilForm.scss';
 class FormProfil extends Component {
 
   state = {
-
     lastName: '',
-    globalLastName: '',
 
     firstName: '',
-    globalFirstName: '',
 
     phone: '',
-    globalphone: '',
-
 
     email: '',
-    globalEmail: '',
 
     dateOfBirth: '',
-    globalDateOfBirth: '',
-
+ 
     address: '',
-    globalAddress: '',
 
     postCode: '',
-    globalPostCode: '',
 
     city: '',
-    globalCity: '',
 
     country: '',
-    globalCountry: '',
-
-
   }
+  
   changeHandler = (e) => {
     this.setState({ [e.target.name]: e.target.value })
 
