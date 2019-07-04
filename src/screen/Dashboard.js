@@ -7,6 +7,7 @@ import axios from 'axios'
 // Components
 import Footer from '../components/Footer/Footer'
 
+const config = require('../config/config')
 
 class Dashboard extends Component {
     state = {
@@ -23,7 +24,7 @@ class Dashboard extends Component {
       if (this.state.loading) {
         axios({
           method: 'Get',
-          url: `http://localhost:3023/users/${uuid}`, 
+          url: `http://localhost:${config.port}/users/${uuid}`, 
            headers: {
              'x-access-token': `${token}`,
            },
