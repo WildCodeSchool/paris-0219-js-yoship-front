@@ -11,6 +11,8 @@ import { connect } from 'react-redux'
 
 import allTheActions from '../../../actions'
 
+const config = require('../../../config/config')
+
 class Profil extends React.Component {
 
   state = {
@@ -22,7 +24,7 @@ class Profil extends React.Component {
     const uuid = localStorage.getItem("uuid")
     axios({
       method: 'Get',
-      url: `http://localhost:3023/users/${uuid}`,
+      url: `http://localhost:${config.port}/users/${uuid}`,
       headers: {
         'x-access-token': `${token}`
       }

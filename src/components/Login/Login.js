@@ -15,10 +15,10 @@ import { Input, CardImg, Col, Container, Button } from 'reactstrap';
 // Styling
 import './Login.scss';
 
-require('dotenv').config()
 
+const config = require('../../config/config')
 
-
+console.log(config.port)
 
 class Login extends React.Component {
 
@@ -33,7 +33,7 @@ class Login extends React.Component {
           console.log("test")
         e.preventDefault();
         axios
-          .post("http://localhost:3023/login", {
+          .post(`http://localhost:${config.port}/login`, {
             password: e.target.password.value,
             mail: e.target.email.value
           })

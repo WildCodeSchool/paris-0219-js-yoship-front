@@ -10,6 +10,7 @@ import ProfilMon from '../../Monprofil/MonProfil'
 import axios from 'axios'
 import { directiveLiteral } from '@babel/types';
 
+const config = require('../../../config/config')
 
 class Register extends React.Component {
     state = {
@@ -53,7 +54,7 @@ class Register extends React.Component {
                 role: "driver"
             }
             
-            axios.post(`http://localhost:3023/register`, (dataToSend))
+            axios.post(`http://localhost:${config.port}/register`, (dataToSend))
                 .then(res => {
                     console.log(res);
                     console.log(res.data);
