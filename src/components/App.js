@@ -12,6 +12,7 @@ import StepFormation from '../screen/Formation'
 import StepStatus from '../screen/Status'
 import ScrollToTopRoute from './Header/ScrollToTop'
 import Questions from '../screen/Questions'
+import About from '../screen/About'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <ScrollToTopRoute path="/status" component={StepStatus} />
         <ScrollToTopRoute path="/profil" component={Monprofil} />
         <ScrollToTopRoute path="/questions" component={Questions} />
+        <ScrollToTopRoute path="/apropos" component={About} />
 
       </Switch>
 

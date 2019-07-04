@@ -45,10 +45,7 @@ class Dropmenu extends Component {
                         <DropdownItem>
                                 Questions les plus fréquentes
                         </DropdownItem>
-                        </NavLink>
-                        <DropdownItem>
-                                A propos
-                        </DropdownItem>
+                        </NavLink >
                         </div>
                     </DropdownMenu>
                 </div>
