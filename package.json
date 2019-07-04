@@ -8,11 +8,8 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
-<<<<<<< HEAD
-    "env-cmd": "^9.0.3",
-=======
     "dotenv": "^8.0.0",
->>>>>>> 5f48b9309cdadb1b9caf28869fbaff268a4912d9
+    "env-cmd": "^9.0.3",
     "install": "^0.12.2",
     "node-sass": "^4.12.0",
     "nodemon": "^1.19.0",
@@ -30,7 +27,7 @@
     "redux-logger": "^3.0.6"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "env-cmd react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
