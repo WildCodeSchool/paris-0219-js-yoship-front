@@ -11,6 +11,9 @@ import { Input, CardImg, Col, Container, Button } from 'reactstrap';
 // Styling
 import './Login.scss';
 
+// Config
+const config = require("../../config");
+
 class Login extends React.Component {
 
     state = {
@@ -24,14 +27,14 @@ class Login extends React.Component {
           console.log("test")
         e.preventDefault();
         axios
-          .post("http://localhost:3031/login", {
+          .post(`http://localhost:${config.port}/login`, {
             password: e.target.password.value,
             mail: e.target.email.value
           })
           .then(res => {
             localStorage.setItem("token", res.headers["x-access-token"]);
             localStorage.setItem("uuid", res.data.uuid)
-
+            console.log("test2");
             this.setState({
               redirect: true
             });
@@ -75,6 +78,7 @@ class Login extends React.Component {
         }  
 
         console.log(redirect)
+        console.log(process.env.SERVER_PORT);
 
         return (
             <section id="login" className="login">
