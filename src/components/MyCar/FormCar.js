@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Label, Input, CustomInput } from 'reactstrap';
-import Button from '../Button/Button';
+import Button from '../UI/Button/Button';
 import './FormCar.scss';
 
 class FormCar extends React.Component {

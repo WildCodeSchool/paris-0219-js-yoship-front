@@ -15,6 +15,8 @@ import StepStatus from '../screen/Status'
 import Monprofil from '../screen/Profil';
 import MyCar from '../screen/MyCar'
 import Dashboard from '../screen/Dashboard'
+import Loader from './UI/Loader/Loader'
+
 
 // Custom Router Components
 import PublicRoute from '../router/PublicRoute'
@@ -35,6 +37,7 @@ function App() {
           <PrivateRoute path="/mycar" permission="driver" component={MyCar} />
           <PrivateRoute path='/dashboard' permission="driver" component={Dashboard} />
           <PrivateRoute path='/profil' permission="driver" component={Monprofil} />
+          <PublicRoute path="/loading" component={Loader}/>
         </Switch>
       </div>
   );

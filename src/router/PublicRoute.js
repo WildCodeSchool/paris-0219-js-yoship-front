@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Route, withRouter, Redirect } from 'react-router-dom';
+import Loader from '../components/UI/Loader/Loader'
+
 import Home from '../screen/Home';
 import axios from 'axios'
 
@@ -62,7 +64,7 @@ verifyToken() {
       }
       return <Route {...rest} render={props => (<Component {...props} />)} />;
     } else {
-      return <p>Loading...</p>
+      return <Loader />
     }
   }
 }

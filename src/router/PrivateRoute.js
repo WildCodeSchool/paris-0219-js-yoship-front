@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { Route, Redirect, withRouter } from "react-router-dom";
-
+import Loader from '../components/UI/Loader/Loader'
 class PrivateRoute extends Component {
 
     state = {
@@ -69,7 +69,7 @@ class PrivateRoute extends Component {
                 />
             );
         } else {
-            return <p>Loading...</p>
+            return <Loader />
         }
     }
 }
