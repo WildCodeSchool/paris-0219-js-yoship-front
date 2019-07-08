@@ -13,7 +13,7 @@ const config = require("../config/config");
 class Dashboard extends Component {
   state = {
     authorized: false,
-    loading: true
+    isLoading: true
   };
 
   componentDidMount = () => {
@@ -21,7 +21,7 @@ class Dashboard extends Component {
     const token = localStorage.getItem("token");
     const uuid = localStorage.getItem("uuid");
 
-    if (this.state.loading) {
+    if (this.state.isLoading) {
       axios({
         method: "Get",
         url: `http://localhost:${config.port}/users/${uuid}`,
@@ -32,7 +32,7 @@ class Dashboard extends Component {
         .then(res => {
           console.log(res);
           this.setState({
-            loading: false,
+            isLoading: false,
             authorized: true,
             name: res.data[0].name
           });
@@ -40,7 +40,7 @@ class Dashboard extends Component {
         .catch(error => {
           console.log(error);
           this.setState({
-            loading: false,
+            isLoading: false,
             authorized: false
           });
         });
@@ -48,15 +48,18 @@ class Dashboard extends Component {
   };
 
   render() {
-    const { authorized, name, loading } = this.state;
-
+    const { authorized, name, isLoading } = this.state;
+    if (!isLoading && authorized) {
       return (
         <div>
-          <p>Dashboard !</p>
+          <p>Welcome to the Dashboard !</p>
           <p>{name}</p>
           <Footer />
         </div>
       );
+    } else {
+      return <p>Loading...</p>
+    }
     
   }
 }

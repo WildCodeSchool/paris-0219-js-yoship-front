@@ -72,7 +72,7 @@ class Login extends React.Component {
         const { redirect } = this.state;
 
         if (redirect) {
-          return this.props.location.state === undefined ? <Redirect to="/" /> : <Redirect to={this.props.location.state.pathname} />
+          return this.props.location.state === undefined ? <Redirect to="/dashboard" /> : <Redirect to={this.props.location.state.pathname} />
         }
 
         return (
