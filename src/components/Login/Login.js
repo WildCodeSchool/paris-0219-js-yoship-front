@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Redirect } from "react-router-dom";
+import { NavLink, Redirect, withRouter } from "react-router-dom";
 
 // Packages
 import axios from 'axios'
@@ -7,18 +7,11 @@ import axios from 'axios'
 // Components
 import { Input, CardImg, Col, Container, Button } from 'reactstrap';
 
-
-
-// import Button from '../Button/Button'
-
-
 // Styling
 import './Login.scss';
 
-
+// Import config
 const config = require('../../config/config')
-
-console.log(config.port)
 
 class Login extends React.Component {
 
@@ -40,13 +33,13 @@ class Login extends React.Component {
           .then(res => {
             localStorage.setItem("token", res.headers["x-access-token"]);
             localStorage.setItem("uuid", res.data.uuid)
-
+            console.log("test2");
             this.setState({
               redirect: true
             });
           })
           .catch(error => {
-    
+            console.log(error);
             // Dom selectors
             const emailDom = document.querySelector("#email");
             const passwordDom = document.querySelector("#password");
@@ -77,15 +70,10 @@ class Login extends React.Component {
     render() {
         // State declaration
         const { redirect } = this.state;
-        const config = process.env.REACT_APP_SERVER_PORT
-        console.log(process.env.REACT_APP_SERVER_PORT)
 
-        // When form submited, redirected to /dashboard
         if (redirect) {
-            return <Redirect to="/dashboard" />;
-        }  
-
-        console.log(redirect)
+          return this.props.location.state === undefined ? <Redirect to="/dashboard" /> : <Redirect to={this.props.location.state.pathname} />
+        }
 
         return (
             <section id="login" className="login">
@@ -94,12 +82,12 @@ class Login extends React.Component {
                         <Col xl="6" lg="6">
                             <form className="box-login" onSubmit={this.onSubmit}>
                                 <p>
-                                    <label className="label-email-login" for="email">Email adress</label><br />
+                                    <label className="label-email-login" htmlFor="email">Email adress</label><br />
                                     <div className="group-email">
                                         <Input id="email" className="input-email-login" name="Email address" type="email" placeholder="Enter your email address" /></div>
                                 </p>
                                 <p>
-                                    <label className="label-password-login" for="password">Password</label><br />
+                                    <label className="label-password-login" htmlFor="password">Password</label><br />
                                     <Input id="password" className="input-password-login" name="Password" type="text" placeholder="Enter your password" />
                                 </p>
                                 <div className="checkbox">
@@ -126,7 +114,7 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+export default withRouter(Login);
 
 
 
