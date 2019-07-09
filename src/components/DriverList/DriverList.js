@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 // Packages
 import axios from "axios";
+import MaterialTable from 'material-table'
+
+// Components
+import Button from '../Button/Button'
+
+import './DriverList.scss'
 
 // Import config
 const config = require("../../config/config");
@@ -56,16 +62,16 @@ class DriverList extends Component {
           // const allPapers = [res.data.driverLicense , res.data.identityCard , res.data.proofOfResidence , res.data.rib; 
           // console.log(allPapers)
           if (res.data !== "") {
-            dataDocs.push({
+            dataDocs.push({...this.state.driverData[i],
               driverLicense: res.data.driverLicense,
               identityCard: res.data.identityCard,
               nSiret: res.data.nSiret,
               proofOfResidence: res.data.proofOfResidence,
               rib: res.data.rib,
-              allUploaded: true
+              allUploaded: "A vérifier"
             })            
           } else {
-            dataDocs.push({ allUploaded: false }) 
+            dataDocs.push({...this.state.driverData[i], allUploaded: "En cours" }) 
           }
         })
         .catch(error => {
@@ -81,38 +87,49 @@ class DriverList extends Component {
 
   render() {
     const { driverData, driverDocs, isLoading } = this.state;
-
+    const columns = [
+      { title: 'id', field: 'id' },
+      { title: 'name', field: 'name' },
+      { title: 'firstname', field: 'firstname' },
+      { title: 'createdAt', field: 'createdAt' },
+      { title: "Statut", field: 'allUploaded' },
+    ]
     if (!isLoading) {
       console.log(driverDocs[1].allUploaded)
 
       return (
-        <div>
-          {driverData
-            .map( (driver, i) => {
-              return (
-                <div>
-                  <p>{driver.uuid}</p>
-                  <p>{driver.firstname}</p>
-                  <p>{driver.name}</p>
-                  <p>{driver.createdAt}</p>
-                  {/* {console.log(i)}
-                  {console.log(driverDocs[1])} */}
-                  {
-                    driverDocs[i].allUploaded ? 
-                      <div>
-                        <p>uploaded</p> 
-                        <button>Check</button>
-                      </div> 
-                      : 
-                      <div>
-                        <p>not uploaded</p> 
-                        <button disabled>Check</button>
-                      </div>
-                  }
-                </div>
-                );
-            })}
-          <button onClick={this.fetchData} />
+        <div className="table-container">
+          <MaterialTable 
+            title="Documents"
+            columns={columns}
+            data={driverDocs}
+            actions={[
+              {
+                icon: 'save',
+                tooltip: 'Save User',
+                onClick: (event, rowData) => alert("You saved " + rowData.name)
+              }
+            ]}
+            components={{
+              Action: props => (
+                <button onClick={((event) => props.action.onClick(event, props.data))}>check</button>
+                // <Button
+                //   text="Check"
+                //   onClick={((event) => props.action.onClick(event, props.data))}
+                // />
+              ),
+            }}
+            options={{
+              actionsColumnIndex: -1,
+              exportButton: true,
+              rowStyle: rowData => ({
+                backgroundColor: ((rowData.tableData.id % 2) === 1 ? '#EEE' : '#FFF')
+              }),
+              headerStyle: {
+                fontSize: '18px'
+              }
+            }}
+          />
         </div>
       );  
     } else {
