@@ -1,11 +1,12 @@
 import React from 'react';
 import  './About.scss'
 import Button from '../Button/Button'
+import ScrollUpButton from "react-scroll-up-button";
 
 class About extends React.Component{
     
     render() {
-        return (<section>
+        return (
             <div className="about-text-1">
                 <h3>Statut Partner</h3><br />
                 <p>Devenir un membre priviligié YoPartner c'est rejoindre la révolution<br />
@@ -17,7 +18,18 @@ class About extends React.Component{
                 <p>Indépendant vous serez à même de gerer votre emploi du temps tout<br />
                 en développant vos compétences commerciales sur des produits<br />
                 d'exception.</p>
-                <p>Ce métier dynamique et varié ne laisse aucune place à l'ennuie.</p><br /><br /><br /><br />
+                <p>Ce métier dynamique et varié ne laisse aucune place à l'ennuie.</p><br />
+
+                <ScrollUpButton
+                ContainerClassName="button-about"
+                TransitionClassName="button-about-transition"
+                EasingType="linear"
+                // StopPosition={10}
+                ShowAtPosition={700}
+                >
+                <Button  text="DEVENEZ YOPARTNER"/>
+                </ScrollUpButton>
+                <br />
 
                 <h3>Une activité dynamique et varié</h3><br />
                 <p>Être partenaire avec Yoship Experience Delivery, c'est avoir accès à un parcours<br />
@@ -33,10 +45,7 @@ class About extends React.Component{
                 <p>Fournir en cas de sollicitation du client une prestation de conseil à domicile<br />
                 d'une qualité équivalente au service que l'on retrouve en magasin.
                 </p>
-                <Button  text="DEVENEZ YOPARTNER"/>
             </div>
-            
-        </section>
         )
         }
     }
