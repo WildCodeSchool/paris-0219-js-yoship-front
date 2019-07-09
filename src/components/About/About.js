@@ -1,5 +1,6 @@
 import React from 'react';
 import  './About.scss'
+import { NavLink } from 'react-router-dom';
 import Button from '../Button/Button'
 import ScrollUpButton from "react-scroll-up-button";
 
@@ -19,16 +20,17 @@ class About extends React.Component{
                 en développant vos compétences commerciales sur des produits<br />
                 d'exception.</p>
                 <p>Ce métier dynamique et varié ne laisse aucune place à l'ennuie.</p><br />
-
+                <NavLink to="/register" >
                 <ScrollUpButton
                 ContainerClassName="button-about"
                 TransitionClassName="button-about-transition"
                 EasingType="linear"
-                // StopPosition={10}
-                ShowAtPosition={700}
+                StopPosition={6}
+                ShowAtPosition={650}
                 >
                 <Button  text="DEVENEZ YOPARTNER"/>
                 </ScrollUpButton>
+                </NavLink>
                 <br />
 
                 <h3>Une activité dynamique et varié</h3><br />
