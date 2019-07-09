@@ -1,20 +1,19 @@
 import React from 'react';
 import { Col, Container, Card, CardImg, CardText, CardTitle, } from 'reactstrap';
-import ImageUpload from '../ImageUpload'
-import "./Profil.scss"
+import ImageUpload from '../Monprofil/ImageUpload'
+import "./MesDocuments.scss"
 import ReactFileReader from 'react-file-reader';
 import axios from 'axios'
-import Tab from '../../Header/Tab/Tab'
 
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import allTheActions from '../../../actions'
+import allTheActions from '../../actions'
 
-const config = require('../../../config/config')
+const config = require('../../config/config')
 
-class Profil extends React.Component {
+class Mesdocuments extends React.Component {
 
   state = {
     loading: true,
@@ -71,9 +70,9 @@ class Profil extends React.Component {
                 <CardTitle icon="user-plus" ><h4> {data.name} {data.firstname} (User ID:2323)</h4></CardTitle>
                 <CardText icon="user-plus" >Your phone : {data.phone}</CardText>
                 <CardText icon="user-plus" >Email Addres : {data.mail} </CardText>
-                <CardText icon="user-plus" >Status : </CardText>
-                
-                <Tab icon="map-marker-alt" tab="Tracking" />
+                <CardText icon="user-plus" >Status :</CardText>
+
+
 
 
               </Col>
@@ -85,37 +84,77 @@ class Profil extends React.Component {
 
 
               <Col xl="12" lg="12">
-                <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> Mes information</h4></CardTitle>
+                <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> Mes Documents</h4></CardTitle>
               </Col>
 
 
-              <Col xl="4" lg="4">
-                <CardText icon="user-plus" >Role : {data.role} </CardText>
-                <CardText icon="user-plus" >date of birth : {data.dateOfBirth}{this.props.dateOfBirth} </CardText>
-                <CardText icon="user-plus" >Password : {data.password}</CardText>
-                <CardText icon="user-plus">Pseudo : {data.pseudo}  </CardText>
+             
 
 
-
-              </Col>
 
 
 
               <Col xl="4" lg="4">
-                <CardText icon="user-plus" >Addres : {this.props.address}</CardText>
-                <CardText icon="user-plus" >Postcode : {this.props.postCode} </CardText>
-                <CardText icon="user-plus" >City :  {this.props.city}</CardText>
-                <CardText icon="user-plus" >Country : {this.props.country}</CardText>
+
+                <CardText icon="user-plus">
+                  <ReactFileReader handleFiles={this.handleFiles}>Identity card :
+          <button className='btn'>Upload</button>
+                  </ReactFileReader>
+                </CardText>
+
+                <CardText icon="user-plus">
+                  <ReactFileReader handleFiles={this.handleFiles}>Proof of residence :
+          <button className='btn'>Upload</button>
+                  </ReactFileReader>
+                </CardText>
+
+                <CardText icon="user-plus">
+                  <ReactFileReader handleFiles={this.handleFiles}>Rib :
+          <button className='btn'>Upload</button>
+                  </ReactFileReader>
+                </CardText>
+
+                <CardText icon="user-plus">
+                  <ReactFileReader handleFiles={this.handleFiles}>Permis :
+          <button className='btn'>Upload</button>
+                  </ReactFileReader>
+                </CardText>
 
 
               </Col>
 
-              <Col xl="12" lg="12">
-                <CardText icon="user-plus" >Description :</CardText>
+              <Col xl="4" lg="4">
+
+                <CardText icon="user-plus">
+                  <ReactFileReader handleFiles={this.handleFiles}>Control technical :
+          <button className='btn'>Upload</button>
+                  </ReactFileReader>
+                </CardText>
+
+                <CardText icon="user-plus">
+                  <ReactFileReader handleFiles={this.handleFiles}>Assurance :
+          <button className='btn'>Upload</button>
+                  </ReactFileReader>
+                </CardText>
+
+                <CardText icon="user-plus">
+                  <ReactFileReader handleFiles={this.handleFiles}>Contract leasing :
+          <button className='btn'>Upload</button>
+                  </ReactFileReader>
+                </CardText>
+
+              
+
               </Col>
+              
 
             </div>
           </Container>
+
+
+
+
+
         </section>
 
       );
@@ -142,4 +181,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profil)
+export default connect(mapStateToProps, mapDispatchToProps)(Mesdocuments)
