@@ -35,9 +35,11 @@ class Dropmenu extends Component {
                                 Ma voiture
                             </DropdownItem>
                         </NavLink>
+                        <NavLink to="/Document">  
                             <DropdownItem >
                                 Mes documents
                   </DropdownItem>
+                  </NavLink>
                             <DropdownItem>
                                 statistique financiére
                   </DropdownItem>
