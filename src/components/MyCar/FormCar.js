@@ -36,72 +36,39 @@ class FormCar extends React.Component {
   colorChange = e => {
     this.setState({ color: e.target.value });
   }
+
   handleSubmit = e => {
-    alert('Les caractéristiques de votre véhicule ont été prises en compte: ' + this.state.value);
+    alert('Les caractéristiques de votre véhicule ont été prises en compte: ' + this.state.brand);
     e.preventDefault(); //bloquer le rafraichissement
     const token = localStorage.getItem("token")
     const uuid = localStorage.getItem("uuid")
-
-    axios.post(`http://localhost:${config.port}/users/${uuid}/cars`,{
-
+    const dataTosend = {
       brand: this.state.brand,
       color: this.state.color,
       description: this.state.description,
-      fuel: "this.state.fuel",
+      fuel: this.state.fuel,
       horsepower: this.state.horsepower,
       kilometers: this.state.kilometers,
-      leasing: this.state.leasing,
-      license_plate: this.state.license_plate,
-      maintenance: this.state.maintenance,
-      model: this.state.model,
-      model_year: this.state.model_year
+      //leasing: this.state.leasing,
+      licencePlate: this.state.license_plate,
+      //maintenance: this.state.maintenance,
+      //model: this.state.model,
+      modelYear: this.state.model_year
+    }
+
+    axios.post(`http://localhost:${config.port}/users/${uuid}/cars`,(dataTosend),
+      {headers: {
+        'x-access-token': `${token}`
+      }
     })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-  }
 
-
-
-
-
-
-  // handleSubmit = e => {
-  //   alert('Les caractéristiques de votre véhicule ont été prises en compte: ' + this.state.value);
-  //   e.preventDefault(); //bloquer le rafraichissement
-  //   const token = localStorage.getItem("token")
-  //   const uuid = localStorage.getItem("uuid")
-  //   axios.post({
-  //     method: 'Post',
-  //     url: `http://localhost:${config.port}/users/${uuid}/cars`,
-  //     headers: {
-  //       'x-access-token': `${token}`
-  //     },
-  //     brand: this.state.brand,
-  //     color: this.state.color,
-  //     description: this.state.description,
-  //     fuel: this.state.fuel,
-  //     horsepower: this.state.horsepower,
-  //     kilometers: this.state.kilometers,
-  //     leasing: this.state.leasing,
-  //     license_plate: this.state.license_plate,
-  //     maintenance: this.state.maintenance,
-  //     model: this.state.model,
-  //     model_year: this.state.model_year
-
-  //   }
-    
-  //   )
-  //     .then(res => {
-  //       const result = res.data
-  //       console.log("response to axios Mycar", res)
-  //       console.log(result);
+      .then(res => {
+        const result = res.data
+        console.log("response to axios Mycar", res)
+        console.log(result);
       
-  //     })
-  // }
+      })
+  }
   
 
   render() {
@@ -179,7 +146,7 @@ class FormCar extends React.Component {
 
           <Label className="car-year" htmlfor="car-year">Année de mise en service :</Label>
           <Input
-            type="number"
+            type="date"
             name="model_year"
             id="car-year"
             //required = "required"
@@ -309,7 +276,7 @@ class FormCar extends React.Component {
           <Input type="textarea" name="description" id="car-description" value={this.state.description} onChange={this.handleChange} />
 
           <div className="car-button">
-            <Button type="submit" onClick={this.state} text="Valider" />
+            <Button type="submit" text="Valider" />
           </div>
         </Form>
       </section>
