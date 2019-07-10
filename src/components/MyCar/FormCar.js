@@ -16,7 +16,6 @@ class FormCar extends React.Component {
     color: '',
     fuel: '',
     description: '',
-    display:""
 };
 
 handleChange = (event) => {

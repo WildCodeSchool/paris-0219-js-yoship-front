@@ -5,7 +5,15 @@ import './Contact.scss';
 import logoPaperPlane from '../../assets/images/logoPaperPlane.svg';
 import { InputGroup, InputGroupAddon, Input, FormGroup, CustomInput, Form } from 'reactstrap';
 
+//const config = require('../../../config/config')
+
 class Contact extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.submitForm = this.submitForm.bind(this)
+    }
+
     state = {
         firstname: '',
         lastname: '',
@@ -16,32 +24,27 @@ class Contact extends React.Component {
         driver: '',
         brand: '',
         else: '',
-        text: '',
+        message: '',
+        statusArray: ['customer', 'driver', 'brand', 'someonelse' ]
     };
 
     handleChange = (event) => {
         this.setState({ [event.target.name]: event.target.value });
     }
 
+    statusChange = (event) => {
+        this.setState({status: event.target.value});
+    }
+
     submitForm(event) {
         event.preventDefault();
 
-        const config = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(this.state),
-        };
-
-        const url = "url..." //url of API 
-
-        axios(url, config)
+        axios.post("http://localhost:3012/contact", this.state)
             .then(res => {
                 if (res.error) {
                     alert(res.error);
                 } else {
-                    alert(this.state.value + 'Your message was submitted');
+                    alert(this.state.lastname + 'Your message was submitted');
                 }
             })
             .catch(e => {
@@ -61,13 +64,12 @@ class Contact extends React.Component {
 
                     <Input
                         className="contact-firstname"
-                        name="first name"
-                        placeholder="Firstname"
+                        name="firstname"
+                        placeholder="First name"
                         requiered="requiered"
                         type="text"
                         value={this.state.firstname}
                         onChange={this.handleChange}
-                        bsSize="sm"
                     />
 
                     <Input
@@ -78,45 +80,39 @@ class Contact extends React.Component {
                         requiered="requiered"
                         value={this.state.lastname}
                         onChange={this.handleChange}
-                        bsSize="sm"
                     />
 
                     <InputGroup
                         className="contact-email"
-                        size="sm"
                     >
                         <InputGroupAddon addonType="prepend">@</InputGroupAddon>
                         <Input
                             name="email"
                             placeholder="Email address"
                             type="email"
-                            requiered="requiered"
+                            //requiered="requiered"
                             value={this.state.email}
                             onChange={this.handleChange}
-                            bsSize="sm"
                         />
                     </InputGroup>
 
                     <span className="contact-phone"><FrenchPhoneField /></span>
 
                     <FormGroup className="contact-status">
-                        <CustomInput bsSize="sm" type="select" id="exampleCustomSelect" name="customSelect">
-                            <option value={this.state.value}>Select your status : </option>>
-                        <option value={this.state.value}>I am a privileged client</option>
-                            <option value={this.state.value}>I am a Yoship driver</option>
-                            <option value={this.state.value}>I am a Luxury brand</option>
-                            <option value={this.state.value}>Someone else</option>
+                        <CustomInput type="select" id="exampleCustomSelect" name="customSelect" onChange={this.statusChange} >
+                            <option value="">Select your status : </option>>
+                            <option value="customer">I am a privileged client</option>
+                            <option value="driver">I am a Yoship driver</option>
+                            <option value="brand">I am a Luxury brand</option>
+                            <option value="someonelse">Someone else</option>
                         </CustomInput>
                     </FormGroup>
 
                     <FormGroup
-                        //size="sm" 
                         className="contact-message">
                         <Input
-                            bsSize="sm"
-                            // size="sm" 
                             type="textarea"
-                            name="text"
+                            name="message"
                             id="exampleText"
                             placeholder="Write your message..."
                             rows={5}
