@@ -19,7 +19,8 @@ class Login extends React.Component {
         redirect: false,
         error_msg: "",
         error_email: "",
-        error_password: ""
+        error_password: "",
+        role: ""
       };
     
       onSubmit = e => {
@@ -34,8 +35,10 @@ class Login extends React.Component {
             localStorage.setItem("token", res.headers["x-access-token"]);
             localStorage.setItem("uuid", res.data.uuid)
             console.log("test2");
+            console.log(res.data)
             this.setState({
-              redirect: true
+              redirect: true,
+              role: res.data.role
             });
           })
           .catch(error => {
@@ -69,10 +72,13 @@ class Login extends React.Component {
 
     render() {
         // State declaration
-        const { redirect } = this.state;
+        const { redirect, role } = this.state;
 
         if (redirect) {
-          return this.props.location.state === undefined ? <Redirect to="/dashboard" /> : <Redirect to={this.props.location.state.pathname} />
+          if (role === "driver")
+            return this.props.location.state === undefined ? <Redirect to="/dashboard" /> : <Redirect to={this.props.location.state.pathname} />
+          if (role === "admin")
+            return this.props.location.state === undefined ? <Redirect to="/admin" /> : <Redirect to={this.props.location.state.pathname} />
         }
 
         return (
