@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import Favicon from 'react-favicon';
 
 import * as serviceWorker from './services/serviceWorker';
 import store from './config/store';
@@ -13,6 +14,7 @@ import './index.css';
 
 ReactDOM.render(
     <Provider store={store}>
+        <div><Favicon url="https://i.ibb.co/sHV38jq/yoship-logo.png" /></div>
         <BrowserRouter>
             <App />
         </BrowserRouter>
