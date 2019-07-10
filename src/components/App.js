@@ -15,6 +15,8 @@ import StepStatus from '../screen/Status'
 import Monprofil from '../screen/Profil';
 import MyCar from '../screen/MyCar'
 import Dashboard from '../screen/Dashboard'
+import AdminDashboard from '../screen/Admin/AdminDashboard'
+import CheckDocument from '../screen/Admin/CheckDocument'
 
 // Custom Router Components
 import PublicRoute from '../router/PublicRoute'
@@ -23,7 +25,7 @@ import PrivateRoute from '../router/PrivateRoute'
 function App() {
   return (
       <div>
-        <Header />
+        {/* <Header /> */}
         <Switch>
           <PublicRoute exact path="/" component={Home} />
           <PublicRoute path="/tracking" component={Tracking} />
@@ -35,6 +37,8 @@ function App() {
           <PrivateRoute path="/mycar" permission="driver" component={MyCar} />
           <PrivateRoute path='/dashboard' permission="driver" component={Dashboard} />
           <PrivateRoute path='/profil' permission="driver" component={Monprofil} />
+          <PrivateRoute path='/admin' permission="admin" component={AdminDashboard} />
+          <PrivateRoute path='/document/:uuid' permission="admin" component={CheckDocument} />
         </Switch>
       </div>
   );

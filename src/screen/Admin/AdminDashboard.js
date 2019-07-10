@@ -5,11 +5,11 @@ import { NavLink, Redirect } from "react-router-dom";
 import axios from "axios";
 
 // Components
-import Footer from "../components/Footer/Footer";
-import DriverList from "../components/DriverList/DriverList";
+import Footer from "../../components/Footer/Footer";
+import DriverList from "../../components/DriverList/DriverList";
 
 // Import config
-const config = require("../config/config");
+const config = require("../../config/config");
 
 class AdminDashboard extends Component {
   state = {
@@ -17,9 +17,8 @@ class AdminDashboard extends Component {
 
   render() {
       return (
-        <div>
+        <div className="">
           <DriverList />
-          <Footer />
         </div>
       );
   }
