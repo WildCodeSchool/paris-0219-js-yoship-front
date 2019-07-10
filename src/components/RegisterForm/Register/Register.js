@@ -1,16 +1,26 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import allTheActions from '../../../actions'
 import './Register.scss';
 import { Input, Col, Container, Button, Progress } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
 import { Field, formInputData, formValidation } from 'reactjs-input-validator';
 import ProfilMon from '../../Monprofil/MonProfil'
+import axios from 'axios'
+import { directiveLiteral } from '@babel/types';
 
+const config = require('../../../config/config')
 
 class Register extends React.Component {
     state = {
+
         redirect: false,
         data: {},
-    };
+    }
+    // changeHandler = (e) => {
+    //     this.setState({ [e.target.name]: e.target.value })
+    // }
 
     handleChange = (event, inputValue, inputName, validationState, isRequired) => {
         const value = (event && event.target.value) || inputValue;
@@ -18,19 +28,37 @@ class Register extends React.Component {
         data[inputName] = { value, validation: validationState, isRequired };
         this.setState({
             data,
-        });
+        })
+        this.setState({ event })
         // if you want access to your form data
         const formData = formInputData(this.state.data); // eslint-disable-line no-unused-vars
         // tells you if the entire form validation is true or false
         const isFormValid = formValidation(this.state.data); // eslint-disable-line no-unused-vars
     }
 
+
     handleSubmit = (event) => {
         event.preventDefault();
         const isFormValid = formValidation(this.state.data);
 
         if (isFormValid) {
-            // do anything including ajax calls
+            const data = this.state.data
+            const dataToSend = {
+                dateOfBirth: data.dateOfBirth.value,
+                firstname: data.firstname.value,
+                mail: data.mail.value,
+                name: data.name.value,
+                password: data.password.value,
+                phone: data.phone.value,
+                pseudo: data.pseudo.value,
+                role: "driver"
+            }
+            
+            axios.post(`http://localhost:${config.port}/register`, (dataToSend))
+                .then(res => {
+                    console.log(res);
+                    console.log(res.data);
+                })
             this.setState({ callAPI: true });
             this.setState({ redirect: true })
 
@@ -38,13 +66,21 @@ class Register extends React.Component {
             this.setState({ callAPI: true, shouldValidateInputs: !isFormValid });
         }
     }
-    render() {
+    componentDidMount = () => { }
+
+    handleFiles = files => {
+        console.log(files)
+    }
+    render(
+
+    ) {
         const passwordValue = this.state.data.password && this.state.data.password.value;
         const redirect = this.state.redirect;
 
         if (redirect) {
             return <Redirect to="/" />
         } else {
+
             return (
                 <section id="register" className="register">
                     <Container>
@@ -52,10 +88,12 @@ class Register extends React.Component {
                             {/* label + input fisrt name */}
 
                             <Col xl="5" lg="5">
+
+
                                 <Field
-                                    required label="First Name" name="fullName" placeholder="First name"
+                                    required label="First Name" name="firstname" placeholder="First name"
                                     onChange={this.handleChange}
-                                    value={this.state.data.fullName}
+                                    value={this.state.data.firstname}
                                     shouldValidateInputs={this.state.shouldValidateInputs} />
                             </Col>
 
@@ -63,21 +101,33 @@ class Register extends React.Component {
 
                             <Col xl="5" lg="5">
                                 <Field
-                                    required label="Last name" name="firstName" placeholder="Last name"
+                                    required label="Last name" name="name" placeholder="Last name"
                                     onChange={this.handleChange}
-                                    value={this.state.data.firstName}
+                                    value={this.state.data.name}
                                     shouldValidateInputs={this.state.shouldValidateInputs} />
                             </Col>
 
                             <Col xl="5" lg="5">
 
-                                <label for="naissance">Date de naissance :</label>
+                                <Field
+                                    required label="dateOfBirth" name="dateOfBirth" placeholder="dateOfBirth"
+                                    onChange={this.handleChange}
+                                    value={this.state.data.dateOfBirth}
+                                    shouldValidateInputs={this.state.shouldValidateInputs} />
+
+
+                                {/* <label for="naissance">Date de naissance :</label> */}
+                                {/* 
+
+
                                 <Input
                                     type="date"
                                     name="naissance"
                                     id="naissance"
                                     placeholder="date placeholder"
-                                />
+                                    onChange={this.handleChange}
+                                    value={this.state.data.dateOfBirth
+                                />  */}
 
                             </Col>
 
@@ -95,9 +145,9 @@ class Register extends React.Component {
 
                                 <Field
                                     validator="isEmail" required
-                                    label="Email" name="email" placeholder="Email"
+                                    label="Email" name="mail" placeholder="Email"
                                     onChange={this.handleChange}
-                                    value={this.state.data.email}
+                                    value={this.state.data.mail}
                                     shouldValidateInputs={this.state.shouldValidateInputs}
                                 />
                             </Col>
@@ -106,9 +156,9 @@ class Register extends React.Component {
                                 <Field
                                     validator="isNumeric" required minLength={10}
                                     minLengthErrMsg="Try one with atleast 10 numbers"
-                                    label="Phone number" name="isNumeric" placeholder="Phone number"
+                                    label="Phone number" name="phone" placeholder="Phone number"
                                     onChange={this.handleChange}
-                                    value={this.state.data.isNumeric}
+                                    value={this.state.data.phone}
                                     shouldValidateInputs={this.state.shouldValidateInputs}
                                 />
                             </Col>
@@ -159,7 +209,7 @@ class Register extends React.Component {
                             </div>
                         </div>
                     </div>
-<ProfilMon /> 
+
 
 
                 </section>
@@ -167,5 +217,15 @@ class Register extends React.Component {
         }
     }
 }
+const mapStateToProps = state => {
+    return {
+    }
+}
 
-export default Register;
+const mapDispatchToProps = dispatch => {
+    return {
+        formAction: bindActionCreators(allTheActions.formActions, dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register)

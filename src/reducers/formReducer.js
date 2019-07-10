@@ -8,6 +8,7 @@ const initialState = {
   postCode: '',
   city: '',
   country: '',
+  isNumeric:'',
 }
 
 const formReducer = (state = initialState, action) => {
@@ -24,6 +25,7 @@ const formReducer = (state = initialState, action) => {
         postCode: action.payload.postCode,
         city:  action.payload.city,
         country: action.payload.country,
+        isNumeric: action.payload.isNumeric,
       }
     default:
       return state;

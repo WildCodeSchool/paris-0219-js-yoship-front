@@ -1,19 +1,16 @@
 import React from "react";
-import Profil from '../components/Monprofil/Profil/Profil'
+import FormCar from '../components/MyCar/FormCar';
 import Footer from '../components/Footer/Footer'
 
 
-const Monprofil = () => {
+const MyCar = () => {
 
     return (
         <div>
-            <Profil />
+            <FormCar />
             <Footer />
         </div>
     )
 }
 
-
-export default Monprofil;
-
-
+export default MyCar;

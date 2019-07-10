@@ -2,7 +2,7 @@ import React from "react";
 import Questions from '../components/Monprofil/Questions/Questions';
 import Footer from '../components/Footer/Footer';
 
-const Questions1 = () => {
+const QuestionsPage = () => {
 
     return  (    
     <div>
@@ -14,4 +14,4 @@ const Questions1 = () => {
 
 )}
 
-export default Questions1;
+export default QuestionsPage;

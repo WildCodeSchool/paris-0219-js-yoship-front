@@ -1,108 +1,7 @@
-// import React, { Component } from 'react';
-// import './ProfilForm.scss';
-// import { Field, formInputData, formValidation } from 'reactjs-input-validator';
-// import { Input, Col, Container, Button, Progress } from 'reactstrap';
-
-
-
-
-// class App extends Component {
-
-
-
-
-
-//   }
-
-//   changeHandler = (e) => {
-//     this.setState ({ [e.target.name]:e.target.value  })
-
-//   }
-
-//   componentDidMount = () => {}
-
-//   submitForm = (e) => {
-//     e.preventDefault()
-//     this.setState({
-//       globalfirstName : `${this.state.firstName}`,
-//       globallastName : `${this.state.lastname}`,
-
-//     })
-//   }
-
-//   render() {
-
-
-//     return (
-
-
-
-//       <div className="Film"> 
-
-//           <form onSubmit={this.submitForm}>
-
-//           <p>  {this.state.globalfirstName}</p>
-//           <p> {this.state.lastname} </p>
-//           <p>  {this.state.globalphone} </p>
-//           <p> {this.state.email} </p>
-
-
-
-//           <fieldset>
-
-
-//       <label htmlFor="name">Nom Prénom</label>
-
-//       <input
-//         type="text"
-//         name="title"
-//         onChange={this.changeHandler}
-//         value={this.state.title}
-//       />
-
-
-// <label htmlFor="name">Nom Prénom</label>
-
-// <input
-// type="text"
-// name="title"
-// onChange={this.changeHandler}
-// value={this.state.title}
-// />
-
-
-
-//       <label htmlFor="name">phone</label>
-// <input
-//         type="text"
-
-//         name="phone"
-//         onChange={this.changeHandler}
-//         value={this.state.phone}
-//       />
-
-
-
-//     <hr />
-//      <input type="submit" value="Seed" />
-//    </fieldset>
-// </form>
-
-
-
-
-//     </div>
-
-//     );
-//   }
-// }
-
-// export default App;
-
-
 import React, { Component } from 'react';
-import {bindActionCreators} from 'redux'
-import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { Input, Col, Container, Button, Progress } from 'reactstrap';
 
 import allTheActions from '../../../actions'
 
@@ -114,59 +13,31 @@ import './ProfilForm.scss';
 class FormProfil extends Component {
 
   state = {
-
     lastName: '',
-    globalLastName: '',
 
     firstName: '',
-    globalFirstName: '',
 
     phone: '',
-    globalphone: '',
-
 
     email: '',
-    globalEmail: '',
 
     dateOfBirth: '',
-    globalDateOfBirth: '',
-
+ 
     address: '',
-    globalAddress: '',
 
     postCode: '',
-    globalPostCode: '',
 
     city: '',
-    globalCity: '',
 
     country: '',
-    globalCountry: '',
-
-
   }
+  
   changeHandler = (e) => {
     this.setState({ [e.target.name]: e.target.value })
 
   }
 
   componentDidMount = () => { }
-
-  // submitForm = (e) => {
-  //   e.preventDefault()
-  //   this.setState({
-
-  //     globalLastName: `${this.state.lastName}`,
-  //     globalFirstName: `${this.state.firstName}`,
-  //     globalPhone: `${this.state.phone}`,
-  //     globalEmail: `${this.state.email}`,
-  //     globalDateOfBirth: `${this.state.dateOfBirth}`,
-  //     globalAddress: `${this.state.address}`,
-  //     globalPostCode: `${this.state.postCode}`,
-  //     globalCity: `${this.state.city}`,
-  //     globalCountry: `${this.state.country}`,
-  //   })
-  // }
 
   handleFiles = files => {
     console.log(files)
@@ -177,106 +48,137 @@ class FormProfil extends Component {
 
 
       <section id="register" className="register">
+        <Container>
+          <div className="row align-items-center no-gutters mb-4 mb-lg-4">
 
-        <p>  {this.state.lastName} </p>
-        <p>  {this.state.globalFirstName} </p>
-        <p>  {this.state.globalPhone} </p>
-        <p>  {this.state.globalEmail} </p>
-        <p>  {this.state.globalDateOfBirth} </p>
-        <p>  {this.state.globalAddress} </p>
-        <p>  {this.state.globalPostCode} </p>
-        <p>  {this.state.globalCity} </p>
-        <p>  {this.state.globalCountry} </p>
+           
+              <Col xl="4" lg="4">
+                <fieldset>
 
-        <form >
+                  <label htmlFor="name">Nom :</label>
 
-          <fieldset>
+                  <input
+                    type="text"
+                    name="lastName"
+                    onChange={this.changeHandler}
+                    value={this.state.lastName}
+                  />
+                </fieldset>
+              </Col>
 
-            <label htmlFor="name">Nom :</label>
+              <Col xl="4" lg="4">
+              <fieldset>
+                <label htmlFor="name">Prénom :</label>
+               
+                  <input
+                    type="text"
+                    name="firstName"
+                    onChange={this.changeHandler}
+                    value={this.state.firstName}
+                  />
+                
+                </fieldset>
+                </Col>
+                <Col xl="4" lg="4">  
+                <fieldset> 
+                
+                  <label htmlFor="name">phone :</label>
+                  <input
+                    type="text"
+                    name="phone"
+                    onChange={this.changeHandler}
+                    value={this.state.phone}
+                  />
+                
+                </fieldset>
+                </Col>
 
-            <input
-              type="text"
-              name="lastName"
-              onChange={this.changeHandler}
-              value={this.state.lastName}
-            />
+                
+                <Col xl="4" lg="4">
+                <fieldset> 
+                  <label htmlFor="name">Email Address :</label>
 
-            <label htmlFor="name">Prénom :</label>
+                  <input
+                    type="text"
+                    name="email"
+                    onChange={this.changeHandler}
+                    value={this.state.email}
+                  />
+                   </fieldset>
+                </Col>
 
-            <input
-              type="text"
-              name="firstName"
-              onChange={this.changeHandler}
-              value={this.state.firstName}
-            />
+                <Col xl="4" lg="4">
+                <fieldset> 
+                  <label htmlFor="name">Date of birth :</label>
 
-            <label htmlFor="name">phone :</label>
-            <input
-              type="text"
+                  <input
+                    type="text"
+                    name="dateOfBirth"
+                    onChange={this.changeHandler}
+                    value={this.state.dateOfBirth}
+                  />
+                   </fieldset>
+                </Col>
+                <Col xl="4" lg="4">
+                <fieldset> 
+                  <label htmlFor="name">Address :</label>
 
-              name="phone"
-              onChange={this.changeHandler}
-              value={this.state.phone}
-            />
+                  <input
+                    type="text"
+                    name="address"
+                    onChange={this.changeHandler}
+                    value={this.state.address}
+                  />
+                   </fieldset>
+                </Col>
 
-            <label htmlFor="name">Email Address :</label>
+                <Col xl="4" lg="4">
+                <fieldset> 
+                  <label htmlFor="name">Postcode :</label>
 
-            <input
-              type="text"
-              name="email"
-              onChange={this.changeHandler}
-              value={this.state.email}
-            />
+                  <input
+                    type="text"
+                    name="postCode"
+                    onChange={this.changeHandler}
+                    value={this.state.postCode}
+                  />
+                   </fieldset>
+                </Col>
 
-            <label htmlFor="name">Date of birth :</label>
+                <Col xl="4" lg="4">
+                <fieldset> 
+                  <label htmlFor="name">City :</label>
 
-            <input
-              type="text"
-              name="dateOfBirth"
-              onChange={this.changeHandler}
-              value={this.state.dateOfBirth}
-            />
+                  <input
+                    type="text"
+                    name="city"
+                    onChange={this.changeHandler}
+                    value={this.state.city}
+                  />
+                   </fieldset>
+                </Col>
+                <Col xl="4" lg="4">
+                <fieldset> 
+                  <label htmlFor="name">Country :</label>
 
-            <label htmlFor="name">Address :</label>
+                  <input
+                    type="text"
+                    name="country"
+                    onChange={this.changeHandler}
+                    value={this.state.country}
+                  />
+                   </fieldset>
+                </Col>
+                </div>
+        </Container>
+                <hr />
 
-            <input
-              type="text"
-              name="address"
-              onChange={this.changeHandler}
-              value={this.state.address}
-            />
-
-            <label htmlFor="name">Postcode :</label>
-
-            <input
-              type="text"
-              name="postCode"
-              onChange={this.changeHandler}
-              value={this.state.postCode}
-            />
-
-            <label htmlFor="name">City :</label>
-
-            <input
-              type="text"
-              name="city"
-              onChange={this.changeHandler}
-              value={this.state.city}
-            />
-
-            <label htmlFor="name">Country :</label>
-
-            <input
-              type="text"
-              name="country"
-              onChange={this.changeHandler}
-              value={this.state.country}
-            />
-            <hr />
+              
             
-          </fieldset>
-        </form>
-        <button onClick={() => this.props.formAction.form(this.state)}>Register</button>
+            <button onClick={() => this.props.formAction.form(this.state)}>Register</button>
+
+      
+
       </section>
 
 
@@ -292,11 +194,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-      formAction: bindActionCreators(allTheActions.formActions, dispatch)
+    formAction: bindActionCreators(allTheActions.formActions, dispatch)
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(FormProfil)
+export default connect(mapStateToProps, mapDispatchToProps)(FormProfil)
 
 
 
