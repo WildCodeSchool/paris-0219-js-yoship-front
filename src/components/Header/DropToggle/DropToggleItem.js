@@ -20,7 +20,6 @@ class Dropmenu extends Component {
 
                 <div className="dropdownmenudrop">
                     <DropdownMenu right>
-
                         <DropdownItem header className="dropdownitemheader">
                             Mon compte
                         </DropdownItem >
