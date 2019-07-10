@@ -106,7 +106,7 @@ class DriverList extends Component {
       return (
         <div className="table-container">
           <MaterialTable 
-            title="Documents"
+            title="Gestion des documents"
             columns={columns}
             data={driverDocs}
             actions={[
@@ -119,24 +119,9 @@ class DriverList extends Component {
             components={{
               Action: props => (
                 console.log(props),
-                <NavLink to={{
-                  pathname: `/document/${props.data.uuid}`,
-                  documentProps: {
-                    firstname: props.data.firstname,
-                    name: props.data.name,
-                    mail: props.data.mail,
-                    phone: props.data.phone,
-                    identityCard: props.data.identityCard,
-                    rib: props.data.rib,
-                    proofOfResidence: props.data.proofOfResidence,
-                    nSiret: props.data.nSiret,
-                    driverLicense: props.data.driverLicense
-                  }
-                }}><CheckButton status={props.data.allUploaded} onClick={((event) => props.action.onClick(event, props.data))}>check</CheckButton></NavLink>
-                // <Button
-                //   text="Check"
-                //   onClick={((event) => props.action.onClick(event, props.data))}
-                // />
+                <NavLink to={{pathname: `/document/${props.data.uuid}`}}>
+                  <CheckButton status={props.data.allUploaded} onClick={((event) => props.action.onClick(event, props.data))}>check</CheckButton>
+                </NavLink>
               ),
             }}
             options={{
