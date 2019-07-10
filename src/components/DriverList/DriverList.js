@@ -2,11 +2,15 @@ import React, { Component } from "react";
 // Packages
 import axios from "axios";
 import MaterialTable from 'material-table'
+import { NavLink, Redirect } from "react-router-dom";
 
 // Components
-import Button from '../Button/Button'
+import CheckButton from './CheckButton/CheckButton'
 
 import './DriverList.scss'
+import { faThumbsDown } from "@fortawesome/free-solid-svg-icons";
+import { promised } from "q";
+import { removePropertiesDeep } from "@babel/types";
 
 // Import config
 const config = require("../../config/config");
@@ -61,7 +65,9 @@ class DriverList extends Component {
           console.log(res.data);
           // const allPapers = [res.data.driverLicense , res.data.identityCard , res.data.proofOfResidence , res.data.rib; 
           // console.log(allPapers)
-          if (res.data !== "") {
+          if (this.state.driverData[i].docVerified) {
+            dataDocs.push({...this.state.driverData[i], allUploaded: "Vérifié"}) 
+          } else if (res.data !== "") {
             dataDocs.push({...this.state.driverData[i],
               driverLicense: res.data.driverLicense,
               identityCard: res.data.identityCard,
@@ -71,7 +77,7 @@ class DriverList extends Component {
               allUploaded: "A vérifier"
             })            
           } else {
-            dataDocs.push({...this.state.driverData[i], allUploaded: "En cours" }) 
+            dataDocs.push({...this.state.driverData[i], allUploaded: "En attente" }) 
           }
         })
         .catch(error => {
@@ -86,7 +92,7 @@ class DriverList extends Component {
   };
 
   render() {
-    const { driverData, driverDocs, isLoading } = this.state;
+    const { driverDocs, isLoading } = this.state;
     const columns = [
       { title: 'id', field: 'id' },
       { title: 'name', field: 'name' },
@@ -107,12 +113,26 @@ class DriverList extends Component {
               {
                 icon: 'save',
                 tooltip: 'Save User',
-                onClick: (event, rowData) => alert("You saved " + rowData.name)
+                onClick: (event, rowData) => console.log(rowData)
               }
             ]}
             components={{
               Action: props => (
-                <button onClick={((event) => props.action.onClick(event, props.data))}>check</button>
+                console.log(props),
+                <NavLink to={{
+                  pathname: `/document/${props.data.uuid}`,
+                  documentProps: {
+                    firstname: props.data.firstname,
+                    name: props.data.name,
+                    mail: props.data.mail,
+                    phone: props.data.phone,
+                    identityCard: props.data.identityCard,
+                    rib: props.data.rib,
+                    proofOfResidence: props.data.proofOfResidence,
+                    nSiret: props.data.nSiret,
+                    driverLicense: props.data.driverLicense
+                  }
+                }}><CheckButton status={props.data.allUploaded} onClick={((event) => props.action.onClick(event, props.data))}>check</CheckButton></NavLink>
                 // <Button
                 //   text="Check"
                 //   onClick={((event) => props.action.onClick(event, props.data))}
