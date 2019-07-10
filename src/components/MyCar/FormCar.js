@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Form, Label, Input } from 'reactstrap';
 import Button from '../Button/Button';
+import { Redirect } from 'react-router-dom';
 import './FormCar.scss';
 
 const config = require('../../config/config')
@@ -9,6 +10,7 @@ const config = require('../../config/config')
 
 class FormCar extends React.Component {
   state = {
+    redirect: false,
     brand: "",
     color: "",
     description: "",
@@ -38,7 +40,7 @@ class FormCar extends React.Component {
   }
 
   handleSubmit = e => {
-    alert('Les caractéristiques de votre véhicule ont été prises en compte: ' + this.state.brand);
+    //alert('Les caractéristiques de votre véhicule ont été prises en compte: ' + this.state.brand);
     e.preventDefault(); //bloquer le rafraichissement
     const token = localStorage.getItem("token")
     const uuid = localStorage.getItem("uuid")
@@ -66,21 +68,27 @@ class FormCar extends React.Component {
         const result = res.data
         console.log("response to axios Mycar", res)
         console.log(result);
-      
-      })
+      }) 
+      this.setState({ redirect: true })
   }
-  
+ 
 
-  render() {
+  render() {    
     // console.log("ma props",this.state.brand)
     // console.log(this.state.color)
+    const redirect = this.state.redirect;
+
+    if (redirect) {
+      return <Redirect to="/login" />
+
+    } else {
     return (
       <section className="formCar">
         <Form className="car-container" onSubmit={this.handleSubmit}>
 
-          <h2 className="car-title">Ma voiture</h2>
+          <h2 className="car-title">Ma voiture {this.state.brand}</h2>
 
-          <Label className="car-maintenance" htmlFor="car-maintenance">Entretien du véhicule :</Label>
+          {/* <Label className="car-maintenance" htmlFor="car-maintenance">Entretien du véhicule :</Label>
           <Input
             type="date"
             name="maintenance"
@@ -88,9 +96,9 @@ class FormCar extends React.Component {
             placeholder="Renseignez ici la date du prochain entretien du véhicule"
             value={this.state.maintenance}
             onChange={this.handleChange}
-          />
+          /> */}
 
-          <Label className="car-leasing" htmlFor="car-leasing">Détail leasing :</Label>
+          {/* <Label className="car-leasing" htmlFor="car-leasing">Détail leasing :</Label>
           <Input
             type="date"
             name="leasing"
@@ -98,11 +106,11 @@ class FormCar extends React.Component {
             placeholder="Si le véhicule est en leasing, renseignez la date de fin de contrat"
             value={this.state.leasing}
             onChange={this.handleChange}
-          />
+          /> */}
 
           <Label className="car-brand" htmlFor="car-brand">Marque :</Label>
           <Input
-            // required = "required"
+            required = "required"
             type="text"
             name="brand"
             id="car-brand"
@@ -111,31 +119,32 @@ class FormCar extends React.Component {
             onChange={this.handleChange}
           />
 
-          <Label className="car-model" htmlFor="car-model">Modèle :</Label>
+          {/* <Label className="car-model" htmlFor="car-model">Modèle :</Label>
           <Input
-            // required = "required"
+            required = "required"
             type="text"
             name="model"
             id="car-model"
             placeholder="Sélectionnez la marque du véhicule"
             value={this.state.model}
-            onChange={this.handleChange}
-          />
+            onChange={this.handleChange} 
+          />*/}
 
           <Label className="car-license-plate" htmlFor="car-license-plate">Immatriculation :</Label>
           <Input
-            // required = "required"
+            required = "required"
             type="text"
             name="license_plate"
             id="car-license-plate"
             placeholder="AA-000-AA"
             value={this.state.license_plate}
+
             onChange={this.handleChange}
           />
 
           <Label className="car-kilometers" htmlfor="car-kilometers">Kilométrage :</Label>
           <Input
-            // required = "required"
+            required = "required"
             type="number"
             name="kilometers"
             id="car-kilometers"
@@ -146,20 +155,20 @@ class FormCar extends React.Component {
 
           <Label className="car-year" htmlfor="car-year">Année de mise en service :</Label>
           <Input
+            required = "required"
             type="date"
             name="model_year"
             id="car-year"
-            //required = "required"
             onChange={this.handleChange}
             value={this.state.model_year}
           />
 
           <Label className="car-horsepower" htmlfor="car-horsepower">Puissance Fiscale :</Label>
           <Input
+            required = "required"
             type="number"
             name="horsepower"
             id="car-horsepower"
-            //required = "required"
             onChange={this.handleChange}
             value={this.state.horsepower}
           />
@@ -267,7 +276,7 @@ class FormCar extends React.Component {
           <div className="car-bloc-fuels" >
             {this.state.fuelArray.map(fuelList =>
               <Label check>
-                <Input type="radio" className="car-fuel-item" name="radio1" onChange={this.fuelChange} value={fuelList} />
+                <Input type="radio" className="car-fuel-item" name="radio2" onChange={this.fuelChange} value={fuelList} />
                 {fuelList}
               </Label>)}
           </div>
@@ -276,11 +285,12 @@ class FormCar extends React.Component {
           <Input type="textarea" name="description" id="car-description" value={this.state.description} onChange={this.handleChange} />
 
           <div className="car-button">
-            <Button type="submit" text="Valider" />
+            <Button type="submit" onClick={this.handleRedirect} text="Valider" />
           </div>
         </Form>
       </section>
     );
+            }
   }
 }
 
