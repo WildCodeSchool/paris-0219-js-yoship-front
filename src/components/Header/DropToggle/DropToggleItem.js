@@ -3,48 +3,52 @@ import { NavLink } from 'react-router-dom';
 import Tab from '../Tab/Tab'
 import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, } from 'reactstrap';
 import './DropToggleItem.scss'
-
 class Dropmenu extends Component {
     state = {
         background: true,
         isTop: true
     }
-
     render() {
         return (
             <UncontrolledDropdown >
 
                 <DropdownToggle >
                     <Tab className="Setting" icon="user-cog" tab="Setting" />
+
                 </DropdownToggle>
 
                 <div className="dropdownmenudrop">
                     <DropdownMenu right>
+
                         <DropdownItem header className="dropdownitemheader">
                             Mon compte
-                        </DropdownItem >
+                  </DropdownItem >
                         <DropdownItem divider />
                         <div className="dropdownitemdrop">
                         <NavLink to="/profil" >
-                        <DropdownItem >
+                            <DropdownItem >
                                 Mon profil
-                        </DropdownItem>
-                        </NavLink>
-                        <DropdownItem >
+                  </DropdownItem>
+                  </NavLink>
+                        <NavLink to="/mycar">
+                            <DropdownItem >
                                 Ma voiture
-                        </DropdownItem>
-                        <DropdownItem >
+                            </DropdownItem>
+                        </NavLink>
+                        <NavLink to="/Document">  
+                            <DropdownItem >
                                 Mes documents
-                        </DropdownItem>
-                        <DropdownItem>
-                                Statistique financière
-                        </DropdownItem>
-                        <DropdownItem divider />
-                        <NavLink exact to="/questions" >
-                        <DropdownItem>
-                                Questions les plus fréquentes
-                        </DropdownItem>
-                        </NavLink >
+                  </DropdownItem>
+                  </NavLink>
+                            <DropdownItem>
+                                statistique financiére
+                  </DropdownItem>
+                            <DropdownItem divider />
+                            <NavLink exact to="/questions" >
+                <DropdownItem>
+                         Questions les plus fréquentes
+                </DropdownItem>
+                            </NavLink>
                         </div>
                     </DropdownMenu>
                 </div>
