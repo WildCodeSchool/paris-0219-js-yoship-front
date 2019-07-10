@@ -68,12 +68,12 @@ class Profil extends React.Component {
               </Col>
 
               <Col xl="5" lg="5">
-                <CardTitle icon="user-plus" ><h4> {data.name} {data.firstname} (User ID:2323)</h4></CardTitle>
-                <CardText icon="user-plus" >Your phone : {data.phone}</CardText>
+                <CardTitle icon="user-plus" > <h4>    {data.name} {data.firstname} (User ID:2323)</h4></CardTitle>
+                <CardText icon="fab fa-twitter"  >Your phone : {data.phone}</CardText>
                 <CardText icon="user-plus" >Email Addres : {data.mail} </CardText>
                 <CardText icon="user-plus" >Status : </CardText>
                 
-                <Tab icon="map-marker-alt" tab="Tracking" />
+
 
 
               </Col>
