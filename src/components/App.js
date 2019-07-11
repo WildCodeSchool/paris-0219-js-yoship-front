@@ -15,7 +15,9 @@ import StepStatus from '../screen/Status'
 import Monprofil from '../screen/Profil';
 import MyCar from '../screen/MyCar'
 import Dashboard from '../screen/Dashboard'
+import About from '../screen/About'
 import Document from '../screen/Document'
+import QuestionsPage from '../screen/QuestionsPage';
 
 // Custom Router Components
 import PublicRoute from '../router/PublicRoute'
@@ -34,6 +36,8 @@ function App() {
           <PublicRoute path="/verification" component={StepVerification} />
           <PublicRoute path="/formation" component={StepFormation} />
           <PublicRoute path="/status" component={StepStatus} />
+          <PublicRoute path="/apropos" component={About} />
+          <PublicRoute path="/questions" component={QuestionsPage} />
           <PrivateRoute path="/mycar" permission="driver" component={MyCar} />
           <PrivateRoute path='/dashboard' permission="driver" component={Dashboard} />
           <PrivateRoute path='/profil' permission="driver" component={Monprofil} />
