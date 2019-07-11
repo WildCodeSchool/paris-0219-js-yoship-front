@@ -25,7 +25,7 @@ import PrivateRoute from '../router/PrivateRoute'
 function App() {
   return (
       <div>
-        {/* <Header /> */}
+        <Header />
         <Switch>
           <PublicRoute exact path="/" component={Home} />
           <PublicRoute path="/tracking" component={Tracking} />

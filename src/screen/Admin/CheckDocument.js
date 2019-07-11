@@ -6,6 +6,7 @@ import CheckboxList from '../../components/CheckBoxList/CheckBoxList'
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
+import Avatar from '@material-ui/core/Avatar';
 // List UI Components
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -15,7 +16,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 // Packages
 import axios from "axios";
-
+import './Admin.scss'
 // Components
 import Footer from "../../components/Footer/Footer";
 import DriverList from "../../components/DriverList/DriverList";
@@ -57,13 +58,6 @@ class CheckDocument extends Component {
                     docVerified: driver.docVerified 
                 }
             })
-            // dataDrivers.push({
-            //     firstname: driver.firstname, 
-            //     name: driver.name, 
-            //     mail: driver.mail, 
-            //     phone: driver.phone 
-            // })
-          console.log(this.state.dataContact)
         })
         .catch(error => {
           console.log(error);
@@ -88,15 +82,12 @@ class CheckDocument extends Component {
                 },
                 isLoading: false
             })
-            console.log(this.state.dataDocuments)
           }).catch(error => {
             console.log(error); 
           })
   }
 
   render() {
-      console.log(this.props.location.documentProps)
-      console.log(this.props)
       // General states
       const { isLoading } = this.state
       // Driver contact states
@@ -106,30 +97,23 @@ class CheckDocument extends Component {
 
       if (!isLoading) {
           return !docVerified ? (
-            <Card>
-              <CardHeader
-                title={firstname + " " + name}
-                subheader={mail + " " + phone}
-              />
-              <CardContent>
-                {/* <List>
-                  <ListItem button>
-                    <ListItemIcon>
-                      <i class="fas fa-cloud-download-alt"></i>
-                    </ListItemIcon>
-                    <ListItemText primary={identityCard} />
-                  </ListItem>
-                </List> */}
-                <CheckboxList dataDocuments={this.state.dataDocuments}/>
-                {/* <ul>
-                  <li>{identityCard}</li>
-                  <li>{driverLicense}</li>
-                  <li>{proofOfResidence}</li>
-                  <li>{rib}</li>
-                  <li>{nSiret}</li>
-                </ul> */}
-              </CardContent>
-            </Card>
+            <div className="docs-card-container">
+              <Card>
+                <CardHeader
+                avatar={
+                  <Avatar aria-label="Recipe">
+                    {firstname[0] + name[0]}
+                  </Avatar>
+                }
+                  title={firstname + " " + name}
+                  subheader={mail}
+                  className="docs-card-header"
+                />
+                <CardContent>
+                  <CheckboxList dataDocuments={this.state.dataDocuments}/>
+                </CardContent>
+              </Card>
+            </div>
           ) : (
             <Redirect to="admin" />
           );

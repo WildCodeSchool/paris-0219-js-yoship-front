@@ -12,6 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import CloudDownload from '@material-ui/icons/CloudDownload';
 import Pageview from '@material-ui/icons/Pageview';
 import Print from '@material-ui/icons/Print';
+import color from "@material-ui/core/colors/green";
 
 
 
@@ -119,18 +120,16 @@ class CheckBoxList extends React.Component {
             </ListItem>
             {checkboxes.map(item => (
                 <ListItem key={item.key} onClick={this.handleChange.bind(this)} button>
-                    {/* <DocCheckbox name={item.name} checked={this.state.checkedItems[item.name]} onChange={this.handleChange.bind(this)} /> */}
                     <Checkbox name={item.name} checked={this.state.checkedItems[item.name]} onChange={this.handleChange.bind(this)} value="checkedA" inputProps={{   'aria-label': 'primary checkbox', }} />
-                    {/* {item.name} */}
                     <ListItemText primary={item.name}/>
                     <ListItemSecondaryAction>
                         <IconButton edge="end" aria-label="Comments">
-                            <CloudDownload />
+                            <CloudDownload color="primary" />
                         </IconButton>
                         <IconButton edge="end" aria-label="Comments">
-                            <Pageview />
+                            <Pageview color="secondary" />
                         </IconButton>
-                        <IconButton edge="end" aria-label="Comments">
+                        <IconButton edge="end" aria-label="Comments" >
                             <Print />
                         </IconButton>
                     </ListItemSecondaryAction>
