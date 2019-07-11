@@ -13,7 +13,6 @@ const StepFormation = () => {
     )
 }
 
-
 export default StepFormation;
 
 

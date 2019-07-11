@@ -44,12 +44,11 @@ class Dropmenu extends Component {
                                 statistique financiére
                   </DropdownItem>
                             <DropdownItem divider />
-                            <DropdownItem>
-                                Questions les plus fréquentes
-                  </DropdownItem>
-                            <DropdownItem>
-                                A propos
-                  </DropdownItem>
+                            <NavLink exact to="/questions" >
+                <DropdownItem>
+                         Questions les plus fréquentes
+                </DropdownItem>
+                            </NavLink>
                         </div>
                     </DropdownMenu>
                 </div>
