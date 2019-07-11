@@ -14,7 +14,7 @@ import StepFormation from '../screen/Formation'
 import StepStatus from '../screen/Status'
 import Monprofil from '../screen/Profil';
 import MyCar from '../screen/MyCar'
-import Dashboard from '../screen/Dashboard'
+import HomeDashBoard from '../screen/HomeDashBoard'
 import About from '../screen/About'
 import Document from '../screen/Document'
 import QuestionsPage from '../screen/QuestionsPage';
@@ -39,7 +39,7 @@ function App() {
           <PublicRoute path="/apropos" component={About} />
           <PublicRoute path="/questions" component={QuestionsPage} />
           <PrivateRoute path="/mycar" permission="driver" component={MyCar} />
-          <PrivateRoute path='/dashboard' permission="driver" component={Dashboard} />
+          <PrivateRoute path='/dashboard' permission="driver" component={HomeDashBoard} />
           <PrivateRoute path='/profil' permission="driver" component={Monprofil} />
           <PrivateRoute path='/document' permission="driver" component={Document} />
         </Switch>
