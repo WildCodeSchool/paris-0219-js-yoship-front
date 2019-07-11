@@ -16,11 +16,13 @@ import Monprofil from '../screen/Profil';
 import MyCar from '../screen/MyCar'
 import HomeDashBoard from '../screen/HomeDashBoard'
 import Document from '../screen/Document'
+import myCarUpdate from '../screen/MyCarUpdate'
 
 // Custom Router Components
 import PublicRoute from '../router/PublicRoute'
 import PrivateRoute from '../router/PrivateRoute'
 import MesDocuments from './Mesdocuments/MesDocuments';
+import MyCarUpdate from '../screen/MyCarUpdate';
 
 function App() {
   return (
@@ -38,6 +40,7 @@ function App() {
           <PrivateRoute path='/dashboard' permission="driver" component={HomeDashBoard} />
           <PrivateRoute path='/profil' permission="driver" component={Monprofil} />
           <PrivateRoute path='/document' permission="driver" component={Document} />
+          <PrivateRoute path='/myCarUpdate' permission="driver" component={MyCarUpdate} />
         </Switch>
       </div>
   );

@@ -1,20 +1,22 @@
 import React from 'react';
 import { Col, Container, Card, CardImg, CardText, CardTitle, } from 'reactstrap';
-import ImageUpload from '../ImageUpload'
-import "./Profil.scss"
+import Button from '../Button/Button'
+import { Link } from 'react-router-dom';
+
+import "./MyCars.scss"
 import ReactFileReader from 'react-file-reader';
 import axios from 'axios'
-import Tab from '../../Header/Tab/Tab'
+
 
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import allTheActions from '../../../actions'
+import allTheActions from '../../actions'
 
-const config = require('../../../config/config')
+const config = require('../../config/config')
 
-class Profil extends React.Component {
+class MyCars extends React.Component {
 
   state = {
     loading: true,
@@ -45,7 +47,7 @@ class Profil extends React.Component {
 
   handleFiles = files => {
     console.log(files)
-  }
+   }
 
   render() {
     if (this.state.loading) {
@@ -69,12 +71,10 @@ class Profil extends React.Component {
 
               <Col xl="5" lg="5">
                 <CardTitle icon="user-plus" ><h4> {data.name} {data.firstname} (User ID:2323)</h4></CardTitle>
-                <CardText icon="user-plus" >Your phone : {data.phone}</CardText>
-                <CardText icon="user-plus" >Email Addres : {data.mail} </CardText>
+                <CardText icon="user-plus" >Your phone :{data.phone}</CardText>
+                <CardText icon="user-plus" >Email Addres :{data.mail}</CardText>
                 <CardText icon="user-plus" >Status : </CardText>
-                
-                <Tab icon="map-marker-alt" tab="Tracking" />
-
+         
 
               </Col>
 
@@ -85,36 +85,36 @@ class Profil extends React.Component {
 
 
               <Col xl="12" lg="12">
-                <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> Mes information</h4></CardTitle>
+                <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> Ma voiture</h4></CardTitle>
               </Col>
 
 
               <Col xl="4" lg="4">
-                <CardText icon="user-plus" >Role : {data.role} </CardText>
-                <CardText icon="user-plus">Pseudo : {data.pseudo}  </CardText>
-                <CardText icon="user-plus" >Password : {data.password}</CardText>
-                <CardText icon="user-plus" >date of birth : {data.dateOfBirth}{this.props.dateOfBirth} </CardText>
-
-
+                <CardText icon="user-plus" >Brand : {/* {data.brand} */}</CardText>
+                <CardText icon="user-plus" >Color :{/* {data.color}{this.props.dateOfBirth} */} </CardText>
+                <CardText icon="user-plus" >Description :{/* {data.description} */}</CardText>
+                <CardText icon="user-plus">Fuel: {/*{data.fuel} */}  </CardText>
 
               </Col>
 
 
 
               <Col xl="4" lg="4">
-                <CardText icon="user-plus" >Addres :{data.address} </CardText>
-                <CardText icon="user-plus" >Postcode : {data.postcode} </CardText>
-                <CardText icon="user-plus" >City :  {data.city} </CardText>
-                <CardText icon="user-plus" >Country :{data.country} </CardText>
+                <CardText icon="user-plus" >Horse power :{/* {data.horsepower} */}</CardText>
+                <CardText icon="user-plus" >kilometers : {/*{data.kilometers} */} </CardText>
+                <CardText icon="user-plus" >LicencePlate : {/* {data.license_plate} */}</CardText>
+                <CardText icon="user-plus" >modelYear : {/*{data.model_year} */}</CardText>
 
 
               </Col>
-
-              {/* <Col xl="12" lg="12">
-                <CardText icon="user-plus" >Description :</CardText>
-              </Col> */}
-
+        
             </div>
+
+            <Link to="/myCarUpdate" >
+            <div className="MyCarsButton">   
+         <Button text="Edite ton profil"/>
+         </div>
+         </Link>
           </Container>
         </section>
 
@@ -123,23 +123,4 @@ class Profil extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    lastName: state.formReducer.lastName,
-    firstName: state.formReducer.firstName,
-    phone: state.formReducer.phone,
-    email: state.formReducer.email,
-    dateOfBirth: state.formReducer.dateOfBirth,
-    address: state.formReducer.address,
-    postCode: state.formReducer.postCode,
-    city: state.formReducer.city,
-    country: state.formReducer.country
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Profil)
+export default MyCars;
