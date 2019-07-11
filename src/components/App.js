@@ -17,6 +17,9 @@ import MyCar from '../screen/MyCar'
 import Dashboard from '../screen/Dashboard'
 import AdminDashboard from '../screen/Admin/AdminDashboard'
 import CheckDocument from '../screen/Admin/CheckDocument'
+import About from '../screen/About'
+import Document from '../screen/Document'
+import QuestionsPage from '../screen/QuestionsPage';
 
 // Custom Router Components
 import PublicRoute from '../router/PublicRoute'
@@ -34,11 +37,14 @@ function App() {
           <PublicRoute path="/verification" component={StepVerification} />
           <PublicRoute path="/formation" component={StepFormation} />
           <PublicRoute path="/status" component={StepStatus} />
+          <PublicRoute path="/apropos" component={About} />
+          <PublicRoute path="/questions" component={QuestionsPage} />
+          <PublicRoute path="/document" component={Document} />
           <PrivateRoute path="/mycar" permission="driver" component={MyCar} />
           <PrivateRoute path='/dashboard' permission="driver" component={Dashboard} />
           <PrivateRoute path='/profil' permission="driver" component={Monprofil} />
           <PrivateRoute path='/admin' permission="admin" component={AdminDashboard} />
-          <PrivateRoute path='/document/:uuid' permission="admin" component={CheckDocument} />
+          <PrivateRoute path='/documents/:uuid' permission="admin" component={CheckDocument} />
         </Switch>
       </div>
   );
