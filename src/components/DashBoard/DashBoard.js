@@ -1,47 +1,10 @@
 import React from 'react';
+import { Card, Button, CardTitle, CardText, Col } from 'reactstrap';
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
-import { Container,} from 'reactstrap';
-
-
-const images = [
-  {
-    url: '/../../src/assets/images/yoship-logo.ico',
-    title: 'Mon profil',
-    width: '33%',
-  },
-  {
-    url: '/static/images/grid-list/burgers.jpg',
-    title: 'Ma voiture',
-    width: '33%',
-  },
-  {
-    url: '/static/images/grid-list/camera.jpg',
-    title: 'Mes documents',
-    width: '33%',
-  },
-
-  {
-    url: '/static/images/grid-list/camera.jpg',
-    title: 'Stastistique financiére',
-    width: '33%',
-  },
-  {
-    url: '/static/images/grid-list/camera.jpg',
-    title: 'Questions les plus frequentes',
-    width: '33%',
-  },
-  {
-    url: '/static/images/grid-list/camera.jpg',
-    title: 'A propos',
-    width: '33%',
-  },
-];
-
-
-
-
+import { Container, } from 'reactstrap';
+import "./DashBoard.scss";
 
 
 const useStyles = makeStyles(theme => ({
@@ -124,49 +87,80 @@ export default function ButtonBases() {
 
     <section id="project" className="project-section bg-light">
 
-<Container> 
-<div className="row align-items-center no-gutters mb-4 mb-lg-5">   
+      <Container>
+        <div className="row align-items-center mb-4 mb-lg-5">
+        <div className={classes.root}>
+          <Col xl="4" lg="4">
+            <div className="ColDashBoard">
+              <Card body inverse className="CardColDashBoard">
+                <CardTitle className={classes.image}>Mon profil</CardTitle>
+                <CardText ClassName={classes.focusVisible}>With supporting text below as a natural lead-in to additional content.</CardText>
+                <Button    className={classes.imageSrc}>See more</Button>
+              </Card>
+            </div>
+          </Col>
+          </div>
 
 
 
-    <div className={classes.root}>
+          <Col xl="4" lg="4">
+            <div className="ColDashBoard">
+              <Card body inverse className="CardColDashBoard">
+                <CardTitle>Ma voiture</CardTitle>
+                <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+                <Button className="button-login-submit">See more</Button>
+              </Card>
+            </div>
+          </Col>
+
+          <Col xl="4" lg="4">
+            <div className="ColDashBoard">
+              <Card body inverse className="CardColDashBoard">
+                <CardTitle>Mes documents</CardTitle>
+                <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+                <Button className="button-login-submit">See more</Button>
+              </Card>
+            </div>
+          </Col>
+
+          <Col xl="4" lg="4">
+            <div className="ColDashBoard">
+              <Card body inverse className="CardColDashBoard">
+                <CardTitle>Stastistique financiére</CardTitle>
+                <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+                <Button className="button-login-submit">See more</Button>
+              </Card>
+            </div>
+          </Col>
+
+          <Col xl="4" lg="4">
+            <div className="ColDashBoard">
+              <Card body inverse className="CardColDashBoard">
+                <CardTitle>Questions les plus fréquentes</CardTitle>
+                <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+                <Button className="button-login-submit">See more</Button>
+              </Card>
+            </div>
+          </Col>
+
+          <Col xl="4" lg="4">
+            <div className="ColDashBoard">
+              <Card body inverse className="CardColDashBoard">
+                <CardTitle>A propos</CardTitle>
+                <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+                <Button className="button-login-submit">See more</Button>
+              </Card>
+            </div>
+          </Col>
+
+        </div>
 
 
-      {images.map(image => (
+      </Container>
 
-        
-        <ButtonBase
-          focusRipple
-          key={image.title}
-          className={classes.image}
-          focusVisibleClassName={classes.focusVisible}
-          style={{
-            width: image.width,
-          }}
-        >
-          <span
-            className={classes.imageSrc}
-            style={{
-              backgroundImage: `url(${image.url})`,
-            }}
-          />
-          <span className={classes.imageBackdrop} />
-          <span className={classes.imageButton}>
-            <Typography
-              component="span"
-              variant="subtitle1"
-              color="inherit"
-              className={classes.imageTitle}
-            >
-              {image.title}
-              <span className={classes.imageMarked} />
-            </Typography>
-          </span>
-        </ButtonBase>
-      ))}
-    </div>
-    </div>
-    </Container>
+
+
+
     </section>
   );
 }
