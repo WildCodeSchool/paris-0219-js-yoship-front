@@ -7,11 +7,10 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import Avatar from '@material-ui/core/Avatar';
-// List UI Components
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+
+// Other UI Components
+import Button from '@material-ui/core/Button';
+
 // Icon Ui Components
 
 // Packages
@@ -98,7 +97,7 @@ class CheckDocument extends Component {
       if (!isLoading) {
           return !docVerified ? (
             <div className="docs-card-container">
-              <Card>
+              <Card className="docs-card">
                 <CardHeader
                 avatar={
                   <Avatar aria-label="Recipe">
@@ -109,8 +108,8 @@ class CheckDocument extends Component {
                   subheader={mail}
                   className="docs-card-header"
                 />
-                <CardContent>
-                  <CheckboxList dataDocuments={this.state.dataDocuments}/>
+                <CardContent className="docs-card-content">
+                  <CheckboxList dataDocuments={this.state.dataDocuments} uuid={this.props.match.params.uuid}/>
                 </CardContent>
               </Card>
             </div>

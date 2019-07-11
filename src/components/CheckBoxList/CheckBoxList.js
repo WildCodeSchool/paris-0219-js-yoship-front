@@ -1,4 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
+
+import { NavLink, Redirect } from "react-router-dom";
+
 import { makeStyles } from '@material-ui/core/styles';
 // Material UI List
 import List from '@material-ui/core/List';
@@ -12,12 +15,16 @@ import IconButton from '@material-ui/core/IconButton';
 import CloudDownload from '@material-ui/icons/CloudDownload';
 import Pageview from '@material-ui/icons/Pageview';
 import Print from '@material-ui/icons/Print';
-import color from "@material-ui/core/colors/green";
 
+// Other UI Components
+import Button from '@material-ui/core/Button';
 
+import axios from 'axios'
 
+// Import config
+const config = require("../../config/config");
 
-class CheckBoxList extends React.Component {
+class CheckBoxList extends Component {
     state = {
         checkedItems: {
             'identityCard': false,
@@ -26,7 +33,8 @@ class CheckBoxList extends React.Component {
             'rib': false,
             'nSiret': false
         },
-        allChecked: false
+        allChecked: false,
+        redirect: false
     }
       
   handleChange(e) {
@@ -37,31 +45,19 @@ class CheckBoxList extends React.Component {
 
     let updatedItems = Object.assign({}, this.state.checkedItems, {[item]: isChecked})
     
-    // Find the checkbox input when you click on the whole card
-    if (e.currentTarget.querySelector("input") !== null) {
-        item = e.currentTarget.querySelector("input").name;
-        isChecked = e.currentTarget.querySelector("input").checked;
-        // Change state
-        this.setState(prevState => ({
-            checkedItems: {
-                [item]: !this.state.checkedItems[item]
-            }
-          }));
-    } else {
-        // Change state
+    // Change state
+    this.setState({
+        checkedItems: updatedItems
+    });
+    const checked = (index) => { return document.querySelectorAll("input")[index].checked }
+    if ((checked(1) && checked(2) && checked(3) && checked(4) && checked(5)) === true) {
         this.setState({
-          checkedItems: updatedItems
+        allChecked: true
         });
-        const checked = (index) => { return document.querySelectorAll("input")[index].checked }
-        if ((checked(1) && checked(2) && checked(3) && checked(4) && checked(5)) === true) {
-          this.setState({
-            allChecked: true
-          });
-        } else {
-          this.setState({
-            allChecked: false
-          });
-        }
+    } else {
+        this.setState({
+        allChecked: false
+        });
     }
   }
 
@@ -78,13 +74,35 @@ class CheckBoxList extends React.Component {
       }));
   }
 
-  onSubmit() {
-      
+  postVerified = () => {
+    const token = localStorage.getItem('token');
+    const uuid = String(this.props.uuid); 
+    console.log(uuid)
+    axios({
+        method: "Put",
+        url: `http://localhost:${config.port}/users/${uuid}`,
+        headers: {
+          "x-access-token": `${token}`
+        },
+        data: {
+            docVerified: 1
+        }
+      })
+        .then(res => {
+            console.log(res)
+            this.setState({
+               redirect: true
+            })
+        })
+        .catch(error => {
+          console.log(error);
+        });
   }
 
   //   console.log(documentsKeys[])
   render() {
     const { identityCard, driverLicense, proofOfResidence, rib, nSiret } = this.props.dataDocuments
+    const { redirect } = this.state
 
     const checkboxes = [
         {
@@ -113,31 +131,65 @@ class CheckBoxList extends React.Component {
             value: nSiret
         }
       ];
-      return (
-        <List>
-            <ListItem>
-                <Checkbox checked={this.state.allChecked} onChange={this.checkAllItems.bind(this)} inputProps={{'aria-label': 'primary checkbox'}} />
-            </ListItem>
-            {checkboxes.map(item => (
-                <ListItem key={item.key} onClick={this.handleChange.bind(this)} button>
-                    <Checkbox name={item.name} checked={this.state.checkedItems[item.name]} onChange={this.handleChange.bind(this)} value="checkedA" inputProps={{   'aria-label': 'primary checkbox', }} />
-                    <ListItemText primary={item.name}/>
-                    <ListItemSecondaryAction>
-                        <IconButton edge="end" aria-label="Comments">
-                            <CloudDownload color="primary" />
-                        </IconButton>
-                        <IconButton edge="end" aria-label="Comments">
-                            <Pageview color="secondary" />
-                        </IconButton>
-                        <IconButton edge="end" aria-label="Comments" >
-                            <Print />
-                        </IconButton>
-                    </ListItemSecondaryAction>
+      if (!redirect) {
+          return (
+            <>
+              <List>
+                <ListItem>
+                  <Checkbox
+                    checked={this.state.allChecked}
+                    onChange={this.checkAllItems.bind(this)}
+                    inputProps={{ "aria-label": "primary checkbox" }}
+                  />
                 </ListItem>
-                ))
-            }
-        </List>
-      );
+                {checkboxes.map(item => (
+                  <ListItem
+                    key={item.key}
+                    onClick={this.handleChange.bind(this)}
+                    button
+                  >
+                    <Checkbox
+                      name={item.name}
+                      checked={this.state.checkedItems[item.name]}
+                      onChange={this.handleChange.bind(this)}
+                      value="checkedA"
+                      inputProps={{ "aria-label": "primary checkbox" }}
+                    />
+                    <ListItemText primary={item.name} />
+                    <ListItemSecondaryAction>
+                      <IconButton edge="end" aria-label="Comments">
+                        <CloudDownload color="primary" />
+                      </IconButton>
+                      <IconButton edge="end" aria-label="Comments">
+                        <Pageview color="secondary" />
+                      </IconButton>
+                      <IconButton edge="end" aria-label="Comments">
+                        <Print />
+                      </IconButton>
+                    </ListItemSecondaryAction>
+                  </ListItem>
+                ))}
+              </List>
+              <Button
+                className="docs-button"
+                variant="contained"
+                color="primary"
+                fullWidth={true}
+                disabled={!this.state.allChecked}
+                style={
+                    {
+                        backgroundColor: this.state.allChecked ? "green" : "lightgrey"
+                    }
+                }
+                onClick={this.postVerified}
+              >
+                Validate
+              </Button>
+            </>
+          );
+      } else {
+          return <Redirect to="/admin" />
+      }
 
   }
 }

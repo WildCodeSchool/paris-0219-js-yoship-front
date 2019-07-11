@@ -119,7 +119,7 @@ class DriverList extends Component {
             components={{
               Action: props => (
                 console.log(props),
-                <NavLink to={{pathname: `/document/${props.data.uuid}`}}>
+                <NavLink to={{pathname: `/documents/${props.data.uuid}`}}>
                   <CheckButton status={props.data.allUploaded} onClick={((event) => props.action.onClick(event, props.data))}>check</CheckButton>
                 </NavLink>
               ),
