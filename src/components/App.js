@@ -16,6 +16,7 @@ import Monprofil from '../screen/Profil';
 import MyCar from '../screen/MyCar'
 import Dashboard from '../screen/Dashboard'
 import Document from '../screen/Document'
+import ProfilUpdate from '../screen/ProfilUpdate'
 
 // Custom Router Components
 import PublicRoute from '../router/PublicRoute'
@@ -38,6 +39,10 @@ function App() {
           <PrivateRoute path='/dashboard' permission="driver" component={Dashboard} />
           <PrivateRoute path='/profil' permission="driver" component={Monprofil} />
           <PrivateRoute path='/document' permission="driver" component={Document} />
+          <PrivateRoute path='/profilUpdate' permission="driver" component={ProfilUpdate} />
+
+          
+          
         </Switch>
       </div>
   );

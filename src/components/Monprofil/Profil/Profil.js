@@ -1,8 +1,9 @@
 import React from 'react';
-import { Col, Container, Card, CardImg, CardText, CardTitle, } from 'reactstrap';
+import { Col, Container, Card, CardImg, CardText, CardTitle } from 'reactstrap';
 import ImageUpload from '../ImageUpload'
 import "./Profil.scss"
 import ReactFileReader from 'react-file-reader';
+import { Link } from 'react-router-dom';
 import axios from 'axios'
 import Tab from '../../Header/Tab/Tab'
 
@@ -11,6 +12,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import allTheActions from '../../../actions'
+import Button from '../../Button/Button';
 
 const config = require('../../../config/config')
 
@@ -68,22 +70,15 @@ class Profil extends React.Component {
               </Col>
 
               <Col xl="5" lg="5">
-                <CardTitle icon="user-plus" ><h4> {data.name} {data.firstname} (User ID:2323)</h4></CardTitle>
+                <CardTitle icon="user-plus" ><h4> {data.name} {data.firstname}</h4></CardTitle>
                 <CardText icon="user-plus" >Your phone : {data.phone}</CardText>
                 <CardText icon="user-plus" >Email Addres : {data.mail} </CardText>
                 <CardText icon="user-plus" >Status : </CardText>
                 
                 <Tab icon="map-marker-alt" tab="Tracking" />
-
-
               </Col>
-
-
-
             </div>
             <div className="row align-items-center no-gutters mb-4 mb-lg-5">
-
-
               <Col xl="12" lg="12">
                 <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> Mes information</h4></CardTitle>
               </Col>
@@ -115,6 +110,14 @@ class Profil extends React.Component {
               </Col>
 
             </div>
+
+          <Link to="/ProfilUpdate" >
+          <Button text="Edite ton profil"/> 
+          </Link> 
+
+
+
+
           </Container>
         </section>
 
@@ -123,23 +126,5 @@ class Profil extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    lastName: state.formReducer.lastName,
-    firstName: state.formReducer.firstName,
-    phone: state.formReducer.phone,
-    email: state.formReducer.email,
-    dateOfBirth: state.formReducer.dateOfBirth,
-    address: state.formReducer.address,
-    postCode: state.formReducer.postCode,
-    city: state.formReducer.city,
-    country: state.formReducer.country
-  }
-}
 
-const mapDispatchToProps = dispatch => {
-  return {
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Profil)
+export default Profil
