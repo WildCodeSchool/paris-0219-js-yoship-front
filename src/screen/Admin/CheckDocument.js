@@ -1,6 +1,17 @@
 import React, { Component } from "react";
 import { NavLink, Redirect } from "react-router-dom";
+import CheckboxList from '../../components/CheckBoxList/CheckBoxList'
+
+// Card UI Components
 import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
+// List UI Components
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+// Icon Ui Components
 
 // Packages
 import axios from "axios";
@@ -94,11 +105,34 @@ class CheckDocument extends Component {
       const { identityCard, driverLicense, proofOfResidence, rib, nSiret } = this.state.dataDocuments;
 
       if (!isLoading) {
-          return (!docVerified ?
-            (<Card><p>{firstname + " " + name}</p></Card>)
-            :
-            (<Redirect to="admin"></Redirect>)
-          )
+          return !docVerified ? (
+            <Card>
+              <CardHeader
+                title={firstname + " " + name}
+                subheader={mail + " " + phone}
+              />
+              <CardContent>
+                {/* <List>
+                  <ListItem button>
+                    <ListItemIcon>
+                      <i class="fas fa-cloud-download-alt"></i>
+                    </ListItemIcon>
+                    <ListItemText primary={identityCard} />
+                  </ListItem>
+                </List> */}
+                <CheckboxList dataDocuments={this.state.dataDocuments}/>
+                {/* <ul>
+                  <li>{identityCard}</li>
+                  <li>{driverLicense}</li>
+                  <li>{proofOfResidence}</li>
+                  <li>{rib}</li>
+                  <li>{nSiret}</li>
+                </ul> */}
+              </CardContent>
+            </Card>
+          ) : (
+            <Redirect to="admin" />
+          );
       } else {
           return <p>Loading...</p>
       }
