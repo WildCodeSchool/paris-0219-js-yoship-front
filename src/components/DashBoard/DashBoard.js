@@ -9,6 +9,8 @@ import "./DashBoard.scss";
 
 const useStyles = makeStyles(theme => ({
   root: {
+    justifyContent:'center',
+   
     display: 'flex',
     flexWrap: 'wrap',
     minWidth: 300,
@@ -102,7 +104,7 @@ export default function ButtonBases() {
           </div>
 
 
-
+{/* 
           <Col xl="4" lg="4">
             <div className="ColDashBoard">
               <Card body inverse className="CardColDashBoard">
@@ -151,7 +153,7 @@ export default function ButtonBases() {
                 <Button className="button-login-submit">See more</Button>
               </Card>
             </div>
-          </Col>
+          </Col> */}
 
         </div>
 
