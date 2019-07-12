@@ -8,9 +8,6 @@ import { NavLink, Redirect } from "react-router-dom";
 import CheckButton from './CheckButton/CheckButton'
 
 import './DriverList.scss'
-import { faThumbsDown } from "@fortawesome/free-solid-svg-icons";
-import { promised } from "q";
-import { removePropertiesDeep } from "@babel/types";
 
 // Import config
 const config = require("../../config/config");
