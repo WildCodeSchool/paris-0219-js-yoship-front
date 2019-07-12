@@ -52,6 +52,7 @@ class Header extends Component {
     const linkClass = this.state.background && this.state.isTop ? "header_link" : "header_link_black"
 
     const linkStatus = this.state.background && this.state.isTop ? "header_link_gold" : "header_link_black"
+    
     console.log(this.props.pathname)
     return (
       <header className={headerClass}>

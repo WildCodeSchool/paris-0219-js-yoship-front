@@ -9,7 +9,6 @@ class Document extends Component {
     return (
       <div>
         <Header pathname={this.props.location.pathname} />
-
         <MesDocuments />
         <Footer />
       </div>
