@@ -31,13 +31,28 @@ class Header extends Component {
     this.setState({ background: true })
   }
 
+  isPublic = (location) => {
+    switch(location) {
+      case "/mycar":
+        return false
+      case "/dashboard":
+        return false
+      case "/profil":
+        return false
+      case "/document":
+        return false
+      default:
+        return true
+    }
+  }
+
   render() {
     const headerClass = this.state.background && this.state.isTop ? "header_header" : "header_header_white"
 
     const linkClass = this.state.background && this.state.isTop ? "header_link" : "header_link_black"
 
     const linkStatus = this.state.background && this.state.isTop ? "header_link_gold" : "header_link_black"
-
+    console.log(this.props.pathname)
     return (
       <header className={headerClass}>
         <div className="burger-btn"><ResponsiveNavbar /></div>
@@ -46,21 +61,25 @@ class Header extends Component {
         </NavLink>
 
         <div className="header_link_div">
-          <NavLink to="/tracking" activeClassName="selected" className={linkClass} onClick={this.whiteBackground}>
-            <Tab icon="map-marker-alt" tab="Tracking" />
-          </NavLink>
+          {this.isPublic(this.props.pathname) ? (
+              <>
+                <NavLink to="/tracking" activeClassName="selected" className={linkClass} onClick={this.whiteBackground}>
+                  <Tab icon="map-marker-alt" tab="Tracking" />
+                </NavLink>
 
-          <NavLink to="/login" activeClassName="selected" className={linkClass} onClick={this.whiteBackground}>
-            <Tab icon="user-tie" tab="Login" />
-          </NavLink>
+                <NavLink to="/login" activeClassName="selected" className={linkClass} onClick={this.whiteBackground}>
+                  <Tab icon="user-tie" tab="Login" />
+                </NavLink>
 
-          <NavLink to="/status" activeClassName="selected" className={linkStatus} onClick={this.whiteBackground}>
-            <Tab icon="user-plus" tab="Register" />
-          </NavLink> 
-          <NavLink exact to="/apropos" className={linkClass} onClick={this.whiteBackground}>
-          <Tab icon="fas fa-info-circle" tab="A propos" />
-          </NavLink>
-          <DropToggleItem />
+                <NavLink to="/status" activeClassName="selected" className={linkStatus} onClick={this.whiteBackground}>
+                  <Tab icon="user-plus" tab="Register" />
+                </NavLink> 
+                <NavLink exact to="/apropos" className={linkClass} onClick={this.whiteBackground}>
+                <Tab icon="fas fa-info-circle" tab="A propos" />
+                </NavLink>
+              </>
+            ) : (<DropToggleItem />)          
+          }
           
         </div>
       </header>
