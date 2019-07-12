@@ -1,17 +1,16 @@
 import React from "react";
 import FormCar from '../components/MyCar/FormCar';
 import Footer from '../components/Footer/Footer'
-import MyCars from "../components/MyCar/MyCars";
 
 
-const MyCar = () => {
+const MyCarUpdate = () => {
 
     return (
         <div>
-            <MyCars />
+            <FormCar />
             <Footer />
         </div>
     )
 }
 
-export default MyCar;
+export default MyCarUpdate;

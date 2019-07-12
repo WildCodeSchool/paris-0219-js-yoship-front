@@ -57,8 +57,8 @@ class Header extends Component {
           <NavLink to="/status" activeClassName="selected" className={linkStatus} onClick={this.whiteBackground}>
             <Tab icon="user-plus" tab="Register" />
           </NavLink> 
-          <NavLink exact to="/apropos" className={linkClass} onClick={this.whiteBackground}>
-          <Tab icon="fas fa-info-circle" tab="A propos" />
+          <NavLink exact to="/apropos"  activeClassName="selected" className={linkClass} onClick={this.whiteBackground}>
+          <Tab icon="info-circle" tab="A propos" />
           </NavLink>
           <DropToggleItem />
           
