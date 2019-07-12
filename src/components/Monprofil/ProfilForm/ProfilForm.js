@@ -22,7 +22,7 @@ class FormProfil extends Component {
     email: '',
 
     dateOfBirth: '',
- 
+
     address: '',
 
     postCode: '',
@@ -31,7 +31,7 @@ class FormProfil extends Component {
 
     country: '',
   }
-  
+
   changeHandler = (e) => {
     this.setState({ [e.target.name]: e.target.value })
 
@@ -51,133 +51,133 @@ class FormProfil extends Component {
         <Container>
           <div className="row align-items-center no-gutters mb-4 mb-lg-4">
 
-           
-              <Col xl="4" lg="4">
-                <fieldset>
 
-                  <label htmlFor="name">Nom :</label>
+            <Col xl="4" lg="4">
+              <fieldset>
 
-                  <input
-                    type="text"
-                    name="lastName"
-                    onChange={this.changeHandler}
-                    value={this.state.lastName}
-                  />
-                </fieldset>
-              </Col>
+                <label htmlFor="name">Nom :</label>
 
-              <Col xl="4" lg="4">
+                <input
+                  type="text"
+                  name="lastName"
+                  onChange={this.changeHandler}
+                  value={this.state.lastName}
+                />
+              </fieldset>
+            </Col>
+
+            <Col xl="4" lg="4">
               <fieldset>
                 <label htmlFor="name">Prénom :</label>
-               
-                  <input
-                    type="text"
-                    name="firstName"
-                    onChange={this.changeHandler}
-                    value={this.state.firstName}
-                  />
-                
-                </fieldset>
-                </Col>
-                <Col xl="4" lg="4">  
-                <fieldset> 
-                
-                  <label htmlFor="name">phone :</label>
-                  <input
-                    type="text"
-                    name="phone"
-                    onChange={this.changeHandler}
-                    value={this.state.phone}
-                  />
-                
-                </fieldset>
-                </Col>
 
-                
-                <Col xl="4" lg="4">
-                <fieldset> 
-                  <label htmlFor="name">Email Address :</label>
+                <input
+                  type="text"
+                  name="firstName"
+                  onChange={this.changeHandler}
+                  value={this.state.firstName}
+                />
 
-                  <input
-                    type="text"
-                    name="email"
-                    onChange={this.changeHandler}
-                    value={this.state.email}
-                  />
-                   </fieldset>
-                </Col>
+              </fieldset>
+            </Col>
+            <Col xl="4" lg="4">
+              <fieldset>
 
-                <Col xl="4" lg="4">
-                <fieldset> 
-                  <label htmlFor="name">Date of birth :</label>
+                <label htmlFor="name">phone :</label>
+                <input
+                  type="text"
+                  name="phone"
+                  onChange={this.changeHandler}
+                  value={this.state.phone}
+                />
 
-                  <input
-                    type="text"
-                    name="dateOfBirth"
-                    onChange={this.changeHandler}
-                    value={this.state.dateOfBirth}
-                  />
-                   </fieldset>
-                </Col>
-                <Col xl="4" lg="4">
-                <fieldset> 
-                  <label htmlFor="name">Address :</label>
+              </fieldset>
+            </Col>
 
-                  <input
-                    type="text"
-                    name="address"
-                    onChange={this.changeHandler}
-                    value={this.state.address}
-                  />
-                   </fieldset>
-                </Col>
 
-                <Col xl="4" lg="4">
-                <fieldset> 
-                  <label htmlFor="name">Postcode :</label>
+            <Col xl="4" lg="4">
+              <fieldset>
+                <label htmlFor="name">Email Address :</label>
 
-                  <input
-                    type="text"
-                    name="postCode"
-                    onChange={this.changeHandler}
-                    value={this.state.postCode}
-                  />
-                   </fieldset>
-                </Col>
+                <input
+                  type="text"
+                  name="email"
+                  onChange={this.changeHandler}
+                  value={this.state.email}
+                />
+              </fieldset>
+            </Col>
 
-                <Col xl="4" lg="4">
-                <fieldset> 
-                  <label htmlFor="name">City :</label>
+            <Col xl="4" lg="4">
+              <fieldset>
+                <label htmlFor="name">Date of birth :</label>
 
-                  <input
-                    type="text"
-                    name="city"
-                    onChange={this.changeHandler}
-                    value={this.state.city}
-                  />
-                   </fieldset>
-                </Col>
-                <Col xl="4" lg="4">
-                <fieldset> 
-                  <label htmlFor="name">Country :</label>
+                <input
+                  type="text"
+                  name="dateOfBirth"
+                  onChange={this.changeHandler}
+                  value={this.state.dateOfBirth}
+                />
+              </fieldset>
+            </Col>
+            <Col xl="4" lg="4">
+              <fieldset>
+                <label htmlFor="name">Address :</label>
 
-                  <input
-                    type="text"
-                    name="country"
-                    onChange={this.changeHandler}
-                    value={this.state.country}
-                  />
-                   </fieldset>
-                </Col>
-                </div>
+                <input
+                  type="text"
+                  name="address"
+                  onChange={this.changeHandler}
+                  value={this.state.address}
+                />
+              </fieldset>
+            </Col>
+
+            <Col xl="4" lg="4">
+              <fieldset>
+                <label htmlFor="name">Postcode :</label>
+
+                <input
+                  type="text"
+                  name="postCode"
+                  onChange={this.changeHandler}
+                  value={this.state.postCode}
+                />
+              </fieldset>
+            </Col>
+
+            <Col xl="4" lg="4">
+              <fieldset>
+                <label htmlFor="name">City :</label>
+
+                <input
+                  type="text"
+                  name="city"
+                  onChange={this.changeHandler}
+                  value={this.state.city}
+                />
+              </fieldset>
+            </Col>
+            <Col xl="4" lg="4">
+              <fieldset>
+                <label htmlFor="name">Country :</label>
+
+                <input
+                  type="text"
+                  name="country"
+                  onChange={this.changeHandler}
+                  value={this.state.country}
+                />
+              </fieldset>
+            </Col>
+          </div>
         </Container>
-                <hr />
+        <hr />
 
-              
-            
-            <button onClick={() => this.props.formAction.form(this.state)}>Register</button>
 
-      
+
+        <button onClick={() => this.props.formAction.form(this.state)}>Register</button>
+
+
 
       </section>
 

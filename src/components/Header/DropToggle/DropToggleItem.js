@@ -35,6 +35,7 @@ class Dropmenu extends Component {
                                 Ma voiture
                             </DropdownItem>
                         </NavLink>
+                      
                         <NavLink to="/Document">  
                             <DropdownItem >
                                 Mes documents
@@ -49,6 +50,12 @@ class Dropmenu extends Component {
                          Questions les plus fréquentes
                 </DropdownItem>
                             </NavLink>
+                            <NavLink to="/">
+                            <DropdownItem  
+                            onClick={() => this.props}>
+                                Log out
+                            </DropdownItem>
+                        </NavLink>
                         </div>
                     </DropdownMenu>
                 </div>

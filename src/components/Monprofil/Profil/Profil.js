@@ -3,6 +3,7 @@ import { Col, Container, Card, CardImg, CardText, CardTitle, } from 'reactstrap'
 import ImageUpload from '../ImageUpload'
 import "./Profil.scss"
 import ReactFileReader from 'react-file-reader';
+import ImageUploader from 'react-images-upload';
 import axios from 'axios'
 import Tab from '../../Header/Tab/Tab'
 
@@ -15,10 +16,25 @@ import allTheActions from '../../../actions'
 const config = require('../../../config/config')
 
 class Profil extends React.Component {
+ 
+
+
 
   state = {
     loading: true,
+    pictures: [],
+   
   }
+
+
+  onDrop = (picture) => {
+    this.setState({
+        pictures: this.state.pictures.concat(picture),
+    });
+}
+
+
+
 
   getData = () => {
     const token = localStorage.getItem("token")
@@ -59,6 +75,13 @@ class Profil extends React.Component {
 
               <Col xl="2" lg="2">
                 <Card>
+                {/* <ImageUploader
+                withIcon={true}
+                buttonText='Choose images'
+                onChange={this.onDrop}
+                imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                maxFileSize={5242880}
+            /> */}
                   <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
 
                   <ReactFileReader handleFiles={this.handleFiles}>
@@ -71,11 +94,7 @@ class Profil extends React.Component {
                 <CardTitle icon="user-plus" ><h4> {data.name} {data.firstname} (User ID:2323)</h4></CardTitle>
                 <CardText icon="user-plus" >Your phone : {data.phone}</CardText>
                 <CardText icon="user-plus" >Email Addres : {data.mail} </CardText>
-                <CardText icon="user-plus" >Status : </CardText>
-                
-                <Tab icon="map-marker-alt" tab="Tracking" />
-
-
+                <CardText icon="user-plus" >Status : check </CardText>
               </Col>
 
 

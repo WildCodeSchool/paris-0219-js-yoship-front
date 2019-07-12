@@ -238,11 +238,11 @@ class Register extends React.Component {
 
                             </div>
 
-                            <div>
+                            {/* <div>
                                 <div className="barprogress">Etapes 1 sur 3</div>
                                 <Progress animated value="33.333" />
                                 <div className="barprogress">Début du processus</div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
 
