@@ -60,10 +60,12 @@ class Header extends Component {
         <div className="header_link_div">
           {this.isPublic(this.props.pathname) ? (
               <> 
+                <NavLink exact to="/apropos" activeClassName="selected" className={linkClass} >
+                <Tab icon="info-circle" tab="About" />
+                </NavLink>
                 <NavLink to="/tracking" activeClassName="selected" className={linkClass} >
                   <Tab icon="map-marker-alt" tab="Tracking" />
                 </NavLink>
-
                 <NavLink to="/login" activeClassName="selected" className={linkClass} >
                   <Tab icon="user-tie" tab="Login" />
                 </NavLink>
@@ -71,9 +73,6 @@ class Header extends Component {
                 <NavLink to="/status" activeClassName="selected" className={linkStatus} >
                   <Tab icon="user-plus" tab="Register" />
                 </NavLink> 
-                <NavLink exact to="/apropos" className={linkClass} >
-                <Tab icon="fas fa-info-circle" tab="A propos" />
-                </NavLink>
               </>
           ) : (<DropToggleItem />) 
           }

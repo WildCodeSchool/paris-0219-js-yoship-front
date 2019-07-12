@@ -88,7 +88,7 @@ class Login extends React.Component {
                                 </p>
                                 <p>
                                     <label className="label-password-login" htmlFor="password">Password</label><br />
-                                    <Input id="password" className="input-password-login" name="Password" type="text" placeholder="Enter your password" />
+                                    <Input id="password" className="input-password-login" name="Password" type="password" placeholder="Enter your password" />
                                 </p>
                                 <div className="checkbox">
                                     <label> <Input type="checkbox"></Input> Check me out</label>
