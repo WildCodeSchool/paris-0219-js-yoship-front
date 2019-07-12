@@ -14,7 +14,7 @@ class Home extends Component {
         console.log(this.props.location)
         return ( 
             <div>
-            <Header pathname={this.props.location.pathname}/>
+            <Header pathname={this.props.location.pathname} background={true}/>
             <PageHeader />
             <ProjectSection />
             <TrackingSection />
