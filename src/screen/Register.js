@@ -1,6 +1,7 @@
 import React from "react";
 import Register from '../components/RegisterForm/Register/Register'
 import Footer from '../components/Footer/Footer'
+import MyCars from "../components/MyCar/MyCars";
 
 
 const Register1 = () => {

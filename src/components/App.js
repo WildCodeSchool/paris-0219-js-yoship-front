@@ -15,12 +15,16 @@ import StepStatus from '../screen/Status'
 import Monprofil from '../screen/Profil';
 import MyCar from '../screen/MyCar'
 import HomeDashBoard from '../screen/HomeDashBoard'
+import About from '../screen/About'
 import Document from '../screen/Document'
+import MyCarUpdate from '../screen/MyCarUpdate'
+import QuestionsPage from '../screen/QuestionsPage';
 
 // Custom Router Components
 import PublicRoute from '../router/PublicRoute'
 import PrivateRoute from '../router/PrivateRoute'
 import MesDocuments from './Mesdocuments/MesDocuments';
+
 
 function App() {
   return (
@@ -34,10 +38,13 @@ function App() {
           <PublicRoute path="/verification" component={StepVerification} />
           <PublicRoute path="/formation" component={StepFormation} />
           <PublicRoute path="/status" component={StepStatus} />
+          <PublicRoute path="/apropos" component={About} />
+          <PublicRoute path="/questions" component={QuestionsPage} />
           <PrivateRoute path="/mycar" permission="driver" component={MyCar} />
           <PrivateRoute path='/dashboard' permission="driver" component={HomeDashBoard} />
           <PrivateRoute path='/profil' permission="driver" component={Monprofil} />
           <PrivateRoute path='/document' permission="driver" component={Document} />
+          <PrivateRoute path='/myCarUpdate' permission="driver" component={MyCarUpdate} />
         </Switch>
       </div>
   );

@@ -88,12 +88,6 @@ class Mesdocuments extends React.Component {
               </Col>
 
 
-             
-
-
-
-
-
               <Col xl="4" lg="4">
 
                 <CardText icon="user-plus">
