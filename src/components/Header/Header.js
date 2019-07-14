@@ -60,7 +60,12 @@ class Header extends Component {
           <NavLink exact to="/apropos"  activeClassName="selected" className={linkClass} onClick={this.whiteBackground}>
           <Tab icon="info-circle" tab="A propos" />
           </NavLink>
-          <DropToggleItem />
+          <NavLink exact to="/questions"  activeClassName="selected" className={linkClass} onClick={this.whiteBackground}>
+          <Tab icon="question-circle" tab="FAQ" />
+          </NavLink>
+
+
+  
           
         </div>
       </header>

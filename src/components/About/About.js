@@ -69,7 +69,9 @@ class About extends React.Component{
                     
                     </Container>
                     <div className="buttonabout"> 
+                    <NavLink to="/register">    
                     <Button  text="Inscrit toi"/>
+                    </NavLink>
                     </div>
                 </section>
         )
@@ -77,3 +79,4 @@ class About extends React.Component{
     }
 
 export default About;
+
