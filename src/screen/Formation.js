@@ -1,19 +1,19 @@
-import React from "react";
-import Formation from '../components/Login/StepFormation/Formation'
-import Footer from '../components/Footer/Footer'
+import React, { Component } from "react";
+import Header from "../components/Header/Header";
+import Formation from "../components/Login/StepFormation/Formation";
+import Footer from "../components/Footer/Footer";
 
-
-const StepFormation = () => {
-
+class StepFormation extends Component {
+  state = {};
+  render() {
     return (
-        <div>
-            <Formation />
-            <Footer />
-        </div>
-    )
+      <div>
+        <Header pathname={this.props.location.pathname} />
+        <Formation />
+        <Footer />
+      </div>
+    );
+  }
 }
 
-
 export default StepFormation;
-
-

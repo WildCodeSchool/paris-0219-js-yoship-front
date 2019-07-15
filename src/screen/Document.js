@@ -1,19 +1,19 @@
 import React, { Component } from "react";
-import Register from "../components/RegisterForm/Register/Register";
-import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
+import MesDocuments from "../components/Mesdocuments/MesDocuments";
 
-class Register1 extends Component {
+class Document extends Component {
   state = {};
   render() {
     return (
       <div>
         <Header pathname={this.props.location.pathname} />
-        <Register />
+        <MesDocuments />
         <Footer />
       </div>
     );
   }
 }
 
-export default Register1;
+export default Document;

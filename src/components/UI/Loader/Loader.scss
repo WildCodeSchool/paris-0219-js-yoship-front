@@ -7,6 +7,16 @@
     width: 100%;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 999999;
+    background: #FFF;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 2s linear;
   }
   
   .sk-folding-cube {
