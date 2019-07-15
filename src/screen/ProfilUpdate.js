@@ -1,5 +1,5 @@
 import React from "react";
-import ProfilUpdate from '../components/Monprofil/Profil/ProfilUpdate'
+import ProfilUpdate from '../components/Monprofil/ProfilEdit/ProfilUpdate'
 import Footer from '../components/Footer/Footer'
 
 

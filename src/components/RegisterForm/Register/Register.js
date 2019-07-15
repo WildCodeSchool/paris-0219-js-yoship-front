@@ -110,7 +110,7 @@ class Register extends React.Component {
                             <Col xl="5" lg="5">
 
                                 <Field
-                                    required label="dateOfBirth" name="dateOfBirth" placeholder="dateOfBirth"
+                                    required label="dateOfBirth" name="dateOfBirth" placeholder="aaaa/mm/jj"
                                     onChange={this.handleChange}
                                     value={this.state.data.dateOfBirth}
                                     shouldValidateInputs={this.state.shouldValidateInputs} />

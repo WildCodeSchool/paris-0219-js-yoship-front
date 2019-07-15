@@ -22,22 +22,18 @@ class Profil extends React.Component {
     loading: true,
   }
 
-  getData = () => {
+  getData = async () => {
     const token = localStorage.getItem("token")
     const uuid = localStorage.getItem("uuid")
-    axios({
+    let res = await axios({
       method: 'Get',
       url: `http://localhost:${config.port}/users/${uuid}`,
       headers: {
         'x-access-token': `${token}`
       }
     })
-      .then(res => {
-        const result = res.data
-        this.setState({ result, loading: false })
-        console.log("getData", this.state)
-      })
-
+    let result = res.data
+    this.setState({ result, loading: false })
   }
 
   componentDidMount = () => {
@@ -49,7 +45,7 @@ class Profil extends React.Component {
     console.log(files)
   }
 
-  render() {
+  render () {
     if (this.state.loading) {
       return (<div>loading</div>)
     } else {
@@ -74,7 +70,7 @@ class Profil extends React.Component {
                 <CardText icon="user-plus" >Your phone : {data.phone}</CardText>
                 <CardText icon="user-plus" >Email Addres : {data.mail} </CardText>
                 <CardText icon="user-plus" >Status : </CardText>
-                
+
                 <Tab icon="map-marker-alt" tab="Tracking" />
               </Col>
             </div>
@@ -111,9 +107,9 @@ class Profil extends React.Component {
 
             </div>
 
-          <Link to="/ProfilUpdate" >
-          <Button text="Edite ton profil"/> 
-          </Link> 
+            <Link to="/ProfilUpdate" >
+              <Button text="Edite ton profil" />
+            </Link>
 
 
 
