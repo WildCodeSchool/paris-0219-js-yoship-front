@@ -1,26 +1,34 @@
-.about-text-1{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    background-color:#f8f9fa;
-    justify-self:center;
-    padding: 10rem 10rem 10rem 10rem;
-    font-family: 'Varela Round', sans-serif;
-    line-height: 1.5;
-    border-radius: .25rem;
-    letter-spacing: .15rem;
-    border: 0;
-}
-.button-about{
-    top:300px;
-    position: fixed;
-    right: 60px;
-    bottom: 500px;
-    transition: 1.5s;
-    cursor: pointer;
-}
+// .about-text-1{
+//     display: flex;
+//     flex-direction: column;
+//     width: 100%;
+//     justify-content: center;
+//     background-color:#f8f9fa;
+//     justify-self:center;
+//     padding: 10rem 10rem 10rem 10rem;
+//     font-family: 'Varela Round', sans-serif;
+//     line-height: 1.5;
+//     border-radius: .25rem;
+//     letter-spacing: .15rem;
+//     border: 0;
+// }
+// .button-about{
+//     top:300px;
+//     position: fixed;
+//     right: 60px;
+//     bottom: 500px;
+//     transition: 1.5s;
+//     cursor: pointer;
+// }
 
-.button-about-transition{
-    top: 0;
+// .button-about-transition{
+//     top: 0;
+// }
+.titreabout {
+    padding:  0 0 50px 0;
+    text-align: center;
+}
+.buttonabout{
+    justify-content: center;
+    display: flex;
 }
