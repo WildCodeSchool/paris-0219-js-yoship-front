@@ -59,7 +59,7 @@ class About extends React.Component {
 
                 </Container>
                 <div className="buttonabout">
-                    <NavLink to="/register">
+                    <NavLink to="/status">
                         <Button text="Inscrit toi" />
                     </NavLink>
                 </div>
