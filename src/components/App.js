@@ -3,8 +3,6 @@ import React from 'react';
 // Packages
 import {Switch} from 'react-router-dom';
 
-// Components
-import Header from '../components/Header/Header'
 import Home from './../screen/Home'
 import Login from './../screen/Login'
 import Tracking from './../screen/Tracking'
@@ -29,7 +27,6 @@ import MesDocuments from './Mesdocuments/MesDocuments';
 function App() {
   return (
       <div>
-        <Header />
         <Switch>
           <PublicRoute exact path="/" component={Home} />
           <PublicRoute path="/tracking" component={Tracking} />

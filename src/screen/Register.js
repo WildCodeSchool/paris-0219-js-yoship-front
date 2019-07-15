@@ -1,22 +1,19 @@
-import React from "react";
-import Register from '../components/RegisterForm/Register/Register'
-import Footer from '../components/Footer/Footer'
-import MyCars from "../components/MyCar/MyCars";
+import React, { Component } from "react";
+import Register from "../components/RegisterForm/Register/Register";
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
 
-
-const Register1 = () => {
-
-    return (   
-    
-    <div>
-    
-    <Register />
-    <Footer />
-    </div>
-)
+class Register1 extends Component {
+  state = {};
+  render() {
+    return (
+      <div>
+        <Header pathname={this.props.location.pathname} />
+        <Register />
+        <Footer />
+      </div>
+    );
+  }
 }
 
-
 export default Register1;
-
-
