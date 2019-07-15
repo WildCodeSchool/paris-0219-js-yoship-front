@@ -118,7 +118,7 @@ class MyCars extends React.Component {
 
             <Link to="/myCarUpdate" >
             <div className="MyCarsButton">   
-         <Button text="Edite ton profil"/>
+         <Button text="Edite ta voiture"/>
          </div>
          </Link>
           </Container>
