@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { NavLink } from 'react-router-dom';
 
+// Components 
 import Brand from './Brand/Brand'
 import ResponsiveNavbar from './Burger/ResponsiveNavbar'
-import Tab from './Tab/Tab'
-import DropToggleItem from './DropToggle/DropToggleItem'
+import DriverNav from './Navigation/DriverNav'
+import PublicNav from './Navigation/PublicNav'
 
+// Style
 import './Header.scss'
 
 class Header extends Component {
@@ -56,27 +58,13 @@ class Header extends Component {
         <NavLink exact to="/" className={this.state.background ? "header_link" : "header_link_black"}>
           <Brand background={this.state.background} isTop={this.state.isTop} />
         </NavLink>
-
         <div className="header_link_div">
           {this.isPublic(this.props.pathname) ? (
-              <> 
-                <NavLink exact to="/apropos" activeClassName="selected" className={linkClass} >
-                <Tab icon="info-circle" tab="About" />
-                </NavLink>
-                <NavLink to="/tracking" activeClassName="selected" className={linkClass} >
-                  <Tab icon="map-marker-alt" tab="Tracking" />
-                </NavLink>
-                <NavLink to="/login" activeClassName="selected" className={linkClass} >
-                  <Tab icon="user-tie" tab="Login" />
-                </NavLink>
-
-                <NavLink to="/status" activeClassName="selected" className={linkStatus} >
-                  <Tab icon="user-plus" tab="Register" />
-                </NavLink> 
-              </>
-          ) : (<DropToggleItem />) 
+            <PublicNav linkClass={linkClass} linkStatus={linkStatus}/>
+          ) : (
+            <DriverNav linkClass={linkClass} />
+            ) 
           }
-          
         </div>
       </header>
     )
