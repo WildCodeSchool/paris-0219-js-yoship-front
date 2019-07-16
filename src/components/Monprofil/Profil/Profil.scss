@@ -29,6 +29,7 @@
     color: #C9A959;
     background-color: #161616;
   text-align: center;
+  margin-bottom: 3rem;
   }
   .phonesquarealtsolid
 {
@@ -36,6 +37,14 @@
   color: #212529;
   max-height: 30px;
   max-width: 30px;
+}
+
+.MyProfilButton {
+
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+
 }
 
   

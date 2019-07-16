@@ -85,19 +85,17 @@ class Profil extends React.Component {
                 </Card>
               </Col>
 
-              <Col xl="5" lg="5">
-                <CardTitle><h4> <img src={blacktiebrands} className="phonesquarealtsolid" alt="logo" /> {data.name} {data.firstname} (User ID:2323)</h4></CardTitle>
+              <Col xl="4" lg="4">
+                <CardTitle><h4> <img src={blacktiebrands} className="phonesquarealtsolid" alt="logo" /> {data.name} {data.firstname} (User ID:)</h4></CardTitle>
                 <CardText><img src={phonesquarealtsolid} className="phonesquarealtsolid" alt="logo" /> Your phone : {data.phone}</CardText>
                 <CardText><img src={atsolid} className="phonesquarealtsolid" alt="logo" /> Email Addres : {data.mail} </CardText>
                 <CardText><img src={usertagsolid} className="phonesquarealtsolid" alt="logo"/> Status : check </CardText>
-            
-
-                <Tab icon="map-marker-alt" tab="Tracking" />
+        
               </Col>
             </div>
             <div className="row align-items-center no-gutters mb-4 mb-lg-5">
               <Col xl="12" lg="12">
-                <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> Mes information</h4></CardTitle>
+                <div className="cardtitleinformation" icon="user-plus" ><h4> Mes information</h4></div>
               </Col>
             
 
@@ -129,7 +127,9 @@ class Profil extends React.Component {
             </div>
 
             <Link to="/ProfilUpdate" >
+            <div className="MyProfilButton">   
               <Button text="Edite ton profil" />
+              </div>
             </Link>
 
 
