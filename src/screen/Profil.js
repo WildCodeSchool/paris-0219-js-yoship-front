@@ -1,19 +1,19 @@
-import React from "react";
-import Profil from '../components/Monprofil/Profil/Profil'
-import Footer from '../components/Footer/Footer'
+import React, { Component } from "react";
+import Header from "../components/Header/Header";
+import Profil from "../components/Monprofil/Profil/Profil";
+import Footer from "../components/Footer/Footer";
 
-
-const Monprofil = () => {
-
+class Monprofil extends Component {
+  state = {};
+  render() {
     return (
-        <div>
-            <Profil />
-            <Footer />
-        </div>
-    )
+      <div>
+        <Header pathname={this.props.location.pathname} />
+        <Profil />
+        <Footer />
+      </div>
+    );
+  }
 }
 
-
 export default Monprofil;
-
-

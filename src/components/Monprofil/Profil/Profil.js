@@ -82,9 +82,9 @@ class Profil extends React.Component {
 
               <Col xl="4" lg="4">
                 <CardText icon="user-plus" >Role : {data.role} </CardText>
-                <CardText icon="user-plus" >date of birth : {data.dateOfBirth}{this.props.dateOfBirth} </CardText>
-                <CardText icon="user-plus" >Password : {data.password}</CardText>
                 <CardText icon="user-plus">Pseudo : {data.pseudo}  </CardText>
+                <CardText icon="user-plus" >Password : {data.password}</CardText>
+                <CardText icon="user-plus" >date of birth : {data.dateOfBirth}{this.props.dateOfBirth} </CardText>
 
 
 
@@ -93,17 +93,17 @@ class Profil extends React.Component {
 
 
               <Col xl="4" lg="4">
-                <CardText icon="user-plus" >Addres : {this.props.address}</CardText>
-                <CardText icon="user-plus" >Postcode : {this.props.postCode} </CardText>
-                <CardText icon="user-plus" >City :  {this.props.city}</CardText>
-                <CardText icon="user-plus" >Country : {this.props.country}</CardText>
+                <CardText icon="user-plus" >Addres :{data.address} </CardText>
+                <CardText icon="user-plus" >Postcode : {data.postcode} </CardText>
+                <CardText icon="user-plus" >City :  {data.city} </CardText>
+                <CardText icon="user-plus" >Country :{data.country} </CardText>
 
 
               </Col>
 
-              <Col xl="12" lg="12">
+              {/* <Col xl="12" lg="12">
                 <CardText icon="user-plus" >Description :</CardText>
-              </Col>
+              </Col> */}
 
             </div>
 

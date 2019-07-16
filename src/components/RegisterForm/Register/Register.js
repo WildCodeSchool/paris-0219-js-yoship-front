@@ -51,6 +51,10 @@ class Register extends React.Component {
                 password: data.password.value,
                 phone: data.phone.value,
                 pseudo: data.pseudo.value,
+                address: data.address.value,
+                postcode: data.postcode.value,
+                city: data.city.value,
+                country: data.country.value,
                 role: "driver"
             }
             
@@ -141,6 +145,38 @@ class Register extends React.Component {
 
                             </ Col>
                             {/* label + Input email */}
+                            <Col xl="5" lg="5">
+                                <Field
+                                    required label="address" name="address" placeholder="address"
+                                    onChange={this.handleChange}
+                                    value={this.state.data.address}
+                                    shouldValidateInputs={this.state.shouldValidateInputs} />
+                            </Col>
+                            <Col xl="5" lg="5">
+                                <Field
+                                    required label="Post code" name="postcode" placeholder="Post code"
+                                    onChange={this.handleChange}
+                                    value={this.state.data.postcode}
+                                    shouldValidateInputs={this.state.shouldValidateInputs} />
+                            </Col>
+                            <Col xl="5" lg="5">
+                                <Field
+                                    required label="City" name="city" placeholder="City"
+                                    onChange={this.handleChange}
+                                    value={this.state.data.city}
+                                    shouldValidateInputs={this.state.shouldValidateInputs} />
+                            </Col>
+                            <Col xl="5" lg="5">
+                                <Field
+                                    required label="Country" name="country" placeholder="Country"
+                                    onChange={this.handleChange}
+                                    value={this.state.data.country}
+                                    shouldValidateInputs={this.state.shouldValidateInputs} />
+                            </Col>
+
+
+
+
                             <Col xl="5" lg="5">
 
                                 <Field
