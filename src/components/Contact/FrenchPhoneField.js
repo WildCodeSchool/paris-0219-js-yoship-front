@@ -2,11 +2,6 @@ import React from 'react';
 import { Input } from 'reactstrap';
 
 class FrenchPhoneField extends React.Component {
-  static defaultProps = {
-    name: 'tel',
-    placeholder: 'Phone Number',
-    required: false,
-  }
 
   constructor(props) {
     super(props)
@@ -15,7 +10,7 @@ class FrenchPhoneField extends React.Component {
 
   // This method is declared using an arrow function initializer solely
   // to guarantee its binding, as we cannot use decorators just yet.
-  handleChange = ({ target: { value } }) => {
+  phoneChange = ({ target: { value } }) => {
     value = value
       // Remove all non-digits, turn initial 33 into nothing
       .replace(/\D+/, '')
@@ -24,18 +19,18 @@ class FrenchPhoneField extends React.Component {
       .slice(0, 13)
       // Add a space after any 2-digit group followed by more digits
       .replace(/(\d{2})(?=\d)/g, '$1 ')
-    this.setState({ value })
+    this.setState({ value: value }, () => {
+      this.props.getPhone(this.state.value)
+    })
   }
 
   render() {
-    const { name, placeholder, required } = this.props
     return (
-      <Input 
+      <Input
         autoComplete="tel"
-        name={name}
-        onChange={this.handleChange}
-        placeholder={placeholder}
-        required={required}
+        onChange={this.phoneChange}
+        placeholder="Numéro de téléphone"
+        required="required"
         type="tel"
         value={this.state.value}
       />

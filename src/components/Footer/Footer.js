@@ -12,15 +12,15 @@ import './Contact/Socials/SocialButton.scss'
 import './Copyright/Copyright.scss'
 
 class Footer extends Component {
-    state = {  }
-    render() { 
-        return (
-          <div className="Footer bg-black">
-            <ContactContainer />
-            <Copyright />
-          </div>
-        );
-    }
+  state = {}
+  render() {
+    return (
+      <div className="Footer bg-black">
+        <ContactContainer />
+        <Copyright />
+      </div>
+    );
+  }
 }
- 
+
 export default Footer;

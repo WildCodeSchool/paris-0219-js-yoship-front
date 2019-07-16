@@ -1,0 +1,258 @@
+/* GENERAL TAG CSS */
+@font-face {
+    font-family: 'Varela Round', sans-serif;
+    src: url("https://fonts.googleapis.com/css?family=Varela+Round&display=swap") format("woff2"),
+}
+
+// COLORS HSL //
+$background-color: #f1f1f1;
+$black: black; 
+$white: white;
+$grey: grey;
+$blue: #9f9fd8;
+$red: red;
+$green: #58D68D;
+$brown: #873600;
+$orange: #F39C12;
+$yellow: #F4D03F;
+$beige: #FAD7A0;
+$purple: #BB8FCE;
+$pink: #F5B7B1;
+$amount: 20%;
+
+// CIRCLE BORDER //
+
+$color-border: 0.5px solid grey;
+
+// CIRCLE TEMPLATE //
+.car-circle {
+    border-radius: 50%;
+    height: 5px;
+    margin: 5px;
+    padding: 7px;
+    width: 5px;
+}
+
+#beige, #black, #blue, #bordeaux, #brown, #dark-blue, 
+#dark-red, #dark-green, #dark-grey, #dark-red, #green, 
+#grey, #orange, #pink, #purple, #red, #white, #yellow {
+    display: flex;
+}
+
+.car-beige {
+    @extend .car-circle;
+    background-color: $beige;
+}
+
+.car-black {
+    @extend .car-circle;
+    background-color: $black;
+}
+
+.car-blue {
+    @extend .car-circle;
+    background-color: $blue;
+}
+
+.car-bordeaux {
+    @extend .car-circle;
+    background-color: darken($red, $amount);
+}
+
+.car-brown {
+    @extend .car-circle;
+    background-color: $brown;
+}
+
+.car-dark-blue {
+    @extend .car-circle;
+    background-color: darken($blue, $amount);
+}
+
+.car-dark-green {
+    @extend .car-circle;
+    background-color: darken($green, $amount);
+}
+
+.car-green {
+    @extend .car-circle;
+    background-color: $green;
+}
+
+.car-red {
+    @extend .car-circle;
+    background-color: $red;
+}
+
+.car-white {
+    @extend .car-circle;
+    background-color: $white;
+    border: $color-border;
+}
+
+.car-orange {
+    @extend .car-circle;
+    background-color: $orange;
+}
+
+.car-yellow {
+    @extend .car-circle;
+    background-color: $yellow;
+
+}
+
+.car-purple {
+    @extend .car-circle;
+    background-color: $purple;
+}
+
+.car-pink {
+    @extend .car-circle;
+    background-color: $pink;
+}
+
+.car-bloc-fuels {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.car-button {
+    grid-column-end: 3; 
+    grid-column-start: 1;
+    justify-self: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.car-fuel {
+    outline: none;
+}
+
+.formCar {
+    background-color: $background-color;
+    padding: 10rem 0 5rem 0;
+}
+
+.car-bloc-color {
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    padding-left: 30px;
+    padding-right: 15px;
+}
+
+.car-container {
+    display: grid;
+    flex-wrap: nowrap;
+    grid-column-gap: 10px;
+    grid-row-gap: 15px;
+    grid-template-columns: 30% 60%;
+    grid-template-rows: repeat(auto);
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: start;
+    /* add on SCSS */
+    background-color: $background-color ;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem !important;
+    letter-spacing: 0.0625em;
+}
+
+.car-dark-grey {
+    @extend .car-circle;
+    background-color: darken($grey, $amount);
+}
+
+.car-grey {
+    @extend .car-circle;
+    background-color: $grey;
+}
+
+#car-description {
+    height: 200px;
+}
+
+.car-title {
+    grid-column-end: 3; 
+    grid-column-start: 1;
+    justify-items: left;
+}
+
+#car-diesel,
+#car.electric,
+#car-gasoline,
+#car-gpl
+#car-hybrid {
+    outline: none;
+}
+
+@media screen and (max-width: 1103px) {
+    .car-bloc-fuels {
+        flex-direction: column;
+    }
+    .car-container {
+        padding-top: 70px;
+    }
+}
+
+@media screen and (min-width: 577px) and (max-width: 814px) {
+    .car-container {
+        grid-template-columns: 50% 50%;
+        //padding-top: 50px;
+    }
+    #car-description {
+        grid-column-start: 1;
+        grid-column-end: 3; 
+        justify-items: center;
+    }
+    .car-bloc-color {
+        display: grid;
+        grid-template-columns: repeat(2, 45%);
+        flex-direction: column;
+        padding-left: 30px;
+    }
+}
+
+@media screen and (max-width: 576px) {        
+    .car-container {
+        grid-template-columns: repeat(1, 90%);
+        text-align: start;
+        //padding-top: 30px;
+        //padding-bottom: 0;
+        grid-column-gap: 0;
+        grid-row-gap: 0;
+        //padding-top: 30px;
+        //padding-bottom: 30px;
+    }
+    .car-bloc-fuels,
+    .car-brand,
+    .car-button, 
+    .car.color,
+    .car-description,
+    .car-fuel,
+    .car-horsepower,
+    .car-kilometers,
+    .car-leasing,
+    .car-license-plate,
+    .car-maintenance,
+    .car-model,
+    .car-title,
+    .car-year {
+        grid-column-end: 2;
+        grid-column-start: 1;
+        margin: auto;
+        padding-top: 10px;
+    }
+    .car-bloc-fuels {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: auto;
+    }
+    .car-bloc-color {
+        display: grid;
+        grid-template-columns: repeat(1, 90%);
+        flex-direction: column;
+    }
+}

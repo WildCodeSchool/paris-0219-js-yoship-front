@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import './SocialButton.scss'
 
 class SocialButton extends Component {
-  state = {  }
-  render() { 
+  state = {}
+  render() {
     return (
       <>
         <a href={this.props.link} className="social-button">
@@ -14,5 +14,5 @@ class SocialButton extends Component {
     );
   }
 }
- 
+
 export default SocialButton;

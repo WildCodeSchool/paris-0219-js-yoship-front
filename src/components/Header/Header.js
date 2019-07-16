@@ -3,17 +3,20 @@ import { NavLink } from 'react-router-dom';
 import { Container } from 'reactstrap';
 
 
+// Components 
 import Brand from './Brand/Brand'
 import BurgerButton from "./Burger/BurgerButton";
-// import SideNav from "./Burger/SideNav"
-import Tab from './Tab/Tab'
+import DriverNav from './Navigation/DriverNav'
+import PublicNav from './Navigation/PublicNav'
 
+// Style
 import './Header.scss'
+
 
 
 class Header extends Component {
     state = {
-        background: true,
+        background: "",
         isTop: true,
         sideDrawerOpen: false,
     }
@@ -25,6 +28,10 @@ class Header extends Component {
                 this.setState({ isTop })
             }
         });
+
+        this.setState({
+            background: this.props.background
+        })
     }
 
     drawerClickHandler = () => {
@@ -33,12 +40,19 @@ class Header extends Component {
         });
     };
 
-    whiteBackground = () => {
-        this.setState({ background: false })
-    }
-
-    pictureBackground = () => {
-        this.setState({ background: true })
+    isPublic = (location) => {
+        switch (location) {
+            case "/mycar":
+                return false
+            case "/dashboard":
+                return false
+            case "/profil":
+                return false
+            case "/document":
+                return false
+            default:
+                return true
+        }
     }
 
     render() {
@@ -46,42 +60,26 @@ class Header extends Component {
 
         const linkClass = this.state.background && this.state.isTop ? "header_link" : "header_link_black"
 
-        const linkRegister = this.state.background && this.state.isTop ? "header_link_gold" : "header_link_black"
+        const linkStatus = this.state.background && this.state.isTop ? "header_link_gold" : "header_link_black"
 
         return (
             <header className={headerClass}>
-
-
-                <NavLink exact to="/" onClick={this.pictureBackground}>
+                <NavLink exact to="/" className={this.state.background ? "header_link" : "header_link_black"}>
                     <Brand background={this.state.background} isTop={this.state.isTop} />
                 </NavLink>
-
-
                 <div className={this.state.sideDrawerOpen ? "side-nav" : "header_link_div"}>
-                    <NavLink to="/tracking" activeClassName="selected" className={linkClass} onClick={this.whiteBackground}>
-                        <Tab icon="map-marker-alt" tab="Tracking" />
-                    </NavLink>
-
-                    <NavLink to="/login" activeClassName="selected" className={linkClass} onClick={this.whiteBackground}>
-                        <Tab icon="user-tie" tab="Login" />
-                    </NavLink>
-
-                    <NavLink to="/register" activeClassName="selected" className={linkRegister} onClick={this.whiteBackground}>
-                        <Tab icon="user-plus" tab="Register" />
-                    </NavLink>
+                    {this.isPublic(this.props.pathname) ? (
+                        <PublicNav linkClass={linkClass} linkStatus={linkStatus} />
+                    ) : (
+                            <DriverNav linkClass={linkClass} />
+                        )
+                    }
                 </div>
-
                 <div className="burger-btn">
                     <BurgerButton click={this.drawerClickHandler} />
                 </div>
-
-                {/* <SideNav show={this.state.sideDrawerOpen} drawerClickHandler={this.drawerClickHandler} /> */}
-
             </header>
-
         )
     }
 }
-
-
-export default Header
+export default Header;

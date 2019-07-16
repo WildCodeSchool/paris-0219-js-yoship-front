@@ -1,9 +1,11 @@
+@import "../../assets/scss/variables.scss";
+
 body{
     margin:0;
 }
 .burger-btn {
     display: none;
-  }
+}
   
   
 .header_header{
@@ -13,8 +15,8 @@ body{
     height: 70px;
     position: fixed;
     width: 100%;
-    z-index: 1;
-    // height: 7.5%;   
+    z-index: 1;  
+    transition: background-color 0.2s;
 }
 
 .header_header_white{
@@ -22,10 +24,12 @@ body{
     display: flex;
     align-items: center;
     flex-direction: row;
-    min-height: 70px;
+    height: 70px;
     position: fixed;
     width: 100%;
     z-index: 1;
+    box-shadow: 0px 0px 3px 0px rgba(188,193,214,0.4);
+    transition: background-color 0.2s;
 }
 
 .header_link{
@@ -38,28 +42,24 @@ body{
 
 .header_link_black{
     color: black;
+}
+
+.header_link_gold{
+    color: $primary-color;
     font-family: nunito;
     font-size: 16px;
     letter-spacing: .0625em;
+    text-decoration: none;
+}
+
+
+.header_link:hover {
+    color: rgba(255,255,255,0.75);
     text-decoration: none;
 }
 
 .header_link_black:hover{
-    color: #C9A959;
-    text-decoration: none;
-
-}
-
-.header_link_gold{
-    color: #C9A959;
-    font-family: nunito;
-    font-size: 16px;
-    letter-spacing: .0625em;
-    text-decoration: none;
-}
-
-.header_link:hover {
-    color: rgba(255,255,255,0.75);
+    color: $primary-color;
     text-decoration: none;
 }
 
@@ -77,7 +77,7 @@ body{
 }
 
 .selected{
-    border-bottom: 0.25rem solid #C9A959;
+    border-bottom: 0.25rem solid $primary-color;
 }
 
 .side-nav{

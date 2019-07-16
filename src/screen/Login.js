@@ -1,17 +1,19 @@
-import React from "react";
-import Login from '../components/Login/Login'
-import Footer from '../components/Footer/Footer'
-const Login1 = () => {
+import React, { Component } from "react";
+import Login from "../components/Login/Login";
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
 
-    return  (    
-    <div>
-        
+class Login1 extends Component {
+  state = {};
+  render() {
+    return (
+      <div>
+        <Header pathname={this.props.location.pathname} />
         <Login />
         <Footer />
-    </div>
-
-
-)}
-
+      </div>
+    );
+  }
+}
 
 export default Login1;
