@@ -15,6 +15,7 @@ import MyCar from '../screen/MyCar'
 import HomeDashBoard from '../screen/HomeDashBoard'
 import About from '../screen/About'
 import Document from '../screen/Document'
+import ProfilUpdate from '../screen/ProfilUpdate'
 import MyCarUpdate from '../screen/MyCarUpdate'
 import QuestionsPage from '../screen/QuestionsPage';
 
@@ -41,6 +42,7 @@ function App() {
           <PrivateRoute path='/dashboard' permission="driver" component={HomeDashBoard} />
           <PrivateRoute path='/profil' permission="driver" component={Monprofil} />
           <PrivateRoute path='/document' permission="driver" component={Document} />
+          <PrivateRoute path='/profilUpdate' permission="driver" component={ProfilUpdate} /> 
           <PrivateRoute path='/myCarUpdate' permission="driver" component={MyCarUpdate} />
         </Switch>
       </div>
