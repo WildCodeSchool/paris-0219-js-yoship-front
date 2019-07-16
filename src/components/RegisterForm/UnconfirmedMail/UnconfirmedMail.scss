@@ -1,0 +1,16 @@
+.unconfirmed-container {
+    padding: 10em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 350px;
+        margin: 3em 0 ;
+    }
+
+    p {
+        font-size: 20px;
+    }
+}

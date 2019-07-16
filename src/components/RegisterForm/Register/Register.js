@@ -10,6 +10,9 @@ import ProfilMon from '../../Monprofil/MonProfil'
 import axios from 'axios'
 import { directiveLiteral } from '@babel/types';
 
+import UnconfirmedMail from '../UnconfirmedMail/UnconfirmedMail'
+
+
 const config = require('../../../config/config')
 
 class Register extends React.Component {
@@ -82,7 +85,7 @@ class Register extends React.Component {
         const redirect = this.state.redirect;
 
         if (redirect) {
-            return <Redirect to="/" />
+            return <UnconfirmedMail mail={this.state.data.mail.value} />
         } else {
 
             return (
