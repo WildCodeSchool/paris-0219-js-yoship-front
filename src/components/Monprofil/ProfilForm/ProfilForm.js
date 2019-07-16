@@ -8,8 +8,6 @@ import allTheActions from '../../../actions'
 import './ProfilForm.scss';
 
 
-
-
 class FormProfil extends Component {
 
   state = {
