@@ -35,8 +35,8 @@ class Profil extends React.Component {
       .then(res => {
         const result = res.data
         console.log(res.data)
-        setTimeout( () => this.setState({ result, loading: false }), 1700);
-        // this.setState({ result, loading: false })
+        // setTimeout( () => this.setState({ result, loading: false }), 1000);
+        this.setState({ result, loading: false })
         console.log("getData", this.state)
       })
 
@@ -58,6 +58,7 @@ class Profil extends React.Component {
       const data = this.state.result[0]
       return (
         <section id="project" className="project-section bg-light">
+          <Loader triggerAnim={true} />
           <Container>
             <div className="row align-items-center no-gutters mb-4 mb-lg-5">
 

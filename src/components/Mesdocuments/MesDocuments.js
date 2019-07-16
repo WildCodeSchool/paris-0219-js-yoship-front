@@ -8,6 +8,7 @@ import axios from 'axios'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import Loader from '../UI/Loader/Loader'
 
 import allTheActions from '../../actions'
 
@@ -32,7 +33,6 @@ class Mesdocuments extends React.Component {
       .then(res => {
         const result = res.data
         this.setState({ result, loading: false })
-        console.log("getData", this.state)
       })
 
   }
@@ -48,111 +48,108 @@ class Mesdocuments extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return (<div>loading</div>)
-    } else {
-      const data = this.state.result[0]
+      return <Loader />
+    } 
+      const data = this.state.result[0];
       return (
         <section id="project" className="project-section bg-light">
+          <Loader triggerAnim={true} />
           <Container>
             <div className="row align-items-center no-gutters mb-4 mb-lg-5">
-
               <Col xl="2" lg="2">
                 <Card>
-                  <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
+                  <CardImg
+                    top
+                    width="100%"
+                    src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
+                    alt="Card image cap"
+                  />
 
                   <ReactFileReader handleFiles={this.handleFiles}>
-                    <button className='btn'>Upload</button>
+                    <button className="btn">Upload</button>
                   </ReactFileReader>
                 </Card>
               </Col>
 
               <Col xl="5" lg="5">
-                <CardTitle icon="user-plus" ><h4> {data.name} {data.firstname} (User ID:2323)</h4></CardTitle>
-                <CardText icon="user-plus" >Your phone : {data.phone}</CardText>
-                <CardText icon="user-plus" >Email Addres : {data.mail} </CardText>
-                <CardText icon="user-plus" >Status :</CardText>
-
-
-
-
+                <CardTitle icon="user-plus">
+                  <h4>
+                    {" "}
+                    {data.name} {data.firstname} (User ID:2323)
+                  </h4>
+                </CardTitle>
+                <CardText icon="user-plus">
+                  Your phone : {data.phone}
+                </CardText>
+                <CardText icon="user-plus">
+                  Email Addres : {data.mail}{" "}
+                </CardText>
+                <CardText icon="user-plus">Status :</CardText>
               </Col>
-
-
-
             </div>
             <div className="row align-items-center no-gutters mb-4 mb-lg-5">
-
-
               <Col xl="12" lg="12">
-                <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> Mes Documents</h4></CardTitle>
-              </Col>
-
-
-              <Col xl="4" lg="4">
-
-                <CardText icon="user-plus">
-                  <ReactFileReader handleFiles={this.handleFiles}>Identity card :
-          <button className='btn'>Upload</button>
-                  </ReactFileReader>
-                </CardText>
-
-                <CardText icon="user-plus">
-                  <ReactFileReader handleFiles={this.handleFiles}>Proof of residence :
-          <button className='btn'>Upload</button>
-                  </ReactFileReader>
-                </CardText>
-
-                <CardText icon="user-plus">
-                  <ReactFileReader handleFiles={this.handleFiles}>Rib :
-          <button className='btn'>Upload</button>
-                  </ReactFileReader>
-                </CardText>
-
-                <CardText icon="user-plus">
-                  <ReactFileReader handleFiles={this.handleFiles}>Permis :
-          <button className='btn'>Upload</button>
-                  </ReactFileReader>
-                </CardText>
-
-
+                <CardTitle
+                  className="cardtitleinformation"
+                  icon="user-plus"
+                >
+                  <h4> Mes Documents</h4>
+                </CardTitle>
               </Col>
 
               <Col xl="4" lg="4">
-
                 <CardText icon="user-plus">
-                  <ReactFileReader handleFiles={this.handleFiles}>Control technical :
-          <button className='btn'>Upload</button>
+                  <ReactFileReader handleFiles={this.handleFiles}>
+                    Identity card :<button className="btn">Upload</button>
                   </ReactFileReader>
                 </CardText>
 
                 <CardText icon="user-plus">
-                  <ReactFileReader handleFiles={this.handleFiles}>Assurance :
-          <button className='btn'>Upload</button>
+                  <ReactFileReader handleFiles={this.handleFiles}>
+                    Proof of residence :
+                    <button className="btn">Upload</button>
                   </ReactFileReader>
                 </CardText>
 
                 <CardText icon="user-plus">
-                  <ReactFileReader handleFiles={this.handleFiles}>Contract leasing :
-          <button className='btn'>Upload</button>
+                  <ReactFileReader handleFiles={this.handleFiles}>
+                    Rib :<button className="btn">Upload</button>
                   </ReactFileReader>
                 </CardText>
 
-              
-
+                <CardText icon="user-plus">
+                  <ReactFileReader handleFiles={this.handleFiles}>
+                    Permis :<button className="btn">Upload</button>
+                  </ReactFileReader>
+                </CardText>
               </Col>
-              
 
+              <Col xl="4" lg="4">
+                <CardText icon="user-plus">
+                  <ReactFileReader handleFiles={this.handleFiles}>
+                    Control technical :
+                    <button className="btn">Upload</button>
+                  </ReactFileReader>
+                </CardText>
+
+                <CardText icon="user-plus">
+                  <ReactFileReader handleFiles={this.handleFiles}>
+                    Assurance :<button className="btn">Upload</button>
+                  </ReactFileReader>
+                </CardText>
+
+                <CardText icon="user-plus">
+                  <ReactFileReader handleFiles={this.handleFiles}>
+                    Contract leasing :
+                    <button className="btn">Upload</button>
+                  </ReactFileReader>
+                </CardText>
+              </Col>
             </div>
           </Container>
-
-
-
-
-
         </section>
-
       );
-    }
+    
   }
 }
 

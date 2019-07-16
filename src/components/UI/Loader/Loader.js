@@ -3,11 +3,13 @@ import './Loader.scss'
 
 class Loader extends Component {
     state = { 
-        
      }
+     
     render() { 
+      const toggleAnimation = this.props.triggerAnim ? "hide" : null
+
         return (
-          <div className="loader-container">
+          <div className={"loader-container " + toggleAnimation}>
             <div className="sk-folding-cube">
               <div className="sk-cube1 sk-cube" />
               <div className="sk-cube2 sk-cube" />

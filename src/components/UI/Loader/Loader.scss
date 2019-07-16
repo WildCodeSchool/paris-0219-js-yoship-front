@@ -2,6 +2,7 @@
 
 .loader-container {
     display:flex;
+    position: absolute;
     flex-direction: column;
     height: 100vh;
     width: 100%;
@@ -14,9 +15,24 @@
     right: 0;
     z-index: 999999;
     background: #FFF;
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 2s linear;
+    // opacity: 1;
+  }
+
+  .hide {
+    animation: fadeOut 1s ease-out forwards;
+    -webkit-animation: fadeOut 1s ease-out forwards;
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
   }
   
   .sk-folding-cube {
