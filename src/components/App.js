@@ -42,6 +42,7 @@ function App() {
           <PrivateRoute path='/dashboard' permission="driver" component={HomeDashBoard} />
           <PrivateRoute path='/profil' permission="driver" component={Monprofil} />
           <PrivateRoute path='/document' permission="driver" component={Document} />
+          <PrivateRoute path='/mycarupdate' permission="driver" component={MyCarUpdate} />
           <PrivateRoute path='/profilUpdate' permission="driver" component={ProfilUpdate} /> 
           <PrivateRoute path='/myCarUpdate' permission="driver" component={MyCarUpdate} />
         </Switch>

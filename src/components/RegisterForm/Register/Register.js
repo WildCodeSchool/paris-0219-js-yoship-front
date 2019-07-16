@@ -6,9 +6,8 @@ import './Register.scss';
 import { Input, Col, Container, Button, Progress } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
 import { Field, formInputData, formValidation } from 'reactjs-input-validator';
-import ProfilMon from '../../Monprofil/MonProfil'
 import axios from 'axios'
-import { directiveLiteral } from '@babel/types';
+
 
 const config = require('../../../config/config')
 
@@ -22,6 +21,8 @@ class Register extends React.Component {
     //     this.setState({ [e.target.name]: e.target.value })
     // }
 
+    
+    
     handleChange = (event, inputValue, inputName, validationState, isRequired) => {
         const value = (event && event.target.value) || inputValue;
         const { data } = this.state;
@@ -41,7 +42,7 @@ class Register extends React.Component {
         event.preventDefault();
         const isFormValid = formValidation(this.state.data);
 
-        if (isFormValid) {
+        if (isFormValid && document.getElementById('terms').checked){
             const data = this.state.data
             const dataToSend = {
                 dateOfBirth: data.dateOfBirth.value,
@@ -110,11 +111,11 @@ class Register extends React.Component {
                                     value={this.state.data.name}
                                     shouldValidateInputs={this.state.shouldValidateInputs} />
                             </Col>
-
+                           
                             <Col xl="5" lg="5">
-
-                                <Field
-                                    required label="dateOfBirth" name="dateOfBirth" placeholder="aaaa/mm/jj"
+                            
+                                <Field 
+                                    required label="dateOfBirth" name="dateOfBirth" placeholder="dateOfBirth"
                                     onChange={this.handleChange}
                                     value={this.state.data.dateOfBirth}
                                     shouldValidateInputs={this.state.shouldValidateInputs} />
@@ -227,10 +228,14 @@ class Register extends React.Component {
 
                         </div>
                     </Container>
+
+       
+
+
                     {/* checkbox terms and conditions  */}
                     <div className="not">
                         <div className="checkbox">
-                            <label> <Input type="checkbox"></Input> Agree to terms and conditions</label>
+                            <label> <Input type="checkbox" id = "terms"></Input> Agree to terms and conditions</label>
 
                             <div>
 
@@ -238,11 +243,11 @@ class Register extends React.Component {
 
                             </div>
 
-                            <div>
+                            {/* <div>
                                 <div className="barprogress">Etapes 1 sur 3</div>
                                 <Progress animated value="33.333" />
                                 <div className="barprogress">Début du processus</div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
 
