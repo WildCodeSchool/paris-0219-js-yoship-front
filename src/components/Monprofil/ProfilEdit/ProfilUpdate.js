@@ -66,18 +66,18 @@ class ProfilUpdate extends React.Component {
             firstname: data.firstname,
             mail: data.mail,
             name: data.name,
-            password: data.password,
+            //password: data.password,
             phone: data.phone,
             pseudo: data.pseudo,
             address: data.address,
             postcode: data.postcode,
             city: data.city,
             country: data.country,
+            description: data.description,
             role: "driver"
         }
         const token = localStorage.getItem("token")
         const uuid = localStorage.getItem("uuid")
-        //const headers = { 'x-access-token': `${token}`}
         axios(
             {
                 url: `http://localhost:${config.port}/users/${uuid}`,
@@ -92,11 +92,12 @@ class ProfilUpdate extends React.Component {
     render(
 
     ) {
-        //const redirect = this.state.redirect;
-        if (this.state.loading) { //&& redirect
-            return <div>Loading</div>
-            //<Redirect to="/dashbord" />
-        } else {
+        // const redirect = this.state.redirect;
+         if (this.state.loading)
+        // && redirect) {
+             return <div>Loading</div>
+        //     && <Redirect to="/dashbord" />
+        // } else {
             console.log(this.state.result);
             return (
                 <section id="register" className="register">
@@ -105,7 +106,7 @@ class ProfilUpdate extends React.Component {
                         <div className="row align-items-center no-gutters mb-4 mb-lg-4">
                             <Col xl="4" lg="4">
                                 <fieldset>
-                                    <label htmlFor="firstName">Prénom :</label>
+                                    <label htmlFor="firstname">Prénom :</label>
                                     <input
                                         type="text"
                                         name="firstname"
@@ -123,8 +124,106 @@ class ProfilUpdate extends React.Component {
                                         onChange={this.handleChange}
                                         value={this.state.result.name}
                                     />
-
-
+                                </fieldset>
+                            </Col>
+                            <Col xl="4" lg="4">
+                                <fieldset>
+                                    <label htmlFor="pseudo">Pseudo :</label>
+                                    <input
+                                        type="text"
+                                        name="pseudo"
+                                        onChange={this.handleChange}
+                                        value={this.state.result.pseudo}
+                                    />
+                                </fieldset>
+                            </Col>
+                            <Col xl="4" lg="4">
+                                <fieldset>
+                                    <label htmlFor="mail">Mail :</label>
+                                    <input
+                                        type="text" // email ? 
+                                        name="mail"
+                                        onChange={this.handleChange}
+                                        value={this.state.result.mail}
+                                    />
+                                </fieldset>
+                            </Col>
+                            <Col xl="4" lg="4">
+                                <fieldset>
+                                    <label htmlFor="dateOfBirth">Date de naissance :</label>
+                                    <input
+                                        type="text" //or date ? 
+                                        name="dateOfBirth"
+                                        onChange={this.handleChange}
+                                        value={this.state.result.dateOfBirth}
+                                    />
+                                </fieldset>
+                            </Col>
+                            <Col xl="4" lg="4">
+                                <fieldset>
+                                    <label htmlFor="phone">Téléphone :</label>
+                                    <input
+                                        type="text" //or tel ? 
+                                        name="phone"
+                                        onChange={this.handleChange}
+                                        value={this.state.result.phone}
+                                    />
+                                </fieldset>
+                            </Col>
+                            <Col xl="4" lg="4">
+                                <fieldset>
+                                    <label htmlFor="address">Adresse:</label>
+                                    <input
+                                        type="text"
+                                        name="address"
+                                        onChange={this.handleChange}
+                                        value={this.state.result.address}
+                                    />
+                                </fieldset>
+                            </Col>
+                            <Col xl="4" lg="4">
+                                <fieldset>
+                                    <label htmlFor="postcode">Code Postal:</label>
+                                    <input
+                                        type="text" //or number ? 
+                                        name="postcode"
+                                        onChange={this.handleChange}
+                                        value={this.state.result.postcode}
+                                    />
+                                </fieldset>
+                            </Col>
+                            <Col xl="4" lg="4">
+                                <fieldset>
+                                    <label htmlFor="city">Ville:</label>
+                                    <input
+                                        type="text" 
+                                        name="city"
+                                        onChange={this.handleChange}
+                                        value={this.state.result.city}
+                                    />
+                                </fieldset>
+                            </Col>
+                            <Col xl="4" lg="4">
+                                <fieldset>
+                                    <label htmlFor="country">Pays:</label>
+                                    <input
+                                        type="text"
+                                        name="country"
+                                        onChange={this.handleChange}
+                                        value={this.state.result.country}
+                                    />
+                                </fieldset>
+                            </Col>
+                            <Col xl="4" lg="4">
+                                <fieldset>
+                                    <label htmlFor="description">Description:</label>
+                                    <input
+                                        type="textarea"
+                                        rows="5" cols="33"
+                                        name="description"
+                                        onChange={this.handleChange}
+                                        value={this.state.result.description}
+                                    />
                                 </fieldset>
                             </Col>
                         </div>
@@ -140,7 +239,7 @@ class ProfilUpdate extends React.Component {
             )
         }
     }
-}
+//}
 
 
 
