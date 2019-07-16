@@ -7,18 +7,16 @@ body{
     display: none;
 }
   
+  
 .header_header{
     display: flex;
     align-items: center;
     flex-direction: row;
-    min-height: 56px;
-    padding: 8px 10vw;
+    height: 70px;
     position: fixed;
     width: 100%;
-    z-index: 1;
-    height: 7.5%;   
+    z-index: 1;  
     transition: background-color 0.2s;
-
 }
 
 .header_header_white{
@@ -26,13 +24,10 @@ body{
     display: flex;
     align-items: center;
     flex-direction: row;
-    min-height: 56px;
-    padding: 8px 10vw;
-    position: absolute;
+    height: 70px;
     position: fixed;
     width: 100%;
     z-index: 1;
-    height: 7.5%;
     box-shadow: 0px 0px 3px 0px rgba(188,193,214,0.4);
     transition: background-color 0.2s;
 }
@@ -45,6 +40,10 @@ body{
     text-decoration: none;
 }
 
+.header_link_black{
+    color: black;
+}
+
 .header_link_gold{
     color: $primary-color;
     font-family: nunito;
@@ -53,8 +52,14 @@ body{
     text-decoration: none;
 }
 
+
 .header_link:hover {
     color: rgba(255,255,255,0.75);
+    text-decoration: none;
+}
+
+.header_link_black:hover{
+    color: $primary-color;
     text-decoration: none;
 }
 
@@ -63,22 +68,7 @@ body{
     text-decoration: none;
 }
 
-.header_link_black{
-    color: black;
-    font-family: nunito;
-    font-size: 16px;
-    letter-spacing: .0625em;
-    text-decoration: none;
-}
-
-.header_link_black:hover{
-    color: $primary-color;
-    text-decoration: none;
-
-}
-
 .header_link_div{
-    margin-right: 1vw;
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -90,14 +80,59 @@ body{
     border-bottom: 0.25rem solid $primary-color;
 }
 
+.side-nav{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 70px;
+    width: 100%;
+}
+
 @media (max-width: 980px) {
+    .header_header{
+        background-color: white;
+    }
+
     .header_link_div {
         display: none;
     }
+
+    .header_link {
+        color: black;
+    }
+
     .burger-btn {
-        display: contents;
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+        position: absolute;
+        right: 0; 
+    }
+
+    .header_link:hover {
+        color: black;
+    }
+
+    .header_link_black:hover{
+        color: black;
+        text-decoration: none;
+    
+    }
+    
+    .header_link_gold:hover {
+        color:  #C9A959;
+    }
+
+    .selected{
+        display: none;
     }
 }
 
 
+@media (min-width: 980px) {
+    .side-nav {
+        display: none;
+    }
+}
 
