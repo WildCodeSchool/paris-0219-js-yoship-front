@@ -8,7 +8,7 @@ const UnconfirmedMail = ({ mail }) => {
     return (
         <div className="unconfirmed-container">
             <h1>Merci !</h1>
-            <h2>Il ne vous reste plus qu'à vérifier votre email.</h2>
+            <h2>Il ne vous reste plus qu'à vérifier votre addresse email.</h2>
             <img src={YoshipLogo} alt="Yoship Logo" />
             <p>
                 Avant de continuer sur Yoship, nous avons besoin que vous vérifiez votre
@@ -16,7 +16,7 @@ const UnconfirmedMail = ({ mail }) => {
             </p>
             <p>
                 Un email contenant les instructions de vérification a été envoyé à
-                l'adresse suivante: <b>{mail}</b>
+                l'adresse suivante: <span>{mail}</span>
             </p>
         </div>
     );
