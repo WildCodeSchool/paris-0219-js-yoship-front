@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import { NavLink } from 'react-router-dom';
 
+// Components 
 import Brand from './Brand/Brand'
 import ResponsiveNavbar from './Burger/ResponsiveNavbar'
-import Tab from './Tab/Tab'
-import DropToggleItem from './DropToggle/DropToggleItem'
+import DriverNav from './Navigation/DriverNav'
+import PublicNav from './Navigation/PublicNav'
 
+// Style
 import './Header.scss'
 
 class Header extends Component {
   state = {
-    background: true,
+    background: "",
     isTop: true
   }
 
@@ -21,14 +23,25 @@ class Header extends Component {
         this.setState({ isTop })
       }
     });
+
+    this.setState({
+      background: this.props.background
+    })
   }
 
-  whiteBackground = () => {
-    this.setState({ background: false })
-  }
-
-  pictureBackground = () => {
-    this.setState({ background: true })
+  isPublic = (location) => {
+    switch(location) {
+      case "/mycar":
+        return false
+      case "/dashboard":
+        return false
+      case "/profil":
+        return false
+      case "/document":
+        return false
+      default:
+        return true
+    }
   }
 
   render() {
@@ -41,27 +54,16 @@ class Header extends Component {
     return (
       <header className={headerClass}>
         <div className="burger-btn"><ResponsiveNavbar /></div>
-        <NavLink exact to="/" className={this.state.background ? "header_link" : "header_link_black"} onClick={this.pictureBackground}>
+        <NavLink exact to="/" className={this.state.background ? "header_link" : "header_link_black"}>
           <Brand background={this.state.background} isTop={this.state.isTop} />
         </NavLink>
-
         <div className="header_link_div">
-          <NavLink to="/tracking" activeClassName="selected" className={linkClass} onClick={this.whiteBackground}>
-            <Tab icon="map-marker-alt" tab="Tracking" />
-          </NavLink>
-
-          <NavLink to="/login" activeClassName="selected" className={linkClass} onClick={this.whiteBackground}>
-            <Tab icon="user-tie" tab="Login" />
-          </NavLink>
-
-          <NavLink to="/status" activeClassName="selected" className={linkStatus} onClick={this.whiteBackground}>
-            <Tab icon="user-plus" tab="Register" />
-          </NavLink> 
-          <NavLink exact to="/apropos" className={linkClass} onClick={this.whiteBackground}>
-          <Tab icon="fas fa-info-circle" tab="A propos" />
-          </NavLink>
-          <DropToggleItem />
-          
+          {this.isPublic(this.props.pathname) ? (
+            <PublicNav linkClass={linkClass} linkStatus={linkStatus}/>
+          ) : (
+            <DriverNav linkClass={linkClass} />
+            ) 
+          }
         </div>
       </header>
     )

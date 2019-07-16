@@ -3,8 +3,6 @@ import React from 'react';
 // Packages
 import {Switch} from 'react-router-dom';
 
-// Components
-import Header from '../components/Header/Header'
 import Home from './../screen/Home'
 import Login from './../screen/Login'
 import Tracking from './../screen/Tracking'
@@ -17,6 +15,7 @@ import MyCar from '../screen/MyCar'
 import HomeDashBoard from '../screen/HomeDashBoard'
 import About from '../screen/About'
 import Document from '../screen/Document'
+import MyCarUpdate from '../screen/MyCarUpdate'
 import QuestionsPage from '../screen/QuestionsPage';
 
 // Custom Router Components
@@ -24,10 +23,10 @@ import PublicRoute from '../router/PublicRoute'
 import PrivateRoute from '../router/PrivateRoute'
 import MesDocuments from './Mesdocuments/MesDocuments';
 
+
 function App() {
   return (
       <div>
-        <Header />
         <Switch>
           <PublicRoute exact path="/" component={Home} />
           <PublicRoute path="/tracking" component={Tracking} />
@@ -42,6 +41,7 @@ function App() {
           <PrivateRoute path='/dashboard' permission="driver" component={HomeDashBoard} />
           <PrivateRoute path='/profil' permission="driver" component={Monprofil} />
           <PrivateRoute path='/document' permission="driver" component={Document} />
+          <PrivateRoute path='/myCarUpdate' permission="driver" component={MyCarUpdate} />
         </Switch>
       </div>
   );

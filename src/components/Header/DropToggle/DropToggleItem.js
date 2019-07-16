@@ -10,9 +10,9 @@ class Dropmenu extends Component {
     }
     render() {
         return (
-            <UncontrolledDropdown >
+            <UncontrolledDropdown className="">
 
-                <DropdownToggle >
+                <DropdownToggle className="button-login-submit" >
                     <Tab className="Setting" icon="user-cog" tab="Setting" />
 
                 </DropdownToggle>
@@ -35,7 +35,7 @@ class Dropmenu extends Component {
                                 Ma voiture
                             </DropdownItem>
                         </NavLink>
-                        <NavLink to="/Document">  
+                        <NavLink to="/document">  
                             <DropdownItem >
                                 Mes documents
                   </DropdownItem>
@@ -58,3 +58,5 @@ class Dropmenu extends Component {
 }
 
 export default Dropmenu;
+
+
