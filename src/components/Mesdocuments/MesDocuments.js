@@ -111,7 +111,7 @@ class Mesdocuments extends React.Component {
                 </CardText>
 
                 <CardText icon="user-plus">
-                  <ReactFileReader handleFiles={this.handleFiles}>Permis :
+                  <ReactFileReader handleFiles={this.handleFiles}>
           <button className='btn'>Upload</button>
                   </ReactFileReader>
                 </CardText>
