@@ -5,15 +5,16 @@ body{
     display: none;
   }
   
+  
 .header_header{
     display: flex;
     align-items: center;
     flex-direction: row;
-    min-height: 56px;
+    height: 70px;
     position: fixed;
     width: 100%;
     z-index: 1;
-    height: 7.5%;   
+    // height: 7.5%;   
 }
 
 .header_header_white{
@@ -21,11 +22,10 @@ body{
     display: flex;
     align-items: center;
     flex-direction: row;
-    min-height: 56px;
+    min-height: 70px;
     position: fixed;
     width: 100%;
     z-index: 1;
-    height: 7.5%;
 }
 
 .header_link{
@@ -69,7 +69,6 @@ body{
 }
 
 .header_link_div{
-    margin-right: 1vw;
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -85,7 +84,8 @@ body{
     background-color: white;
     display: flex;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
+    top: 70px;
     width: 100%;
 }
 
