@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Header from "../components/Header/Header";
-import FormCar from "../components/MyCar/FormCar";
+import MyCars from "../components/MyCar/MyCars"
 import Footer from "../components/Footer/Footer";
 
 class MyCar extends Component {
@@ -9,7 +9,7 @@ class MyCar extends Component {
     return (
       <div>
         <Header pathname={this.props.location.pathname} />
-        <FormCar />
+        <MyCars />
         <Footer />
       </div>
     );

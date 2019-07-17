@@ -3,8 +3,21 @@ import { Col, Container, Card, CardImg, CardText, CardTitle } from 'reactstrap';
 import ImageUpload from '../ImageUpload'
 import "./Profil.scss"
 import ReactFileReader from 'react-file-reader';
+import ImageUploader from 'react-images-upload';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
+import phonesquarealtsolid from '../../../assets/icons/phonesquarealtsolid.svg'
+import atsolid from '../../../assets/icons/atsolid.svg'
+import calendaraltregular from '../../../assets/icons/calendaraltregular.svg'
+import usertagsolid from '../../../assets/icons/usertagsolid.svg'
+import keysolid from '../../../assets/icons/keysolid.svg'
+import addressbooksolid from '../../../assets/icons/addressbooksolid.svg'
+import buildingsolid from '../../../assets/icons/buildingsolid.svg'
+import citysolid from '../../../assets/icons/citysolid.svg'
+import addresscardsolid from '../../../assets/icons/addresscardsolid.svg'
+import caraltsolid from '../../../assets/icons/caraltsolid.svg'
+import portraitsolid from '../../../assets/icons/portraitsolid.svg'
+import blacktiebrands from '../../../assets/icons/blacktiebrands.svg'
 import Tab from '../../Header/Tab/Tab'
 
 
@@ -57,6 +70,13 @@ class Profil extends React.Component {
 
               <Col xl="2" lg="2">
                 <Card>
+                {/* <ImageUploader
+                withIcon={true}
+                buttonText='Choose images'
+                onChange={this.onDrop}
+                imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                maxFileSize={5242880}
+            /> */}
                   <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
 
                   <ReactFileReader handleFiles={this.handleFiles}>
@@ -66,10 +86,11 @@ class Profil extends React.Component {
               </Col>
 
               <Col xl="5" lg="5">
-                <CardTitle icon="user-plus" ><h4> {data.name} {data.firstname}</h4></CardTitle>
-                <CardText icon="user-plus" >Your phone : {data.phone}</CardText>
-                <CardText icon="user-plus" >Email Addres : {data.mail} </CardText>
-                <CardText icon="user-plus" >Status : </CardText>
+                <CardTitle><h4> <img src={blacktiebrands} className="phonesquarealtsolid" alt="logo" /> {data.name} {data.firstname} (User ID:2323)</h4></CardTitle>
+                <CardText><img src={phonesquarealtsolid} className="phonesquarealtsolid" alt="logo" /> Your phone : {data.phone}</CardText>
+                <CardText><img src={atsolid} className="phonesquarealtsolid" alt="logo" /> Email Addres : {data.mail} </CardText>
+                <CardText><img src={usertagsolid} className="phonesquarealtsolid" alt="logo"/> Status : check </CardText>
+            
 
                 <Tab icon="map-marker-alt" tab="Tracking" />
               </Col>
@@ -78,13 +99,13 @@ class Profil extends React.Component {
               <Col xl="12" lg="12">
                 <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> Mes information</h4></CardTitle>
               </Col>
-
+            
 
               <Col xl="4" lg="4">
-                <CardText icon="user-plus" >Role : {data.role} </CardText>
-                <CardText icon="user-plus">Pseudo : {data.pseudo}  </CardText>
-                <CardText icon="user-plus" >Password : {data.password}</CardText>
-                <CardText icon="user-plus" >date of birth : {data.dateOfBirth}{this.props.dateOfBirth} </CardText>
+                <CardText ><img src={caraltsolid} className="phonesquarealtsolid" alt="logo"/> Role : {data.role} </CardText>
+                <CardText><img src={portraitsolid} className="phonesquarealtsolid" alt="logo"/> Pseudo : {data.pseudo}  </CardText>
+                <CardText><img src={keysolid} className="phonesquarealtsolid" alt="logo" /> Password : **********</CardText>
+                <CardText><img src={calendaraltregular} className="phonesquarealtsolid" alt="logo"/> Date of birth : {data.dateOfBirth}{this.props.dateOfBirth} </CardText>
 
 
 
@@ -93,11 +114,11 @@ class Profil extends React.Component {
 
 
               <Col xl="4" lg="4">
-                <CardText icon="user-plus" >Addres :{data.address} </CardText>
-                <CardText icon="user-plus" >Postcode : {data.postcode} </CardText>
-                <CardText icon="user-plus" >City :  {data.city} </CardText>
-                <CardText icon="user-plus" >Country :{data.country} </CardText>
-
+                <CardText><img src={addresscardsolid} className="phonesquarealtsolid" alt="logo" /> Addres :{data.address} </CardText>
+                <CardText><img src={addressbooksolid} className="phonesquarealtsolid" alt="logo" /> Postcode : {data.postcode} </CardText>
+                <CardText><img src={buildingsolid} className="phonesquarealtsolid" alt="logo" /> City :  {data.city} </CardText>
+                <CardText><img src={citysolid} className="phonesquarealtsolid" alt="logo" /> Country :{data.country} </CardText>
+                
 
               </Col>
 

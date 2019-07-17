@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import { Form, Label, Input } from 'reactstrap';
+import { FormGroup, Label, Input, CardTitle, } from 'reactstrap';
 import Button from '../Button/Button';
+import { Col, Container, } from 'reactstrap';
+
 import { Redirect } from 'react-router-dom';
 import './FormCar.scss';
 
@@ -83,10 +85,20 @@ class FormCar extends React.Component {
 
     } else {
     return (
-      <section className="formCar">
-        <Form className="car-container" onSubmit={this.handleSubmit}>
+      <section className="register">
 
-          <h2 className="car-title">Ma voiture {this.state.brand}</h2>
+
+<Col xl="12" lg="12">
+                <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> Ma voiture</h4></CardTitle>
+              </Col>
+          
+                          <Container>
+                          <div className="row align-items-center mb-4 mb-lg-5">
+
+
+        {/* <Form className="car-container" onSubmit={this.handleSubmit}> */}
+
+          
 
           {/* <Label className="car-maintenance" htmlFor="car-maintenance">Entretien du véhicule :</Label>
           <Input
@@ -107,6 +119,7 @@ class FormCar extends React.Component {
             value={this.state.leasing}
             onChange={this.handleChange}
           /> */}
+                            <Col xl="6" lg="6">
 
           <Label className="car-brand" htmlFor="car-brand">Marque :</Label>
           <Input
@@ -118,7 +131,7 @@ class FormCar extends React.Component {
             value={this.state.brand}
             onChange={this.handleChange}
           />
-
+</Col>
           {/* <Label className="car-model" htmlFor="car-model">Modèle :</Label>
           <Input
             required = "required"
@@ -129,7 +142,7 @@ class FormCar extends React.Component {
             value={this.state.model}
             onChange={this.handleChange} 
           />*/}
-
+ <Col xl="6" lg="6">  
           <Label className="car-license-plate" htmlFor="car-license-plate">Immatriculation :</Label>
           <Input
             required = "required"
@@ -141,7 +154,10 @@ class FormCar extends React.Component {
 
             onChange={this.handleChange}
           />
+ </Col>
+ <Col xl="6" lg="6">  
 
+ 
           <Label className="car-kilometers" htmlfor="car-kilometers">Kilométrage :</Label>
           <Input
             required = "required"
@@ -152,6 +168,8 @@ class FormCar extends React.Component {
             value={this.state.kilometers}
             onChange={this.handleChange}
           />
+</Col>
+<Col xl="6" lg="6">  
 
           <Label className="car-year" htmlfor="car-year">Année de mise en service :</Label>
           <Input
@@ -162,6 +180,8 @@ class FormCar extends React.Component {
             onChange={this.handleChange}
             value={this.state.model_year}
           />
+</Col>
+<Col xl="6" lg="6">  
 
           <Label className="car-horsepower" htmlfor="car-horsepower">Puissance Fiscale :</Label>
           <Input
@@ -172,14 +192,52 @@ class FormCar extends React.Component {
             onChange={this.handleChange}
             value={this.state.horsepower}
           />
+          </Col>
+          {/* <Col xl="6" lg="6">  
+          <Label className="car-fuel" name="fuel" onChange={this.handleChange}>Carburant :</Label>
+          <div className="car-bloc-fuels" >
+            {this.state.fuelArray.map(fuelList =>
+              <Label check>
+                <Input type="radio" className="car-fuel-item" name="radio2" onChange={this.fuelChange} value={fuelList} />
+                {fuelList}
+              </Label>)}
+          </div>
+         </Col> */}
 
-          <Label className="car-color" name="color" onChange={this.handleChange}>Couleur du véhicule :</Label>
-          <div className="car-bloc-color">
+         <Col xl="6" lg="6">  
+         <div className="FormCarCarburant">   
+         <FormGroup>
+          <Label className="car-fuel" name="fuel">Carburant :</Label>
+          <Input type="select" name="select" id="exampleSelect">
+            <option>Essence</option>
+            <option>Diesel</option>
+            <option>Hybride</option>
+            <option>Electrique</option>
+            <option>GPL</option>
+          </Input>
+          
+        </FormGroup>
+        </div>
+        
+        </Col>
+
+  
+          <Col xl="2" lg="4" className="colorcolor1" >  
+        
+          <div className="colorcolor">   
+          <div id="purple">
+              <Label check />
+              <Input type="radio" name="radio1" onChange={this.colorChange} value="purple" />
+              <div className="car-purple"></div>violet
+            </div>
+
+          
             <div id="black">
               <Label check />
               <Input type="radio" name="radio1" onChange={this.colorChange} value="black" />
               <div className="car-black"></div>noir
             </div>
+            
 
             <div id="dark-grey">
               <Label check />
@@ -192,6 +250,31 @@ class FormCar extends React.Component {
               <Input type="radio" name="radio1" onChange={this.colorChange} value="grey" />
               <div className="car-grey"></div>gris
             </div>
+            <div id="blue">
+              <Label check />
+              <Input type="radio" name="radio1" onChange={this.colorChange} value="bleu" />
+              <div className="car-blue"></div>bleu
+            </div>
+            </div>
+</Col>
+
+<Col xl="2" lg="4" className="colorcolor2">  
+<div className="colorcolor">   
+
+<div id="dark-blue">
+              <Label check />
+              <Input type="radio" name="radio1" onChange={this.colorChange} value="dark-blue" />
+              <div className="car-dark-blue"></div>bleu foncé
+            </div>
+
+<div id="yellow">
+              <Label check />
+              <Input type="radio" name="radio1" onChange={this.colorChange} value="yellow" />
+              <div className="car-yellow"></div>jaune
+            </div>
+
+           
+
 
             <div id="white">
               <Label check />
@@ -209,6 +292,21 @@ class FormCar extends React.Component {
               <Label check />
               <Input type="radio" name="radio1" onChange={this.colorChange} value="brown" />
               <div className="car-brown"></div>marron
+            </div>
+            </div>
+</Col>
+<Col xl="4" lg="4" className="colorcolor3">  
+<div className="colorcolor">   
+<div id="dark-green">
+              <Label check />
+              <Input type="radio" name="radio1" onChange={this.colorChange} value="dark-green" />
+              <div className="car-dark-green"></div>vert foncé
+            </div>
+
+<div id="green">
+              <Label check />
+              <Input type="radio" name="radio1" onChange={this.colorChange} value="green" />
+              <div className="car-green"></div>vert
             </div>
 
             <div id="bordeaux">
@@ -228,66 +326,28 @@ class FormCar extends React.Component {
               <Input type="radio" className="car-color-item" name="radio1" onChange={this.colorChange} value="orange" />
               <div className="car-orange"></div>orange
             </div>
-
-            <div id="yellow">
-              <Label check />
-              <Input type="radio" name="radio1" onChange={this.colorChange} value="yellow" />
-              <div className="car-yellow"></div>jaune
             </div>
+</Col>
 
-            <div id="green">
-              <Label check />
-              <Input type="radio" name="radio1" onChange={this.colorChange} value="green" />
-              <div className="car-green"></div>vert
-            </div>
-
-            <div id="dark-green">
-              <Label check />
-              <Input type="radio" name="radio1" onChange={this.colorChange} value="dark-green" />
-              <div className="car-dark-green"></div>vert foncé
-            </div>
-
-            <div id="dark-blue">
-              <Label check />
-              <Input type="radio" name="radio1" onChange={this.colorChange} value="dark-blue" />
-              <div className="car-dark-blue"></div>bleu foncé
-            </div>
-
-            <div id="blue">
-              <Label check />
-              <Input type="radio" name="radio1" onChange={this.colorChange} value="bleu" />
-              <div className="car-blue"></div>bleu
-            </div>
-
-            <div id="purple">
-              <Label check />
-              <Input type="radio" name="radio1" onChange={this.colorChange} value="purple" />
-              <div className="car-purple"></div>violet
-            </div>
-
-            <div id="pink">
-              <Label check />
-              <Input type="radio" name="radio1" onChange={this.colorChange} value="pink" />
-              <div className="car-pink"></div>rose
-            </div>
-          </div>
-
-          <Label className="car-fuel" name="fuel" onChange={this.handleChange}>Carburant :</Label>
-          <div className="car-bloc-fuels" >
-            {this.state.fuelArray.map(fuelList =>
-              <Label check>
-                <Input type="radio" className="car-fuel-item" name="radio2" onChange={this.fuelChange} value={fuelList} />
-                {fuelList}
-              </Label>)}
-          </div>
-
+        
+<Col xl="12" lg="12">  
+<div className="cardescriptionh1"   >
           <Label className="car-description" htmlfor="car-description">Description :</Label>
-          <Input type="textarea" name="description" id="car-description" value={this.state.description} onChange={this.handleChange} />
 
-          <div className="car-button">
-            <Button type="submit" onClick={this.handleRedirect} text="Valider" />
+          <Input type="textarea" name="description" id="car-description" value={this.state.description} onChange={this.handleChange} />
           </div>
-        </Form>
+          </Col>
+          </div>
+</Container>
+
+          <div className="MyFormCarsButton">
+            <Button text="Valider" />
+          </div>
+
+
+
+        {/* </Form> */}
+ 
       </section>
     );
             }

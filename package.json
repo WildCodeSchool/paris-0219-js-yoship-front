@@ -19,6 +19,7 @@
     "react-dom": "^16.8.6",
     "react-favicon": "0.0.16",
     "react-file-reader": "^1.1.4",
+    "react-images-upload": "^1.2.7",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.0.1",
