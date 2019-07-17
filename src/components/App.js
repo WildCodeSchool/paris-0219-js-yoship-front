@@ -18,12 +18,12 @@ import Document from '../screen/Document'
 import ProfilUpdate from '../screen/ProfilUpdate'
 import MyCarUpdate from '../screen/MyCarUpdate'
 import QuestionsPage from '../screen/QuestionsPage';
+import ConfirmMail from "../screen/ConfirmMail.js"
 
 // Custom Router Components
 import PublicRoute from '../router/PublicRoute'
 import PrivateRoute from '../router/PrivateRoute'
 import MesDocuments from './Mesdocuments/MesDocuments';
-
 
 function App() {
   return (
@@ -38,6 +38,7 @@ function App() {
           <PublicRoute path="/status" component={StepStatus} />
           <PublicRoute path="/apropos" component={About} />
           <PublicRoute path="/questions" component={QuestionsPage} />
+          <PublicRoute path="/confirm/:token" component={ConfirmMail} />
           <PrivateRoute path="/mycar" permission="driver" component={MyCar} />
           <PrivateRoute path='/dashboard' permission="driver" component={HomeDashBoard} />
           <PrivateRoute path='/profil' permission="driver" component={Monprofil} />
