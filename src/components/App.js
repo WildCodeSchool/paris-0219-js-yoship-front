@@ -18,14 +18,15 @@ import Loader from './UI/Loader/Loader'
 import HomeDashBoard from '../screen/HomeDashBoard'
 import About from '../screen/About'
 import Document from '../screen/Document'
+import ProfilUpdate from '../screen/ProfilUpdate'
 import MyCarUpdate from '../screen/MyCarUpdate'
 import QuestionsPage from '../screen/QuestionsPage';
+import ConfirmMail from "../screen/ConfirmMail.js"
 
 // Custom Router Components
 import PublicRoute from '../router/PublicRoute'
 import PrivateRoute from '../router/PrivateRoute'
 import MesDocuments from './Mesdocuments/MesDocuments';
-
 
 function App() {
   return (
@@ -40,11 +41,14 @@ function App() {
           <PublicRoute path="/status" component={StepStatus} />
           <PublicRoute path="/apropos" component={About} />
           <PublicRoute path="/questions" component={QuestionsPage} />
+          <PublicRoute path="/confirm/:token" component={ConfirmMail} />
           <PrivateRoute path="/mycar" permission="driver" component={MyCar} />
           <PrivateRoute path='/dashboard' permission="driver" component={HomeDashBoard} />
           <PrivateRoute path='/profil' permission="driver" component={Monprofil} />
           <PublicRoute path="/loading" component={Loader}/>
           <PrivateRoute path='/document' permission="driver" component={Document} />
+          <PrivateRoute path='/mycarupdate' permission="driver" component={MyCarUpdate} />
+          <PrivateRoute path='/profilUpdate' permission="driver" component={ProfilUpdate} /> 
           <PrivateRoute path='/myCarUpdate' permission="driver" component={MyCarUpdate} />
         </Switch>
       </div>

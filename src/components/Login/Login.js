@@ -40,7 +40,7 @@ class Login extends React.Component {
         });
       })
       .catch(error => {
-        console.log(error);
+        console.log(error.response);
         // Dom selectors
         const emailDom = document.querySelector("#email");
         const passwordDom = document.querySelector("#password");

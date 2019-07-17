@@ -1,11 +1,20 @@
 import React from 'react';
 import axios from 'axios';
 import FrenchPhoneField from './FrenchPhoneField';
+import Button from '../UI/Button/Button';
 import './Contact.scss';
 import logoPaperPlane from '../../assets/images/logoPaperPlane.svg';
 import { InputGroup, InputGroupAddon, Input, FormGroup, CustomInput, Form } from 'reactstrap';
 
+const config = require('../../config/config');
+
 class Contact extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.submitForm = this.submitForm.bind(this)
+    }
+
     state = {
         firstname: '',
         lastname: '',
@@ -16,37 +25,37 @@ class Contact extends React.Component {
         driver: '',
         brand: '',
         else: '',
-        text: '',
+        message: '',
+        statusArray: ['customer', 'driver', 'brand', 'someonelse']
     };
 
     handleChange = (event) => {
         this.setState({ [event.target.name]: event.target.value });
     }
 
+    statusChange = (event) => {
+        this.setState({status: event.target.value});
+    }
+
+    setPhoneState = (value) => {
+        this.setState({phone: value});
+    }
+
     submitForm(event) {
         event.preventDefault();
 
-        const config = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(this.state),
-        };
-
-        const url = "url..." //url of API 
-
-        axios(url, config)
+        axios.post(`http://localhost:${config.port}/contact`, this.state)
             .then(res => {
                 if (res.error) {
                     alert(res.error);
                 } else {
-                    alert(this.state.value + 'Your message was submitted');
+                    alert(this.state.firstname + ` votre message a été envoyé à l'équipe Yoship`);
+                    window.location.reload() //refreshed page
                 }
             })
             .catch(e => {
                 console.error(e);
-                alert('Error sending');
+                alert(`Erreur d'envoi`);
             });
     }
 
@@ -57,79 +66,71 @@ class Contact extends React.Component {
                     <div className="contact-logo">
                         <img src={logoPaperPlane} className="logo-plane" alt="logo" />
                     </div>
-                    <div className="contact-title"><h2>Contact us !</h2></div>
+                    <div className="contact-title"><h2>Contactez-nous !</h2></div>
 
                     <Input
                         className="contact-firstname"
-                        name="first name"
-                        placeholder="Firstname"
+                        name="firstname"
+                        placeholder="Prénom"
                         requiered="requiered"
                         type="text"
                         value={this.state.firstname}
                         onChange={this.handleChange}
-                        bsSize="sm"
                     />
 
                     <Input
                         className="contact-lastname"
                         name="lastname"
-                        placeholder="Last name"
+                        placeholder="Nom"
                         type="text"
                         requiered="requiered"
                         value={this.state.lastname}
                         onChange={this.handleChange}
-                        bsSize="sm"
                     />
 
                     <InputGroup
                         className="contact-email"
-                        size="sm"
                     >
                         <InputGroupAddon addonType="prepend">@</InputGroupAddon>
                         <Input
                             name="email"
-                            placeholder="Email address"
+                            placeholder="Adresse mail"
                             type="email"
                             requiered="requiered"
                             value={this.state.email}
                             onChange={this.handleChange}
-                            bsSize="sm"
                         />
                     </InputGroup>
 
-                    <span className="contact-phone"><FrenchPhoneField /></span>
+                    <span className="contact-phone"><FrenchPhoneField getPhone={this.setPhoneState}/></span>
 
                     <FormGroup className="contact-status">
-                        <CustomInput bsSize="sm" type="select" id="exampleCustomSelect" name="customSelect">
-                            <option value={this.state.value}>Select your status : </option>>
-                        <option value={this.state.value}>I am a privileged client</option>
-                            <option value={this.state.value}>I am a Yoship driver</option>
-                            <option value={this.state.value}>I am a Luxury brand</option>
-                            <option value={this.state.value}>Someone else</option>
+                        <CustomInput type="select" id="exampleCustomSelect" name="customSelect" onChange={this.statusChange} >
+                            <option value="">Sélectionnez votre status : </option>>
+                            <option value="customer">Je suis un client privilégié</option>
+                            <option value="driver">Je suis un chauffeur Yoship</option>
+                            <option value="brand">Je suis une enseigne de Luxe</option>
+                            <option value="someonelse">Quelqu'un d'autre</option>
                         </CustomInput>
                     </FormGroup>
 
                     <FormGroup
-                        //size="sm" 
                         className="contact-message">
                         <Input
-                            bsSize="sm"
-                            // size="sm" 
                             type="textarea"
-                            name="text"
+                            name="message"
                             id="exampleText"
-                            placeholder="Write your message..."
+                            placeholder="Ecrivez ici votre message..."
                             rows={5}
                             value={this.state.message}
                             onChange={this.handleChange}
                         />
                     </FormGroup>
 
-                    <input
-                        className="contact-button"
-                        type="Submit"
-                        defaultValue="Send"
-                    />
+                    <div className="contact-button">
+                        <Button type="submit"  text="Envoyer" />  
+                        {/* onClick={this.handleRedirect} */}
+                    </div>
                 </Form>
             </div>
 

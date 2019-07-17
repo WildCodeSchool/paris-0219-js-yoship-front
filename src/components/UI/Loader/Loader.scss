@@ -19,8 +19,8 @@
   }
 
   .hide {
-    animation: fadeOut 1s ease-out forwards;
-    -webkit-animation: fadeOut 1s ease-out forwards;
+    animation: fadeOut 750ms ease-out forwards;
+    -webkit-animation: fadeOut 750ms ease-out forwards;
   }
 
   @keyframes fadeOut {
@@ -28,7 +28,9 @@
       opacity: 1;
       visibility: visible;
     }
-
+    75% {
+      opacity: 1;
+    }
     100% {
       opacity: 0;
       visibility: hidden;
