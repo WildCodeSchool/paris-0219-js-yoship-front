@@ -5,7 +5,7 @@ import FormCar from '../components/MyCar/FormCar';
 import Footer from '../components/Footer/Footer'
 import Header from "../components/Header/Header";
 
-class MyCarUpdate extends Component {
+class MyCarPost extends Component {
   state = {};
   render() {
     return (
@@ -18,4 +18,4 @@ class MyCarUpdate extends Component {
   }
 }
 
-export default MyCarUpdate;
+export default MyCarPost;
