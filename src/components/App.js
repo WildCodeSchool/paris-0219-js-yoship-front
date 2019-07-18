@@ -3,8 +3,6 @@ import React from 'react';
 // Packages
 import {Switch} from 'react-router-dom';
 
-// Components
-import Header from '../components/Header/Header'
 import Home from './../screen/Home'
 import Login from './../screen/Login'
 import Tracking from './../screen/Tracking'
@@ -14,8 +12,13 @@ import StepFormation from '../screen/Formation'
 import StepStatus from '../screen/Status'
 import Monprofil from '../screen/Profil';
 import MyCar from '../screen/MyCar'
-import Dashboard from '../screen/Dashboard'
+import HomeDashBoard from '../screen/HomeDashBoard'
+import About from '../screen/About'
 import Document from '../screen/Document'
+import ProfilUpdate from '../screen/ProfilUpdate'
+import MyCarUpdate from '../screen/MyCarUpdate'
+import QuestionsPage from '../screen/QuestionsPage';
+import ConfirmMail from "../screen/ConfirmMail.js"
 
 // Custom Router Components
 import PublicRoute from '../router/PublicRoute'
@@ -25,7 +28,6 @@ import MesDocuments from './Mesdocuments/MesDocuments';
 function App() {
   return (
       <div>
-        <Header />
         <Switch>
           <PublicRoute exact path="/" component={Home} />
           <PublicRoute path="/tracking" component={Tracking} />
@@ -34,10 +36,16 @@ function App() {
           <PublicRoute path="/verification" component={StepVerification} />
           <PublicRoute path="/formation" component={StepFormation} />
           <PublicRoute path="/status" component={StepStatus} />
+          <PublicRoute path="/apropos" component={About} />
+          <PublicRoute path="/questions" component={QuestionsPage} />
+          <PublicRoute path="/confirm/:token" component={ConfirmMail} />
           <PrivateRoute path="/mycar" permission="driver" component={MyCar} />
-          <PrivateRoute path='/dashboard' permission="driver" component={Dashboard} />
+          <PrivateRoute path='/dashboard' permission="driver" component={HomeDashBoard} />
           <PrivateRoute path='/profil' permission="driver" component={Monprofil} />
           <PrivateRoute path='/document' permission="driver" component={Document} />
+          <PrivateRoute path='/mycarupdate' permission="driver" component={MyCarUpdate} />
+          <PrivateRoute path='/profilUpdate' permission="driver" component={ProfilUpdate} /> 
+          <PrivateRoute path='/myCarUpdate' permission="driver" component={MyCarUpdate} />
         </Switch>
       </div>
   );

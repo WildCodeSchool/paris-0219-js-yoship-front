@@ -3,6 +3,12 @@ import { Col, Container, Card, CardImg, CardText, CardTitle, } from 'reactstrap'
 import ImageUpload from '../Monprofil/ImageUpload'
 import "./MesDocuments.scss"
 import ReactFileReader from 'react-file-reader';
+import blacktiebrands from '../../assets/icons/blacktiebrands.svg'
+import phonesquarealtsolid from '../../assets/icons/phonesquarealtsolid.svg'
+
+import atsolid from '../../assets/icons/atsolid.svg'
+import usertagsolid from '../../assets/icons/usertagsolid.svg'
+
 import axios from 'axios'
 
 
@@ -124,14 +130,10 @@ class Mesdocuments extends React.Component {
               </Col>
 
               <Col xl="5" lg="5">
-                <CardTitle icon="user-plus" ><h4> {data.name} {data.firstname} (User ID:2323)</h4></CardTitle>
-                <CardText icon="user-plus" >Your phone : {data.phone}</CardText>
-                <CardText icon="user-plus" >Email Addres : {data.mail} </CardText>
-                <CardText icon="user-plus" >Status :</CardText>
-
-
-
-
+                <CardTitle><h4> <img src={blacktiebrands} className="phonesquarealtsolid" alt="logo" /> {data.name} {data.firstname} (User ID:2323)</h4></CardTitle>
+                <CardText><img src={phonesquarealtsolid} className="phonesquarealtsolid" alt="logo" /> Your phone : {data.phone}</CardText>
+                <CardText><img src={atsolid} className="phonesquarealtsolid" alt="logo" /> Email Addres : {data.mail} </CardText>
+                <CardText><img src={usertagsolid} className="phonesquarealtsolid" alt="logo"/> Status : check </CardText>
               </Col>
 
 
@@ -143,11 +145,6 @@ class Mesdocuments extends React.Component {
               <Col xl="12" lg="12">
                 <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> Mes Documents</h4></CardTitle>
               </Col>
-
-
-
-
-
 
 
 
