@@ -44,6 +44,8 @@ class Mesdocuments extends React.Component {
         this.setState({
           identity: res.data[0].identityCard
         })
+      }).catch(res => {
+        console.log(res)
       })
     }
 
