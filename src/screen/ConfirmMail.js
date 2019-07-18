@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 // Components
 import Footer from "../components/Footer/Footer";
@@ -8,15 +8,20 @@ import Header from "../components/Header/Header";
 // Packages
 import axios from 'axios'
 
+//Style
+
+import "../components/RegisterForm/ConfirmedMail/ConfirmedMail.scss"
+
 class ConfirmMail extends Component {
     state = {
-        isLoading: true
+        isLoading: true,
+        redirect: false
       }
 
-    componentDidMount = () => {
+    componentDidMount = async () => {
         const token = this.props.match.params.token
-        console.log(token);
-        axios({
+
+        await axios({
           method: 'PUT',
           url: `http://localhost:3031/confirmation/${token}`, 
            headers: {
@@ -28,21 +33,33 @@ class ConfirmMail extends Component {
             console.log(res.msg);
           })
           .catch(error => {
+            this.setState({ redirect: true });
             console.log(error);
           })
+        
+        if (this.state.isLoading === false) {
+            setTimeout( () => this.setState({ redirect: true }), 3000);
+        }
       }
 
     render() { 
+        const {redirect, isLoading} = this.state
+
+        if (redirect) {
+            return <Redirect to="/login" />
+        }
+
         return (
             <>
                 <Header pathname={this.props.location.pathname} />
                     <div className='confirm'>
-                        {this.state.isLoading
+                        {isLoading
                         ?   <p>Loading...</p> 
-                        :   <Link to='/Login'>
-                                <p>Email succesfully confirmed !</p>
-                                <button>Click to go to login</button>
-                            </Link>
+                        
+                        :   <div className="confirmed-container">
+                                <h2>Votre email à été confirmé !</h2>
+                                <h3>Vous serez automatiquement redirigé dans quelques secondes</h3>
+                            </div>
                         }
                     </div>
                 <Footer />
