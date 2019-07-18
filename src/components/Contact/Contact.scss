@@ -1,27 +1,32 @@
-/* GENERAL TAG CSS */
+/* GENERAL TAG SCSS */
 @font-face {
     font-family: 'Varela Round', sans-serif;
     src: url("https://fonts.googleapis.com/css?family=Varela+Round&display=swap") format("woff2"),
 }
- 
-/* CONTACT FORM CSS */
+
+$fontStyle: 'Nunito', sans-serif;
+
+$logoColor: #212529;
+$backgroundColor: #f1f1f1;
+
+/* CONTACT FORM SCSS */
+
 #contact-wrapper {
+    background-color: $backgroundColor;
     display: grid;
+    font-size: 1rem !important;
     flex-wrap: nowrap;
+    font-family: $fontStyle;
     grid-template-columns: repeat(2, 42%);
     grid-template-rows: repeat(7, auto);
     grid-column-gap: 10px;
     grid-row-gap: 15px;
     justify-content: center;
-    /* add on SCSS */
-    background-color: #f1f1f1 ;
-    font-family: 'Nunito', sans-serif;
-    font-size: 1rem !important;
-    letter-spacing: 0.0625em;
+    letter-spacing: 0.0625em
 }
 
 .contact-logo {
-    color: #212529;
+    color: $logoColor;
     grid-column-start: 1;
     grid-column-end:3; 
     margin-left: auto;
@@ -30,7 +35,7 @@
 
 .logo-plane {
     background-size: 30px 30px;
-    color: #212529;
+    color: $logoColor;
     margin-top: 150px;
     max-height: 30px;
     max-width: 30px;
@@ -44,24 +49,16 @@
     margin-right: auto;
 }
 
+.contact-email,
 .contact-firstname {
-    grid-column-start: 1;
     grid-column-end: 2;
-} 
-
-.contact-lastname {
-    grid-column-start: 2;
-    grid-column-end: 3;
-} 
-
-.contact-email {
     grid-column-start: 1;
-    grid-column-end: 2;
 } 
 
+.contact-lastname,
 .contact-phone {
-    grid-column-start: 2;
     grid-column-end: 3;
+    grid-column-start: 2;
 } 
 
 .contact-status {
@@ -74,67 +71,31 @@
 }
 
 .contact-message {
+    grid-column-end: 3;
     grid-column-start: 1;
-    grid-column-end: 3; 
     margin-top: -15px;
 } 
 
 .contact-button {
-    color: white;
-    grid-column-start: 1;
     grid-column-end: 3; 
-    justify-items: center;
-    margin-bottom: 130px;
-    margin-top: -15px;
-}
-
-.contact-button {
-    background-color: #C9A959;
-    border: 0;
-    border-radius: 5px;
-    box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1);
-    font-family: 'Varela Round', 'sans-serif';
-    font-size: 80%;
-    padding: 1.25rem 2rem;
-    letter-spacing: .15rem;
-    text-transform: uppercase;
-    -webkit-box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1);
-    width: 6rem;
-}
-
-.contact-button:hover {
-    background-color: #B99A6F;
-}
-
-.contact-button:focus {
-    background-color: #B99A6F;
-    color: white;
+    grid-column-start: 1;
     justify-self: center;
-    align-self: center;
+    margin-bottom: 50px;
 }
-
-input.contact-button {
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
-    padding-right: 2rem;
-    padding-left: 1.75rem;
-} 
 
 @media screen and (max-width: 576px) {
     #contact-wrapper {
-    grid-template-columns: repeat(1, 90%);
+        grid-template-columns: repeat(1, 90%);
     }
-    .contact-logo, 
-    .contact-title,
+    .contact-button,
     .contact-firstname,
+    .contact-email,
     .contact-lastname,
-    .contact-email, 
+    .contact-logo,
+    .contact-message,
     .contact-phone,
     .contact-status,
-    .contact-message,
-    .contact-button {
+    .contact-title {
         grid-column-start: 1;
         grid-column-end: 2;   
     }

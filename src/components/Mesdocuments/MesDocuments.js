@@ -3,6 +3,12 @@ import { Col, Container, Card, CardImg, CardText, CardTitle, } from 'reactstrap'
 import ImageUpload from '../Monprofil/ImageUpload'
 import "./MesDocuments.scss"
 import ReactFileReader from 'react-file-reader';
+import blacktiebrands from '../../assets/icons/blacktiebrands.svg'
+import phonesquarealtsolid from '../../assets/icons/phonesquarealtsolid.svg'
+
+import atsolid from '../../assets/icons/atsolid.svg'
+import usertagsolid from '../../assets/icons/usertagsolid.svg'
+
 import axios from 'axios'
 
 
@@ -10,13 +16,69 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import allTheActions from '../../actions'
+import { log } from 'util';
+
 
 const config = require('../../config/config')
 
 class Mesdocuments extends React.Component {
 
   state = {
+    result: [],
     loading: true,
+    selectFile:'',
+    identity:''
+  }
+    getIdentity = () => {
+      const uuid = localStorage.getItem("uuid")
+      const token = localStorage.getItem("token")
+      axios({
+        method: "GET",
+        url: `http://localhost:${config.port}/users/${uuid}/driverPapers`,
+        headers: {
+          "x-access-token": token
+        }
+      })
+      .then(res => {
+        console.log(res.data[0].identityCard)
+        this.setState({
+          identity: res.data[0].identityCard
+        })
+      }).catch(res => {
+        console.log(res)
+      })
+    }
+
+
+  changeHandler = async (event) => {
+    await this.setState({
+     selectFile: event.target.files[0]
+    })
+    console.log(this.state.selectFile)
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const uuid = localStorage.getItem("uuid")
+    const token = localStorage.getItem("token")
+    const fileType = event.target.name
+    const formData = new FormData()
+    formData.append(fileType,this.state.selectFile)
+    axios({
+      method: "PUT",
+      url: `http://localhost:${config.port}/users/${uuid}/driverPapers/${fileType}`,
+      headers: {
+        "x-access-token": token
+      },
+      data: formData
+    })
+      .then(res => {
+        console.log("le res", res);
+        console.log("le res.data", res.data);
+      })
+      .catch(error => {
+        console.log(error.response)
+    });
   }
 
   getData = () => {
@@ -37,21 +99,24 @@ class Mesdocuments extends React.Component {
 
   }
 
+
   componentDidMount = () => {
     this.getData()
+    this.getIdentity()
+    console.log(this.state.identity)
   }
 
 
-  handleFiles = files => {
-    console.log(files)
-  }
+
 
   render() {
     if (this.state.loading) {
       return (<div>loading</div>)
     } else {
       const data = this.state.result[0]
+      // const dataDrivers = this.state.dataDrivers[0]
       return (
+        
         <section id="project" className="project-section bg-light">
           <Container>
             <div className="row align-items-center no-gutters mb-4 mb-lg-5">
@@ -67,14 +132,10 @@ class Mesdocuments extends React.Component {
               </Col>
 
               <Col xl="5" lg="5">
-                <CardTitle icon="user-plus" ><h4> {data.name} {data.firstname} (User ID:2323)</h4></CardTitle>
-                <CardText icon="user-plus" >Your phone : {data.phone}</CardText>
-                <CardText icon="user-plus" >Email Addres : {data.mail} </CardText>
-                <CardText icon="user-plus" >Status :</CardText>
-
-
-
-
+                <CardTitle><h4> <img src={blacktiebrands} className="phonesquarealtsolid" alt="logo" /> {data.name} {data.firstname} (User ID:2323)</h4></CardTitle>
+                <CardText><img src={phonesquarealtsolid} className="phonesquarealtsolid" alt="logo" /> Your phone : {data.phone}</CardText>
+                <CardText><img src={atsolid} className="phonesquarealtsolid" alt="logo" /> Email Addres : {data.mail} </CardText>
+                <CardText><img src={usertagsolid} className="phonesquarealtsolid" alt="logo"/> Status : check </CardText>
               </Col>
 
 
@@ -88,66 +149,28 @@ class Mesdocuments extends React.Component {
               </Col>
 
 
-             
-
-
-
-
 
               <Col xl="4" lg="4">
+              <form enctype="multipart/form-data" method="PUT" >
+               
+                <input type="file" name="identityCard" onChange={this.changeHandler} />
+                <button type="button" name="identityCard" className="btn btn-success btn-block" onClick={this.handleSubmit}>Upload</button>
 
-                <CardText icon="user-plus">
-                  <ReactFileReader handleFiles={this.handleFiles}>Identity card :
-          <button className='btn'>Upload</button>
-                  </ReactFileReader>
-                </CardText>
+                <input type="file" name="proofOfResidence" onChange={this.changeHandler} />
+                <button type="button" className="btn btn-success btn-block" onClick={this.handleSubmit}>Upload</button>
 
-                <CardText icon="user-plus">
-                  <ReactFileReader handleFiles={this.handleFiles}>Proof of residence :
-          <button className='btn'>Upload</button>
-                  </ReactFileReader>
-                </CardText>
+                <input type="file" name="rib" onChange={this.changeHandler} />
+                <button type="button" className="btn btn-success btn-block" onClick={this.handleSubmit}>Upload</button>
 
-                <CardText icon="user-plus">
-                  <ReactFileReader handleFiles={this.handleFiles}>Rib :
-          <button className='btn'>Upload</button>
-                  </ReactFileReader>
-                </CardText>
-
-                <CardText icon="user-plus">
-                  <ReactFileReader handleFiles={this.handleFiles}>Permis :
-          <button className='btn'>Upload</button>
-                  </ReactFileReader>
-                </CardText>
-
-
+                <input type="file" name="driverLicense" onChange={this.changeHandler} />
+                <button type="button" className="btn btn-success btn-block" onClick={this.handleSubmit}>Upload</button>
+              </form>
               </Col>
-
-              <Col xl="4" lg="4">
-
-                <CardText icon="user-plus">
-                  <ReactFileReader handleFiles={this.handleFiles}>Control technical :
-          <button className='btn'>Upload</button>
-                  </ReactFileReader>
-                </CardText>
-
-                <CardText icon="user-plus">
-                  <ReactFileReader handleFiles={this.handleFiles}>Assurance :
-          <button className='btn'>Upload</button>
-                  </ReactFileReader>
-                </CardText>
-
-                <CardText icon="user-plus">
-                  <ReactFileReader handleFiles={this.handleFiles}>Contract leasing :
-          <button className='btn'>Upload</button>
-                  </ReactFileReader>
-                </CardText>
-
+            
+            </div>
+            <div>
+              <p>{this.state.identity}</p>
               
-
-              </Col>
-              
-
             </div>
           </Container>
 
@@ -161,7 +184,6 @@ class Mesdocuments extends React.Component {
     }
   }
 }
-
 const mapStateToProps = state => {
   return {
     lastName: state.formReducer.lastName,

@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { Container, Col, Button, } from 'reactstrap';
+import { Container, Col, } from 'reactstrap';
+import Button from '../../Button/Button'
 
 import { NavLink } from 'react-router-dom';
 
@@ -40,12 +41,13 @@ class statusroles extends React.Component {
                             <div className="boutonyodriversbouton">
 
                                 <NavLink to="/Register" >
-                                    <Button
+                                <Button text="YoDrivers"/>
+                                    {/* <Button
                                         className="not-member" >
                                         <p>
                                             YoDrivers<br />
                                         </p>
-                                    </Button>
+                                    </Button> */}
                                 </NavLink>
                             </div>
                         </Col>
@@ -63,13 +65,15 @@ class statusroles extends React.Component {
                             </div>
 
                             <div className="boutonyodriversbouton">
-                                <Button className="not-member" >
+                            <Button text="Entreprise"/>
+
+                                {/* <Button className="not-member" >
 
                                     <p>
                                         Entreprise <br />
                                     </p>
 
-                                </Button>
+                                </Button> */}
                             </div>
                         </Col>
                     </div>

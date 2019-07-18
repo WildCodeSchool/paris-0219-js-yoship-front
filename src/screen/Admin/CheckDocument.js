@@ -19,6 +19,7 @@ import './Admin.scss'
 // Components
 import Footer from "../../components/Footer/Footer";
 import DriverList from "../../components/DriverList/DriverList";
+import HeaderAdmin from "../../components/Header/HeaderAdmin";
 
 // Import config
 const config = require("../../config/config");
@@ -96,6 +97,8 @@ class CheckDocument extends Component {
 
       if (!isLoading) {
           return !docVerified ? (
+            <>
+            <HeaderAdmin pathname={this.props.location.pathname} />
             <div className="docs-card-container">
               <Card className="docs-card">
                 <CardHeader
@@ -113,6 +116,7 @@ class CheckDocument extends Component {
                 </CardContent>
               </Card>
             </div>
+            </>
           ) : (
             <Redirect to="admin" />
           );

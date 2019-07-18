@@ -10,9 +10,9 @@ class Dropmenu extends Component {
     }
     render() {
         return (
-            <UncontrolledDropdown >
+            <UncontrolledDropdown className="">
 
-                <DropdownToggle >
+                <DropdownToggle className="button-login-submit" >
                     <Tab className="Setting" icon="user-cog" tab="Setting" />
 
                 </DropdownToggle>
@@ -35,6 +35,7 @@ class Dropmenu extends Component {
                                 Ma voiture
                             </DropdownItem>
                         </NavLink>
+                      
                         <NavLink to="/Document">  
                             <DropdownItem >
                                 Mes documents
@@ -44,11 +45,13 @@ class Dropmenu extends Component {
                                 statistique financiére
                   </DropdownItem>
                             <DropdownItem divider />
-                            <NavLink exact to="/questions" >
-                <DropdownItem>
-                         Questions les plus fréquentes
-                </DropdownItem>
-                            </NavLink>
+                          
+                            <NavLink to="/">
+                            <DropdownItem  
+                            onClick={() => this.props}>
+                                Log out
+                            </DropdownItem>
+                        </NavLink>
                         </div>
                     </DropdownMenu>
                 </div>
@@ -58,3 +61,5 @@ class Dropmenu extends Component {
 }
 
 export default Dropmenu;
+
+

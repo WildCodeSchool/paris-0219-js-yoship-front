@@ -6,9 +6,11 @@ import './Register.scss';
 import { Input, Col, Container, Button, Progress } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
 import { Field, formInputData, formValidation } from 'reactjs-input-validator';
-import ProfilMon from '../../Monprofil/MonProfil'
 import axios from 'axios'
-import { directiveLiteral } from '@babel/types';
+
+
+import UnconfirmedMail from '../UnconfirmedMail/UnconfirmedMail'
+
 
 const config = require('../../../config/config')
 
@@ -22,6 +24,8 @@ class Register extends React.Component {
     //     this.setState({ [e.target.name]: e.target.value })
     // }
 
+    
+    
     handleChange = (event, inputValue, inputName, validationState, isRequired) => {
         const value = (event && event.target.value) || inputValue;
         const { data } = this.state;
@@ -41,7 +45,7 @@ class Register extends React.Component {
         event.preventDefault();
         const isFormValid = formValidation(this.state.data);
 
-        if (isFormValid) {
+        if (isFormValid && document.getElementById('terms').checked){
             const data = this.state.data
             const dataToSend = {
                 dateOfBirth: data.dateOfBirth.value,
@@ -51,6 +55,10 @@ class Register extends React.Component {
                 password: data.password.value,
                 phone: data.phone.value,
                 pseudo: data.pseudo.value,
+                address: data.address.value,
+                postcode: data.postcode.value,
+                city: data.city.value,
+                country: data.country.value,
                 role: "driver"
             }
             
@@ -78,7 +86,7 @@ class Register extends React.Component {
         const redirect = this.state.redirect;
 
         if (redirect) {
-            return <Redirect to="/" />
+            return <UnconfirmedMail mail={this.state.data.mail.value} />
         } else {
 
             return (
@@ -106,10 +114,10 @@ class Register extends React.Component {
                                     value={this.state.data.name}
                                     shouldValidateInputs={this.state.shouldValidateInputs} />
                             </Col>
-
+                           
                             <Col xl="5" lg="5">
-
-                                <Field
+                            
+                                <Field 
                                     required label="dateOfBirth" name="dateOfBirth" placeholder="dateOfBirth"
                                     onChange={this.handleChange}
                                     value={this.state.data.dateOfBirth}
@@ -141,6 +149,38 @@ class Register extends React.Component {
 
                             </ Col>
                             {/* label + Input email */}
+                            <Col xl="5" lg="5">
+                                <Field
+                                    required label="address" name="address" placeholder="address"
+                                    onChange={this.handleChange}
+                                    value={this.state.data.address}
+                                    shouldValidateInputs={this.state.shouldValidateInputs} />
+                            </Col>
+                            <Col xl="5" lg="5">
+                                <Field
+                                    required label="Post code" name="postcode" placeholder="Post code"
+                                    onChange={this.handleChange}
+                                    value={this.state.data.postcode}
+                                    shouldValidateInputs={this.state.shouldValidateInputs} />
+                            </Col>
+                            <Col xl="5" lg="5">
+                                <Field
+                                    required label="City" name="city" placeholder="City"
+                                    onChange={this.handleChange}
+                                    value={this.state.data.city}
+                                    shouldValidateInputs={this.state.shouldValidateInputs} />
+                            </Col>
+                            <Col xl="5" lg="5">
+                                <Field
+                                    required label="Country" name="country" placeholder="Country"
+                                    onChange={this.handleChange}
+                                    value={this.state.data.country}
+                                    shouldValidateInputs={this.state.shouldValidateInputs} />
+                            </Col>
+
+
+
+
                             <Col xl="5" lg="5">
 
                                 <Field
@@ -191,10 +231,14 @@ class Register extends React.Component {
 
                         </div>
                     </Container>
+
+       
+
+
                     {/* checkbox terms and conditions  */}
                     <div className="not">
                         <div className="checkbox">
-                            <label> <Input type="checkbox"></Input> Agree to terms and conditions</label>
+                            <label> <Input type="checkbox" id = "terms"></Input> Agree to terms and conditions</label>
 
                             <div>
 
@@ -202,11 +246,11 @@ class Register extends React.Component {
 
                             </div>
 
-                            <div>
+                            {/* <div>
                                 <div className="barprogress">Etapes 1 sur 3</div>
                                 <Progress animated value="33.333" />
                                 <div className="barprogress">Début du processus</div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
 

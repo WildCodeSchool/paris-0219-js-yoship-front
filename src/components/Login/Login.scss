@@ -113,13 +113,14 @@
     display: grid;
 
 }
+
 .button-login-submit {
-    background-color: #C9A959;
+    background-color: #C9A959!important;
     color: white;
     cursor: pointer;
     box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1);
     padding: 1.25rem 2rem;
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Varela Round', sans-serif!important;
     font-size: 80%;
     line-height: 1.5;
     text-transform: uppercase;

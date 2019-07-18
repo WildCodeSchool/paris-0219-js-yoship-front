@@ -1,11 +1,12 @@
 import React from 'react';
+import Button from '../Button/Button'
 import { NavLink, Redirect, withRouter } from "react-router-dom";
 
 // Packages
 import axios from 'axios'
 
 // Components
-import { Input, CardImg, Col, Container, Button } from 'reactstrap';
+import { Input, CardImg, Col, Container } from 'reactstrap';
 
 // Styling
 import './Login.scss';
@@ -80,44 +81,43 @@ class Login extends React.Component {
           if (role === "admin")
             return this.props.location.state === undefined ? <Redirect to="/admin" /> : <Redirect to={this.props.location.state.pathname} />
         }
-
-        return (
-            <section id="login" className="login">
-                <Container>
-                    <div className="row align-items-center no-gutters mb-4 mb-lg-5">
-                        <Col xl="6" lg="6">
-                            <form className="box-login" onSubmit={this.onSubmit}>
-                                <p>
-                                    <label className="label-email-login" htmlFor="email">Email adress</label><br />
-                                    <div className="group-email">
-                                        <Input id="email" className="input-email-login" name="Email address" type="email" placeholder="Enter your email address" /></div>
-                                </p>
-                                <p>
-                                    <label className="label-password-login" htmlFor="password">Password</label><br />
-                                    <Input id="password" className="input-password-login" name="Password" type="text" placeholder="Enter your password" />
-                                </p>
-                                <div className="checkbox">
-                                    <label> <Input type="checkbox"></Input> Check me out</label>
-                                    <Button className="button-login-submit">SUBMIT</Button>
-                                </div>
-                            </form>
-                        </Col>
-                        <Col xl="5" lg="6">
-                            <CardImg src="https://img.lght.pics/Cg0I.jpg" alt="Card image cap" />
-                        </Col>
-                    </div>
-                </Container>
-                <div className="not">
-                    <NavLink to="/status" >
-                        <Button className="not-member" >
-                            <p>Not a member yet ? <br /> To become Yoship</p>
-                        </Button>
-                    </NavLink>
+        
+    return (
+      <section id="login" className="login">
+        <Container>
+          <div className="row align-items-center no-gutters mb-4 mb-lg-5">
+            <Col xl="6" lg="6">
+              <form className="box-login" onSubmit={this.onSubmit}>
+                <p>
+                  <label className="label-email-login" htmlFor="email">Email adress</label><br />
+                  <div className="group-email">
+                    <Input id="email" className="input-email-login" name="Email address" type="email" placeholder="Enter your email address" /></div>
+                </p>
+                <p>
+                  <label className="label-password-login" htmlFor="password">Password</label><br />
+                  <Input id="password" className="input-password-login" name="Password" type="text" placeholder="Enter your password" />
+                </p>
+                <div className="checkbox">
+                  <label> <Input type="checkbox"></Input> Check me out</label>
+                  <Button text="SUBMIT" />
+                  {/* <Button className="button-login-submit">SUBMIT</Button> */}
                 </div>
-            </section>
+              </form>
+            </Col>
+            <Col xl="5" lg="6">
+              <CardImg src="https://img.lght.pics/Cg0I.jpg" alt="Card image cap" />
+            </Col>
+          </div>
+        </Container>
+        <div className="not">
+          <NavLink to="/status" >
+            <Button text=" Pas encore inscrit ?" />
+          </NavLink>
+        </div>
+      </section>
 
-        )
-    }
+    )
+  }
 }
 
 export default withRouter(Login);
