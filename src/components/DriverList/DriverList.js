@@ -90,12 +90,13 @@ class DriverList extends Component {
 
   render() {
     const { driverDocs, isLoading } = this.state;
+
     const columns = [
-      { title: 'id', field: 'id' },
-      { title: 'name', field: 'name' },
-      { title: 'firstname', field: 'firstname' },
-      { title: 'createdAt', field: 'createdAt' },
-      { title: "Statut", field: 'allUploaded' },
+      { title: 'ID', field: 'id', cellStyle: { border: "none", fontWeight: "bold" }},
+      { title: 'Nom de famille', field: 'name', cellStyle: {border: "none"} },
+      { title: 'Prénom', field: 'firstname', cellStyle: {border: "none"} },
+      { title: 'Date de création', field: 'createdAt', cellStyle: {border: "none"} },
+      { title: "Statut", field: 'allUploaded', cellStyle: {border: "none"} },
     ]
     if (!isLoading) {
       console.log(driverDocs[1].allUploaded)
@@ -125,10 +126,13 @@ class DriverList extends Component {
               actionsColumnIndex: -1,
               exportButton: true,
               rowStyle: rowData => ({
-                backgroundColor: ((rowData.tableData.id % 2) === 1 ? '#EEE' : '#FFF')
+                backgroundColor: ((rowData.tableData.id % 2) === 1 ? 'rgb(245, 245, 245)' : '#FFF'),
+                border: 'none'
               }),
               headerStyle: {
-                fontSize: '18px'
+                fontSize: '18px',
+                border: "none",
+                boxShadow: "rgba(0, 0, 0, 0.2) 5px 2px 18px -10px"
               }
             }}
           />
