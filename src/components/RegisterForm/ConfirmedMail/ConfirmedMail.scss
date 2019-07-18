@@ -1,0 +1,14 @@
+.confirmed-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 5em; 
+    height: 100vh;
+    margin: 0 2em;
+    text-align: center;
+    
+    h3 {
+        margin-top: 1em;
+    }
+}
