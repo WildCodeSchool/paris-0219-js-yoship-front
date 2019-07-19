@@ -179,7 +179,7 @@ class CheckBoxList extends Component {
                       <IconButton edge="end" aria-label="Comments" onClick={this.openModal}>
                         <Pageview color="secondary" />
                       </IconButton>
-                      <IconButton edge="end" aria-label="Comments">
+                      <IconButton edge="end" aria-label="Comments" onClick={() => {window.open(`http://localhost:${config.port}/` + item.value)}}>
                         <Print />
                       </IconButton>
                     </ListItemSecondaryAction>
