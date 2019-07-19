@@ -125,6 +125,8 @@ class DriverList extends Component {
             options={{
               actionsColumnIndex: -1,
               exportButton: true,
+              pageSize: 10,
+              pageSizeOptions: [10],
               rowStyle: rowData => ({
                 backgroundColor: ((rowData.tableData.id % 2) === 1 ? 'rgb(245, 245, 245)' : '#FFF'),
                 border: 'none'

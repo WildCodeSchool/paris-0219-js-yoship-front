@@ -10,6 +10,7 @@ import Avatar from '@material-ui/core/Avatar';
 
 // Other UI Components
 import Button from '@material-ui/core/Button';
+import FileViewer from 'react-file-viewer';
 
 // Icon Ui Components
 
@@ -85,6 +86,24 @@ class CheckDocument extends Component {
           }).catch(error => {
             console.log(error); 
           })
+
+        await axios({
+          method: "Get",
+          url: `http://localhost:${config.port}/uploads/${this.state.dataDocuments.identityCard}`,
+          headers: {
+            "x-access-token": `${token}`
+          }
+        }).then(res => {
+          // console.log(res.data);
+          this.setState({
+              dataDocuments: {
+                  identityCard: res.data
+              },
+              isLoading: false
+          })
+        }).catch(error => {
+          console.log(error); 
+        })
   }
 
   render() {
@@ -94,29 +113,29 @@ class CheckDocument extends Component {
       const { firstname, mail, name, phone, docVerified } = this.state.dataContact;
       // Driver ocument states
       const { identityCard, driverLicense, proofOfResidence, rib, nSiret } = this.state.dataDocuments;
-
+      console.log(identityCard)
       if (!isLoading) {
           return !docVerified ? (
-            <>
-            <HeaderAdmin pathname={this.props.location.pathname} />
-            <div className="docs-card-container">
-              <Card className="docs-card">
-                <CardHeader
-                avatar={
-                  <Avatar aria-label="Recipe">
-                    {firstname[0] + name[0]}
-                  </Avatar>
-                }
-                  title={firstname + " " + name}
-                  subheader={mail}
-                  className="docs-card-header"
-                />
-                <CardContent className="docs-card-content">
-                  <CheckboxList dataDocuments={this.state.dataDocuments} uuid={this.props.match.params.uuid}/>
-                </CardContent>
-              </Card>
+            <div className="bg-light">
+              <HeaderAdmin pathname={this.props.location.pathname} />
+              <div className="docs-card-container">
+                <Card className="docs-card">
+                  <CardHeader
+                  avatar={
+                    <Avatar aria-label="Recipe">
+                      {firstname[0] + name[0]}
+                    </Avatar>
+                  }
+                    title={firstname + " " + name}
+                    subheader={mail}
+                    className="docs-card-header"
+                  />
+                  <CardContent className="docs-card-content">
+                    <CheckboxList dataDocuments={this.state.dataDocuments} uuid={this.props.match.params.uuid}/>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
-            </>
           ) : (
             <Redirect to="admin" />
           );

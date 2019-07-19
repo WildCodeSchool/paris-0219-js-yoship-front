@@ -3,6 +3,17 @@ import React, { Component } from "react";
 import { NavLink, Redirect } from "react-router-dom";
 
 import { makeStyles } from '@material-ui/core/styles';
+
+import FileViewer from 'react-file-viewer';
+
+
+// Material UI DIALOG
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+
 // Material UI List
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -10,16 +21,20 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
+
 // Icons
 import IconButton from '@material-ui/core/IconButton';
 import CloudDownload from '@material-ui/icons/CloudDownload';
 import Pageview from '@material-ui/icons/Pageview';
 import Print from '@material-ui/icons/Print';
+import Close from '@material-ui/icons/Close';
 
 // Other UI Components
 import Button from '@material-ui/core/Button';
 
 import axios from 'axios'
+
+import "./CheckBoxList.scss"
 
 // Import config
 const config = require("../../config/config");
@@ -160,13 +175,35 @@ class CheckBoxList extends Component {
                       <IconButton edge="end" aria-label="Comments">
                         <CloudDownload color="primary" />
                       </IconButton>
-                      <IconButton edge="end" aria-label="Comments">
+                      <IconButton edge="end" aria-label="Comments" onClick={this.openModal}>
                         <Pageview color="secondary" />
                       </IconButton>
                       <IconButton edge="end" aria-label="Comments">
                         <Print />
                       </IconButton>
                     </ListItemSecondaryAction>
+                  <Dialog  fullScreen={true}
+                    maxWidth="lg"
+                    open={false}
+                    // onClose={handleClose}
+                    aria-labelledby="max-width-dialog-title"
+                    >
+                      {/* pg-viewer-wrapper */}
+                    <DialogActions>
+                      <DialogTitle>{item.name}</DialogTitle>
+                      <IconButton edge="start" color="inherit"  aria-label="Close">
+                        <Close />
+                      </IconButton>
+                    </DialogActions>
+                    <DialogContent>
+                    <FileViewer 
+                    style={{ background: "grey", display: "flex", flexDirection: "column", alignItems: "center" }}
+                    fileType="pdf" 
+                    filePath={`http://localhost:${config.port}/uploads/identityCard-1563526351518.pdf`} 
+                    />
+
+                    </DialogContent>
+                  </Dialog>
                   </ListItem>
                 ))}
               </List>

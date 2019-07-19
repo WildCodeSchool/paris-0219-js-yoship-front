@@ -19,7 +19,6 @@ class AdminDashboard extends Component {
   render() {
       return (
         <div className="">
-          
           <HeaderAdmin pathname={this.props.location.pathname} />
           <DriverList />
         </div>
