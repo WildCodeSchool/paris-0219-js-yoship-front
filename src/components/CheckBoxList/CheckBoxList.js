@@ -35,26 +35,25 @@ import Button from '@material-ui/core/Button';
 import axios from 'axios'
 
 import "./CheckBoxList.scss"
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
 
 // Import config
 const config = require("../../config/config");
-
+const download = require("downloadjs")
 class CheckBoxList extends Component {
     state = {
         checkedItems: {
-            'identityCard': false,
-            'driverLicense': false,
-            'proofOfResidence': false,
-            'rib': false,
-            'nSiret': false
+            "Carte d'identité": false,
+            "Permis de conduire": false,
+            "Certificat de domicile": false,
+            "RIB": false,
+            "Numéro de Siret": false
         },
         allChecked: false,
         redirect: false
     }
       
   handleChange(e) {
-    console.log(e.currentTarget.querySelector("input"))
-    console.log(e.target)
     let item = e.target.name;
     let isChecked = e.target.checked;
 
@@ -79,11 +78,11 @@ class CheckBoxList extends Component {
   checkAllItems() {
     this.setState(prevState => ({
         checkedItems: {
-            'identityCard': prevState.allChecked === false ? true : false,
-            'driverLicense': prevState.allChecked === false ? true : false,
-            'proofOfResidence': prevState.allChecked === false ? true : false,
-            'rib': prevState.allChecked === false ? true : false,
-            'nSiret': prevState.allChecked === false ? true : false
+            "Carte d'identité": prevState.allChecked === false ? true : false,
+            "Permis de conduire": prevState.allChecked === false ? true : false,
+            "Certificat de domicile": prevState.allChecked === false ? true : false,
+            "RIB": prevState.allChecked === false ? true : false,
+            "Numéro de Siret": prevState.allChecked === false ? true : false
         },
         allChecked: !this.state.allChecked
       }));
@@ -121,27 +120,27 @@ class CheckBoxList extends Component {
 
     const checkboxes = [
         {
-            name: 'identityCard',
+            name: "Carte d'identité",
             key: 0,
             value: identityCard
         },
         {
-            name: "driverLicense",
+            name: "Permis de conduire",
             key: 1,
             value: driverLicense
         },
         {
-            name: "proofOfResidence",
+            name: "Certificat de domicile",
             key: 2,
             value: proofOfResidence
         },
         {
-            name: "rib",
+            name: "RIB",
             key: 3,
             value: rib
         },
         {
-            name: "nSiret",
+            name: "Numéro de Siret",
             key: 4,
             value: nSiret
         }
@@ -156,12 +155,14 @@ class CheckBoxList extends Component {
                     onChange={this.checkAllItems.bind(this)}
                     inputProps={{ "aria-label": "primary checkbox" }}
                   />
+                  Sélectionner tout les documents
                 </ListItem>
                 {checkboxes.map(item => (
                   <ListItem
                     key={item.key}
                     onClick={this.handleChange.bind(this)}
-                    button
+                    style={{paddingLeft: "3em"}}
+                    
                   >
                     <Checkbox
                       name={item.name}
@@ -172,7 +173,7 @@ class CheckBoxList extends Component {
                     />
                     <ListItemText primary={item.name} />
                     <ListItemSecondaryAction>
-                      <IconButton edge="end" aria-label="Comments">
+                      <IconButton edge="end" aria-label="Comments" onClick={() => {download(`http://localhost:${config.port}/` + item.value)}}> 
                         <CloudDownload color="primary" />
                       </IconButton>
                       <IconButton edge="end" aria-label="Comments" onClick={this.openModal}>
@@ -220,7 +221,7 @@ class CheckBoxList extends Component {
                 }
                 onClick={this.postVerified}
               >
-                Validate
+                Valider les documents
               </Button>
             </>
           );

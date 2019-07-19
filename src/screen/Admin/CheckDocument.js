@@ -134,7 +134,7 @@ class CheckDocument extends Component {
                     <CheckboxList dataDocuments={this.state.dataDocuments} uuid={this.props.match.params.uuid}/>
                   </CardContent>
                 </Card>
-              </div>
+              </div>    
             </div>
           ) : (
             <Redirect to="admin" />
