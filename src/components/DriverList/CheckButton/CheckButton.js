@@ -1,14 +1,21 @@
 import React from 'react';
 import './CheckButton.scss';
+import { Link, Redirect } from "react-router-dom";
 
-const CheckButton = ({ status }) => {
+import Button from '@material-ui/core/Button';
+
+const CheckButton = ({ status, uuid }) => {
     switch(status) {
         case 'Vérifié':
             return <i class="fas fa-check-circle"></i>
         case 'A vérifier':
-            return <button className="check-button">Check</button>
+            return (
+                <Button variant="contained" color="secondary" className="check-button">
+                    <Link to={{pathname: `/documents/${uuid}`}}>Check</Link>
+                </Button>
+            )
         case 'En attente':
-            return <button className="check-button" disabled>Check</button>
+            return <Button variant="contained" color="secondary" disabled>Check</Button>
         default:
             alert("ERROR: NO STATUS, CHECK DRIVERLIST COMPONENT")
         break;

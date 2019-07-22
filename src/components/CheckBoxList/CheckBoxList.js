@@ -147,7 +147,7 @@ class CheckBoxList extends Component {
                     key={item.key}
                     onClick={this.handleChange.bind(this)}
                     style={{paddingLeft: "3em"}}
-                    
+                    button
                   >
                     <Checkbox
                       name={item.name}

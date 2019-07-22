@@ -10,13 +10,11 @@ import Avatar from '@material-ui/core/Avatar';
 
 // Other UI Components
 import Button from '@material-ui/core/Button';
-import FileViewer from 'react-file-viewer';
-
-// Icon Ui Components
 
 // Packages
 import axios from "axios";
 import './Admin.scss'
+
 // Components
 import Footer from "../../components/Footer/Footer";
 import DriverList from "../../components/DriverList/DriverList";
@@ -116,7 +114,7 @@ class CheckDocument extends Component {
       console.log(identityCard)
       if (!isLoading) {
           return !docVerified ? (
-            <div className="bg-light">
+            <div>
               <HeaderAdmin pathname={this.props.location.pathname} />
               <div className="docs-card-container">
                 <Card className="docs-card">

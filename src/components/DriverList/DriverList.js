@@ -107,19 +107,11 @@ class DriverList extends Component {
             title="Gestion des documents"
             columns={columns}
             data={driverDocs}
-            actions={[
-              {
-                icon: 'save',
-                tooltip: 'Save User',
-                onClick: (event, rowData) => console.log(rowData)
-              }
-            ]}
+            actions={[{tooltip: 'Check user documents'}]}
             components={{
               Action: props => (
                 console.log(props),
-                <NavLink to={{pathname: `/documents/${props.data.uuid}`}}>
-                  <CheckButton status={props.data.allUploaded} onClick={((event) => props.action.onClick(event, props.data))}>check</CheckButton>
-                </NavLink>
+                  <CheckButton status={props.data.allUploaded} uuid={props.data.uuid} onClick={((event) => props.action.onClick(event, props.data))}>check</CheckButton>
               ),
             }}
             options={{
@@ -135,6 +127,10 @@ class DriverList extends Component {
                 fontSize: '18px',
                 border: "none",
                 boxShadow: "rgba(0, 0, 0, 0.2) 5px 2px 18px -10px"
+              },
+              actionsCellStyle: {
+                border: 'none',
+                texDecoration: 'none'
               }
             }}
           />
