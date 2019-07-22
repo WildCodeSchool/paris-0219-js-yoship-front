@@ -173,38 +173,13 @@ class CheckBoxList extends Component {
                     />
                     <ListItemText primary={item.name} />
                     <ListItemSecondaryAction>
-                      <IconButton edge="end" aria-label="Comments" onClick={() => {download(`http://localhost:${config.port}/` + item.value)}}> 
-                        <CloudDownload color="primary" />
-                      </IconButton>
-                      <IconButton edge="end" aria-label="Comments" onClick={this.openModal}>
-                        <Pageview color="secondary" />
-                      </IconButton>
-                      <IconButton edge="end" aria-label="Comments" onClick={() => {window.open(`http://localhost:${config.port}/` + item.value)}}>
+                      <IconButton edge="end" aria-label="Comments" onClick={ () => {window.open(`http://localhost:${config.port}/${item.value}`)}}>
                         <Print />
                       </IconButton>
-                    </ListItemSecondaryAction>
-                  <Dialog  fullScreen={true}
-                    maxWidth="lg"
-                    open={false}
-                    // onClose={handleClose}
-                    aria-labelledby="max-width-dialog-title"
-                    >
-                      {/* pg-viewer-wrapper */}
-                    <DialogActions>
-                      <DialogTitle>{item.name}</DialogTitle>
-                      <IconButton edge="start" color="inherit"  aria-label="Close">
-                        <Close />
+                      <IconButton edge="end" aria-label="Comments" onClick={ () => {download(`http://localhost:${config.port}/${item.value}`)}}> 
+                        <CloudDownload color="primary" />
                       </IconButton>
-                    </DialogActions>
-                    <DialogContent>
-                    <FileViewer 
-                    style={{ background: "grey", display: "flex", flexDirection: "column", alignItems: "center" }}
-                    fileType="pdf" 
-                    filePath={`http://localhost:${config.port}/uploads/identityCard-1563526351518.pdf`} 
-                    />
-
-                    </DialogContent>
-                  </Dialog>
+                    </ListItemSecondaryAction>
                   </ListItem>
                 ))}
               </List>

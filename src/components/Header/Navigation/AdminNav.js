@@ -5,20 +5,46 @@ import { NavLink } from 'react-router-dom';
 import Tab from '../Tab/Tab'
 import LogoutButton from '../LogoutButton/LogoutButton';
 
+import axios from 'axios'
+const config = require("../../../config/config")
+
 class AdminNav extends Component {
-    state = {  }
+    state = {
+      picture: "",
+      firstname: ""
+    }
+
+    componentDidMount() {
+
+      const token = localStorage.getItem("token")
+      const uuid = localStorage.getItem("uuid")
+
+      axios({
+        method: 'Get',
+        url: `http://localhost:${config.port}/users/${uuid}`,
+        headers: {
+          'x-access-token': `${token}`
+        }
+      }).then( res => {
+          console.log(res.data[0])
+          const data = res.data[0];
+          this.setState({
+            picture: data.picture,
+            firstname: data.firstname
+          })
+      }).catch(error => {
+          console.log(error)
+      })
+    }
+   
+  
     render() { 
+      const { picture, firstname} = this.state
+
         return (
             <>
-            <NavLink
-              to="/test"
-              activeClassName="selected"
-              className={this.props.linkClass}
-            >
-              <Tab icon="wallet" tab="Mes revenus" />
-            </NavLink>
-            <LogoutButton />
-        
+              <Tab icon="user-circle" tab={firstname} />
+              <LogoutButton />
             </>
           );
     }
