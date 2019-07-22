@@ -18,11 +18,14 @@ import Document from '../screen/Document'
 import ProfilUpdate from '../screen/ProfilUpdate'
 import MyCarPost from '../screen/MyCarPost'
 import QuestionsPage from '../screen/QuestionsPage';
+import MyCarProfil from '../screen/MyCarProfil'
 
 // Custom Router Components
 import PublicRoute from '../router/PublicRoute'
 import PrivateRoute from '../router/PrivateRoute'
 import MesDocuments from './Mesdocuments/MesDocuments';
+import DisplayCar from './MyCar/DisplayCar';
+
 
 
 function App() {
@@ -44,6 +47,8 @@ function App() {
           <PrivateRoute path='/document' permission="driver" component={Document} />
           <PrivateRoute path='/mycarpost' permission="driver" component={MyCarPost} />
           <PrivateRoute path='/profilUpdate' permission="driver" component={ProfilUpdate} /> 
+          <PrivateRoute path='/mycarprofil' permission="driver" component={MyCarProfil} /> 
+
           {/* <PrivateRoute path='/myCarUpdate' permission="driver" component={MyCarUpdate} /> */}
         </Switch>
       </div>
