@@ -99,7 +99,7 @@ class Register extends React.Component {
 
 
                                 <Field
-                                    required label="First Name" name="firstname" placeholder="First name"
+                                    required label="Prénom" name="firstname" placeholder="Prénom"
                                     onChange={this.handleChange}
                                     value={this.state.data.firstname}
                                     shouldValidateInputs={this.state.shouldValidateInputs} />
@@ -109,7 +109,7 @@ class Register extends React.Component {
 
                             <Col xl="5" lg="5">
                                 <Field
-                                    required label="Last name" name="name" placeholder="Last name"
+                                    required label="Nom" name="name" placeholder="Nom"
                                     onChange={this.handleChange}
                                     value={this.state.data.name}
                                     shouldValidateInputs={this.state.shouldValidateInputs} />
@@ -118,7 +118,7 @@ class Register extends React.Component {
                             <Col xl="5" lg="5">
                             
                                 <Field 
-                                    required label="dateOfBirth" name="dateOfBirth" placeholder="dateOfBirth"
+                                    required label="Date de naissance" name="dateOfBirth" placeholder="Date de naissance"
                                     onChange={this.handleChange}
                                     value={this.state.data.dateOfBirth}
                                     shouldValidateInputs={this.state.shouldValidateInputs} />
@@ -151,28 +151,28 @@ class Register extends React.Component {
                             {/* label + Input email */}
                             <Col xl="5" lg="5">
                                 <Field
-                                    required label="address" name="address" placeholder="address"
+                                    required label="Adresse" name="address" placeholder="Adresse"
                                     onChange={this.handleChange}
                                     value={this.state.data.address}
                                     shouldValidateInputs={this.state.shouldValidateInputs} />
                             </Col>
                             <Col xl="5" lg="5">
                                 <Field
-                                    required label="Post code" name="postcode" placeholder="Post code"
+                                    required label="Code Postal" name="postcode" placeholder="Code Postal"
                                     onChange={this.handleChange}
                                     value={this.state.data.postcode}
                                     shouldValidateInputs={this.state.shouldValidateInputs} />
                             </Col>
                             <Col xl="5" lg="5">
                                 <Field
-                                    required label="City" name="city" placeholder="City"
+                                    required label="Ville" name="city" placeholder="Ville"
                                     onChange={this.handleChange}
                                     value={this.state.data.city}
                                     shouldValidateInputs={this.state.shouldValidateInputs} />
                             </Col>
                             <Col xl="5" lg="5">
                                 <Field
-                                    required label="Country" name="country" placeholder="Country"
+                                    required label="Pays" name="country" placeholder="Pays"
                                     onChange={this.handleChange}
                                     value={this.state.data.country}
                                     shouldValidateInputs={this.state.shouldValidateInputs} />
@@ -195,8 +195,8 @@ class Register extends React.Component {
 
                                 <Field
                                     validator="isNumeric" required minLength={10}
-                                    minLengthErrMsg="Try one with atleast 10 numbers"
-                                    label="Phone number" name="phone" placeholder="Phone number"
+                                    minLengthErrMsg="Essayez-en un avec au moins 10 chiffres"
+                                    label="Téléphone" name="phone" placeholder="Téléphone"
                                     onChange={this.handleChange}
                                     value={this.state.data.phone}
                                     shouldValidateInputs={this.state.shouldValidateInputs}
@@ -209,8 +209,8 @@ class Register extends React.Component {
                             <Col xl="5" lg="5">
                                 <Field
                                     validator="isAlphanumeric" required minLength={4}
-                                    minLengthErrMsg="Short passwords are easy to guess. Try one with atleast 4 characters"
-                                    label="Create a password" name="password" type="password" placeholder="Password"
+                                    minLengthErrMsg="Les mots de passe courts sont faciles à deviner. Essayez-en un avec au moins 4 caractères."
+                                    label="Créer son mot de passe" name="password" type="password" placeholder="Mot de passe"
                                     onChange={this.handleChange}
                                     value={this.state.data.password}
                                     shouldValidateInputs={this.state.shouldValidateInputs}
@@ -221,8 +221,8 @@ class Register extends React.Component {
 
                                 <Field
                                     validator="equals" required comparison={passwordValue}
-                                    validatorErrMsg="These passwords don't match. Try again?"
-                                    label="Confirm password" name="confirmPassword" type="password" placeholder="Password"
+                                    validatorErrMsg="Ce mot de passe ne correspond pas. Réessayer ?"
+                                    label="Confirmer son mot de passe" name="confirmPassword" type="password" placeholder="Mot de passe"
                                     onChange={this.handleChange}
                                     value={this.state.data.confirmPassword}
                                     shouldValidateInputs={this.state.shouldValidateInputs}
@@ -238,11 +238,11 @@ class Register extends React.Component {
                     {/* checkbox terms and conditions  */}
                     <div className="not">
                         <div className="checkbox">
-                            <label> <Input type="checkbox" id = "terms"></Input> Agree to terms and conditions</label>
+                            <label> <Input type="checkbox" id = "terms"></Input> Accepter les termes et conditions.</label>
 
                             <div>
 
-                                <Button type="submit" onClick={this.handleSubmit} className="button-login-submit">SUBMIT FORM</Button>
+                                <Button type="submit" onClick={this.handleSubmit} className="button-login-submit">SOUMETTRE</Button>
 
                             </div>
 

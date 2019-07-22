@@ -22,9 +22,9 @@ class Questions extends React.Component {
                             <h4>Où est mon colis ?</h4>
                             
 
-                            <p className="text-black-50 mb-0">Pour suivre votre envoie, il suffit de renseigner votre numéro de suivi en début de page.<br />
+                            <p className="text-black-50 mb-0">Pour suivre votre envoi, il suffit de renseigner votre numéro de suivi en début de page.<br />
                                 Ce numéro vous aura été communiqué par nos partenaires au moment de l'achat.
-                    </p><br />
+                            </p><br />
                     
                             <h4>Comment renvoyer mon colis ?</h4>
                             

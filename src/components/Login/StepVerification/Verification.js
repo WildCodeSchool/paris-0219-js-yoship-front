@@ -16,7 +16,7 @@ class Paper extends React.Component {
         <Container>
 
           <Card className="paper-titre" >
-            <h4>Vérification a effectuer</h4>
+            <h4>Vérifications à effectuer</h4>
             <p> Vérifié </p>
           </Card>
 
@@ -54,7 +54,7 @@ class Paper extends React.Component {
                 <FormGroup check inline>
                   <p>
                     <Label check>
-                      <Input type="checkbox" /> Photo avec piéce d'identité
+                      <Input type="checkbox" /> Photo avec pièce d'identité
           </Label>
                   </p>
                 </FormGroup>
@@ -79,21 +79,19 @@ class Paper extends React.Component {
             </Col>
             <Col xl="6" lg="6">
               <div className="featured-text text-center text-lg-left">
-                <p className="text-black-50 mb-0">Quand toutes vos piéces seront
-    vérifiées, vous recevrez un courriel
-                 pour terminer la procédure.</p>
+                <p className="text-black-50 mb-0">Quand toutes vos pièces seront
+                    vérifiées, vous recevrez un courriel pour terminer la procédure d'inscription.</p>
                 <p className="text-black-50 mb-0"><br /> Ce courriel vous dirigera vers une
-      interface ou vous pourrez choisir
-                  votre identifiant et mot de passe</p>
-                <p className="text-black-50 mb-0"><br /> Cette identifiant et mot de passe
-                   vous permettrez d'accéder a votre < br />
-                  espace YOPARTNER via notre site < br />
-                  ou notre application.</p>
+                    interface où vous pourrez choisir votre identifiant et mot de passe.</p>
+                <p className="text-black-50 mb-0"><br /> Vos identifiant et mot de passe
+                    vous permettront d'accéder à votre < br />
+                    espace YOPARTNER via notre site < br />
+                    ou notre application.</p>
               </div>
             </Col>
             <Col xl="12" lg="12">
               <div>
-                <div className="barprogress">Etapes 2 sur 3</div>
+                <div className="barprogress">Etape 2 sur 3</div>
                 <Progress animated value="66.66" />
                 <div className="barprogress">Verification en cours</div>
 
@@ -103,7 +101,7 @@ class Paper extends React.Component {
             <NavLink to="/Formation" onClick={Formation} >
 
 
-              <Button className="button-login-submit">SUBMIT FORM</Button>
+              <Button className="button-login-submit">SOUMETTRE</Button>
 
             </NavLink>
           </Row>

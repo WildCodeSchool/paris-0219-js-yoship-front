@@ -60,7 +60,7 @@ class Profil extends React.Component {
 
   render () {
     if (this.state.loading) {
-      return (<div>loading</div>)
+      return (<div>chargement</div>)
     } else {
       const data = this.state.result[0]
       return (
@@ -80,16 +80,16 @@ class Profil extends React.Component {
                   <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
 
                   <ReactFileReader handleFiles={this.handleFiles}>
-                    <button className='btn'>Upload</button>
+                    <button className='btn'>Télécharger</button>
                   </ReactFileReader>
                 </Card>
               </Col>
 
               <Col xl="5" lg="5">
-                <CardTitle><h4> <img src={blacktiebrands} className="phonesquarealtsolid" alt="logo" /> {data.name} {data.firstname} (User ID:2323)</h4></CardTitle>
-                <CardText><img src={phonesquarealtsolid} className="phonesquarealtsolid" alt="logo" /> Your phone : {data.phone}</CardText>
-                <CardText><img src={atsolid} className="phonesquarealtsolid" alt="logo" /> Email Addres : {data.mail} </CardText>
-                <CardText><img src={usertagsolid} className="phonesquarealtsolid" alt="logo"/> Status : check </CardText>
+                <CardTitle><h4> <img src={blacktiebrands} className="phonesquarealtsolid" alt="logo" /> {data.name} {data.firstname} (Utilisateur ID:2323)</h4></CardTitle>
+                <CardText><img src={phonesquarealtsolid} className="phonesquarealtsolid" alt="logo" /> Numéro de téléphone : {data.phone}</CardText>
+                <CardText><img src={atsolid} className="phonesquarealtsolid" alt="logo" /> Mail : {data.mail} </CardText>
+                <CardText><img src={usertagsolid} className="phonesquarealtsolid" alt="logo"/> Status : vérifié </CardText>
             
 
                 <Tab icon="map-marker-alt" tab="Tracking" />
@@ -97,15 +97,15 @@ class Profil extends React.Component {
             </div>
             <div className="row align-items-center no-gutters mb-4 mb-lg-5">
               <Col xl="12" lg="12">
-                <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> Mes information</h4></CardTitle>
+                <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> Mes informations</h4></CardTitle>
               </Col>
             
 
               <Col xl="4" lg="4">
-                <CardText ><img src={caraltsolid} className="phonesquarealtsolid" alt="logo"/> Role : {data.role} </CardText>
+                <CardText ><img src={caraltsolid} className="phonesquarealtsolid" alt="logo"/> Rôle : {data.role} </CardText>
                 <CardText><img src={portraitsolid} className="phonesquarealtsolid" alt="logo"/> Pseudo : {data.pseudo}  </CardText>
-                <CardText><img src={keysolid} className="phonesquarealtsolid" alt="logo" /> Password : **********</CardText>
-                <CardText><img src={calendaraltregular} className="phonesquarealtsolid" alt="logo"/> Date of birth : {data.dateOfBirth}{this.props.dateOfBirth} </CardText>
+                <CardText><img src={keysolid} className="phonesquarealtsolid" alt="logo" /> Mot de passe : **********</CardText>
+                <CardText><img src={calendaraltregular} className="phonesquarealtsolid" alt="logo"/> Date de naissance : {data.dateOfBirth}{this.props.dateOfBirth} </CardText>
 
 
 
@@ -114,10 +114,10 @@ class Profil extends React.Component {
 
 
               <Col xl="4" lg="4">
-                <CardText><img src={addresscardsolid} className="phonesquarealtsolid" alt="logo" /> Addres :{data.address} </CardText>
-                <CardText><img src={addressbooksolid} className="phonesquarealtsolid" alt="logo" /> Postcode : {data.postcode} </CardText>
-                <CardText><img src={buildingsolid} className="phonesquarealtsolid" alt="logo" /> City :  {data.city} </CardText>
-                <CardText><img src={citysolid} className="phonesquarealtsolid" alt="logo" /> Country :{data.country} </CardText>
+                <CardText><img src={addresscardsolid} className="phonesquarealtsolid" alt="logo" /> Adresse :{data.address} </CardText>
+                <CardText><img src={addressbooksolid} className="phonesquarealtsolid" alt="logo" /> Code Postal : {data.postcode} </CardText>
+                <CardText><img src={buildingsolid} className="phonesquarealtsolid" alt="logo" /> Ville :  {data.city} </CardText>
+                <CardText><img src={citysolid} className="phonesquarealtsolid" alt="logo" /> Pays :{data.country} </CardText>
                 
 
               </Col>

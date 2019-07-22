@@ -57,7 +57,7 @@ class MyCars extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return (<div>loading</div>)
+      return (<div>Chargement</div>)
     } else {
       const data = this.state.result[0]
       return (
@@ -70,16 +70,16 @@ class MyCars extends React.Component {
                   <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
 
                   <ReactFileReader handleFiles={this.handleFiles}>
-                    <button className='btn'>Upload</button>
+                    <button className='btn'>Téléchargement</button>
                   </ReactFileReader>
                 </Card>
               </Col>
 
               <Col xl="5" lg="5">
-              <CardTitle><h4> <img src={blacktiebrands} className="phonesquarealtsolid" alt="logo" /> {data.name} {data.firstname} (User ID:2323)</h4></CardTitle>
-              <CardText><img src={phonesquarealtsolid} className="phonesquarealtsolid" alt="logo" /> Your phone : {data.phone}</CardText>
-              <CardText><img src={atsolid} className="phonesquarealtsolid" alt="logo" /> Email Addres : {data.mail} </CardText>
-              <CardText><img src={usertagsolid} className="phonesquarealtsolid" alt="logo"/> Status : check </CardText>
+              <CardTitle><h4> <img src={blacktiebrands} className="phonesquarealtsolid" alt="logo" /> {data.name} {data.firstname} (Utilisateur ID:2323)</h4></CardTitle>
+              <CardText><img src={phonesquarealtsolid} className="phonesquarealtsolid" alt="logo" /> Téléphone : {data.phone}</CardText>
+              <CardText><img src={atsolid} className="phonesquarealtsolid" alt="logo" /> Mail : {data.mail} </CardText>
+              <CardText><img src={usertagsolid} className="phonesquarealtsolid" alt="logo"/> Status : vérifié </CardText>
          
 
               </Col>
@@ -96,20 +96,20 @@ class MyCars extends React.Component {
 
 
               <Col xl="4" lg="4">
-                <CardText icon="user-plus" >Brand : {/* {data.brand} */}</CardText>
-                <CardText icon="user-plus" >Color :{/* {data.color}{this.props.dateOfBirth} */} </CardText>
-                <CardText icon="user-plus" >Description :{/* {data.description} */}</CardText>
-                <CardText icon="user-plus">Fuel: {/*{data.fuel} */}  </CardText>
+                <CardText icon="user-plus" >Marque : {/* {data.brand} */}</CardText>
+                <CardText icon="user-plus" >Couleur :{/* {data.color}{this.props.dateOfBirth} */} </CardText>
+                <CardText icon="user-plus" >Description du véhicule :{/* {data.description} */}</CardText>
+                <CardText icon="user-plus">Carburant : {/*{data.fuel} */}  </CardText>
 
               </Col>
 
 
 
               <Col xl="4" lg="4">
-                <CardText icon="user-plus" >Horse power :{/* {data.horsepower} */}</CardText>
-                <CardText icon="user-plus" >kilometers : {/*{data.kilometers} */} </CardText>
-                <CardText icon="user-plus" >LicencePlate : {/* {data.license_plate} */}</CardText>
-                <CardText icon="user-plus" >modelYear : {/*{data.model_year} */}</CardText>
+                <CardText icon="user-plus" >Puissance fiscale :{/* {data.horsepower} */}</CardText>
+                <CardText icon="user-plus" >Kilométrage : {/*{data.kilometers} */} </CardText>
+                <CardText icon="user-plus" >Plaque d'immatriculation : {/* {data.license_plate} */}</CardText>
+                <CardText icon="user-plus" >Année de mise en service : {/*{data.model_year} */}</CardText>
 
 
               </Col>

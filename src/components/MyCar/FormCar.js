@@ -213,7 +213,7 @@ class FormCar extends React.Component {
             <option>Diesel</option>
             <option>Hybride</option>
             <option>Electrique</option>
-            <option>GPL</option>
+            <option>G.P.L</option>
           </Input>
           
         </FormGroup>
@@ -332,7 +332,7 @@ class FormCar extends React.Component {
         
 <Col xl="12" lg="12">  
 <div className="cardescriptionh1"   >
-          <Label className="car-description" htmlfor="car-description">Description :</Label>
+          <Label className="car-description" htmlfor="car-description">Description du véhicule :</Label>
 
           <Input type="textarea" name="description" id="car-description" value={this.state.description} onChange={this.handleChange} />
           </div>
