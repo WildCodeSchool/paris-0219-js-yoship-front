@@ -12,6 +12,8 @@ import axios from 'axios'
 
 import "../components/RegisterForm/ConfirmedMail/ConfirmedMail.scss"
 
+const config = require('../config/config')
+
 class ConfirmMail extends Component {
     state = {
         isLoading: true,
@@ -23,7 +25,7 @@ class ConfirmMail extends Component {
 
         await axios({
           method: 'PUT',
-          url: `http://localhost:3031/confirmation/${token}`, 
+          url: `http://localhost:${config.port}/confirmation/${token}`, 
            headers: {
              'x-access-token': `${token}`,
            },
