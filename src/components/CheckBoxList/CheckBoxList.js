@@ -2,18 +2,6 @@ import React, { Component } from "react";
 
 import { NavLink, Redirect } from "react-router-dom";
 
-import { makeStyles } from '@material-ui/core/styles';
-
-import FileViewer from 'react-file-viewer';
-
-
-// Material UI DIALOG
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-
 // Material UI List
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -25,9 +13,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 // Icons
 import IconButton from '@material-ui/core/IconButton';
 import CloudDownload from '@material-ui/icons/CloudDownload';
-import Pageview from '@material-ui/icons/Pageview';
 import Print from '@material-ui/icons/Print';
-import Close from '@material-ui/icons/Close';
 
 // Other UI Components
 import Button from '@material-ui/core/Button';
@@ -35,7 +21,6 @@ import Button from '@material-ui/core/Button';
 import axios from 'axios'
 
 import "./CheckBoxList.scss"
-import { faDownload } from "@fortawesome/free-solid-svg-icons";
 
 // Import config
 const config = require("../../config/config");

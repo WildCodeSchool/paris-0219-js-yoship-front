@@ -37,7 +37,6 @@ class AdminNav extends Component {
       })
     }
    
-  
     render() { 
       const { picture, firstname} = this.state
 
