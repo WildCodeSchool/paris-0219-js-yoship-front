@@ -96,20 +96,20 @@ class DisplayCar extends React.Component {
 
 
               <Col xl="4" lg="4">
-                <CardText icon="user-plus" >Brand : {/* {data.brand} */}</CardText>
-                <CardText icon="user-plus" >Color :{/* {data.color}{this.props.dateOfBirth} */} </CardText>
-                <CardText icon="user-plus" >Description :{/* {data.description} */}</CardText>
-                <CardText icon="user-plus">Fuel: {/*{data.fuel} */}  </CardText>
+                <CardText icon="user-plus" >Brand : {this.props.brand}</CardText>
+                <CardText icon="user-plus" >Color :{this.props.color} </CardText>
+                <CardText icon="user-plus" >Description :{this.props.description}</CardText>
+                <CardText icon="user-plus">Fuel: {this.props.fuel}  </CardText>
 
               </Col>
 
 
 
               <Col xl="4" lg="4">
-                <CardText icon="user-plus" >Horse power :{/* {data.horsepower} */}</CardText>
-                <CardText icon="user-plus" >kilometers : {/*{data.kilometers} */} </CardText>
-                <CardText icon="user-plus" >LicencePlate : {/* {data.license_plate} */}</CardText>
-                <CardText icon="user-plus" >modelYear : {/*{data.model_year} */}</CardText>
+                <CardText icon="user-plus" >Horse power :{this.props.horsepower}</CardText>
+                <CardText icon="user-plus" >kilometers : {this.props.kilometers} </CardText>
+                <CardText icon="user-plus" >LicencePlate : {this.props.licencePlate}</CardText>
+                <CardText icon="user-plus" >modelYear : {this.props.modelYear}</CardText>
 
 
               </Col>
@@ -129,4 +129,15 @@ class DisplayCar extends React.Component {
   }
 }
 
-export default DisplayCar;
+const mapStateToProps = state => {
+  return {
+    ...state.formReducer
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DisplayCar)

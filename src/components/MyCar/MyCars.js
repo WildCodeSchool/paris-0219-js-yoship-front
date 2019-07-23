@@ -20,6 +20,7 @@ class MyCars extends React.Component {
 
   state = {
     loading: true,
+    dataCar: []
   }
 
   getData = async () => {
@@ -33,7 +34,7 @@ class MyCars extends React.Component {
       }
     })
     const result = res.data
-    this.setState({ result })
+    this.setState({ result, loading: false  })
 
     let resCar = await axios({
       method: 'Get',
@@ -43,7 +44,7 @@ class MyCars extends React.Component {
       }
     })
     const dataCar = resCar.data
-    this.setState({ dataCar, loading: false })
+    this.setState({ dataCar})
     console.log("getData", this.state)
   }
 
@@ -98,7 +99,7 @@ class MyCars extends React.Component {
             </div>
             {this.state.dataCar
               .map((car, index) => (
-                <CarCard {...car} index={index} key={index} />
+                <CarCard car={car} index={index} key={index} />
               ))}
 
 

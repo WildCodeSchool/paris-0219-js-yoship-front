@@ -230,27 +230,27 @@ class FormCar extends React.Component {
                   <div className="colorcolor">
                     <div id="purple">
                       <Label check />
-                      <Input type="radio" name="radio1" onChange={this.colorChange} value="purple" />
+                      <Input type="radio" name="radio1" onChange={this.colorChange} value="violet" />
                       <div className="car-purple"></div>violet
             </div>
 
 
                     <div id="black">
                       <Label check />
-                      <Input type="radio" name="radio1" onChange={this.colorChange} value="black" />
+                      <Input type="radio" name="radio1" onChange={this.colorChange} value="noir" />
                       <div className="car-black"></div>noir
             </div>
 
 
                     <div id="dark-grey">
                       <Label check />
-                      <Input type="radio" name="radio1" onChange={this.colorChange} value="dark-grey" />
+                      <Input type="radio" name="radio1" onChange={this.colorChange} value="gris foncé" />
                       <div className="car-dark-grey"></div>gris foncé
             </div>
 
                     <div id="grey">
                       <Label check />
-                      <Input type="radio" name="radio1" onChange={this.colorChange} value="grey" />
+                      <Input type="radio" name="radio1" onChange={this.colorChange} value="gris" />
                       <div className="car-grey"></div>gris
             </div>
                     <div id="blue">
@@ -266,13 +266,13 @@ class FormCar extends React.Component {
 
                     <div id="dark-blue">
                       <Label check />
-                      <Input type="radio" name="radio1" onChange={this.colorChange} value="dark-blue" />
+                      <Input type="radio" name="radio1" onChange={this.colorChange} value="bleu foncé" />
                       <div className="car-dark-blue"></div>bleu foncé
             </div>
 
                     <div id="yellow">
                       <Label check />
-                      <Input type="radio" name="radio1" onChange={this.colorChange} value="yellow" />
+                      <Input type="radio" name="radio1" onChange={this.colorChange} value="jaune" />
                       <div className="car-yellow"></div>jaune
             </div>
 
@@ -281,7 +281,7 @@ class FormCar extends React.Component {
 
                     <div id="white">
                       <Label check />
-                      <Input type="radio" name="radio1" onChange={this.colorChange} value="white" />
+                      <Input type="radio" name="radio1" onChange={this.colorChange} value="blanc" />
                       <div className="car-white"></div>blanc
             </div>
 
@@ -293,7 +293,7 @@ class FormCar extends React.Component {
 
                     <div id="brown">
                       <Label check />
-                      <Input type="radio" name="radio1" onChange={this.colorChange} value="brown" />
+                      <Input type="radio" name="radio1" onChange={this.colorChange} value="marron" />
                       <div className="car-brown"></div>marron
             </div>
                   </div>
@@ -302,13 +302,13 @@ class FormCar extends React.Component {
                   <div className="colorcolor">
                     <div id="dark-green">
                       <Label check />
-                      <Input type="radio" name="radio1" onChange={this.colorChange} value="dark-green" />
+                      <Input type="radio" name="radio1" onChange={this.colorChange} value="vert foncé" />
                       <div className="car-dark-green"></div>vert foncé
             </div>
 
                     <div id="green">
                       <Label check />
-                      <Input type="radio" name="radio1" onChange={this.colorChange} value="green" />
+                      <Input type="radio" name="radio1" onChange={this.colorChange} value="vert" />
                       <div className="car-green"></div>vert
             </div>
 

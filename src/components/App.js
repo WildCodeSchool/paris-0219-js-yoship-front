@@ -11,7 +11,7 @@ import StepVerification from '../screen/Verification';
 import StepFormation from '../screen/Formation'
 import StepStatus from '../screen/Status'
 import Monprofil from '../screen/Profil';
-import MyCar from '../screen/MyCar'
+import MyCar from '../screen/MyCarDisplay'
 import HomeDashBoard from '../screen/HomeDashBoard'
 import About from '../screen/About'
 import Document from '../screen/Document'
@@ -26,6 +26,7 @@ import PublicRoute from '../router/PublicRoute'
 import PrivateRoute from '../router/PrivateRoute'
 import MesDocuments from './Mesdocuments/MesDocuments';
 import DisplayCar from './MyCar/DisplayCar';
+import MyCarDisplay from '../screen/MyCarDisplay';
 
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
           <PrivateRoute path='/mycarpost' permission="driver" component={MyCarPost} />
           <PrivateRoute path='/profilUpdate' permission="driver" component={ProfilUpdate} /> 
           <PrivateRoute path='/mycarprofil' permission="driver" component={MyCarProfil} /> 
+          <PrivateRoute path='/mycardisplay' permission="driver" component={MyCarDisplay} /> 
 
           {/* <PrivateRoute path='/myCarUpdate' permission="driver" component={MyCarUpdate} /> */}
         </Switch>

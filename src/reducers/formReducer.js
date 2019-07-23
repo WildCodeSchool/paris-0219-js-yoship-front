@@ -1,14 +1,14 @@
 const initialState = {
-  lastName: '',
-  firstName: '',
-  phone: '',
-  email: '',
-  dateOfBirth: '',
-  address: '',
-  postCode: '',
-  city: '',
-  country: '',
-  isNumeric:'',
+  brand: 'Tesla',
+  color: 'rouge',
+  description: '',
+  fuel: '',
+  horsepower: '',
+  id: '',
+  kilometers: '',
+  licencePlate: '',
+  modelYear: '',
+  userId:'',
 }
 
 const formReducer = (state = initialState, action) => {
@@ -16,16 +16,16 @@ const formReducer = (state = initialState, action) => {
     case 'FORM':
       return {
         ...state,
-        lastName: action.payload.lastName,
-        firstName: action.payload.firstName,
-        phone: action.payload.phone,
-        email: action.payload.email,
-        dateOfBirth: action.payload.dateOfBirth,
-        address: action.payload.address,
-        postCode: action.payload.postCode,
-        city:  action.payload.city,
-        country: action.payload.country,
-        isNumeric: action.payload.isNumeric,
+        brand: action.payload.brand,
+        color: action.payload.color,
+        description: action.payload.description,
+        fuel: action.payload.fuel,
+        horsepower: action.payload.horsepower,
+        id: action.payload.id,
+        kilometers: action.payload.kilometers,
+        licencePlate:  action.payload.licencePlate,
+        modelYear: action.payload.modelYear,
+        userId: action.payload.userId,
       }
     default:
       return state;

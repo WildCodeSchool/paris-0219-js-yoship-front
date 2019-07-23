@@ -144,6 +144,8 @@ class Header extends Component {
                 return false
             case "/mycarpost":
                 return false
+            case "/mycardisplay":
+                return false
             default:
                 return true
         }

@@ -7,17 +7,23 @@ import allTheActions from '../../actions'
 
 import Button from '../Button/Button'
 
-const CarCard = props => {
-console.log({props})
+class CarCard extends React.Component {
+
+
+    render () {
+    
+    const carData = this.props.car
+    console.log(carData)
     return (
         <div>
-            <p>{props.brand} {props.color}</p>
-            <Link to="/mycarprofil" >
-            <button onClick={() => this.props.formAction.form({props})}>Voir plus</button>
+            <p>{this.props.car.brand} {this.props.car.color}</p>
+            <Link to="/mycardisplay"  onClick={() => this.props.formAction.form(carData)} >
+            <button>Voir plus</button>
             </Link>
         </div>
     )
 
+}
 }
 
 const mapStateToProps = state => {
