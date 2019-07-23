@@ -80,7 +80,7 @@ class FormProfil extends Component {
             <Col xl="4" lg="4">
               <fieldset>
 
-                <label htmlFor="name">phone :</label>
+                <label htmlFor="name">Téléphone :</label>
                 <input
                   type="text"
                   name="phone"
@@ -94,7 +94,7 @@ class FormProfil extends Component {
 
             <Col xl="4" lg="4">
               <fieldset>
-                <label htmlFor="name">Email Address :</label>
+                <label htmlFor="name">Adresse e-mail :</label>
 
                 <input
                   type="text"
@@ -107,7 +107,7 @@ class FormProfil extends Component {
 
             <Col xl="4" lg="4">
               <fieldset>
-                <label htmlFor="name">Date of birth :</label>
+                <label htmlFor="name">Date de naissance :</label>
 
                 <input
                   type="text"
@@ -119,7 +119,7 @@ class FormProfil extends Component {
             </Col>
             <Col xl="4" lg="4">
               <fieldset>
-                <label htmlFor="name">Address :</label>
+                <label htmlFor="name">Adresse :</label>
 
                 <input
                   type="text"
@@ -132,7 +132,7 @@ class FormProfil extends Component {
 
             <Col xl="4" lg="4">
               <fieldset>
-                <label htmlFor="name">Postcode :</label>
+                <label htmlFor="name">Code Postal :</label>
 
                 <input
                   type="text"
@@ -145,7 +145,7 @@ class FormProfil extends Component {
 
             <Col xl="4" lg="4">
               <fieldset>
-                <label htmlFor="name">City :</label>
+                <label htmlFor="name">Ville :</label>
 
                 <input
                   type="text"
@@ -157,7 +157,7 @@ class FormProfil extends Component {
             </Col>
             <Col xl="4" lg="4">
               <fieldset>
-                <label htmlFor="name">Country :</label>
+                <label htmlFor="name">Pays :</label>
 
                 <input
                   type="text"
@@ -173,7 +173,7 @@ class FormProfil extends Component {
 
 
 
-        <button onClick={() => this.props.formAction.form(this.state)}>Register</button>
+        <button onClick={() => this.props.formAction.form(this.state)}>Enregistrer</button>
 
 
 
