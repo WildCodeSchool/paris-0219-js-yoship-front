@@ -111,6 +111,13 @@ $color-border: 0.5px solid grey;
     background-color: $pink;
 }
 
+// addition of spacings between labels
+// .carContainer {
+//     Label {
+//         padding: 14px;
+//     }
+// }
+
 // .car-bloc-fuels {
 //     display: flex;
 //     justify-content: space-evenly;
@@ -265,8 +272,7 @@ $color-border: 0.5px solid grey;
     justify-content: center;
 }
 .FormCarCarburant {
-    padding-top: 14px;
-
+     padding-top: 14px;
 }
 
 .cardescriptionh1

@@ -79,7 +79,7 @@ class MyCars extends React.Component {
               <CardTitle><h4> <img src={blacktiebrands} className="phonesquarealtsolid" alt="logo" /> {data.name} {data.firstname} (Utilisateur ID:2323)</h4></CardTitle>
               <CardText><img src={phonesquarealtsolid} className="phonesquarealtsolid" alt="logo" /> Téléphone : {data.phone}</CardText>
               <CardText><img src={atsolid} className="phonesquarealtsolid" alt="logo" /> Mail : {data.mail} </CardText>
-              <CardText><img src={usertagsolid} className="phonesquarealtsolid" alt="logo"/> Status : vérifié </CardText>
+              <CardText><img src={usertagsolid} className="phonesquarealtsolid" alt="logo"/> Statut : vérifié </CardText>
          
 
               </Col>
