@@ -26,33 +26,32 @@ class Mesdocuments extends React.Component {
   state = {
     result: [],
     loading: true,
-    selectFile:'',
-    identity:''
+    selectFile: '',
+    dataPapers: ''
   }
-    getIdentity = () => {
-      const uuid = localStorage.getItem("uuid")
-      const token = localStorage.getItem("token")
-      axios({
-        method: "GET",
-        url: `http://localhost:${config.port}/users/${uuid}/driverPapers`,
-        headers: {
-          "x-access-token": token
-        }
-      })
+  getDataPapers = () => {
+    const uuid = localStorage.getItem("uuid")
+    const token = localStorage.getItem("token")
+    axios({
+      method: "GET",
+      url: `http://localhost:${config.port}/users/${uuid}/driverPapers`,
+      headers: {
+        "x-access-token": token
+      }
+    })
       .then(res => {
-        console.log(res.data[0].identityCard)
         this.setState({
-          identity: res.data[0].identityCard
+          dataPapers: res.data[0]
         })
       }).catch(res => {
         console.log(res)
       })
-    }
+  }
 
 
   changeHandler = async (event) => {
     await this.setState({
-     selectFile: event.target.files[0]
+      selectFile: event.target.files[0]
     })
     console.log(this.state.selectFile)
   }
@@ -63,7 +62,7 @@ class Mesdocuments extends React.Component {
     const token = localStorage.getItem("token")
     const fileType = event.target.name
     const formData = new FormData()
-    formData.append(fileType,this.state.selectFile)
+    formData.append(fileType, this.state.selectFile)
     axios({
       method: "PUT",
       url: `http://localhost:${config.port}/users/${uuid}/driverPapers/${fileType}`,
@@ -78,7 +77,7 @@ class Mesdocuments extends React.Component {
       })
       .catch(error => {
         console.log(error.response)
-    });
+      });
   }
 
   getData = () => {
@@ -102,18 +101,18 @@ class Mesdocuments extends React.Component {
 
   componentDidMount = () => {
     this.getData()
-    this.getIdentity()
+    this.getDataPapers()
     console.log(this.state.identity)
   }
 
   render() {
     if (this.state.loading) {
-      return (<div>loading</div>)
+      return (<div>chargement</div>)
     } else {
       const data = this.state.result[0]
       // const dataDrivers = this.state.dataDrivers[0]
       return (
-        
+
         <section id="project" className="project-section bg-light">
           <Container>
             <div className="row align-items-center no-gutters mb-4 mb-lg-5">
@@ -123,16 +122,16 @@ class Mesdocuments extends React.Component {
                   <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
 
                   <ReactFileReader handleFiles={this.handleFiles}>
-                    <button className='btn'>Upload</button>
+                    <button className='btn'>Télécharger</button>
                   </ReactFileReader>
                 </Card>
               </Col>
 
               <Col xl="5" lg="5">
-                <CardTitle><h4> <img src={blacktiebrands} className="phonesquarealtsolid" alt="logo" /> {data.name} {data.firstname} (User ID:2323)</h4></CardTitle>
-                <CardText><img src={phonesquarealtsolid} className="phonesquarealtsolid" alt="logo" /> Your phone : {data.phone}</CardText>
-                <CardText><img src={atsolid} className="phonesquarealtsolid" alt="logo" /> Email Addres : {data.mail} </CardText>
-                <CardText><img src={usertagsolid} className="phonesquarealtsolid" alt="logo"/> Status : check </CardText>
+                <CardTitle><h4> <img src={blacktiebrands} className="phonesquarealtsolid" alt="logo" /> {data.name} {data.firstname} (Utilisateur ID:2323)</h4></CardTitle>
+                <CardText><img src={phonesquarealtsolid} className="phonesquarealtsolid" alt="logo" /> Numéro de téléphone : {data.phone}</CardText>
+                <CardText><img src={atsolid} className="phonesquarealtsolid" alt="logo" /> Adresse e-mail : {data.mail} </CardText>
+                <CardText><img src={usertagsolid} className="phonesquarealtsolid" alt="logo"/> Statut : vérifié </CardText>
               </Col>
 
 
@@ -147,27 +146,21 @@ class Mesdocuments extends React.Component {
 
 
 
-              <Col xl="4" lg="4">
               <form enctype="multipart/form-data" method="PUT" >
                
                 <input type="file" name="identityCard" onChange={this.changeHandler} />
-                <button type="button" name="identityCard" className="btn btn-success btn-block" onClick={this.handleSubmit}>Upload</button>
+                <button type="button" name="identityCard" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
 
                 <input type="file" name="proofOfResidence" onChange={this.changeHandler} />
-                <button type="button" className="btn btn-success btn-block" onClick={this.handleSubmit}>Upload</button>
+                <button type="button" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
 
                 <input type="file" name="rib" onChange={this.changeHandler} />
-                <button type="button" className="btn btn-success btn-block" onClick={this.handleSubmit}>Upload</button>
+                <button type="button" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
 
                 <input type="file" name="driverLicense" onChange={this.changeHandler} />
-                <button type="button" className="btn btn-success btn-block" onClick={this.handleSubmit}>Upload</button>
+                <button type="button" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
               </form>
-              </Col>
-            
-            </div>
-            <div>
-              <p>{this.state.identity}</p>
-              
+
             </div>
           </Container>
 

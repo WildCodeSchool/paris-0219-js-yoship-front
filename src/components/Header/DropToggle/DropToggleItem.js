@@ -42,14 +42,14 @@ class Dropmenu extends Component {
                   </DropdownItem>
                   </NavLink>
                             <DropdownItem>
-                                statistique financiére
+                                Statistiques financières
                   </DropdownItem>
                             <DropdownItem divider />
                           
                             <NavLink to="/">
                             <DropdownItem  
                             onClick={() => this.props}>
-                                Log out
+                                Déconnexion
                             </DropdownItem>
                         </NavLink>
                         </div>

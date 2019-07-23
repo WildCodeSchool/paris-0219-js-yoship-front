@@ -34,7 +34,7 @@ class ImageUpload extends React.Component {
       if (imagePreviewUrl) {
         $imagePreview = (<img src={imagePreviewUrl} />);
       } else {
-        $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
+        $imagePreview = (<div className="previewText">Veuillez sélectionner une image pour la prévisualisation.</div>);
       }
   
       return (
@@ -45,7 +45,7 @@ class ImageUpload extends React.Component {
               onChange={(e)=>this._handleImageChange(e)} />
             <button className="submitButton" 
               type="submit" 
-              onClick={(e)=>this._handleSubmit(e)}>Upload Image</button>
+              onClick={(e)=>this._handleSubmit(e)}>Téléchargement de l'image</button>
           </form>
           <div className="imgPreview">
             {$imagePreview}

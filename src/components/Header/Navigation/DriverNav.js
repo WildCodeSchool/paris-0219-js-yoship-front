@@ -18,7 +18,7 @@ class DriverNav extends Component {
               <Tab icon="wallet" tab="Mes revenus" />
             </NavLink>
             <NavLink
-              to="/mycar"
+              to="/mycarprofil"
               activeClassName="selected"
               className={this.props.linkClass}
             >

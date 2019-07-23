@@ -1,21 +1,19 @@
-
-
 import React, { Component } from "react";
-import FormCar from '../components/MyCar/FormCar';
-import Footer from '../components/Footer/Footer'
 import Header from "../components/Header/Header";
+import DisplayCar from "../components/MyCar/DisplayCar"
+import Footer from "../components/Footer/Footer";
 
-class MyCarUpdate extends Component {
+class MyCarDisplay extends Component {
   state = {};
   render() {
     return (
       <div>
         <Header pathname={this.props.location.pathname} />
-        <FormCar />
+        <DisplayCar />
         <Footer />
       </div>
     );
   }
 }
 
-export default MyCarUpdate;
+export default MyCarDisplay;
