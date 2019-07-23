@@ -83,17 +83,17 @@ class Login extends React.Component {
             <Col xl="6" lg="6">
               <form className="box-login" onSubmit={this.onSubmit}>
                 <p>
-                  <label className="label-email-login" htmlFor="email">Email adress</label><br />
+                  <label className="label-email-login" htmlFor="email">Adresse e-mail</label><br />
                   <div className="group-email">
-                    <Input id="email" className="input-email-login" name="Email address" type="email" placeholder="Enter your email address" /></div>
+                    <Input id="email" className="input-email-login" name="Email address" type="email" placeholder="Entrez votre adresse email" /></div>
                 </p>
                 <p>
-                  <label className="label-password-login" htmlFor="password">Password</label><br />
-                  <Input id="password" className="input-password-login" name="Password" type="text" placeholder="Enter your password" />
+                  <label className="label-password-login" htmlFor="password">Mot de passe</label><br />
+                  <Input id="password" className="input-password-login" name="Password" type="text" placeholder="Entrez votre mot de passe" />
                 </p>
                 <div className="checkbox">
-                  <label> <Input type="checkbox"></Input> Check me out</label>
-                  <Button text="SUBMIT" />
+                  <label> <Input type="checkbox"></Input>Vérification</label>
+                  <Button text="SE CONNECTER" />
                   {/* <Button className="button-login-submit">SUBMIT</Button> */}
                 </div>
               </form>

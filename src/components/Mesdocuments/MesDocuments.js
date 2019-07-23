@@ -110,7 +110,7 @@ class Mesdocuments extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return (<div>loading</div>)
+      return (<div>chargement</div>)
     } else {
       const data = this.state.result[0]
       // const dataDrivers = this.state.dataDrivers[0]
@@ -125,16 +125,16 @@ class Mesdocuments extends React.Component {
                   <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
 
                   <ReactFileReader handleFiles={this.handleFiles}>
-                    <button className='btn'>Upload</button>
+                    <button className='btn'>Télécharger</button>
                   </ReactFileReader>
                 </Card>
               </Col>
 
               <Col xl="5" lg="5">
-                <CardTitle><h4> <img src={blacktiebrands} className="phonesquarealtsolid" alt="logo" /> {data.name} {data.firstname} (User ID:2323)</h4></CardTitle>
-                <CardText><img src={phonesquarealtsolid} className="phonesquarealtsolid" alt="logo" /> Your phone : {data.phone}</CardText>
-                <CardText><img src={atsolid} className="phonesquarealtsolid" alt="logo" /> Email Addres : {data.mail} </CardText>
-                <CardText><img src={usertagsolid} className="phonesquarealtsolid" alt="logo" /> Status : check </CardText>
+                <CardTitle><h4> <img src={blacktiebrands} className="phonesquarealtsolid" alt="logo" /> {data.name} {data.firstname} (Utilisateur ID:2323)</h4></CardTitle>
+                <CardText><img src={phonesquarealtsolid} className="phonesquarealtsolid" alt="logo" /> Numéro de téléphone : {data.phone}</CardText>
+                <CardText><img src={atsolid} className="phonesquarealtsolid" alt="logo" /> Adresse e-mail : {data.mail} </CardText>
+                <CardText><img src={usertagsolid} className="phonesquarealtsolid" alt="logo"/> Statut : vérifié </CardText>
               </Col>
 
 
@@ -150,33 +150,18 @@ class Mesdocuments extends React.Component {
 
 
               <form enctype="multipart/form-data" method="PUT" >
-                <div>
+               
+                <input type="file" name="identityCard" onChange={this.changeHandler} />
+                <button type="button" name="identityCard" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
 
+                <input type="file" name="proofOfResidence" onChange={this.changeHandler} />
+                <button type="button" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
 
-                  <Col xl="4" lg="4">
-                    <label htmlFor="identityCard">CNI:</label>
-                    <input type="file" name="identityCard" onChange={this.changeHandler} />
-                    <button type="button" name="identityCard" className="btn btn-success btn-block" onClick={this.handleSubmit}>Upload</button>
-                    <label htmlFor="proofOfResidence">Justifcatif de domicile</label>
-                    <input type="file" name="proofOfResidence" onChange={this.changeHandler} />
-                    <button type="button" className="btn btn-success btn-block" onClick={this.handleSubmit}>Upload</button>
-                  </Col>
+                <input type="file" name="rib" onChange={this.changeHandler} />
+                <button type="button" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
 
-                   
-
-
-                </div>
-                <div>
-
-                  <Col xl="4" lg="4">
-                    <label htmlFor="rib">RIB</label>
-                    <input type="file" name="rib" onChange={this.changeHandler} />
-                    <button type="button" className="btn btn-success btn-block" onClick={this.handleSubmit}>Upload</button>
-                    <label htmlFor="driverLicense">Permis de conduire</label>
-                    <input type="file" name="driverLicense" onChange={this.changeHandler} />
-                    <button type="button" className="btn btn-success btn-block" onClick={this.handleSubmit}>Upload</button>
-                  </Col>
-                </div>
+                <input type="file" name="driverLicense" onChange={this.changeHandler} />
+                <button type="button" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
               </form>
 
             </div>

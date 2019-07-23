@@ -106,7 +106,7 @@ class Contact extends React.Component {
 
                     <FormGroup className="contact-status">
                         <CustomInput type="select" id="exampleCustomSelect" name="customSelect" onChange={this.statusChange} >
-                            <option value="">Sélectionnez votre status : </option>>
+                            <option value="">Sélectionnez votre statut : </option>>
                             <option value="customer">Je suis un client privilégié</option>
                             <option value="driver">Je suis un chauffeur Yoship</option>
                             <option value="brand">Je suis une enseigne de Luxe</option>

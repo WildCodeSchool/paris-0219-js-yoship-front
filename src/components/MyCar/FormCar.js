@@ -56,7 +56,7 @@ class FormCar extends React.Component {
       //leasing: this.state.leasing,
       licencePlate: this.state.license_plate,
       //maintenance: this.state.maintenance,
-      //model: this.state.model,
+      //model: this.state.model, NO EXIST IN DATABASE
       modelYear: this.state.model_year
     }
 
@@ -68,16 +68,14 @@ class FormCar extends React.Component {
 
       .then(res => {
         const result = res.data
-        console.log("response to axios Mycar", res)
-        console.log(result);
+        //console.log("response to axios Mycar", res)
+        //console.log(result);
       }) 
       this.setState({ redirect: true })
   }
  
 
-  render() {    
-    // console.log("ma props",this.state.brand)
-    // console.log(this.state.color)
+  render() {
     const redirect = this.state.redirect;
 
     if (redirect) {
@@ -85,15 +83,14 @@ class FormCar extends React.Component {
 
     } else {
     return (
-      <section className="register">
+      <section className="register carContainer">
 
 
-<Col xl="12" lg="12">
-                <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> Ma voiture</h4></CardTitle>
-              </Col>
-          
-                          <Container>
-                          <div className="row align-items-center mb-4 mb-lg-5">
+    <Col xl="12" lg="12">
+      <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> Ma voiture</h4></CardTitle>
+    </Col>
+    <Container>
+      <div className="row align-items-center mb-4 mb-lg-5">
 
 
         {/* <Form className="car-container" onSubmit={this.handleSubmit}> */}
@@ -119,7 +116,7 @@ class FormCar extends React.Component {
             value={this.state.leasing}
             onChange={this.handleChange}
           /> */}
-                            <Col xl="6" lg="6">
+    <Col xl="6" lg="6">
 
           <Label className="car-brand" htmlFor="car-brand">Marque :</Label>
           <Input
@@ -132,7 +129,8 @@ class FormCar extends React.Component {
             onChange={this.handleChange}
           />
 </Col>
-          {/* <Label className="car-model" htmlFor="car-model">Modèle :</Label>
+          {/* NO EXIST IN DATABASE !
+          <Label className="car-model" htmlFor="car-model">Modèle :</Label>
           <Input
             required = "required"
             type="text"
@@ -213,7 +211,7 @@ class FormCar extends React.Component {
             <option>Diesel</option>
             <option>Hybride</option>
             <option>Electrique</option>
-            <option>GPL</option>
+            <option>G.P.L</option>
           </Input>
           
         </FormGroup>
@@ -272,10 +270,7 @@ class FormCar extends React.Component {
               <Input type="radio" name="radio1" onChange={this.colorChange} value="yellow" />
               <div className="car-yellow"></div>jaune
             </div>
-
-           
-
-
+            
             <div id="white">
               <Label check />
               <Input type="radio" name="radio1" onChange={this.colorChange} value="white" />
@@ -332,7 +327,7 @@ class FormCar extends React.Component {
         
 <Col xl="12" lg="12">  
 <div className="cardescriptionh1"   >
-          <Label className="car-description" htmlfor="car-description">Description :</Label>
+          <Label className="car-description" htmlfor="car-description">Description du véhicule :</Label>
 
           <Input type="textarea" name="description" id="car-description" value={this.state.description} onChange={this.handleChange} />
           </div>

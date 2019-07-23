@@ -16,10 +16,10 @@ const projectSection = (props) => {
                     </Col>
                     <Col xl="4" lg="5">
                         <div className="featured-text text-center text-lg-left">
-                            <h4>A tailor-made buying advice at home</h4>
-                            <p className="text-black-50 mb-0">YoShip is an innovative concept of delivery,advice and sales at home, with the same buying experience coming from luxury brands.</p>
-                            <p className="text-black-50 mb-0"><br /> Licensed drivers have their own workspaces, bundling all services needed to track their customers, manage their invoices and to deliver new orders.</p>
-                            <p className="text-black-50 mb-0"><br /> Also registered luxury brands and companies, have access to their orders with sales statistics and reports, from approved drivers according to coming deliveries.</p>
+                            <h4>Un conseil d'achat sur mesure à domicile</h4>
+                            <p className="text-black-50 mb-0">YoShip est un concept innovant de livraison, de conseil et de vente à domicile, avec la même expérience d'achat que celle des marques de luxe.</p>
+                            <p className="text-black-50 mb-0"><br /> Les conducteurs titulaires d'un permis disposent de leur propre espace de travail, regroupant tous les services nécessaires au suivi de leurs clients, à la gestion de leurs factures et à la livraison de nouvelles commandes.</p>
+                            <p className="text-black-50 mb-0"><br /> Les marques et entreprises de luxe enregistrées ont également accès à leurs commandes avec des statistiques de ventes et des rapports, des chauffeurs agréés en fonction des livraisons à venir.</p>
                         </div>
                     </Col>
 
