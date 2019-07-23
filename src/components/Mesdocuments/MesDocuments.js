@@ -26,33 +26,32 @@ class Mesdocuments extends React.Component {
   state = {
     result: [],
     loading: true,
-    selectFile:'',
-    identity:''
+    selectFile: '',
+    dataPapers: ''
   }
-    getIdentity = () => {
-      const uuid = localStorage.getItem("uuid")
-      const token = localStorage.getItem("token")
-      axios({
-        method: "GET",
-        url: `http://localhost:${config.port}/users/${uuid}/driverPapers`,
-        headers: {
-          "x-access-token": token
-        }
-      })
+  getDataPapers = () => {
+    const uuid = localStorage.getItem("uuid")
+    const token = localStorage.getItem("token")
+    axios({
+      method: "GET",
+      url: `http://localhost:${config.port}/users/${uuid}/driverPapers`,
+      headers: {
+        "x-access-token": token
+      }
+    })
       .then(res => {
-        console.log(res.data[0].identityCard)
         this.setState({
-          identity: res.data[0].identityCard
+          dataPapers: res.data[0]
         })
       }).catch(res => {
         console.log(res)
       })
-    }
+  }
 
 
   changeHandler = async (event) => {
     await this.setState({
-     selectFile: event.target.files[0]
+      selectFile: event.target.files[0]
     })
     console.log(this.state.selectFile)
   }
@@ -63,7 +62,7 @@ class Mesdocuments extends React.Component {
     const token = localStorage.getItem("token")
     const fileType = event.target.name
     const formData = new FormData()
-    formData.append(fileType,this.state.selectFile)
+    formData.append(fileType, this.state.selectFile)
     axios({
       method: "PUT",
       url: `http://localhost:${config.port}/users/${uuid}/driverPapers/${fileType}`,
@@ -78,7 +77,7 @@ class Mesdocuments extends React.Component {
       })
       .catch(error => {
         console.log(error.response)
-    });
+      });
   }
 
   getData = () => {
@@ -102,7 +101,7 @@ class Mesdocuments extends React.Component {
 
   componentDidMount = () => {
     this.getData()
-    this.getIdentity()
+    this.getDataPapers()
     console.log(this.state.identity)
   }
 
@@ -116,7 +115,7 @@ class Mesdocuments extends React.Component {
       const data = this.state.result[0]
       // const dataDrivers = this.state.dataDrivers[0]
       return (
-        
+
         <section id="project" className="project-section bg-light">
           <Container>
             <div className="row align-items-center no-gutters mb-4 mb-lg-5">
@@ -150,7 +149,6 @@ class Mesdocuments extends React.Component {
 
 
 
-              <Col xl="4" lg="4">
               <form enctype="multipart/form-data" method="PUT" >
                
                 <input type="file" name="identityCard" onChange={this.changeHandler} />
@@ -165,12 +163,7 @@ class Mesdocuments extends React.Component {
                 <input type="file" name="driverLicense" onChange={this.changeHandler} />
                 <button type="button" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
               </form>
-              </Col>
-            
-            </div>
-            <div>
-              <p>{this.state.identity}</p>
-              
+
             </div>
           </Container>
 
