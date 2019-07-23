@@ -15,6 +15,7 @@
     "env-cmd": "^9.0.3",
     "install": "^0.12.2",
     "material-table": "^1.40.1",
+    "moment": "^2.24.0",
     "node-sass": "^4.12.0",
     "nodemon": "^1.19.0",
     "npm": "^6.10.0",

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 // Packages
 import axios from "axios";
 import MaterialTable from 'material-table'
@@ -8,6 +9,7 @@ import { NavLink, Redirect } from "react-router-dom";
 import CheckButton from './CheckButton/CheckButton'
 
 import './DriverList.scss'
+const moment = require('moment');
 
 // Import config
 const config = require("../../config/config");
@@ -41,7 +43,10 @@ class DriverList extends Component {
       .then(res => {
         console.log(res.data);
         this.setState({
-          driverData: res.data.map(driver => driver)
+          driverData: res.data.map(driver => {
+            driver.createdAt = moment(driver.createdAt).format("DD/MM/YYYY")
+            return driver
+          })
         });
       })
       .catch(error => {
@@ -59,12 +64,12 @@ class DriverList extends Component {
         }
       })
         .then(res => {
-          console.log(res.data);
+          console.log(res.data["driverLicense"], res.data["identityCard"], res.data["rib"], res.data["proofOfResidence"])
           // const allPapers = [res.data.driverLicense , res.data.identityCard , res.data.proofOfResidence , res.data.rib; 
           // console.log(allPapers)
           if (this.state.driverData[i].docVerified) {
             dataDocs.push({...this.state.driverData[i], allUploaded: "Vérifié"}) 
-          } else if (res.data !== "") {
+          } else if (res.data !== "" || (res.data["driverLicense"] !== "" || res.data["identityCard"] !== "" || res.data["proofOfResidence"] !== "" || res.data["rib"] !== "")) {
             dataDocs.push({...this.state.driverData[i],
               driverLicense: res.data.driverLicense,
               identityCard: res.data.identityCard,
@@ -126,7 +131,8 @@ class DriverList extends Component {
               headerStyle: {
                 fontSize: '18px',
                 border: "none",
-                boxShadow: "rgba(0, 0, 0, 0.2) 5px 2px 18px -10px"
+                boxShadow: "rgba(0, 0, 0, 0.2) 5px 2px 18px -10px",
+                margin: "auto auto"
               },
               actionsCellStyle: {
                 border: 'none',
