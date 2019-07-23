@@ -226,7 +226,7 @@ class PageHeader extends React.Component {
       const data = this.state.result[0]
       return (
         <header className="masthead">
-        <h1>Bienvenue  {data.firstname} {data.name} vous êtes bien connecté</h1>
+        <h1>Bienvenue {data.firstname} {data.name} vous êtes bien connecté</h1>
       
       
     </header>
