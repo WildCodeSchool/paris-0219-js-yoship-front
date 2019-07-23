@@ -10,17 +10,17 @@ class PublicNav extends Component {
         return (
             <> 
              <NavLink to="/login" activeClassName="selected" className={this.props.linkClass} >
-                    <Tab icon="user-tie" tab="Login" />
+                    <Tab icon="user-tie" tab="Se connecter" />
                 </NavLink>
                   
                 <NavLink to="/status" activeClassName="selected" className={this.props.linkStatus} >
-                    <Tab icon="user-plus" tab="Register" />
+                    <Tab icon="user-plus" tab="S'enregistrer" />
                 </NavLink> 
                 <NavLink to="/tracking" activeClassName="selected" className={this.props.linkClass} >
                     <Tab icon="map-marker-alt" tab="Tracking" />
                 </NavLink>
                 <NavLink exact to="/apropos" activeClassName="selected" className={this.props.linkClass} >
-                    <Tab icon="info-circle" tab="About" />
+                    <Tab icon="info-circle" tab="A propos" />
                 </NavLink>
                
              

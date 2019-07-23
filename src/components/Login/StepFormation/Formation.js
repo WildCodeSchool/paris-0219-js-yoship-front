@@ -58,7 +58,7 @@ class Paper extends React.Component {
               <div>
                 <FormGroup check inline>
                   <p>  <Label check>
-                    <Input type="checkbox" /> Exament final
+                    <Input type="checkbox" /> Examen final
           </Label>
                   </p>
                 </FormGroup>
@@ -68,7 +68,7 @@ class Paper extends React.Component {
 
             <Col xl="12" lg="12">
               <div>
-                <div className="barprogress">Etapes 3 sur 3</div>
+                <div className="barprogress">Etape 3 sur 3</div>
                 <Progress animated value="99.99" />
                 <div className="barprogress">Remise de certificat</div>
 

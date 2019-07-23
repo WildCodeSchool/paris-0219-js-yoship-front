@@ -18,15 +18,15 @@ class TrackingSection extends Component {
             className="logo_white"
             size="2x" />
           <h2 className="text-white">
-            Track your YoShip package !
+            Suivre votre colis YoShip !
           </h2>
           <p className="text-white">
-            As a privileged customer, you can track your package by the traking number received after your purchase and know the course of the approved driver.
+            En tant que client privilégié, vous pouvez suivre votre colis par le numéro de suivi reçu après votre achat et connaître le parcours du chauffeur agréé.
           </p>
           <form action="/" method="get" className="form_inline">
             <label className="hidden" htmlFor='trackNumber'></label>
-            <input type="text" placeholder="Enter your tracking number..." className="form_control" />
-            <Button text="LET'S SEE !" />
+            <input type="text" placeholder="Entrez votre numéro de suivi..." className="form_control" />
+            <Button text="JETONS UN COUP D'ŒIL !" />
           </form>
         </div>
       </div>

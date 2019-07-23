@@ -57,7 +57,7 @@ class FormCar extends React.Component {
       //leasing: this.state.leasing,
       licencePlate: this.state.license_plate,
       //maintenance: this.state.maintenance,
-      //model: this.state.model,
+      //model: this.state.model, NO EXIST IN DATABASE
       modelYear: this.state.model_year
     }
 

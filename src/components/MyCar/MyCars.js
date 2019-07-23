@@ -59,7 +59,7 @@ class MyCars extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return (<div>loading</div>)
+      return (<div>Chargement</div>)
     } else {
       const data = this.state.result[0]
       return (
@@ -72,7 +72,7 @@ class MyCars extends React.Component {
                   <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
 
                   <ReactFileReader handleFiles={this.handleFiles}>
-                    <button className='btn'>Upload</button>
+                    <button className='btn'>Téléchargement</button>
                   </ReactFileReader>
                 </Card>
               </Col>

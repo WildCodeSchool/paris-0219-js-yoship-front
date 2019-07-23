@@ -95,7 +95,7 @@ class ProfilUpdate extends React.Component {
         // const redirect = this.state.redirect;
          if (this.state.loading)
         // && redirect) {
-             return <div>Loading</div>
+             return <div>Chargement</div>
         //     && <Redirect to="/dashbord" />
         // } else {
             console.log(this.state.result);
@@ -216,7 +216,7 @@ class ProfilUpdate extends React.Component {
                             </Col>
                             <Col xl="4" lg="4">
                                 <fieldset>
-                                    <label htmlFor="description">Description:</label>
+                                    <label htmlFor="description">Ma description:</label>
                                     <input
                                         type="textarea"
                                         rows="5" cols="33"

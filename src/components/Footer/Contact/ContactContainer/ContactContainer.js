@@ -15,7 +15,7 @@ class ContactContainer extends Component {
         <div className="contact-container">
           <ContactCard
             logo="fas fa-map-marked-alt"
-            title="ADDRESS"
+            title="ADRESSE"
             description="Paris"
           />
           <ContactCard
@@ -26,7 +26,7 @@ class ContactContainer extends Component {
           />
           <ContactCard
             logo="fas fa-mobile-alt"
-            title="PHONE"
+            title="TELEPHONE"
             description="+33 6 69 36 27 94"
           />
         </div>

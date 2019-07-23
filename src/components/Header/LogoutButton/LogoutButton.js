@@ -31,7 +31,7 @@ class LogoutButton extends Component {
             onClick={this.onClick.bind(this)}
             className="logout-button"
           >
-            <i className="fas fa-power-off turn-off-logo" />Déconniexion
+            <i className="fas fa-power-off turn-off-logo" />Déconnexion
           </Button>
         );
     }
