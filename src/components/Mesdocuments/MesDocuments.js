@@ -106,9 +106,6 @@ class Mesdocuments extends React.Component {
     console.log(this.state.identity)
   }
 
-
-
-
   render() {
     if (this.state.loading) {
       return (<div>loading</div>)
@@ -184,6 +181,7 @@ class Mesdocuments extends React.Component {
     }
   }
 }
+
 const mapStateToProps = state => {
   return {
     lastName: state.formReducer.lastName,
