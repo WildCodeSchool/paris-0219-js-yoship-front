@@ -96,10 +96,10 @@ class DriverList extends Component {
 
     const columns = [
       { title: 'ID', field: 'id', cellStyle: { border: "none", fontWeight: "bold" }},
-      { title: 'Nom de famille', field: 'name', cellStyle: {border: "none"} },
-      { title: 'Prénom', field: 'firstname', cellStyle: {border: "none"} },
-      { title: 'Date de création', field: 'createdAt', cellStyle: {border: "none"} },
-      { title: "Statut", field: 'allUploaded', cellStyle: {border: "none"} },
+      { title: 'Nom de famille', field: 'name', cellStyle: { border: "none"} },
+      { title: 'Prénom', field: 'firstname', cellStyle: { border: "none"} },
+      { title: 'Date de création', field: 'createdAt', cellStyle: { border: "none"} },
+      { title: "Statut", field: 'allUploaded', cellStyle: { border: "none"} }
     ]
     if (!isLoading) {
       console.log(driverDocs[1].allUploaded)
