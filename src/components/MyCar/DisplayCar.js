@@ -117,9 +117,9 @@ class DisplayCar extends React.Component {
             </div>
 
             <Link to="/myCarUpdate" >
-            <div className="MyCarsButton">   
+            {/* <div className="MyCarsButton">   
          <Button text="Edite ta voiture"/>
-         </div>
+         </div> */}
          </Link>
           </Container>
         </section>

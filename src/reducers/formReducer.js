@@ -1,6 +1,6 @@
 const initialState = {
-  brand: 'Tesla',
-  color: 'rouge',
+  brand: '',
+  color: '',
   description: '',
   fuel: '',
   horsepower: '',
