@@ -32,7 +32,7 @@ class DriverList extends Component {
     const uuid = localStorage.getItem("uuid");
 
     let dataDocs = [];
-
+    
     await axios({
       method: "Get",
       url: `http://localhost:${config.port}/users`,
@@ -64,12 +64,12 @@ class DriverList extends Component {
         }
       })
         .then(res => {
-          console.log(res.data["driverLicense"], res.data["identityCard"], res.data["rib"], res.data["proofOfResidence"])
-          // const allPapers = [res.data.driverLicense , res.data.identityCard , res.data.proofOfResidence , res.data.rib; 
-          // console.log(allPapers)
           if (this.state.driverData[i].docVerified) {
             dataDocs.push({...this.state.driverData[i], allUploaded: "Vérifié"}) 
-          } else if (res.data !== "" || (res.data["driverLicense"] !== "" || res.data["identityCard"] !== "" || res.data["proofOfResidence"] !== "" || res.data["rib"] !== "")) {
+          } else if ((res.data === "") || (res.data["driverLicense"] === null || res.data["identityCard"] === null || res.data["proofOfResidence"] === null || res.data["rib"] === null)) {
+            dataDocs.push({...this.state.driverData[i], allUploaded: "En attente" }) 
+          } else  {
+            console.log(res.data["driverLicense"])
             dataDocs.push({...this.state.driverData[i],
               driverLicense: res.data.driverLicense,
               identityCard: res.data.identityCard,
@@ -78,8 +78,6 @@ class DriverList extends Component {
               rib: res.data.rib,
               allUploaded: "A vérifier"
             })            
-          } else {
-            dataDocs.push({...this.state.driverData[i], allUploaded: "En attente" }) 
           }
         })
         .catch(error => {
