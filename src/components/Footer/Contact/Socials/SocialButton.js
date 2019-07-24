@@ -7,7 +7,7 @@ class SocialButton extends Component {
   render() {
     return (
       <>
-        <a href={this.props.link} className="social-button">
+        <a href={this.props.link} className="social-button" target="_blank">
           <i className={this.props.icon} />
         </a>
       </>
