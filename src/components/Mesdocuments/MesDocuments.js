@@ -149,7 +149,7 @@ class Mesdocuments extends React.Component {
 
 
 
-              <form enctype="multipart/form-data" method="PUT" >
+              <form encType="multipart/form-data" method="PUT" >
                
                 <input type="file" name="identityCard" onChange={this.changeHandler} />
                 <button type="button" name="identityCard" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>

@@ -5,23 +5,29 @@ import axios from 'axios'
 
 
 class PublicRoute extends Component {
-  
+  _isMounted = false
+
   state = {
     verified: false,
     isLoading: false
-}
+  }
 
-componentDidMount() {
+  componentDidMount() {
+    this._isMounted = true
     this.verifyToken();
-}
+  }
 
-componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps) {
     if (this.props.path === this.props.location.pathname && this.props.location.pathname !== prevProps.location.pathname) {
       window.scrollTo(0, 0)
     }
   }
 
-verifyToken() {
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
+
+  verifyToken() {
     // Getting localStorage data
     const token = localStorage.getItem("token");
     const config = require("../config/config");
@@ -31,28 +37,28 @@ verifyToken() {
         isLoading: true
       })
       axios({
-          method: "Get",
-          url: `http://localhost:${config.port}/verify`,
-          headers: {
-              "x-access-token": `${token}`
-          }
+        method: "Get",
+        url: `http://localhost:${config.port}/verify`,
+        headers: {
+          "x-access-token": `${token}`
+        }
       })
-      .then(res => {
+        .then(res => {
           console.log(res);
           this.setState({
-              verified: true,
-              isLoading: false
+            verified: true,
+            isLoading: false
           })
-      }).catch(error => {
+        }).catch(error => {
           console.log(error);
           this.setState({
-              verified: false,
-              isLoading: false
+            verified: false,
+            isLoading: false
           })
-      });
+        });
     }
 
-}
+  }
   render() {
     const { verified, isLoading } = this.state;
     const { component: Component, ...rest } = this.props;

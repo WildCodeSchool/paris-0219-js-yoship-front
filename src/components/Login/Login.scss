@@ -43,13 +43,7 @@
 //     flex-direction: row;
 // }
 
-// .label-password-login{
-//     grid-column-start: 1;
-//     grid-column-end: 2;
-//     font-weight: 400;
-//     display: inline-block;
-//     margin-bottom: .9rem;
-// }
+
 
 // .input-password-login{
 //     width: 100%;
@@ -130,6 +124,11 @@
     width: 100%;
 
 }
+
+.label-password-login{
+    padding-top: 10px;
+ }
+
 .not-member {
     background-color: #C9A959;
     color: white;

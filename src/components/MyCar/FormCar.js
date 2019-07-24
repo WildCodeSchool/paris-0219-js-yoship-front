@@ -161,7 +161,7 @@ class FormCar extends React.Component {
                 <Col xl="6" lg="6">
 
 
-                  <Label className="car-kilometers" htmlfor="car-kilometers">Kilométrage :</Label>
+                  <Label className="car-kilometers" htmlFor="car-kilometers">Kilométrage :</Label>
                   <Input
                     required="required"
                     type="number"
@@ -174,7 +174,7 @@ class FormCar extends React.Component {
                 </Col>
                 <Col xl="6" lg="6">
 
-                  <Label className="car-year" htmlfor="car-year">Année de mise en service :</Label>
+                  <Label className="car-year" htmlFor="car-year">Année de mise en service :</Label>
                   <Input
                     required="required"
                     type="date"
@@ -186,7 +186,7 @@ class FormCar extends React.Component {
                 </Col>
                 <Col xl="6" lg="6">
 
-                  <Label className="car-horsepower" htmlfor="car-horsepower">Puissance Fiscale :</Label>
+                  <Label className="car-horsepower" htmlFor="car-horsepower">Puissance Fiscale :</Label>
                   <Input
                     required="required"
                     type="number"
@@ -335,7 +335,7 @@ class FormCar extends React.Component {
 
                 <Col xl="12" lg="12">
                   <div className="cardescriptionh1"   >
-                    <Label className="car-description" htmlfor="car-description">Description :</Label>
+                    <Label className="car-description" htmlFor="car-description">Description :</Label>
 
                     <Input type="textarea" name="description" id="car-description" value={this.state.description} onChange={this.handleChange} />
                   </div>

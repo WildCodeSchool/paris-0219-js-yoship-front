@@ -105,6 +105,8 @@ import './Header.scss'
 
 
 class Header extends Component {
+    _isMounted = false
+
     state = {
         background: "",
         isTop: true,
@@ -112,6 +114,7 @@ class Header extends Component {
     }
 
     componentDidMount() {
+        this._isMounted = true
         document.addEventListener('scroll', () => {
             const isTop = window.scrollY < 100;
             if (isTop !== this.state.isTop) {
@@ -150,6 +153,10 @@ class Header extends Component {
                 return true
         }
     }
+    
+    componentWillUnmount() {
+        this._isMounted = false;
+      }
 
     render() {
         const headerClass = this.state.background && this.state.isTop ? "header_header" : "header_header_white"
