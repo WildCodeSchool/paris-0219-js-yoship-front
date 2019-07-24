@@ -1,0 +1,28 @@
+@import "../../../assets/scss/variables.scss";
+
+.check-button {
+    background-color: $primary-color !important;
+    width: 100px !important;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    
+    a, a:hover, a:visited {
+        text-decoration: none !important;
+        color: inherit;
+    }
+
+    &-verified {
+        margin: 0;
+        i {
+            color: green;
+            font-size: 1.2em;
+            margin-left: 0.5em;
+        }
+    }
+ 
+}
+
+.check-button:disabled {
+    opacity: 0.2 !important;
+}

@@ -19,7 +19,7 @@ class Mesdocuments extends React.Component {
     selectFile: '',
     dataPapers: ''
   }
-
+  
   getDataPapers = () => {
     const uuid = localStorage.getItem("uuid")
     const token = localStorage.getItem("token")
@@ -45,13 +45,51 @@ class Mesdocuments extends React.Component {
     })
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault()
     const uuid = localStorage.getItem("uuid")
     const token = localStorage.getItem("token")
     const fileType = event.target.name
     const formData = new FormData()
     formData.append(fileType, this.state.selectFile)
+    // Checking if the user already has a document table
+    let hasDocuments;
+    await axios
+      .get(`http://localhost:${config.port}/users/${uuid}/driverPapers`, {
+        headers: { "x-access-token": token }
+      })
+      .then(res => {
+        hasDocuments = res.data;
+        return hasDocuments;
+      })
+      .catch(err => console.log(err));
+
+    if (hasDocuments === "") {
+      await this.postDocument(uuid, token, formData);
+    } else {
+      await this.updateDocument(uuid, token, fileType, formData);
+    }
+  }
+
+  postDocument(uuid, token, formData) {
+    axios({
+      method: "POST",
+      url: `http://localhost:${config.port}/users/${uuid}/driverPapers`,
+      headers: {
+        "x-access-token": token
+      },
+      data: formData
+    })
+      .then(res => {
+        console.log("le res", res);
+        console.log("le res.data", res.data);
+      })
+      .catch(error => {
+        console.log(error.response)
+      });
+  }
+
+  updateDocument(uuid, token, fileType, formData) {
     axios({
       method: "PUT",
       url: `http://localhost:${config.port}/users/${uuid}/driverPapers/${fileType}`,
@@ -91,12 +129,6 @@ class Mesdocuments extends React.Component {
     this.getDataPapers()
   }
 
-
-
-
-
-
-
   render() {
     if (this.state.loading) {
       return (<div>chargement</div>)
@@ -134,13 +166,14 @@ class Mesdocuments extends React.Component {
                 <button type="button" name="identityCard" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
 
                 <input type="file" name="proofOfResidence" onChange={this.changeHandler} />
-                <button type="button" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
+                <button type="button" name="proofOfResidence" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
 
                 <input type="file" name="rib" onChange={this.changeHandler} />
-                <button type="button" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
+                <button type="button" name="rib" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
 
                 <input type="file" name="driverLicense" onChange={this.changeHandler} />
-                <button type="button" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
+                <button type="button" name="driverLicense" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
+                
               </form>
             </div>
           </Container>
