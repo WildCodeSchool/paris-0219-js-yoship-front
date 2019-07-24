@@ -1,110 +1,35 @@
-# YoShip
+##YoShip
 
 YoShip is a cool project with a JS back and front app.
-- Front : https://github.com/GaetanRole/yoship-front
-- Back : https://github.com/GaetanRole/yoship-back
 
-This project is for Wild Code School students in Paris and it is made in Javascript (React / NodeJS).
-It aims to promote a new way of delivery (like Chronopost) but mainly for luxury brands.
+Front : https://github.com/GaetanRole/yoship-front
+Back : https://github.com/GaetanRole/yoship-back
+This project is made by Wild Code School students in Paris and it is made in Javascript (React / NodeJS). It aims to promote a new way of delivery (like Chronopost) but mainly for luxury brands.
 
-## Instructions
+###Installation instructions
 
-### Project requirements for front app
+Before starting you will need to install mysql2 and create the database with the yoship.sql file you will find at the root of the back repository.
 
-- [TO BE REPLACED BY STUDENTS]
+The npm packages need to be installed for both the front and the back. To do this, cd into the directories from your command line and run npm install.
 
-### Suggested requirements (for Mac)
+Before starting you will need to create a .env file at the root of both the front and the back. 
 
-- [TO BE REPLACED BY STUDENTS]
+For the back you will need to fill the following fields:
 
-### Suggested requirements (for Windows)
+DB_USER = user for SQL database (use 'root' as default)
+DB_PASSWORD = password for SQL database
+DB_NAME = SQL database name
+SUPER_PASSWORD = password for authentication, please choose a complicated password
+PORT = port you wish to use for your back
+MAIL_USER = email you wish to use to send emails to users
+MAIL_PASSWORD = password for the email above
 
-- [TO BE REPLACED BY STUDENTS]
+For the front you will need to fill the following fields:
 
-### Project contents
+REACT_APP_SERVER_PORT= port you will be using for the back (must be the same as PORT in the .env in the front)
 
-```
-mockup/
-public/
-src/
-    assets/
-    components/
-    services/
-    tests/
-    utils/
-*.json
-README.md
-```
+After the packages have been installed, you can now run both the front and the back. You will need to run npm start on both sides.
 
-> You can find wireframes into the ``mockup/`` directory to lead you during your development.
-**You have to strictly respect this design and implement each asset file**. 
+Both sides are running in hot-reload mode, so changes will be put in place as you make them, instead of having to restart the service for each change.
 
-## Workflow
 
-**YoShip works with SCRUM method**.
-
-It means that you need to make sprints, SCRUM rituals and so on according to your trainer at the Wild Code School.
-You have to create a complete Backlog Product dispatched on your Github dashboard with some issues sorted by labels such as feature types, priorities, sprints number, the workflow process...
-
-Before each sprint, you have to organize your issues with weight and priority. You can see that with your "Product Owner" (who is Cedric Hidot, Gaëtan Rolé and other YoShip members).
-
-During each sprint, push on your new branch with **clear and english commit messages**.
-When you are ready, write a **complete pull request** with all your modification int it. **This one has to be very clear and detailed**. 
-When pull request is okay, **you can squash all your commits into one** (do not hesitate to fixup some useless messages) and rebase your branch.
-Do not forget to move your issues (or by commits / PR) on your project dashboard.
-
-At the end of the sprint, **you need to present your sprint work to your client** with a structured presentation like a Google doc with a summary.
-Once you sprint is validated, you can share your feedback with your Product Owner and close for good your sprint issues.
-
-## SCRUM - Definition of done
-
-Each SCRUM team has its own DoD or acceptance criteria for User Stories. **For this project, you have to respect those ones**:
-- Documented code (and markdown when it's necessary),
-- Commit for each step of the User Story,
-- Feature done like it has been described,
-- JS Linter,
-- Code merged into develop and then preprod.
-
-## Usage
-
-- 1/ **Clone this repository by SSH** and run static pages from ``mockup`` directory to immerse yourself in the project idea.
-- 2/ Create your **new branch** with a correct name according to your first issue available on your project dashboard. **The branch naming convention is: ``[branch-type]/[issue-number][sort-issue-title]``**.
-     According to the Git flow, branch types are usually : feature, hotfix, release... E.g : ``feature/02-connect-authentification``, ``feature/12-yoship-client-dashboard``.
-
-## Commands
-
-`npm install`
-<br>Install dependencies.
-
-`npm start`
-<br>Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-<br>The page will reload if you make edits.
-<br>You will also see any lint errors in the console.
-
-`npm test`
-<br>Launches the test runner in the interactive watch mode.
-<br>See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-`npm run build`
-<br>Builds the app for production to the `build` folder.
-<br>It correctly bundles React in production mode and optimizes the build for the best performance.
-<br>The build is minified and the filenames include the hashes.
-<br>Your app is ready to be deployed!
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Installation instructions
-
-[ NEED TO BE REPLACED BY YOURSELF ]
-
-## Documentation
-
-Before this development, **be sure to be comfortable with your current work environment**.
-Like to setup your IDE, install all necessary plugins, prepare your keyboard shortcuts, create your Bash aliases etc...
-To follow best practices and good resources you can read :
-
-- YoShip bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-- [React directory structure](https://medium.com/@Charles_Stover/optimal-file-structure-for-react-applications-f3e35ad0a145)
-- [Other React directory structure](https://blog.usejournal.com/how-i-structure-my-react-apps-86e897054593)
-- [Gitflow](https://fr.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
-
-[⬆️ Back to top](#YoShip)
