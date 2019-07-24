@@ -73,5 +73,4 @@ class PrivateRoute extends Component {
         }
     }
 }
-
 export default withRouter(PrivateRoute);

@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-
-// Components imports
 import ContactCard from '../Cards/ContactCard';
 import SocialButton from '../Socials/SocialButton';
-
-// CSS imports
 import './ContactContainer.scss'
 
 class ContactContainer extends Component {

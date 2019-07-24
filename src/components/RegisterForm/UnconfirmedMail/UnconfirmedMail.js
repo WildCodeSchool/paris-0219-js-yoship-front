@@ -1,8 +1,6 @@
 import React from "react";
-
-// Styling
-import "./UnconfirmedMail.scss";
 import YoshipLogo from "../../../assets/images/yoship-logo.png";
+import "./UnconfirmedMail.scss";
 
 const UnconfirmedMail = ({ mail }) => {
     return (
@@ -21,5 +19,4 @@ const UnconfirmedMail = ({ mail }) => {
         </div>
     );
 };
-
 export default UnconfirmedMail;

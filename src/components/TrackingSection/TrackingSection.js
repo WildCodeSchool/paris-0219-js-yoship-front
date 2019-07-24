@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons'
-
 import Button from '../Button/Button';
 import "./TrackingSection.scss"
+
 library.add(faMapMarkedAlt)
 
 class TrackingSection extends Component {
@@ -33,9 +33,9 @@ class TrackingSection extends Component {
     )
   }
 }
-
-
 export default TrackingSection
+
+
 
 
 

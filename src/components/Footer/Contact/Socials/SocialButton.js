@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
 import './SocialButton.scss'
+
 
 class SocialButton extends Component {
   state = {}
@@ -14,5 +14,6 @@ class SocialButton extends Component {
     );
   }
 }
-
 export default SocialButton;
+
+

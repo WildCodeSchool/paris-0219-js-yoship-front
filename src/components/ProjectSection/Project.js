@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { Card, Container, Col } from 'reactstrap';
-
 import './Project.scss'
 
 const projectSection = (props) => {
@@ -28,5 +26,4 @@ const projectSection = (props) => {
         </section>
     );
 };
-
 export default projectSection;

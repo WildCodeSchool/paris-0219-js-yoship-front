@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import Header from "../components/Header/Header";
-import Profil from "../components/Monprofil/Profil/Profil";
 import Footer from "../components/Footer/Footer";
+import Profil from "../components/Monprofil/Profil/Profil";
 
 class Monprofil extends Component {
-  state = {};
   render() {
     return (
       <div>
