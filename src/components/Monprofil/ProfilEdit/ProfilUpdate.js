@@ -1,13 +1,21 @@
 import React from 'react';
-import { Col, Container, Button } from 'reactstrap';
+
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import allTheActions from '../../../actions'
+import { Input, Col, Container, Progress, Button } from 'reactstrap';
+import { Field, formInputData, formValidation } from 'reactjs-input-validator';
+import ProfilMon from '../MonProfil'
 import axios from 'axios'
+import { directiveLiteral } from '@babel/types';
+import { Link, Redirect, withRouter } from "react-router-dom";
+import { validatorAlpha, validatorMail, validatorDate, validatorNum, validatorEmpty } from '../../ValidatorForm/ValidatorForm';
 
 const config = require('../../../config/config')
 
 class ProfilUpdate extends React.Component {
     state = {
 
-        redirect: false,
         loading: true,
         data: {}
 
@@ -46,6 +54,7 @@ class ProfilUpdate extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const data = this.state.result
+
         const dataToSend = {
             dateOfBirth: data.dateOfBirth,
             firstname: data.firstname,
@@ -69,145 +78,190 @@ class ProfilUpdate extends React.Component {
                 data: dataToSend,
                 headers: { 'x-access-token': `${token}` }
             })
+            
+
     }
-
-
-
     render() {
-        if (this.state.loading)
-            return <div>Chargement</div>
-        console.log(this.state.result);
-        return (
-            <section id="register" className="register">
-                <Container>
-                    <div className="row align-items-center no-gutters mb-4 mb-lg-4">
-                        <Col xl="4" lg="4">
-                            <fieldset>
-                                <label htmlFor="firstname">Prénom :</label>
-                                <input
-                                    type="text"
-                                    name="firstname"
-                                    onChange={this.handleChange}
-                                    value={this.state.result.firstname}
-                                />
-                            </fieldset>
-                        </Col>
-                        <Col xl="4" lg="4">
-                            <fieldset>
-                                <label htmlFor="name">Nom :</label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    onChange={this.handleChange}
-                                    value={this.state.result.name}
-                                />
-                            </fieldset>
-                        </Col>
-                        <Col xl="4" lg="4">
-                            <fieldset>
-                                <label htmlFor="pseudo">Pseudo :</label>
-                                <input
-                                    type="text"
-                                    name="pseudo"
-                                    onChange={this.handleChange}
-                                    value={this.state.result.pseudo}
-                                />
-                            </fieldset>
-                        </Col>
-                        <Col xl="4" lg="4">
-                            <fieldset>
-                                <label htmlFor="mail">Mail :</label>
-                                <input
-                                    type="text"
-                                    name="mail"
-                                    onChange={this.handleChange}
-                                    value={this.state.result.mail}
-                                />
-                            </fieldset>
-                        </Col>
-                        <Col xl="4" lg="4">
-                            <fieldset>
-                                <label htmlFor="dateOfBirth">Date de naissance :</label>
-                                <input
-                                    type="text"
-                                    name="dateOfBirth"
-                                    onChange={this.handleChange}
-                                    value={this.state.result.dateOfBirth}
-                                />
-                            </fieldset>
-                        </Col>
-                        <Col xl="4" lg="4">
-                            <fieldset>
-                                <label htmlFor="phone">Téléphone :</label>
-                                <input
-                                    type="text"
-                                    name="phone"
-                                    onChange={this.handleChange}
-                                    value={this.state.result.phone}
-                                />
-                            </fieldset>
-                        </Col>
-                        <Col xl="4" lg="4">
-                            <fieldset>
-                                <label htmlFor="address">Adresse:</label>
-                                <input
-                                    type="text"
-                                    name="address"
-                                    onChange={this.handleChange}
-                                    value={this.state.result.address}
-                                />
-                            </fieldset>
-                        </Col>
-                        <Col xl="4" lg="4">
-                            <fieldset>
-                                <label htmlFor="postcode">Code Postal:</label>
-                                <input
-                                    type="text"
-                                    name="postcode"
-                                    onChange={this.handleChange}
-                                    value={this.state.result.postcode}
-                                />
-                            </fieldset>
-                        </Col>
-                        <Col xl="4" lg="4">
-                            <fieldset>
-                                <label htmlFor="city">Ville:</label>
-                                <input
-                                    type="text"
-                                    name="city"
-                                    onChange={this.handleChange}
-                                    value={this.state.result.city}
-                                />
-                            </fieldset>
-                        </Col>
-                        <Col xl="4" lg="4">
-                            <fieldset>
-                                <label htmlFor="country">Pays:</label>
-                                <input
-                                    type="text"
-                                    name="country"
-                                    onChange={this.handleChange}
-                                    value={this.state.result.country}
-                                />
-                            </fieldset>
-                        </Col>
-                        <Col xl="4" lg="4">
-                            <fieldset>
-                                <label htmlFor="description">Ma description:</label>
-                                <input
-                                    type="textarea"
-                                    rows="5" cols="33"
-                                    name="description"
-                                    onChange={this.handleChange}
-                                    value={this.state.result.description}
-                                />
-                            </fieldset>
-                        </Col>
-                    </div>
-                </Container>
-                <div className="not">
-                    <div>
-                        <Button type="submit" onClick={this.handleSubmit} className="button-login-submit">Valider les modifications</Button>
+        if (this.state.loading) {
+            return (<div>Loading</div>)
+        } else {
+
+            return (
+                <section id="register" className="register">
+                    <Container>
+                        <div className="row justify-content-around no-gutters mb-4 mb-lg-4">
+                            {/* <form onSubmit={this.handleSubmit}> */}
+
+                                <Col xl="4" lg="4">
+                                    <fieldset>
+                                        <label htmlFor="firstname">Prénom :</label>
+                                        <input
+                                            type="text"
+                                            name="firstname"
+                                            onChange={this.handleChange}
+                                            value={this.state.result.firstname}
+                                            onBlur={validatorAlpha}
+                                            required
+                                        />
+                                        <p id='firstname'></p>
+                                    </fieldset>
+
+                                </Col>
+                                
+                                <Col xl="4" lg="4">
+                                    <fieldset>
+                                        <label htmlFor="name">Nom :</label>
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            onChange={this.handleChange}
+                                            value={this.state.result.name}
+                                            onBlur={validatorAlpha}
+                                            required
+                                        />
+                                        <p id='name'></p>
+                                    </fieldset>
+                                </Col>
+                                <Col xl="4" lg="4">
+                                    <fieldset>
+                                        <label htmlFor="pseudo">Pseudo :</label>
+                                        <input
+                                            type="text"
+                                            name="pseudo"
+                                            onChange={this.handleChange}
+                                            value={this.state.result.pseudo}
+                                            onBlur={validatorEmpty}
+                                            required
+                                        />
+                                        <p id='pseudo'></p>
+                                    </fieldset>
+                                </Col>
+                                <Col xl="4" lg="4">
+                                    <fieldset>
+                                        <label htmlFor="mail">Mail :</label>
+                                        <input
+                                            type="text" // email ? 
+                                            name="mail"
+                                            onChange={this.handleChange}
+                                            value={this.state.result.mail}
+                                            onBlur={validatorMail}
+                                            required
+                                        />
+                                        <p id='mail'></p>
+                                    </fieldset>
+                                </Col>
+                                <Col xl="4" lg="4">
+                                    <fieldset>
+                                        <label htmlFor="dateOfBirth">Date de naissance :</label>
+                                        <input
+                                            type="text" //or date ? 
+                                            name="dateOfBirth"
+                                            onChange={this.handleChange}
+                                            value={this.state.result.dateOfBirth}
+                                            onBlur={validatorDate}
+                                            required
+                                        />
+                                        <p id='dateOfBirth'></p>
+                                    </fieldset>
+                                </Col>
+                                <Col xl="4" lg="4">
+                                    <fieldset>
+                                        <label htmlFor="phone">Téléphone :</label>
+                                        <input
+                                            type="tel" //or tel ? 
+                                            name="phone"
+                                            onChange={this.handleChange}
+                                            value={this.state.result.phone}
+                                            onBlur={validatorNum}
+                                            required
+                                        />
+                                        <p id='phone'></p>
+
+                                    </fieldset>
+                                </Col>
+                                <Col xl="4" lg="4">
+                                    <fieldset>
+                                        <label htmlFor="address">Adresse:</label>
+                                        <input
+                                            type="text"
+                                            name="address"
+                                            onChange={this.handleChange}
+                                            value={this.state.result.address}
+                                            onBlur={validatorAlpha}
+                                            required
+                                        />
+                                    </fieldset>
+                                    <p id='address'></p>
+                                </Col>
+                                <Col xl="4" lg="4">
+                                    <fieldset>
+                                        <label htmlFor="postcode">Code Postal:</label>
+                                        <input
+                                            type="text" //or number ? 
+                                            name="postcode"
+                                            onChange={this.handleChange}
+                                            value={this.state.result.postcode}
+                                            onBlur={validatorNum}
+                                            required
+                                        />
+                                        <p id='postcode'></p>
+
+                                    </fieldset>
+                                </Col>
+                                <Col xl="4" lg="4">
+                                    <fieldset>
+                                        <label htmlFor="city">Ville:</label>
+                                        <input
+                                            type="text"
+                                            name="city"
+                                            onChange={this.handleChange}
+                                            value={this.state.result.city}
+                                            onBlur={validatorAlpha}
+                                            required
+                                        />
+                                        <p id='city'></p>
+                                    </fieldset>
+                                </Col>
+                                <Col xl="4" lg="4">
+                                    <fieldset>
+                                        <label htmlFor="country">Pays:</label>
+                                        <input
+                                            type="text"
+                                            name="country"
+                                            onChange={this.handleChange}
+                                            value={this.state.result.country}
+                                            onBlur={validatorAlpha}
+                                            required
+                                        />
+                                        <p id='country'></p>
+                                    </fieldset>
+                                </Col>
+                                <Col xl="4" lg="4">
+                                    <fieldset>
+                                        <label htmlFor="description">Description:</label>
+                                        <input
+                                            type="textarea"
+                                            name="description"
+                                            onChange={this.handleChange}
+                                            value={this.state.result.description}
+                                            onBlur={validatorAlpha}
+                                            required
+                                        />
+                                        <p id='description'></p>
+                                    </fieldset>
+                                </Col>
+                            
+                            {/* </form> */}
+                        </div>
+                    </Container>
+                            {/* <Link to="/Dashboard" > */}
+                            <Button type="submit" onClick={this.handleSubmit} className="button-login-submit">Valider les modifications</Button>
+                            {/* </Link> */}
+                    <div className="not">
+                        <div>
+
+                        </div>
+
                     </div>
                 </div>
 
@@ -215,7 +269,9 @@ class ProfilUpdate extends React.Component {
         )
     }
 }
+
 export default ProfilUpdate
+
 
 
 

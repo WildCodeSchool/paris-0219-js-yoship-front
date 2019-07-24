@@ -27,9 +27,9 @@ class ContactContainer extends Component {
           />
         </div>
         <div className="contact-container social">
-          <SocialButton link="#" icon="fab fa-twitter" />
-          <SocialButton link="#" icon="fab fa-facebook-f" />
-          <SocialButton link="#" icon="fab fa-github" />
+          <SocialButton link="https://www.twitter.com" icon="fab fa-twitter" />
+          <SocialButton link="https://www.facebook.com" icon="fab fa-facebook-f" />
+          <SocialButton link="https://www.instagram.com" icon="fab fa-instagram" />
         </div>
       </div>
     );
