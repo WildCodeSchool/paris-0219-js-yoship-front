@@ -51,7 +51,6 @@ class MyCars extends React.Component {
     this.getData()
   }
 
-
   handleFiles = files => {
     console.log(files)
   }
