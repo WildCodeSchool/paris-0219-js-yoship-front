@@ -29,6 +29,7 @@ class Mesdocuments extends React.Component {
     selectFile: '',
     dataPapers: ''
   }
+  
   getDataPapers = () => {
     const uuid = localStorage.getItem("uuid")
     const token = localStorage.getItem("token")
@@ -48,7 +49,6 @@ class Mesdocuments extends React.Component {
       })
   }
 
-
   changeHandler = async (event) => {
     await this.setState({
       selectFile: event.target.files[0]
@@ -63,9 +63,7 @@ class Mesdocuments extends React.Component {
     const fileType = event.target.name
     const formData = new FormData()
     formData.append(fileType, this.state.selectFile)
-    console.log(this.state.selectFile)
-    console.log(event.target)
-
+    // Checking if the user already has a document table
     let hasDocuments;
     await axios
       .get(`http://localhost:${config.port}/users/${uuid}/driverPapers`, {
@@ -149,7 +147,6 @@ class Mesdocuments extends React.Component {
       return (<div>chargement</div>)
     } else {
       const data = this.state.result[0]
-      // const dataDrivers = this.state.dataDrivers[0]
       return (
 
         <section id="project" className="project-section bg-light">
