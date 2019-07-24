@@ -5,6 +5,7 @@ import { FormGroup, Label, Input, CardTitle, } from 'reactstrap';
 import { Col, Container, } from 'reactstrap';
 import Button from '../UI/Button/Button';
 import './FormCar.scss';
+import Loader from '../UI/Loader/Loader';
 
 const config = require('../../config/config')
 
@@ -79,6 +80,7 @@ class FormCar extends React.Component {
     } else {
       return (
         <section className="register">
+          <Loader triggerAnim={true} />
           <form className="car-container" onSubmit={this.handleSubmit}>
             <Col xl="12" lg="12">
               <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> Ma voiture</h4></CardTitle>

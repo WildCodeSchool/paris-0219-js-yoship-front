@@ -10,6 +10,7 @@ import Avatar from '@material-ui/core/Avatar';
 
 // Other UI Components
 import Button from '@material-ui/core/Button';
+import Loader from '../../components/UI/Loader/Loader'
 
 // Packages
 import axios from "axios";
@@ -138,7 +139,7 @@ class CheckDocument extends Component {
             <Redirect to="admin" />
           );
       } else {
-          return <p>Loading...</p>
+          return <Loader />
       }
   }
 }
