@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import allTheActions from '../../../actions'
 import axios from 'axios'
-import { Input, Col, Container, Button, Progress } from 'reactstrap';
+import { Input, Col, Container, Button } from 'reactstrap';
 import { Field, formInputData, formValidation } from 'reactjs-input-validator';
 import UnconfirmedMail from '../UnconfirmedMail/UnconfirmedMail'
 import './Register.scss';

@@ -6,7 +6,7 @@ class PublicNav extends Component {
     state = {}
     render() {
         return (
-            <div>
+            <>
                 <NavLink to="/login" activeClassName="selected" className={this.props.linkClass} >
                     <Tab icon="user-tie" tab="Se connecter" />
                 </NavLink>
@@ -22,7 +22,7 @@ class PublicNav extends Component {
                 <NavLink exact to="/questions" activeClassName="selected" className={this.props.linkClass} >
                     <Tab icon="question-circle" tab="FAQ" />
                 </NavLink>
-            </div>
+            </>
         );
     }
 }
