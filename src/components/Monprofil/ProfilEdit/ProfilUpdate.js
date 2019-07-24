@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import allTheActions from '../../../actions'
@@ -35,7 +34,9 @@ class ProfilUpdate extends React.Component {
             .then(res => {
                 const result = res.data[0]
                 this.setState({ result, loading: false })
+                console.log("getData", this.state.result)
             })
+
     }
 
     componentDidMount = () => {
@@ -45,12 +46,18 @@ class ProfilUpdate extends React.Component {
     handleChange = (e) => {
         let { result } = this.state
         result[e.target.name] = e.target.value
+
         this.setState({
             result
         })
+        // this.setState( () => ({
+        //     result : {
+        //         ...this.state.result,
+        //         firstName: e.target.value
+        //     }
+        // }))
+
     }
-
-
     handleSubmit = (event) => {
         event.preventDefault();
         const data = this.state.result
@@ -60,6 +67,7 @@ class ProfilUpdate extends React.Component {
             firstname: data.firstname,
             mail: data.mail,
             name: data.name,
+            //password: data.password,
             phone: data.phone,
             pseudo: data.pseudo,
             address: data.address,
@@ -261,18 +269,14 @@ class ProfilUpdate extends React.Component {
                         <div>
 
                         </div>
-
                     </div>
-                </div>
 
-            </section>
-        )
+                </section>
+            )
+        }
     }
 }
 
+
+
 export default ProfilUpdate
-
-
-
-
-
