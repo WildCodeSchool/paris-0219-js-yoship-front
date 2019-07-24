@@ -1,8 +1,6 @@
 import React from 'react';
-
 // Packages
 import {Switch} from 'react-router-dom';
-
 import Home from './../screen/Home'
 import Login from './../screen/Login'
 import Tracking from './../screen/Tracking'
@@ -11,22 +9,23 @@ import StepVerification from '../screen/Verification';
 import StepFormation from '../screen/Formation'
 import StepStatus from '../screen/Status'
 import Monprofil from '../screen/Profil';
-import MyCar from '../screen/MyCar'
 
-import Loader from './UI/Loader/Loader'
+import AdminDashboard from '../screen/Admin/AdminDashboard'
+import CheckDocument from '../screen/Admin/CheckDocument'
 
+import MyCar from '../screen/MyCarDisplay'
 import HomeDashBoard from '../screen/HomeDashBoard'
 import About from '../screen/About'
 import Document from '../screen/Document'
 import ProfilUpdate from '../screen/ProfilUpdate'
-import MyCarUpdate from '../screen/MyCarUpdate'
+import MyCarPost from '../screen/MyCarPost'
 import QuestionsPage from '../screen/QuestionsPage';
+import MyCarProfil from '../screen/MyCarProfil'
 import ConfirmMail from "../screen/ConfirmMail.js"
-
 // Custom Router Components
 import PublicRoute from '../router/PublicRoute'
 import PrivateRoute from '../router/PrivateRoute'
-import MesDocuments from './Mesdocuments/MesDocuments';
+import MyCarDisplay from '../screen/MyCarDisplay';
 
 function App() {
   return (
@@ -45,14 +44,15 @@ function App() {
           <PrivateRoute path="/mycar" permission="driver" component={MyCar} />
           <PrivateRoute path='/dashboard' permission="driver" component={HomeDashBoard} />
           <PrivateRoute path='/profil' permission="driver" component={Monprofil} />
-          <PublicRoute path="/loading" component={Loader}/>
+          <PrivateRoute path='/admin' permission="admin" component={AdminDashboard} />
+          <PrivateRoute path='/documents/:uuid' permission="admin" component={CheckDocument} />
           <PrivateRoute path='/document' permission="driver" component={Document} />
-          <PrivateRoute path='/mycarupdate' permission="driver" component={MyCarUpdate} />
+          <PrivateRoute path='/mycarpost' permission="driver" component={MyCarPost} />
           <PrivateRoute path='/profilUpdate' permission="driver" component={ProfilUpdate} /> 
-          <PrivateRoute path='/myCarUpdate' permission="driver" component={MyCarUpdate} />
+          <PrivateRoute path='/mycarprofil' permission="driver" component={MyCarProfil} /> 
+          <PrivateRoute path='/mycardisplay' permission="driver" component={MyCarDisplay} /> 
         </Switch>
       </div>
   );
 }
-
 export default App;

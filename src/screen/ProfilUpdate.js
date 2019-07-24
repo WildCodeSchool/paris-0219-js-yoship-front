@@ -1,20 +1,20 @@
 import React from "react";
-import ProfilUpdate from '../components/Monprofil/ProfilEdit/ProfilUpdate'
 import Footer from '../components/Footer/Footer'
-
+import ProfilUpdate from '../components/Monprofil/ProfilEdit/ProfilUpdate'
 
 const MonProfilUpdate = () => {
-
     return (
         <div>
-                
-    <ProfilUpdate />
-    <Footer />
+            <ProfilUpdate />
+            <Footer />
         </div>
     )
 }
+export default MonProfilUpdate;
 
 
-export default MonProfilUpdate ;
+
+
+
 
 

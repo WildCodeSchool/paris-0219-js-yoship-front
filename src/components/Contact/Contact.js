@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import FrenchPhoneField from './FrenchPhoneField';
-import Button from '../UI/Button/Button';
-import './Contact.scss';
-import logoPaperPlane from '../../assets/images/logoPaperPlane.svg';
 import { InputGroup, InputGroupAddon, Input, FormGroup, CustomInput, Form } from 'reactstrap';
+import Button from '../UI/Button/Button';
+import FrenchPhoneField from './FrenchPhoneField';
+import logoPaperPlane from '../../assets/images/logoPaperPlane.svg';
+import './Contact.scss';
 
 const config = require('../../config/config');
 
@@ -34,16 +34,15 @@ class Contact extends React.Component {
     }
 
     statusChange = (event) => {
-        this.setState({status: event.target.value});
+        this.setState({ status: event.target.value });
     }
 
     setPhoneState = (value) => {
-        this.setState({phone: value});
+        this.setState({ phone: value });
     }
 
     submitForm(event) {
         event.preventDefault();
-
         axios.post(`http://localhost:${config.port}/contact`, this.state)
             .then(res => {
                 if (res.error) {
@@ -66,8 +65,9 @@ class Contact extends React.Component {
                     <div className="contact-logo">
                         <img src={logoPaperPlane} className="logo-plane" alt="logo" />
                     </div>
-                    <div className="contact-title"><h2>Contactez-nous !</h2></div>
-
+                    <div className="contact-title">
+                        <h2>Contactez-nous !</h2>
+                    </div>
                     <Input
                         className="contact-firstname"
                         name="firstname"
@@ -77,7 +77,6 @@ class Contact extends React.Component {
                         value={this.state.firstname}
                         onChange={this.handleChange}
                     />
-
                     <Input
                         className="contact-lastname"
                         name="lastname"
@@ -87,7 +86,6 @@ class Contact extends React.Component {
                         value={this.state.lastname}
                         onChange={this.handleChange}
                     />
-
                     <InputGroup
                         className="contact-email"
                     >
@@ -101,19 +99,16 @@ class Contact extends React.Component {
                             onChange={this.handleChange}
                         />
                     </InputGroup>
-
-                    <span className="contact-phone"><FrenchPhoneField getPhone={this.setPhoneState}/></span>
-
+                    <span className="contact-phone"><FrenchPhoneField getPhone={this.setPhoneState} /></span>
                     <FormGroup className="contact-status">
                         <CustomInput type="select" id="exampleCustomSelect" name="customSelect" onChange={this.statusChange} >
-                            <option value="">Sélectionnez votre status : </option>>
+                            <option value="">Sélectionnez votre statut : </option>>
                             <option value="customer">Je suis un client privilégié</option>
                             <option value="driver">Je suis un chauffeur Yoship</option>
                             <option value="brand">Je suis une enseigne de Luxe</option>
                             <option value="someonelse">Quelqu'un d'autre</option>
                         </CustomInput>
                     </FormGroup>
-
                     <FormGroup
                         className="contact-message">
                         <Input
@@ -126,16 +121,22 @@ class Contact extends React.Component {
                             onChange={this.handleChange}
                         />
                     </FormGroup>
-
                     <div className="contact-button">
-                        <Button type="submit"  text="Envoyer" />  
-                        {/* onClick={this.handleRedirect} */}
+                        <Button type="submit" text="Envoyer" />
                     </div>
                 </Form>
             </div>
-
         );
     }
 }
-
 export default Contact;
+
+
+
+
+
+
+
+
+
+

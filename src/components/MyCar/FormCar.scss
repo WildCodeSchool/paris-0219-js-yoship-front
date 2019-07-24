@@ -111,54 +111,7 @@ $color-border: 0.5px solid grey;
     background-color: $pink;
 }
 
-// .car-bloc-fuels {
-//     display: flex;
-//     justify-content: space-evenly;
-// }
 
-// .car-button {
-//     grid-column-end: 3; 
-//     grid-column-start: 1;
-//     justify-self: center;
-//     margin-left: auto;
-//     margin-right: auto;
-// }
-
-// .car-fuel {
-//     outline: none;
-// }
-
-// .formCar {
-//     background-color: $background-color;
-//     padding: 10rem 0 5rem 0;
-// }
-
-// .car-bloc-color {
-//     display: grid;
-//     grid-template-columns: repeat(3, 33%);
-//     padding-left: 30px;
-//     padding-right: 15px;
-// }
-
-// .car-container {
-//     display: grid;
-//     flex-wrap: nowrap;
-//     grid-column-gap: 10px;
-//     grid-row-gap: 15px;
-//     grid-template-columns: 30% 60%;
-//     grid-template-rows: repeat(auto);
-//     justify-content: center;
-//     margin-left: auto;
-//     margin-right: auto;
-//     padding-left: 15px;
-//     padding-right: 15px;
-//     text-align: start;
-//     /* add on SCSS */
-//     background-color: $background-color ;
-//     font-family: 'Nunito', sans-serif;
-//     font-size: 1rem !important;
-//     letter-spacing: 0.0625em;
-// }
 
 .car-dark-grey {
     @extend .car-circle;
@@ -170,103 +123,16 @@ $color-border: 0.5px solid grey;
     background-color: $grey;
 }
 
-// #car-description {
-//     height: 200px;
-// }
 
-// .car-title {
-//     grid-column-end: 3; 
-//     grid-column-start: 1;
-//     justify-items: left;
-// }
-
-// #car-diesel,
-// #car.electric,
-// #car-gasoline,
-// #car-gpl
-// #car-hybrid {
-//     outline: none;
-// }
-
-// @media screen and (max-width: 1103px) {
-//     .car-bloc-fuels {
-//         flex-direction: column;
-//     }
-//     .car-container {
-//         padding-top: 70px;
-//     }
-// }
-
-// @media screen and (min-width: 577px) and (max-width: 814px) {
-//     .car-container {
-//         grid-template-columns: 50% 50%;
-//         //padding-top: 50px;
-//     }
-//     #car-description {
-//         grid-column-start: 1;
-//         grid-column-end: 3; 
-//         justify-items: center;
-//     }
-//     .car-bloc-color {
-//         display: grid;
-//         grid-template-columns: repeat(2, 45%);
-//         flex-direction: column;
-//         padding-left: 30px;
-//     }
-// }
-
-// @media screen and (max-width: 576px) {        
-//     .car-container {
-//         grid-template-columns: repeat(1, 90%);
-//         text-align: start;
-//         //padding-top: 30px;
-//         //padding-bottom: 0;
-//         grid-column-gap: 0;
-//         grid-row-gap: 0;
-//         //padding-top: 30px;
-//         //padding-bottom: 30px;
-//     }
-//     .car-bloc-fuels,
-//     .car-brand,
-//     .car-button, 
-//     .car.color,
-//     .car-description,
-//     .car-fuel,
-//     .car-horsepower,
-//     .car-kilometers,
-//     .car-leasing,
-//     .car-license-plate,
-//     .car-maintenance,
-//     .car-model,
-//     .car-title,
-//     .car-year {
-//         grid-column-end: 2;
-//         grid-column-start: 1;
-//         margin: auto;
-//         padding-top: 10px;
-//     }
-//     .car-bloc-fuels {
-//         flex-direction: column;
-//         align-items: flex-start;
-//         margin: auto;
-//     }
-//     .car-bloc-color {
-//         display: grid;
-//         grid-template-columns: repeat(1, 90%);
-//         flex-direction: column;
-//     }
-// }
 .colorcolor {
     padding: 0px 0px 0px 25px;
 }
 .MyFormCarsButton {
     display: flex;
-    /* align-items: center; */
     justify-content: center;
 }
 .FormCarCarburant {
-    padding-top: 14px;
-
+     padding-top: 14px;
 }
 
 .cardescriptionh1

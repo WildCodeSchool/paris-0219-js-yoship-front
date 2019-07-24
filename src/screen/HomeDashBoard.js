@@ -1,10 +1,9 @@
-import React, { Component } from "react";
-import Header from "../components/Header/Header";
-import Footer from '../components/Footer/Footer'
+import React, { Component } from "react"
 import DashBoard from '../components/DashBoard/DashBoard'
+import Footer from '../components/Footer/Footer'
+import Header from "../components/Header/Header"
 
 class HomeDashboard extends Component {
-    state = {  }
     render() { 
         return ( 
             <div>

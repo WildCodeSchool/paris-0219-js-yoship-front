@@ -6,16 +6,17 @@ import Button from '../../UI/Button/Button';
 import './PageHeader.scss'
 
 const PageHeader = () => (
-    <>
-        <header className="masthead">
-            <h1>YOSHIP EXPERIENCE DELIVERY</h1>
-            <h2>A new way of delivery for luxury brands and demanding clients.<br />
-                This is not a simple package, this is an YoShip experience.</h2>
-                <NavLink to="/status">
-            <Button text="GET STARTED" />
-            </NavLink>
-        </header>
-    </>
+    <header className="masthead">
+        <h1>YOSHIP EXPERIENCE DELIVERY</h1>
+        <h2>Un nouveau mode de livraison pour les marques de luxe et les clients exigeants.<br />
+            Ce n'est pas un simple paquet, c'est une expérience YoShip.</h2>
+        <NavLink to="/status">
+            <Button text="DEMARRER" />
+        </NavLink>
+    </header>
 )
 export default PageHeader;
-         
+
+
+
+
