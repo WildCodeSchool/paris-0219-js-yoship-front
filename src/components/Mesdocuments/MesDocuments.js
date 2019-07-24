@@ -125,8 +125,11 @@ class Mesdocuments extends React.Component {
               <Col xl="12" lg="12">
                 <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> Mes Documents</h4></CardTitle>
               </Col>
-              <form enctype="multipart/form-data" method="PUT" >
 
+
+
+              <form encType="multipart/form-data" method="PUT" >
+               
                 <input type="file" name="identityCard" onChange={this.changeHandler} />
                 <button type="button" name="identityCard" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
 

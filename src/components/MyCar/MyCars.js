@@ -14,6 +14,7 @@ import "./MyCars.scss"
 const config = require('../../config/config')
 
 class MyCars extends React.Component {
+  _isMounted = false
 
   state = {
     loading: true,
@@ -46,12 +47,17 @@ class MyCars extends React.Component {
   }
 
   componentDidMount = () => {
+    this._isMounted = true
     this.getData()
   }
 
 
   handleFiles = files => {
     console.log(files)
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   render() {

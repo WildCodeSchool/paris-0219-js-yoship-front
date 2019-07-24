@@ -68,6 +68,7 @@ class Register extends React.Component {
     render() {
         const passwordValue = this.state.data.password && this.state.data.password.value;
         const redirect = this.state.redirect;
+        const { to, handleInputChange, ...rest } = this.props
 
         if (redirect) {
             return <UnconfirmedMail mail={this.state.data.mail.value} />
