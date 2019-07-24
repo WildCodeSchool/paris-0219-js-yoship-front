@@ -1,14 +1,7 @@
-import React from 'react';
 
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import allTheActions from '../../../actions'
-import { Input, Col, Container, Progress, Button } from 'reactstrap';
-import { Field, formInputData, formValidation } from 'reactjs-input-validator';
-import ProfilMon from '../MonProfil'
+import React from 'react';
+import { Col, Container, Button } from 'reactstrap';
 import axios from 'axios'
-import { directiveLiteral } from '@babel/types';
-import { Link, Redirect, withRouter } from "react-router-dom";
 import { validatorAlpha, validatorMail, validatorDate, validatorNum, validatorEmpty } from '../../ValidatorForm/ValidatorForm';
 
 const config = require('../../../config/config')
@@ -35,7 +28,9 @@ class ProfilUpdate extends React.Component {
             .then(res => {
                 const result = res.data[0]
                 this.setState({ result, loading: false })
+                console.log("getData", this.state.result)
             })
+
     }
 
     componentDidMount = () => {
@@ -45,12 +40,18 @@ class ProfilUpdate extends React.Component {
     handleChange = (e) => {
         let { result } = this.state
         result[e.target.name] = e.target.value
+
         this.setState({
             result
         })
+        // this.setState( () => ({
+        //     result : {
+        //         ...this.state.result,
+        //         firstName: e.target.value
+        //     }
+        // }))
+
     }
-
-
     handleSubmit = (event) => {
         event.preventDefault();
         const data = this.state.result
@@ -60,6 +61,7 @@ class ProfilUpdate extends React.Component {
             firstname: data.firstname,
             mail: data.mail,
             name: data.name,
+            //password: data.password,
             phone: data.phone,
             pseudo: data.pseudo,
             address: data.address,
@@ -261,18 +263,14 @@ class ProfilUpdate extends React.Component {
                         <div>
 
                         </div>
-
                     </div>
-                </div>
 
-            </section>
-        )
+                </section>
+            )
+        }
     }
 }
 
+
+
 export default ProfilUpdate
-
-
-
-
-
