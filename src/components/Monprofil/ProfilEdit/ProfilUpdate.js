@@ -3,6 +3,7 @@ import React from 'react';
 import { Col, Container, Button } from 'reactstrap';
 import axios from 'axios'
 import { validatorAlpha, validatorMail, validatorDate, validatorNum, validatorEmpty } from '../../ValidatorForm/ValidatorForm';
+import "./ProfilUpdate.scss"
 
 const config = require('../../../config/config')
 
@@ -91,7 +92,7 @@ class ProfilUpdate extends React.Component {
             return (
                 <section id="register" className="register">
                     <Container>
-                        <div className="row justify-content-around no-gutters mb-4 mb-lg-4">
+                        <div className="row align-items-center mb-4 mb-lg-5">
                             {/* <form onSubmit={this.handleSubmit}> */}
 
                                 <Col xl="4" lg="4">
@@ -256,9 +257,11 @@ class ProfilUpdate extends React.Component {
                             {/* </form> */}
                         </div>
                     </Container>
+                    <div className="MyCarsButton">
                             {/* <Link to="/Dashboard" > */}
-                            <Button type="submit" onClick={this.handleSubmit} className="button-login-submit">Valider les modifications</Button>
+                            <Button type="submit" onClick={this.handleSubmit} className="MyProfilUpdateButton">Valider les modifications</Button>
                             {/* </Link> */}
+                    </div>
                     <div className="not">
                         <div>
 
