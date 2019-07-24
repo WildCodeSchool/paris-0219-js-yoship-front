@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 // Components
 import Tab from '../Tab/Tab'
 import LogoutButton from '../LogoutButton/LogoutButton';
-import DropToggleItem from '../DropToggle/DropToggleItem'
 class DriverNav extends Component {
     state = {  }
     render() { 

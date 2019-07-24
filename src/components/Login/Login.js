@@ -1,21 +1,14 @@
 import React from 'react';
 import Button from '../Button/Button'
 import { NavLink, Redirect, withRouter } from "react-router-dom";
-
-// Packages
 import axios from 'axios'
-
-// Components
 import { Input, CardImg, Col, Container } from 'reactstrap';
-
-// Styling
 import './Login.scss';
 
 // Import config
 const config = require('../../config/config')
 
 class Login extends React.Component {
-
   state = {
     redirect: false,
     error_msg: "",
@@ -93,7 +86,6 @@ class Login extends React.Component {
                 <div className="checkbox">
                   <label> <Input type="checkbox"></Input>Vérification</label>
                   <Button text="SE CONNECTER" />
-                  {/* <Button className="button-login-submit">SUBMIT</Button> */}
                 </div>
               </form>
             </Col>
@@ -112,7 +104,6 @@ class Login extends React.Component {
     )
   }
 }
-
 export default withRouter(Login);
 
 

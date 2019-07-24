@@ -1,12 +1,9 @@
-
-
 import React, { Component } from "react";
-import MyCars from '../components/MyCar/MyCars';
 import Footer from '../components/Footer/Footer'
 import Header from "../components/Header/Header";
+import MyCars from '../components/MyCar/MyCars';
 
 class MyCarProfil extends Component {
-    state = {};
     render() {
         return (
             <div>
@@ -19,3 +16,4 @@ class MyCarProfil extends Component {
 }
 
 export default MyCarProfil;
+

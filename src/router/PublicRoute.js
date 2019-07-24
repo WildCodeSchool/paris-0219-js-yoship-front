@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route, withRouter, Redirect } from 'react-router-dom';
-import Home from '../screen/Home';
 import axios from 'axios'
 
 

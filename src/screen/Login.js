@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import Login from "../components/Login/Login";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
+import Login from "../components/Login/Login";
 
 class Login1 extends Component {
-  state = {};
   render() {
     return (
       <div>

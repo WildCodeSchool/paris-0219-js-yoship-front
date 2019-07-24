@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Header from "../components/Header/Header";
-import Formation from "../components/Login/StepFormation/Formation";
 import Footer from "../components/Footer/Footer";
+import Formation from "../components/Login/StepFormation/Formation";
 
 class StepFormation extends Component {
   state = {};
