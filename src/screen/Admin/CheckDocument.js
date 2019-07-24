@@ -116,6 +116,7 @@ class CheckDocument extends Component {
       if (!isLoading) {
           return !docVerified ? (
             <div>
+              <Loader triggerAnim={true} />
               <HeaderAdmin pathname={this.props.location.pathname} />
               <div className="docs-card-container">
                 <Card className="docs-card">
