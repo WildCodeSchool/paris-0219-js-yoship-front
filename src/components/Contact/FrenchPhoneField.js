@@ -37,5 +37,4 @@ class FrenchPhoneField extends React.Component {
     )
   }
 }
-
 export default FrenchPhoneField;

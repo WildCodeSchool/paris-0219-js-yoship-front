@@ -1,25 +1,15 @@
 import React from 'react';
 import { Col, Container, Card, CardImg, CardText, CardTitle, } from 'reactstrap';
-import ImageUpload from '../Monprofil/ImageUpload'
-import "./MesDocuments.scss"
+import axios from 'axios'
 import ReactFileReader from 'react-file-reader';
 import blacktiebrands from '../../assets/icons/blacktiebrands.svg'
 import phonesquarealtsolid from '../../assets/icons/phonesquarealtsolid.svg'
-
 import atsolid from '../../assets/icons/atsolid.svg'
 import usertagsolid from '../../assets/icons/usertagsolid.svg'
-
-import axios from 'axios'
-
-
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-
-import allTheActions from '../../actions'
-import { log } from 'util';
-
+import "./MesDocuments.scss"
 
 const config = require('../../config/config')
+
 
 class Mesdocuments extends React.Component {
 
@@ -53,7 +43,6 @@ class Mesdocuments extends React.Component {
     await this.setState({
       selectFile: event.target.files[0]
     })
-    console.log(this.state.selectFile)
   }
 
   handleSubmit = async (event) => {
@@ -110,8 +99,8 @@ class Mesdocuments extends React.Component {
       data: formData
     })
       .then(res => {
-        console.log("le res", res);
-        console.log("le res.data", res.data);
+        console.log(res);
+        console.log(res.data);
       })
       .catch(error => {
         console.log(error.response)
@@ -131,11 +120,9 @@ class Mesdocuments extends React.Component {
       .then(res => {
         const result = res.data
         this.setState({ result, loading: false })
-        console.log("getData", this.state)
+        console.log(this.state)
       })
-
   }
-
 
   componentDidMount = () => {
     this.getData()
@@ -148,41 +135,32 @@ class Mesdocuments extends React.Component {
     } else {
       const data = this.state.result[0]
       return (
-
         <section id="project" className="project-section bg-light">
           <Container>
             <div className="row align-items-center no-gutters mb-4 mb-lg-5">
-
               <Col xl="2" lg="2">
                 <Card>
                   <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-
                   <ReactFileReader handleFiles={this.handleFiles}>
                     <button className='btn'>Télécharger</button>
                   </ReactFileReader>
                 </Card>
               </Col>
-
               <Col xl="5" lg="5">
                 <CardTitle><h4> <img src={blacktiebrands} className="phonesquarealtsolid" alt="logo" /> {data.name} {data.firstname} (Utilisateur ID:2323)</h4></CardTitle>
                 <CardText><img src={phonesquarealtsolid} className="phonesquarealtsolid" alt="logo" /> Numéro de téléphone : {data.phone}</CardText>
                 <CardText><img src={atsolid} className="phonesquarealtsolid" alt="logo" /> Adresse e-mail : {data.mail} </CardText>
-                <CardText><img src={usertagsolid} className="phonesquarealtsolid" alt="logo"/> Statut : vérifié </CardText>
+                <CardText><img src={usertagsolid} className="phonesquarealtsolid" alt="logo" /> Statut : vérifié </CardText>
               </Col>
-
-
-
             </div>
             <div className="row align-items-center no-gutters mb-4 mb-lg-5">
-
-
               <Col xl="12" lg="12">
                 <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> Mes Documents</h4></CardTitle>
               </Col>
 
 
 
-              <form enctype="multipart/form-data" method="PUT" >
+              <form encType="multipart/form-data" method="PUT" >
                
                 <input type="file" name="identityCard" onChange={this.changeHandler} />
                 <button type="button" name="identityCard" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
@@ -197,38 +175,29 @@ class Mesdocuments extends React.Component {
                 <button type="button" name="driverLicense" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
                 
               </form>
-
             </div>
           </Container>
-
-
-
-
-
         </section>
-
       );
     }
   }
 }
+export default Mesdocuments
 
-const mapStateToProps = state => {
-  return {
-    lastName: state.formReducer.lastName,
-    firstName: state.formReducer.firstName,
-    phone: state.formReducer.phone,
-    email: state.formReducer.email,
-    dateOfBirth: state.formReducer.dateOfBirth,
-    address: state.formReducer.address,
-    postCode: state.formReducer.postCode,
-    city: state.formReducer.city,
-    country: state.formReducer.country
-  }
-}
 
-const mapDispatchToProps = dispatch => {
-  return {
-  }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Mesdocuments)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

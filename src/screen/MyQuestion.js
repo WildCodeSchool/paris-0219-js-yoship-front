@@ -2,9 +2,7 @@ import React from "react";
 import Footer from '../components/Footer/Footer'
 import Questions from "../components/Monprofil/Questions/Questions";
 
-
 const MyQuestion = () => {
-
     return (
         <div>
             <Questions />
@@ -12,5 +10,7 @@ const MyQuestion = () => {
         </div>
     )
 }
-
 export default MyQuestion;
+
+
+

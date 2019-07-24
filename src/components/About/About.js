@@ -1,26 +1,20 @@
 import React from 'react';
-
 import { NavLink } from 'react-router-dom';
 import { Container, Col, } from 'reactstrap';
 import Button from '../Button/Button'
-
 import './About.scss'
 
 class About extends React.Component {
-
     render() {
         return (
             <section id="project" className="project-section bg-light">
                 <Container>
-
                     <div className="row align-items-center mb-4 mb-lg-5">
                         <Col xl="6" lg="6">
                             <div className="aboutclass text-center text-lg-left">
-
                                 <div className="titreabout">
                                     <h4>Statut de partenaire</h4>
                                 </div>
-
                                 <p className="text-black-50 mb-0">Devenir un membre priviligié YoPartner c'est rejoindre la révolution
                                    de la logistique des marques de luxe.
                                 </p>
@@ -33,7 +27,6 @@ class About extends React.Component {
                                 <p className="text-black-50 mb-0"><br />Ce métier dynamique et varié ne laisse aucune place à l'ennui.</p>
                             </div>
                         </Col>
-
                         <Col xl="6" lg="6">
                             <div className="aboutclass text-center text-lg-left">
                                 <div className="titreabout">
@@ -54,9 +47,7 @@ class About extends React.Component {
                                 </p>
                             </div>
                         </Col>
-
                     </div>
-
                 </Container>
                 <div className="buttonabout">
                     <NavLink to="/status">
@@ -67,6 +58,15 @@ class About extends React.Component {
         )
     }
 }
-
 export default About;
+
+
+
+
+
+
+
+
+
+
 

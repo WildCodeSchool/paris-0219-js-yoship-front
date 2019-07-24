@@ -1,12 +1,8 @@
 import React from "react";
-
 import yoshiplogo from "../../../assets/images/yoship-logo.png";
-
 import './Brand.scss'
 
-
 const Brand = ({ background, isTop }) => {
-
     return (
         <div className="header_brand_div">
             <img src={yoshiplogo} alt="yoship logo" className="header_logo" />
@@ -14,5 +10,8 @@ const Brand = ({ background, isTop }) => {
         </div>
     )
 }
-
 export default Brand
+
+
+
+

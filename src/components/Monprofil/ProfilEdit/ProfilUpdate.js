@@ -1,13 +1,7 @@
+
 import React from 'react';
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import allTheActions from '../../../actions'
-import { Input, Col, Container, Progress, Button } from 'reactstrap';
-import { Field, formInputData, formValidation } from 'reactjs-input-validator';
-import ProfilMon from '../MonProfil'
+import { Col, Container, Button } from 'reactstrap';
 import axios from 'axios'
-import { directiveLiteral } from '@babel/types';
-import { Link, Redirect, withRouter } from "react-router-dom";
 import { validatorAlpha, validatorMail, validatorDate, validatorNum, validatorEmpty } from '../../ValidatorForm/ValidatorForm';
 
 const config = require('../../../config/config')

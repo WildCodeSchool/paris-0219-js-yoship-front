@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import Header from "../components/Header/Header";
 import DisplayCar from "../components/MyCar/DisplayCar"
 import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
 
 class MyCarDisplay extends Component {
-  state = {};
   render() {
     return (
       <div>
