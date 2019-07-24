@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import Status from "../components/Login/Stepstatus/status";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
+import Status from "../components/Login/Stepstatus/status";
 
 class Stepstatus extends Component {
-  state = {};
   render() {
     return (
       <div>

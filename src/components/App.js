@@ -1,8 +1,6 @@
 import React from 'react';
-
 // Packages
 import {Switch} from 'react-router-dom';
-
 import Home from './../screen/Home'
 import Login from './../screen/Login'
 import Tracking from './../screen/Tracking'
@@ -20,14 +18,10 @@ import MyCarPost from '../screen/MyCarPost'
 import QuestionsPage from '../screen/QuestionsPage';
 import MyCarProfil from '../screen/MyCarProfil'
 import ConfirmMail from "../screen/ConfirmMail.js"
-
 // Custom Router Components
 import PublicRoute from '../router/PublicRoute'
 import PrivateRoute from '../router/PrivateRoute'
-import MesDocuments from './Mesdocuments/MesDocuments';
-import DisplayCar from './MyCar/DisplayCar';
 import MyCarDisplay from '../screen/MyCarDisplay';
-
 
 function App() {
   return (
@@ -51,11 +45,8 @@ function App() {
           <PrivateRoute path='/profilUpdate' permission="driver" component={ProfilUpdate} /> 
           <PrivateRoute path='/mycarprofil' permission="driver" component={MyCarProfil} /> 
           <PrivateRoute path='/mycardisplay' permission="driver" component={MyCarDisplay} /> 
-
-          {/* <PrivateRoute path='/myCarUpdate' permission="driver" component={MyCarUpdate} /> */}
         </Switch>
       </div>
   );
 }
-
 export default App;

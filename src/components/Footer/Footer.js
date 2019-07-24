@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-
-// Components Imports
 import Copyright from "./Copyright/Copyright";
 import ContactContainer from "./Contact/ContactContainer/ContactContainer";
-
-// CSS Imports
 import './Footer.scss'
 import './Contact/Cards/ContactCard.scss'
 import './Contact/ContactContainer/ContactContainer.scss'

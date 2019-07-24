@@ -1,6 +1,6 @@
 import React from 'react';
-
 import './Copyright.scss'
+
 
 const Copyright = () => {
   return (
@@ -11,5 +11,4 @@ const Copyright = () => {
     </footer>
   );
 }
-
 export default Copyright;

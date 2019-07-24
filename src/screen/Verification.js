@@ -1,10 +1,9 @@
 import React from "react";
-import Verification from '../components/Login/StepVerification/Verification'
 import Footer from '../components/Footer/Footer'
+import Verification from '../components/Login/StepVerification/Verification'
 
 
 const StepVerification = () => {
-
     return (
         <div>
             <Verification />
@@ -12,8 +11,9 @@ const StepVerification = () => {
         </div>
     )
 }
-
-
 export default StepVerification;
+
+
+
 
 

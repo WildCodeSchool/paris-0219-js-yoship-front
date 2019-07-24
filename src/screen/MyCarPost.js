@@ -1,12 +1,9 @@
-
-
 import React, { Component } from "react";
 import FormCar from '../components/MyCar/FormCar';
 import Footer from '../components/Footer/Footer'
 import Header from "../components/Header/Header";
 
 class MyCarPost extends Component {
-  state = {};
   render() {
     return (
       <div>
@@ -17,5 +14,6 @@ class MyCarPost extends Component {
     );
   }
 }
-
 export default MyCarPost;
+
+

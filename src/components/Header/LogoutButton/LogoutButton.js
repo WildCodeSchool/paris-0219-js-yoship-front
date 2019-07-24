@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-
-// Style
 import Button from '@material-ui/core/Button';
 import "./LogoutButton.scss"
 
@@ -38,3 +36,4 @@ class LogoutButton extends Component {
 }
  
 export default LogoutButton;
+
