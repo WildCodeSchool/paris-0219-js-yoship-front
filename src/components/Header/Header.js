@@ -80,8 +80,8 @@
 
 // <DropToggleItem />
 
-  
-          
+
+
 //         </div>
 //       </header>
 //     )
@@ -139,6 +139,12 @@ class Header extends Component {
             case "/profil":
                 return false
             case "/document":
+                return false
+            case "/mycarprofil":
+                return false
+            case "/mycarpost":
+                return false
+            case "/mycardisplay":
                 return false
             default:
                 return true

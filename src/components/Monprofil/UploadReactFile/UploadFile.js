@@ -61,16 +61,16 @@ import ReactFileReader from 'react-file-reader';
     <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"  alt="Card image cap" />
     
 <ReactFileReader handleFiles={this.handleFiles}>
-  <button className='btn'>Upload</button>
+  <button className='btn'>Téléchargement</button>
 </ReactFileReader>
     </Card>
     </Col>
     
     <Col xl="5" lg="5">
           <CardTitle icon="user-plus" ><h4> {this.state.globalLastName} {this.state.globalFirstName} (User ID:2323)</h4></CardTitle>
-          <CardText icon="user-plus" >Your phone : {this.state.globalPhone}</CardText>
-          <CardText icon="user-plus" >Email Addres : {this.state.globalEmail} </CardText>
-          <CardText icon="user-plus" >Status :  </CardText>
+          <CardText icon="user-plus" >Téléphone : {this.state.globalPhone}</CardText>
+          <CardText icon="user-plus" >Mail : {this.state.globalEmail} </CardText>
+          <CardText icon="user-plus" >Statut :  </CardText>
 
         
       
@@ -84,14 +84,14 @@ import ReactFileReader from 'react-file-reader';
 
     
     <Col xl="12" lg="12">
-          <CardTitle className="cardtitleinformation"icon="user-plus" ><h4> Mes information</h4></CardTitle>
+          <CardTitle className="cardtitleinformation"icon="user-plus" ><h4> Mes informations</h4></CardTitle>
           </Col>
 
           
           <Col xl="4" lg="4">   
-          <CardText icon="user-plus" >Role :</CardText>
-          <CardText icon="user-plus" >date of birth : {this.state.globalDateOfBirth} </CardText>
-          <CardText icon="user-plus" >Password :</CardText>
+          <CardText icon="user-plus" >Rôle :</CardText>
+          <CardText icon="user-plus" >Date d'anniversaire : {this.state.globalDateOfBirth} </CardText>
+          <CardText icon="user-plus" >Mot de passe :</CardText>
           
 
         
@@ -100,10 +100,10 @@ import ReactFileReader from 'react-file-reader';
       
      
           <Col xl="4" lg="4">   
-          <CardText icon="user-plus" >Addres : {this.state.globalAddres}</CardText>
-          <CardText icon="user-plus" >Postcode : {this.state.globalPostCode} </CardText>
-          <CardText icon="user-plus" >City :  {this.state.globalCity}</CardText>
-          <CardText icon="user-plus" >Country : {this.state.globalCountry}</CardText>
+          <CardText icon="user-plus" >Adresse : {this.state.globalAddres}</CardText>
+          <CardText icon="user-plus" >Code Postal : {this.state.globalPostCode} </CardText>
+          <CardText icon="user-plus" >Ville :  {this.state.globalCity}</CardText>
+          <CardText icon="user-plus" >Pays : {this.state.globalCountry}</CardText>
 
         
           </Col>
@@ -115,26 +115,26 @@ import ReactFileReader from 'react-file-reader';
           <Col xl="4" lg="4">   
 
           <CardText icon="user-plus">
-          <ReactFileReader handleFiles={this.handleFiles}>Identity card :
-          <button className='btn'>Upload</button>
+          <ReactFileReader handleFiles={this.handleFiles}>Pièce d'identité :
+          <button className='btn'>Téléchargement</button>
           </ReactFileReader>
           </CardText>
 
           <CardText icon="user-plus">
-          <ReactFileReader handleFiles={this.handleFiles}>Proof of residence :
-          <button className='btn'>Upload</button>
+          <ReactFileReader handleFiles={this.handleFiles}>Justificatif de domicile :
+          <button className='btn'>Téléchargement</button>
           </ReactFileReader>
           </CardText>
 
           <CardText icon="user-plus">
           <ReactFileReader handleFiles={this.handleFiles}>Rib :
-          <button className='btn'>Upload</button>
+          <button className='btn'>Téléchargement</button>
           </ReactFileReader>
           </CardText>
 
           <CardText icon="user-plus">
-          <ReactFileReader handleFiles={this.handleFiles}>Permis :
-          <button className='btn'>Upload</button>
+          <ReactFileReader handleFiles={this.handleFiles}>Permis de conduire :
+          <button className='btn'>Téléchargement</button>
           </ReactFileReader>
           </CardText>
 

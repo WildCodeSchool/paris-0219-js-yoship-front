@@ -56,10 +56,10 @@ class ConfirmMail extends Component {
                 <Header pathname={this.props.location.pathname} />
                     <div className='confirm'>
                         {isLoading
-                        ?   <p>Loading...</p> 
+                        ?   <p>Chargement...</p> 
                         
                         :   <div className="confirmed-container">
-                                <h2>Votre email à été confirmé !</h2>
+                                <h2>Votre email a été confirmé !</h2>
                                 <h3>Vous serez automatiquement redirigé dans quelques secondes</h3>
                             </div>
                         }

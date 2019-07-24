@@ -15,7 +15,7 @@ class ContactContainer extends Component {
         <div className="contact-container">
           <ContactCard
             logo="fas fa-map-marked-alt"
-            title="ADDRESS"
+            title="ADRESSE"
             description="Paris"
           />
           <ContactCard
@@ -26,14 +26,14 @@ class ContactContainer extends Component {
           />
           <ContactCard
             logo="fas fa-mobile-alt"
-            title="PHONE"
+            title="TELEPHONE"
             description="+33 6 69 36 27 94"
           />
         </div>
         <div className="contact-container social">
-          <SocialButton link="#" icon="fab fa-twitter" />
-          <SocialButton link="#" icon="fab fa-facebook-f" />
-          <SocialButton link="#" icon="fab fa-github" />
+          <SocialButton link="https://www.twitter.com" icon="fab fa-twitter" />
+          <SocialButton link="https://www.facebook.com" icon="fab fa-facebook-f" />
+          <SocialButton link="https://www.instagram.com" icon="fab fa-instagram" />
         </div>
       </div>
     );
