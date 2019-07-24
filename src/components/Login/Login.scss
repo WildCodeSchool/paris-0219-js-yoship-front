@@ -7,7 +7,6 @@
 .login {
     background-color:#f8f9fa;
     padding: 10rem 0rem 5rem 0rem;
-
 }
 
 .row {
@@ -16,7 +15,7 @@
 .checkbox {
     justify-content: center;
     display: grid;
-
+    margin: 2em 0;
 }
 
 .button-login-submit {
@@ -61,3 +60,8 @@
     justify-content: center;
     display: flex;
 }
+
+.error-msg {
+    color: red;
+    margin: 0.5em;
+  }

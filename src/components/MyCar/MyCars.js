@@ -51,7 +51,6 @@ class MyCars extends React.Component {
     this.getData()
   }
 
-
   handleFiles = files => {
     console.log(files)
   }
@@ -69,7 +68,6 @@ class MyCars extends React.Component {
         <section id="project" className="project-section bg-light">
           <Container>
             <div className="row align-items-center no-gutters mb-4 mb-lg-5">
-
               <Col xl="2" lg="2">
                 <Card>
                   <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />

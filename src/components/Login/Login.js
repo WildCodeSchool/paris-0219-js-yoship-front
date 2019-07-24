@@ -45,16 +45,14 @@ class Login extends React.Component {
             // Not Found 
             if (error.response.statusText === "Not Found") {
               this.setState({
-                error_msg: error.response.data,
+                error_msg: "Nous n'avons pas reconnu cet email",
                 error_email: true,
                 error_password: false
               });
-              // Resets email input
-              emailDom.value = "";
               emailDom.focus();
             } else if (error.response.statusText === "Unauthorized") {
               this.setState({
-                error_msg: error.response.data.error_msg,
+                error_msg: "Ce mot de passe est invalide, veuillez réessayer.",
                 error_email: false,
                 error_password: true
               });
@@ -85,13 +83,15 @@ class Login extends React.Component {
 
                   <label className="label-email-login" htmlFor="email">Adresse e-mail</label><br />
                   <div className="group-email">
-                    <Input id="email" className="input-email-login" name="Email address" type="email" placeholder="Entrez votre adresse email" /></div>
-
-                  <label className="label-password-login" htmlFor="password">Mot de passe</label><br />
-                  <Input id="password" className="input-password-login" name="Password" type="text" placeholder="Entrez votre mot de passe" />
-
+                    <Input id="email" className="input-email-login" name="Email address" type="email" placeholder="Entrez votre adresse email" />
+                    {this.state.error_email ? (<p className="error-msg">* {this.state.error_msg}</p>) : ("")}  
+                  </div>
+                  <div>
+                    <label className="label-password-login" htmlFor="password">Mot de passe</label><br />
+                    <Input id="password" className="input-password-login" name="Password" type="password" placeholder="Entrez votre mot de passe" />
+                    {this.state.error_password ? ( <p className="error-msg">* {this.state.error_msg}</p> ) : ("")}
+                  </div>
                 <div className="checkbox">
-                  <label> <Input type="checkbox"></Input>Vérification</label>
                   <Button text="SE CONNECTER" />
                 </div>
               </form>

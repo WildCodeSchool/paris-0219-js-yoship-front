@@ -61,11 +61,13 @@ class FormCar extends React.Component {
           'x-access-token': `${token}`
         }
       })
-
       .then(res => {
         const result = res.data
         console.log("response to axios Mycar", res)
         console.log(result);
+      })
+      .catch(err => {
+        console.log(err)
       })
     this.setState({ redirect: true })
   }
@@ -75,7 +77,7 @@ class FormCar extends React.Component {
     const redirect = this.state.redirect;
 
     if (redirect) {
-      return <Redirect to="/login" />
+      return <Redirect to="/mycarprofil" />
     } else {
       return (
         <section className="register">
@@ -116,7 +118,7 @@ class FormCar extends React.Component {
                     type="number"
                     name="kilometers"
                     id="car-kilometers"
-                    placeholder="Renseignez ici le nombre de kilomètres de votre véhicule"
+                    placeholder="Renseignez le nombre de kilomètres du véhicule"
                     value={this.state.kilometers}
                     onChange={this.handleChange}
                   />
@@ -135,12 +137,15 @@ class FormCar extends React.Component {
                 </Col>
                 <Col xl="6" lg="6">
 
-                  <Label className="car-horsepower" htmlFor="car-horsepower">Puissance Fiscale :</Label>
+                  <Label className="car-horsepower" htmlFor="car-horsepower">Puissance fiscale :</Label>
                   <Input
                     required="required"
                     type="number"
                     name="horsepower"
                     id="car-horsepower"
+                    placeholder="0"
+                    min="50"
+                    max="999"
                     onChange={this.handleChange}
                     value={this.state.horsepower}
                   />
@@ -251,7 +256,7 @@ class FormCar extends React.Component {
                 <Col xl="12" lg="12">
                   <div className="cardescriptionh1"   >
                     <Label className="car-description" htmlFor="car-description">Description :</Label>
-                    <Input type="textarea" name="description" id="car-description" value={this.state.description} onChange={this.handleChange} />
+                    <Input type="textarea" placeholder="Courte description de votre véhicule..." name="description" id="car-description" value={this.state.description} onChange={this.handleChange} />
                   </div>
                 </Col>
               </div>
