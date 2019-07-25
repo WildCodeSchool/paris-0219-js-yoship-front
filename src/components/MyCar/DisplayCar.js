@@ -59,14 +59,6 @@ class DisplayCar extends React.Component {
           <Loader triggerAnim={true} />
           <Container>
             <div className="row align-items-center no-gutters mb-4 mb-lg-5">
-              <Col xl="2" lg="2">
-                <Card>
-                  <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-                  <ReactFileReader handleFiles={this.handleFiles}>
-                    <button className='btn'>Upload</button>
-                  </ReactFileReader>
-                </Card>
-              </Col>
               <Col xl="5" lg="5">
                 <CardTitle><h4> <img src={blacktiebrands} className="phonesquarealtsolid" alt="logo" /> {data.name} {data.firstname} (User ID:2323)</h4></CardTitle>
                 <CardText><img src={phonesquarealtsolid} className="phonesquarealtsolid" alt="logo" /> Your phone : {data.phone}</CardText>

@@ -70,6 +70,14 @@ class MyCars extends React.Component {
           <Loader triggerAnim={true} />
           <Container>
             <div className="row align-items-center no-gutters mb-4 mb-lg-5">
+              <Col xl="5" lg="5">
+                <CardTitle><h4> <img src={blacktiebrands} className="phonesquarealtsolid" alt="logo" /> {data.name} {data.firstname} (User ID:2323)</h4></CardTitle>
+                <CardText><img src={phonesquarealtsolid} className="phonesquarealtsolid" alt="logo" /> Your phone : {data.phone}</CardText>
+                <CardText><img src={atsolid} className="phonesquarealtsolid" alt="logo" /> Email Addres : {data.mail} </CardText>
+                <CardText><img src={usertagsolid} className="phonesquarealtsolid" alt="logo" /> Status : check </CardText>
+              </Col>
+            </div>
+            <div className="row align-items-center no-gutters mb-4 mb-lg-5">
               <Col xl="12" lg="12">
                 <CardTitle
                   className="cardtitleinformation"
