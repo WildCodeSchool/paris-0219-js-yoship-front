@@ -98,7 +98,9 @@ class FormCar extends React.Component {
           <Loader triggerAnim={true} />
           <form className="car-container" onSubmit={this.handleSubmit}>
             <Col xl="12" lg="12">
-              <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> Ma voiture</h4></CardTitle>
+              <div className="container form-car-wrapper">
+              <CardTitle className="cardtitleinformation" icon="user-plus"><h4> Ma voiture</h4></CardTitle>
+              </div>
             </Col>
             <Container>
               <div className="row align-items-center mb-4 mb-lg-5">

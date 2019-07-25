@@ -28,7 +28,12 @@
   .cardtitleinformation{
     color: #C9A959;
     background-color: #161616;
-  text-align: center;
+    text-align: center;
+    border-radius: 15px;
+
+    h4 {
+      margin: 0;
+    }
   }
   
 
