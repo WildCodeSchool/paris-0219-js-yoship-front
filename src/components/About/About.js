@@ -10,7 +10,7 @@ class About extends React.Component {
             <section id="project" className="project-section bg-light">
                 <Container>
                     <div className="row align-items-center mb-4 mb-lg-5">
-                        <Col xl="6" lg="6">
+                        <Col className="ColorContainer" xl="6" lg="6">
                             <div className="aboutclass text-center text-lg-left">
                                 <div className="titreabout">
                                     <h4>Statut de partenaire</h4>
@@ -28,6 +28,7 @@ class About extends React.Component {
                             </div>
                         </Col>
                         <Col xl="6" lg="6">
+                        <div className="BorderColorAbout">   
                             <div className="aboutclass text-center text-lg-left">
                                 <div className="titreabout">
                                     <h4>Une activité dynamique et variée</h4>
@@ -45,6 +46,7 @@ class About extends React.Component {
                                 <p className="text-black-50 mb-0"><br />Fournir en cas de sollicitation du client une prestation de conseil à domicile
                                     d'une qualité équivalente au service que l'on retrouve en magasin.
                                 </p>
+                            </div>
                             </div>
                         </Col>
                     </div>

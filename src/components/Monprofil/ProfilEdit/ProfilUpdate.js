@@ -1,10 +1,12 @@
 
 import React from 'react';
-import { Col, Container, Button } from 'reactstrap';
+import { Col, Container, Button, CardTitle } from 'reactstrap';
 
 
 import axios from 'axios'
 import { validatorAlpha, validatorMail, validatorDate, validatorNum, validatorEmpty } from '../../ValidatorForm/ValidatorForm';
+import { Redirect } from 'react-router-dom';
+import "./ProfilUpdate.scss"
 
 const config = require('../../../config/config')
 
@@ -12,10 +14,10 @@ class ProfilUpdate extends React.Component {
     state = {
 
         loading: true,
-        data: {}
+        data: {},
+        redirect: false,
 
     }
-
 
     getData = () => {
         const token = localStorage.getItem("token")
@@ -54,7 +56,8 @@ class ProfilUpdate extends React.Component {
         // }))
 
     }
-    handleSubmit = (event) => {
+
+    handleSubmit = async (event) => {
         event.preventDefault();
         const data = this.state.result
 
@@ -75,25 +78,35 @@ class ProfilUpdate extends React.Component {
         }
         const token = localStorage.getItem("token")
         const uuid = localStorage.getItem("uuid")
-        axios(
+        await axios(
             {
                 url: `http://localhost:${config.port}/users/${uuid}`,
                 method: 'Put',
                 data: dataToSend,
                 headers: { 'x-access-token': `${token}` }
             })
-            
-
+            this.setState({redirect: true})            
     }
     render() {
-        if (this.state.loading) {
+        const redirect = this.state.redirect;
+
+if (redirect) {    
+    return <Redirect to="/dashboard"/>
+
+}
+        else if (this.state.loading) {
             return (<div>Loading</div>)
+
         } else {
 
             return (
                 <section id="register" className="register">
                     <Container>
+               
                         <div className="row justify-content-around  mb-4 mb-lg-4">
+                        <Col xl="12" lg="12">
+                <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> édite ton profil</h4></CardTitle>
+              </Col>
                             {/* <form onSubmit={this.handleSubmit}> */}
 
                                 <Col xl="4" lg="4">
@@ -289,6 +302,7 @@ class ProfilUpdate extends React.Component {
         }
     }
 }
+
 
 
 

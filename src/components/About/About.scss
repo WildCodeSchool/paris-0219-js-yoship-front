@@ -10,3 +10,18 @@
     padding: 0 0 0 2rem;
     border-left: 0.5rem solid #C9A959;
 }
+
+.ColorContainer {
+    position: relative;
+    top:-50px
+}
+
+
+@media (min-width: 992px)
+{
+   
+  .BorderColorAbout {
+    padding: 0 0 0 2rem;
+    border-left: 0.5rem solid #C9A959;
+  }
+  }

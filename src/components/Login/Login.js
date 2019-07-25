@@ -45,16 +45,14 @@ class Login extends React.Component {
             // Not Found 
             if (error.response.statusText === "Not Found") {
               this.setState({
-                error_msg: error.response.data,
+                error_msg: "Nous n'avons pas reconnu cet email",
                 error_email: true,
                 error_password: false
               });
-              // Resets email input
-              emailDom.value = "";
               emailDom.focus();
             } else if (error.response.statusText === "Unauthorized") {
               this.setState({
-                error_msg: error.response.data.error_msg,
+                error_msg: "Ce mot de passe est invalide, veuillez réessayer.",
                 error_email: false,
                 error_password: true
               });
@@ -87,8 +85,11 @@ class Login extends React.Component {
                   <div className="group-email">
                     <Input id="email" className="input-email-login" name="Email address" type="email" placeholder="Entrez votre adresse email" /></div>
 
+
                   <label className="label-password-login" htmlFor="password">Mot de passe</label><br />
-                  <Input id="password" className="input-password-login" name="Password" type="password" placeholder="Entrez votre mot de passe" />
+                  <Input id="password" className="input-password-login" name="Password" type="text" placeholder="Entrez votre mot de passe" />
+
+
 
                 <div className="checkbox">
                  
