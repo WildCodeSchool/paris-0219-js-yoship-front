@@ -1,0 +1,57 @@
+.card-car {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: 0px 0px 3px 0px rgba(188, 193, 214, 0.6);
+    margin: 1.5em 0;
+    padding: 10px;
+    background-color: white;
+    &-icon {
+        margin-right: 0.5em;
+        font-size: 2em;
+    }
+
+
+    &-link{
+        margin-right: 0.5em;
+    }
+    
+    &-info {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        flex-direction: row !important;
+
+        p {
+            margin: 0;
+        }
+    }
+
+}
+
+.card-car:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s linear;
+}
+
+.car-info-title {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.car-info-subtitle {
+    font-style: italic;
+}
+
+
+@media screen and (max-width: 768px) {
+    
+    .card-car {
+        flex-direction: column;
+
+        &-link{
+            margin: 1em 0em;
+            margin-right: 0em;
+        }
+    }
+}

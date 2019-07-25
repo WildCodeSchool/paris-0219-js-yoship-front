@@ -1,6 +1,7 @@
 import React from 'react';
 // Packages
 import {Switch} from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Home from './../screen/Home'
 import Login from './../screen/Login'
 import Tracking from './../screen/Tracking'
@@ -57,6 +58,7 @@ function App() {
 
 
         </Switch>
+        <ToastContainer />
       </div>
   );
 }
