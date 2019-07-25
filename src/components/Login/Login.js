@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../Button/Button'
+import Button from '../UI/Button/Button'
 import { NavLink, Redirect, withRouter } from "react-router-dom";
 import axios from 'axios'
 import { Input, CardImg, Col, Container } from 'reactstrap';
@@ -87,7 +87,7 @@ class Login extends React.Component {
 
 
                   <label className="label-password-login" htmlFor="password">Mot de passe</label><br />
-                  <Input id="password" className="input-password-login" name="Password" type="text" placeholder="Entrez votre mot de passe" />
+                  <Input id="password" className="input-password-login" name="Password" type="password" placeholder="Entrez votre mot de passe" />
 
 
 

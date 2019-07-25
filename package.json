@@ -28,6 +28,7 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.0.1",
     "react-scroll-up-button": "^1.6.4",
+    "react-toastify": "^5.3.2",
     "react-transition-group": "^4.2.1",
     "react-youtube": "^7.9.0",
     "reactjs-input-validator": "^0.16.4",

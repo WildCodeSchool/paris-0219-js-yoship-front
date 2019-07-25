@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons'
-import Button from '../Button/Button';
+import { Link } from 'react-router-dom'
+
+import Button from '../UI/Button/Button';
 import "./TrackingSection.scss"
 
 library.add(faMapMarkedAlt)
@@ -26,7 +28,9 @@ class TrackingSection extends Component {
           <form action="/" method="get" className="form_inline">
             <label className="hidden" htmlFor='trackNumber'></label>
             <input type="text" placeholder="Entrez votre numéro de suivi..." className="form_control" />
+            <Link to='/tracking'>
             <Button text="JETONS UN COUP D'ŒIL !" />
+            </Link>
           </form>
         </div>
       </div>

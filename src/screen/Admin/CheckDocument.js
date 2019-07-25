@@ -10,6 +10,7 @@ import Avatar from '@material-ui/core/Avatar';
 
 // Other UI Components
 import Button from '@material-ui/core/Button';
+import Loader from '../../components/UI/Loader/Loader'
 
 // Packages
 import axios from "axios";
@@ -19,6 +20,7 @@ import './Admin.scss'
 import Footer from "../../components/Footer/Footer";
 import DriverList from "../../components/DriverList/DriverList";
 import HeaderAdmin from "../../components/Header/HeaderAdmin";
+
 
 // Import config
 const config = require("../../config/config");
@@ -115,6 +117,7 @@ class CheckDocument extends Component {
       if (!isLoading) {
           return !docVerified ? (
             <div>
+              <Loader triggerAnim={true} />
               <HeaderAdmin pathname={this.props.location.pathname} />
               <div className="docs-card-container">
                 <Card className="docs-card">
@@ -138,7 +141,7 @@ class CheckDocument extends Component {
             <Redirect to="admin" />
           );
       } else {
-          return <p>Loading...</p>
+          return <Loader />
       }
   }
 }

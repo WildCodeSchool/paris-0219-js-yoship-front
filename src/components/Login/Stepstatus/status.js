@@ -2,8 +2,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Container, Col, } from 'reactstrap';
-import Button from '../../Button/Button'
-import './status.scss'
+import Button from '../../UI/Button/Button';
+import './status.scss';
 
 
 class statusroles extends React.Component {

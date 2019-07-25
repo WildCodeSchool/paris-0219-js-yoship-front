@@ -9,13 +9,13 @@ class DriverNav extends Component {
     render() { 
         return (
           <>
-            <NavLink
+            {/* <NavLink
               to="/earnings"
               activeClassName="selected"
               className={this.props.linkClass}
             >
               <Tab icon="wallet" tab="Mes revenus" />
-            </NavLink>
+            </NavLink> */}
             <NavLink
               to="/mycarprofil"
               activeClassName="selected"

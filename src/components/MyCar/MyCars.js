@@ -1,15 +1,16 @@
 import React from 'react';
 import axios from 'axios'
 import { Col, Container, Card, CardImg, CardText, CardTitle, } from 'reactstrap';
+import Button from '../UI/Button/Button'
 import { Link } from 'react-router-dom';
 import ReactFileReader from 'react-file-reader';
-import Button from '../Button/Button'
 import CarCard from './CarCard'
 import atsolid from '../../assets/icons/atsolid.svg'
 import blacktiebrands from '../../assets/icons/blacktiebrands.svg'
 import phonesquarealtsolid from '../../assets/icons/phonesquarealtsolid.svg'
 import usertagsolid from '../../assets/icons/usertagsolid.svg'
 import "./MyCars.scss"
+import Loader from '../UI/Loader/Loader';
 
 const config = require('../../config/config')
 
@@ -61,11 +62,12 @@ class MyCars extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return (<div>Chargement</div>)
+      return <Loader />
     } else {
       const data = this.state.result[0]
       return (
         <section id="project" className="project-section bg-light">
+          <Loader triggerAnim={true} />
           <Container>
             <div className="row align-items-center no-gutters mb-4 mb-lg-5">
               <Col xl="5" lg="5">
@@ -77,16 +79,22 @@ class MyCars extends React.Component {
             </div>
             <div className="row align-items-center no-gutters mb-4 mb-lg-5">
               <Col xl="12" lg="12">
-                <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> Mes voitures</h4></CardTitle>
+                <CardTitle
+                  className="cardtitleinformation"
+                  icon="user-plus"
+                >
+                  <h4> Mes voitures</h4>
+                </CardTitle>
               </Col>
             </div>
-            {this.state.dataCar
-              .map((car, index) => (
+            <div className="card-car-container">
+              {this.state.dataCar.map((car, index) => (
                 <CarCard car={car} index={index} key={index} />
               ))}
-            <Link to="/mycarpost" >
+            </div>
+            <Link to="/mycarpost">
               <div className="MyCarsButton">
-                <Button text="Rajoute une voiture" />
+                <Button text="Ajouter une voiture" />
               </div>
             </Link>
           </Container>

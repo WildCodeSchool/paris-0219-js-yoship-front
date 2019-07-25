@@ -1,10 +1,14 @@
 import React from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 import { FormGroup, Label, Input, CardTitle, } from 'reactstrap';
 import { Col, Container, } from 'reactstrap';
-import { Redirect } from 'react-router-dom';
-import Button from '../Button/Button';
+import Button from '../UI/Button/Button';
 import './FormCar.scss';
+import Loader from '../UI/Loader/Loader';
+
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const config = require('../../config/config')
 
@@ -40,7 +44,7 @@ class FormCar extends React.Component {
 
   handleSubmit = e => {
     console.log(this.state)
-    alert('Les caractéristiques de votre véhicule ont été prises en compte: ' + this.state.brand);
+
     e.preventDefault();
     const token = localStorage.getItem("token")
     const uuid = localStorage.getItem("uuid")
@@ -65,11 +69,21 @@ class FormCar extends React.Component {
         const result = res.data
         console.log("response to axios Mycar", res)
         console.log(result);
+        toast.success("Les caractéristiques de votre véhicule ont été prises en compte.", {
+          position: toast.POSITION.BOTTOM_RIGHT
+        });
+        this.setState({ redirect: true })
       })
       .catch(err => {
         console.log(err)
+        toast.error("Erreur, les données n'ont pas pu être envoyées", {
+          position: toast.POSITION.BOTTOM_RIGHT
+        });
       })
-    this.setState({ redirect: true })
+  }
+
+  notifiy() {
+    return toast("Wow so easy !");
   }
 
   render() {
@@ -81,9 +95,12 @@ class FormCar extends React.Component {
     } else {
       return (
         <section className="register">
+          <Loader triggerAnim={true} />
           <form className="car-container" onSubmit={this.handleSubmit}>
             <Col xl="12" lg="12">
-              <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> Ma voiture</h4></CardTitle>
+              <div className="container form-car-wrapper">
+              <CardTitle className="cardtitleinformation" icon="user-plus"><h4> Ma voiture</h4></CardTitle>
+              </div>
             </Col>
             <Container>
               <div className="row align-items-center mb-4 mb-lg-5">
