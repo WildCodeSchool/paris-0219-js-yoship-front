@@ -88,10 +88,10 @@ class Login extends React.Component {
                     <Input id="email" className="input-email-login" name="Email address" type="email" placeholder="Entrez votre adresse email" /></div>
 
                   <label className="label-password-login" htmlFor="password">Mot de passe</label><br />
-                  <Input id="password" className="input-password-login" name="Password" type="text" placeholder="Entrez votre mot de passe" />
+                  <Input id="password" className="input-password-login" name="Password" type="password" placeholder="Entrez votre mot de passe" />
 
                 <div className="checkbox">
-                  <label> <Input type="checkbox"></Input>Vérification</label>
+                 
                   <Button text="SE CONNECTER" />
                 </div>
               </form>
