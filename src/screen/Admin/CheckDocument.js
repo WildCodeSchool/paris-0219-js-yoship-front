@@ -10,6 +10,7 @@ import Avatar from '@material-ui/core/Avatar';
 
 // Other UI Components
 import Button from '@material-ui/core/Button';
+import Loader from '../../components/UI/Loader/Loader'
 
 // Packages
 import axios from "axios";
@@ -115,6 +116,7 @@ class CheckDocument extends Component {
       if (!isLoading) {
           return !docVerified ? (
             <div>
+              <Loader triggerAnim={true} />
               <HeaderAdmin pathname={this.props.location.pathname} />
               <div className="docs-card-container">
                 <Card className="docs-card">
@@ -138,7 +140,7 @@ class CheckDocument extends Component {
             <Redirect to="admin" />
           );
       } else {
-          return <p>Loading...</p>
+          return <Loader />
       }
   }
 }

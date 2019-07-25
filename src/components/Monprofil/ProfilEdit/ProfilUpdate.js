@@ -3,6 +3,7 @@ import React from 'react';
 import { Col, Container, Button } from 'reactstrap';
 import axios from 'axios'
 import { validatorAlpha, validatorMail, validatorDate, validatorNum, validatorEmpty } from '../../ValidatorForm/ValidatorForm';
+import Loader from '../../UI/Loader/Loader';
 import { Redirect } from 'react-router-dom';
 import "./ProfilUpdate.scss"
 
@@ -93,12 +94,13 @@ if (redirect) {
 
 }
         else if (this.state.loading) {
-            return (<div>Loading</div>)
+            return <Loader />
 
         } else {
 
             return (
                 <section id="register" className="register">
+                    <Loader triggerAnim={true} />
                     <Container>
                         <div className="row align-items-center mb-4 mb-lg-5">
                             {/* <form onSubmit={this.handleSubmit}> */}

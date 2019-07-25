@@ -9,6 +9,7 @@ import phonesquarealtsolid from '../../assets/icons/phonesquarealtsolid.svg'
 import atsolid from '../../assets/icons/atsolid.svg'
 import usertagsolid from '../../assets/icons/usertagsolid.svg'
 import "./MyCars.scss"
+import Loader from '../UI/Loader/Loader';
 
 
 const config = require('../../config/config')
@@ -48,11 +49,12 @@ class DisplayCar extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return (<div>loading</div>)
+      return <Loader />
     } else {
       const data = this.state.result[0]
       return (
         <section id="project" className="project-section bg-light">
+          <Loader triggerAnim={true} />
           <Container>
             <div className="row align-items-center no-gutters mb-4 mb-lg-5">
               <Col xl="2" lg="2">

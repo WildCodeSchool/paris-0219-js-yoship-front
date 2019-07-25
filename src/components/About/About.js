@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Container, Col, } from 'reactstrap';
-import Button from '../Button/Button'
+import Button from '../UI/Button/Button'
+
 import './About.scss'
 
 class About extends React.Component {
