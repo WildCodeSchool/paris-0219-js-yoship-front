@@ -1,6 +1,8 @@
 
 import React from 'react';
-import { Col, Container, Button } from 'reactstrap';
+import { Col, Container, Button, CardTitle } from 'reactstrap';
+
+
 import axios from 'axios'
 import { validatorAlpha, validatorMail, validatorDate, validatorNum, validatorEmpty } from '../../ValidatorForm/ValidatorForm';
 import Loader from '../../UI/Loader/Loader';
@@ -102,12 +104,17 @@ if (redirect) {
                 <section id="register" className="register">
                     <Loader triggerAnim={true} />
                     <Container>
-                        <div className="row align-items-center mb-4 mb-lg-5">
+               
+                        <div className="row justify-content-around  mb-4 mb-lg-4">
+                        <Col xl="12" lg="12">
+                <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> édite ton profil</h4></CardTitle>
+              </Col>
                             {/* <form onSubmit={this.handleSubmit}> */}
 
                                 <Col xl="4" lg="4">
+                                <label htmlFor="firstname">Prénom :</label>
                                     <fieldset>
-                                        <label htmlFor="firstname">Prénom :</label>
+                                      
                                         <input
                                             type="text"
                                             name="firstname"
@@ -122,8 +129,9 @@ if (redirect) {
                                 </Col>
                                 
                                 <Col xl="4" lg="4">
+                                <label htmlFor="name">Nom :</label>
                                     <fieldset>
-                                        <label htmlFor="name">Nom :</label>
+                                       
                                         <input
                                             type="text"
                                             name="name"
@@ -136,8 +144,8 @@ if (redirect) {
                                     </fieldset>
                                 </Col>
                                 <Col xl="4" lg="4">
+                                <label htmlFor="pseudo">Pseudo :</label>
                                     <fieldset>
-                                        <label htmlFor="pseudo">Pseudo :</label>
                                         <input
                                             type="text"
                                             name="pseudo"
@@ -150,8 +158,10 @@ if (redirect) {
                                     </fieldset>
                                 </Col>
                                 <Col xl="4" lg="4">
+                                <label htmlFor="mail">Mail :</label>
+
                                     <fieldset>
-                                        <label htmlFor="mail">Mail :</label>
+                                       
                                         <input
                                             type="text" // email ? 
                                             name="mail"
@@ -164,8 +174,9 @@ if (redirect) {
                                     </fieldset>
                                 </Col>
                                 <Col xl="4" lg="4">
+                                <label htmlFor="dateOfBirth">Date de naissance :</label>
                                     <fieldset>
-                                        <label htmlFor="dateOfBirth">Date de naissance :</label>
+                                       
                                         <input
                                             type="text" //or date ? 
                                             name="dateOfBirth"
@@ -178,8 +189,9 @@ if (redirect) {
                                     </fieldset>
                                 </Col>
                                 <Col xl="4" lg="4">
+                                <label htmlFor="phone">Téléphone :</label>
                                     <fieldset>
-                                        <label htmlFor="phone">Téléphone :</label>
+                                        
                                         <input
                                             type="tel" //or tel ? 
                                             name="phone"
@@ -193,8 +205,9 @@ if (redirect) {
                                     </fieldset>
                                 </Col>
                                 <Col xl="4" lg="4">
+                                <label htmlFor="address">Adresse:</label>
                                     <fieldset>
-                                        <label htmlFor="address">Adresse:</label>
+                                       
                                         <input
                                             type="text"
                                             name="address"
@@ -207,8 +220,9 @@ if (redirect) {
                                     <p id='address'></p>
                                 </Col>
                                 <Col xl="4" lg="4">
+                                <label htmlFor="postcode">Code Postal:</label>
                                     <fieldset>
-                                        <label htmlFor="postcode">Code Postal:</label>
+                                       
                                         <input
                                             type="text" //or number ? 
                                             name="postcode"
@@ -222,8 +236,9 @@ if (redirect) {
                                     </fieldset>
                                 </Col>
                                 <Col xl="4" lg="4">
+                                <label htmlFor="city">Ville:</label>
                                     <fieldset>
-                                        <label htmlFor="city">Ville:</label>
+                                      
                                         <input
                                             type="text"
                                             name="city"
@@ -235,9 +250,11 @@ if (redirect) {
                                         <p id='city'></p>
                                     </fieldset>
                                 </Col>
+
                                 <Col xl="4" lg="4">
+                                <label htmlFor="country">Pays:</label>
                                     <fieldset>
-                                        <label htmlFor="country">Pays:</label>
+                                       
                                         <input
                                             type="text"
                                             name="country"
@@ -250,8 +267,9 @@ if (redirect) {
                                     </fieldset>
                                 </Col>
                                 <Col xl="4" lg="4">
+                                <label htmlFor="description">Description:</label>
                                     <fieldset>
-                                        <label htmlFor="description">Description:</label>
+                                      
                                         <input
                                             type="textarea"
                                             name="description"
@@ -263,18 +281,23 @@ if (redirect) {
                                         <p id='description'></p>
                                     </fieldset>
                                 </Col>
-                            
+                                <Col xl="4" lg="4" />
+                               
                             {/* </form> */}
                         </div>
                     </Container>
-                    <div className="MyCarsButton">
-                            <Button type="submit" onClick={this.handleSubmit} className="MyProfilUpdateButton">Valider les modifications</Button>
-                    </div>
-                    <div className="not">
-                        <div>
+                            {/* <Link to="/Dashboard" > */}
 
-                        </div>
-                    </div>
+
+
+
+
+                           
+                            <Button type="submit" onClick={this.handleSubmit} className="buttoncenter">Valider les modifications</Button>
+                      
+                            {/* </Link> */}
+
+
 
                 </section>
             )

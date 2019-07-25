@@ -83,15 +83,16 @@ class Login extends React.Component {
 
                   <label className="label-email-login" htmlFor="email">Adresse e-mail</label><br />
                   <div className="group-email">
-                    <Input id="email" className="input-email-login" name="Email address" type="email" placeholder="Entrez votre adresse email" />
-                    {this.state.error_email ? (<p className="error-msg">* {this.state.error_msg}</p>) : ("")}  
-                  </div>
-                  <div>
-                    <label className="label-password-login" htmlFor="password">Mot de passe</label><br />
-                    <Input id="password" className="input-password-login" name="Password" type="password" placeholder="Entrez votre mot de passe" />
-                    {this.state.error_password ? ( <p className="error-msg">* {this.state.error_msg}</p> ) : ("")}
-                  </div>
+                    <Input id="email" className="input-email-login" name="Email address" type="email" placeholder="Entrez votre adresse email" /></div>
+
+
+                  <label className="label-password-login" htmlFor="password">Mot de passe</label><br />
+                  <Input id="password" className="input-password-login" name="Password" type="password" placeholder="Entrez votre mot de passe" />
+
+
+
                 <div className="checkbox">
+                 
                   <Button text="SE CONNECTER" />
                 </div>
               </form>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Container, Card, CardImg, CardText, CardTitle, } from 'reactstrap';
+import { Col, Container, Card, CardImg, CardText, CardTitle, Input, Button } from 'reactstrap';
 import axios from 'axios'
 import ReactFileReader from 'react-file-reader';
 import blacktiebrands from '../../assets/icons/blacktiebrands.svg'
@@ -21,7 +21,7 @@ class Mesdocuments extends React.Component {
     selectFile: '',
     dataPapers: ''
   }
-  
+
   getDataPapers = () => {
     const uuid = localStorage.getItem("uuid")
     const token = localStorage.getItem("token")
@@ -141,14 +141,7 @@ class Mesdocuments extends React.Component {
           <Loader triggerAnim={true} />
           <Container>
             <div className="row align-items-center no-gutters mb-4 mb-lg-5">
-              <Col xl="2" lg="2">
-                <Card>
-                  <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-                  <ReactFileReader handleFiles={this.handleFiles}>
-                    <button className='btn'>Télécharger</button>
-                  </ReactFileReader>
-                </Card>
-              </Col>
+
               <Col xl="5" lg="5">
                 <CardTitle><h4> <img src={blacktiebrands} className="phonesquarealtsolid" alt="logo" /> {data.name} {data.firstname} (Utilisateur ID:2323)</h4></CardTitle>
                 <CardText><img src={phonesquarealtsolid} className="phonesquarealtsolid" alt="logo" /> Numéro de téléphone : {data.phone}</CardText>
@@ -166,26 +159,58 @@ class Mesdocuments extends React.Component {
                 </CardTitle>
               </Col>
 
+            </div>
+
+          </Container>
 
 
-              <form encType="multipart/form-data" method="PUT" >
-               
-                <input type="file" name="identityCard" onChange={this.changeHandler} />
-                <button type="button" name="identityCard" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
+          <Container>
+            <div className="align-items-center no-gutters mb-4 mb-lg-5">
 
-                <input type="file" name="proofOfResidence" onChange={this.changeHandler} />
-                <button type="button" name="proofOfResidence" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
+              <form className="FormUpdate" encType="multipart/form-data" method="PUT" >
 
-                <input type="file" name="rib" onChange={this.changeHandler} />
-                <button type="button" name="rib" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
+                <Col className="ColUpdate" xl="6" lg="6">
+                  <label htmlFor="identityCard"> Piéce d'identité  </label>
+                  <Input className="input-password-login" type="file" name="identityCard" onChange={this.changeHandler} />
 
-                <input type="file" name="driverLicense" onChange={this.changeHandler} />
-                <button type="button" name="driverLicense" className="btn btn-success btn-block" onClick={this.handleSubmit}>Télécharger</button>
-                
+                  <Button className="buttondeco" type="button" name="identityCard" onClick={this.handleSubmit}>Télécharger </Button>
+                </Col>
+
+                <Col className="ColUpdate" xl="6" lg="6">
+                  <label htmlFor="proofOfResidence"> Justificatif de domicile  </label>
+                  <Input type="file" name="proofOfResidence" onChange={this.changeHandler} />
+                  <Button className="buttondeco" type="button" name="proofOfResidence" onClick={this.handleSubmit}>Télécharger</Button>
+                </Col>
+
+                <Col className="ColUpdate" xl="6" lg="6">
+                  <label htmlFor="rib"> R.I.B </label>
+
+                  <Input type="file" name="rib" onChange={this.changeHandler} />
+                  <Button className="buttondeco" type="button" name="rib" onClick={this.handleSubmit}>Télécharger</Button>
+                </Col>
+                <Col className="ColUpdate" xl="6" lg="6">
+                  <label htmlFor="driverLicense"> Permis de conduire </label>
+                  <Input type="file" name="driverLicense" onChange={this.changeHandler} />
+                  <Button className="buttondeco" type="button" name="driverLicense" onClick={this.handleSubmit}>Télécharger</Button>
+                </Col>
               </form>
             </div>
           </Container>
         </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       );
     }
   }

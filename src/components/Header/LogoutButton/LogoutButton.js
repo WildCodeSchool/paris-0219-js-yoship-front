@@ -23,11 +23,11 @@ class LogoutButton extends Component {
             return <Redirect to="/login" />
         }
         return (
-          <Button
+          <Button className="buttondeco"
             variant="contained"
-            color="secondary"
+          
             onClick={this.onClick.bind(this)}
-            className="logout-button"
+          
           >
             <i className="fas fa-power-off turn-off-logo" />Déconnexion
           </Button>

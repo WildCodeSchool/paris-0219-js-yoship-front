@@ -57,20 +57,13 @@ class Profil extends React.Component {
           <Loader triggerAnim={true} />
           <Container>
             <div className="row align-items-center no-gutters mb-4 mb-lg-5">
-              <Col xl="2" lg="2">
-                <Card>
-                  <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-                  <ReactFileReader handleFiles={this.handleFiles}>
-                    <button className='btn'>Télécharger</button>
-                  </ReactFileReader>
-                </Card>
-              </Col>
+           
               <Col xl="5" lg="5">
                 <CardTitle><h4> <img src={blacktiebrands} className="phonesquarealtsolid" alt="logo" /> {data.name} {data.firstname} (Utilisateur ID:2323)</h4></CardTitle>
                 <CardText><img src={phonesquarealtsolid} className="phonesquarealtsolid" alt="logo" /> Numéro de téléphone : {data.phone}</CardText>
                 <CardText><img src={atsolid} className="phonesquarealtsolid" alt="logo" /> Mail : {data.mail} </CardText>
-                <CardText><img src={usertagsolid} className="phonesquarealtsolid" alt="logo" /> Statut : vérifié </CardText>
-                <Tab icon="map-marker-alt" tab="Tracking" />
+                <CardText><img src={usertagsolid} className="phonesquarealtsolid" alt="logo" /> Statut :  </CardText>
+              
               </Col>
             </div>
             <div className="row align-items-center no-gutters mb-4 mb-lg-5">
@@ -91,8 +84,12 @@ class Profil extends React.Component {
               </Col>
             </div>
             <Link to="/ProfilUpdate" >
+<div className="buttoncenter"> 
               <Button text="Edite ton profil" />
+</div> 
             </Link>
+
+
           </Container>
         </section>
       );
