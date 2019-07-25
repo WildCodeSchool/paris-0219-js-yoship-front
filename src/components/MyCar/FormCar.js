@@ -6,6 +6,9 @@ import { Redirect } from 'react-router-dom';
 import Button from '../Button/Button';
 import './FormCar.scss';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const config = require('../../config/config')
 
 class FormCar extends React.Component {
@@ -40,7 +43,7 @@ class FormCar extends React.Component {
 
   handleSubmit = e => {
     console.log(this.state)
-    alert('Les caractéristiques de votre véhicule ont été prises en compte: ' + this.state.brand);
+
     e.preventDefault();
     const token = localStorage.getItem("token")
     const uuid = localStorage.getItem("uuid")
@@ -65,11 +68,21 @@ class FormCar extends React.Component {
         const result = res.data
         console.log("response to axios Mycar", res)
         console.log(result);
+        toast.success("Les caractéristiques de votre véhicule ont été prises en compte.", {
+          position: toast.POSITION.BOTTOM_RIGHT
+        });
+        this.setState({ redirect: true })
       })
       .catch(err => {
         console.log(err)
+        toast.error("Erreur, les données n'ont pas pu être envoyées", {
+          position: toast.POSITION.BOTTOM_RIGHT
+        });
       })
-    this.setState({ redirect: true })
+  }
+
+  notifiy() {
+    return toast("Wow so easy !");
   }
 
   render() {

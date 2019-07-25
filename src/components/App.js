@@ -26,6 +26,7 @@ import ConfirmMail from "../screen/ConfirmMail.js"
 import PublicRoute from '../router/PublicRoute'
 import PrivateRoute from '../router/PrivateRoute'
 import MyCarDisplay from '../screen/MyCarDisplay';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
           <PrivateRoute path='/mycarprofil' permission="driver" component={MyCarProfil} /> 
           <PrivateRoute path='/mycardisplay' permission="driver" component={MyCarDisplay} /> 
         </Switch>
+        <ToastContainer />
       </div>
   );
 }
