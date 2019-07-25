@@ -20,6 +20,10 @@ import Button from '@material-ui/core/Button';
 
 import axios from 'axios'
 
+
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import "./CheckBoxList.scss"
 
 // Import config
@@ -89,12 +93,18 @@ class CheckBoxList extends Component {
       })
         .then(res => {
             console.log(res)
+            toast.success("Les documents ont été validé.", {
+              position: toast.POSITION.BOTTOM_RIGHT
+            });
             this.setState({
                redirect: true
             })
         })
         .catch(error => {
           console.log(error);
+          toast.error("Erreur lors de la confirmation des documents", {
+            position: toast.POSITION.BOTTOM_RIGHT
+          });
         });
   }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 // Packages
 import {Switch} from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Home from './../screen/Home'
 import Login from './../screen/Login'
 import Tracking from './../screen/Tracking'
@@ -22,10 +23,12 @@ import MyCarPost from '../screen/MyCarPost'
 import QuestionsPage from '../screen/QuestionsPage';
 import MyCarProfil from '../screen/MyCarProfil'
 import ConfirmMail from "../screen/ConfirmMail.js"
+import MyCarDisplay from '../screen/MyCarDisplay';
+import Earnings from '../screen/Earnings'
+
 // Custom Router Components
 import PublicRoute from '../router/PublicRoute'
 import PrivateRoute from '../router/PrivateRoute'
-import MyCarDisplay from '../screen/MyCarDisplay';
 
 function App() {
   return (
@@ -51,7 +54,11 @@ function App() {
           <PrivateRoute path='/profilUpdate' permission="driver" component={ProfilUpdate} /> 
           <PrivateRoute path='/mycarprofil' permission="driver" component={MyCarProfil} /> 
           <PrivateRoute path='/mycardisplay' permission="driver" component={MyCarDisplay} /> 
+          <PrivateRoute path='/earnings' permission="driver" component={Earnings} /> 
+
+
         </Switch>
+        <ToastContainer />
       </div>
   );
 }

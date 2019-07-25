@@ -11,6 +11,7 @@ import usertagsolid from '../../assets/icons/usertagsolid.svg'
 import "./MyCars.scss"
 import Loader from '../UI/Loader/Loader';
 
+const moment = require('moment');
 
 const config = require('../../config/config')
 
@@ -52,6 +53,7 @@ class DisplayCar extends React.Component {
       return <Loader />
     } else {
       const data = this.state.result[0]
+      const modelYearFormated = moment(this.props.modelYear).format("YYYY")
       return (
         <section id="project" className="project-section bg-light">
           <Loader triggerAnim={true} />
@@ -77,16 +79,16 @@ class DisplayCar extends React.Component {
                 <CardTitle className="cardtitleinformation" icon="user-plus" ><h4> Ma voiture</h4></CardTitle>
               </Col>
               <Col xl="4" lg="4">
-                <CardText icon="user-plus" >Brand : {this.props.brand}</CardText>
-                <CardText icon="user-plus" >Color :{this.props.color} </CardText>
+                <CardText icon="user-plus" >Marque : {this.props.brand}</CardText>
+                <CardText icon="user-plus" >Couleur :{this.props.color} </CardText>
                 <CardText icon="user-plus" >Description :{this.props.description}</CardText>
-                <CardText icon="user-plus">Fuel: {this.props.fuel}  </CardText>
+                <CardText icon="user-plus" >Fuel: {this.props.fuel}  </CardText>
               </Col>
               <Col xl="4" lg="4">
-                <CardText icon="user-plus" >Horse power :{this.props.horsepower}</CardText>
-                <CardText icon="user-plus" >kilometers : {this.props.kilometers} </CardText>
-                <CardText icon="user-plus" >LicencePlate : {this.props.licencePlate}</CardText>
-                <CardText icon="user-plus" >modelYear : {this.props.modelYear}</CardText>
+                <CardText icon="user-plus" >Cheveaux : {this.props.horsepower}</CardText>
+                <CardText icon="user-plus" >Kilomètrage : {this.props.kilometers} </CardText>
+                <CardText icon="user-plus" >Immatriculation : {this.props.licencePlate}</CardText>
+                <CardText icon="user-plus" >Année : {modelYearFormated}</CardText>
               </Col>
             </div>
             <Link to="/myCarUpdate" >
