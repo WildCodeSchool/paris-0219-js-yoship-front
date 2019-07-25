@@ -1,15 +1,16 @@
 import React from 'react';
 import axios from 'axios'
 import { Col, Container, Card, CardImg, CardText, CardTitle, } from 'reactstrap';
+import Button from '../UI/Button/Button'
 import { Link } from 'react-router-dom';
 import ReactFileReader from 'react-file-reader';
-import Button from '../Button/Button'
 import CarCard from './CarCard'
 import atsolid from '../../assets/icons/atsolid.svg'
 import blacktiebrands from '../../assets/icons/blacktiebrands.svg'
 import phonesquarealtsolid from '../../assets/icons/phonesquarealtsolid.svg'
 import usertagsolid from '../../assets/icons/usertagsolid.svg'
 import "./MyCars.scss"
+import Loader from '../UI/Loader/Loader';
 
 const config = require('../../config/config')
 
@@ -61,11 +62,12 @@ class MyCars extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return (<div>Chargement</div>)
+      return <Loader />
     } else {
       const data = this.state.result[0]
       return (
         <section id="project" className="project-section bg-light">
+          <Loader triggerAnim={true} />
           <Container>
             <div className="row align-items-center no-gutters mb-4 mb-lg-5">
               <Col xl="2" lg="2">

@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { InputGroup, InputGroupAddon, Input, FormGroup, CustomInput, Form } from 'reactstrap';
-import Button from '../Button/Button';
+import Button from '../UI/Button/Button';
 import FrenchPhoneField from './FrenchPhoneField';
 import logoPaperPlane from '../../assets/images/logoPaperPlane.svg';
 import './Contact.scss';

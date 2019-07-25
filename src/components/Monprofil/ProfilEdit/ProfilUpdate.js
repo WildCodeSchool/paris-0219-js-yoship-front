@@ -3,6 +3,8 @@ import React from 'react';
 import { Col, Container, Button } from 'reactstrap';
 import axios from 'axios'
 import { validatorAlpha, validatorMail, validatorDate, validatorNum, validatorEmpty } from '../../ValidatorForm/ValidatorForm';
+import Loader from '../../UI/Loader/Loader';
+import { Redirect } from 'react-router-dom';
 import "./ProfilUpdate.scss"
 
 const config = require('../../../config/config')
@@ -11,10 +13,10 @@ class ProfilUpdate extends React.Component {
     state = {
 
         loading: true,
-        data: {}
+        data: {},
+        redirect: false,
 
     }
-
 
     getData = () => {
         const token = localStorage.getItem("token")
@@ -53,7 +55,8 @@ class ProfilUpdate extends React.Component {
         // }))
 
     }
-    handleSubmit = (event) => {
+
+    handleSubmit = async (event) => {
         event.preventDefault();
         const data = this.state.result
 
@@ -74,23 +77,30 @@ class ProfilUpdate extends React.Component {
         }
         const token = localStorage.getItem("token")
         const uuid = localStorage.getItem("uuid")
-        axios(
+        await axios(
             {
                 url: `http://localhost:${config.port}/users/${uuid}`,
                 method: 'Put',
                 data: dataToSend,
                 headers: { 'x-access-token': `${token}` }
             })
-            
-
+            this.setState({redirect: true})            
     }
     render() {
-        if (this.state.loading) {
-            return (<div>Loading</div>)
+        const redirect = this.state.redirect;
+
+if (redirect) {    
+    return <Redirect to="/dashboard"/>
+
+}
+        else if (this.state.loading) {
+            return <Loader />
+
         } else {
 
             return (
                 <section id="register" className="register">
+                    <Loader triggerAnim={true} />
                     <Container>
                         <div className="row align-items-center mb-4 mb-lg-5">
                             {/* <form onSubmit={this.handleSubmit}> */}
@@ -258,9 +268,7 @@ class ProfilUpdate extends React.Component {
                         </div>
                     </Container>
                     <div className="MyCarsButton">
-                            {/* <Link to="/Dashboard" > */}
                             <Button type="submit" onClick={this.handleSubmit} className="MyProfilUpdateButton">Valider les modifications</Button>
-                            {/* </Link> */}
                     </div>
                     <div className="not">
                         <div>
@@ -273,6 +281,7 @@ class ProfilUpdate extends React.Component {
         }
     }
 }
+
 
 
 

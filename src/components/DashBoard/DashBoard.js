@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios'
 import "./DashBoard.scss";
+import Loader from '../UI/Loader/Loader'
 
 const config = require('../../config/config')
 class PageHeader extends React.Component {
@@ -33,11 +34,12 @@ class PageHeader extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return (<div>chargement</div>) //loading
+      return (<Loader />) //loading
     } else {
       const data = this.state.result[0]
       return (
         <header className="masthead">
+          <Loader triggerAnim={true} />
           <h1>Bienvenue {data.firstname} {data.name} vous êtes bien connecté</h1>
         </header>
       );

@@ -7,6 +7,7 @@ import { NavLink, Redirect } from "react-router-dom";
 
 // Components
 import CheckButton from './CheckButton/CheckButton'
+import Loader from '../UI/Loader/Loader'
 
 import './DriverList.scss'
 const moment = require('moment');
@@ -106,6 +107,7 @@ class DriverList extends Component {
 
       return (
         <div className="table-container">
+          <Loader triggerAnim={true} />
           <MaterialTable 
             title="Gestion des documents"
             columns={columns}
@@ -141,7 +143,7 @@ class DriverList extends Component {
         </div>
       );  
     } else {
-      return <p>Loading...</p>
+      return <Loader />
     }
   }
 }

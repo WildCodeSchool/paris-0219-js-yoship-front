@@ -11,13 +11,13 @@ class Home extends Component {
     render() { 
         return ( 
             <div>
-            <Header pathname={this.props.location.pathname} background={true}/>
-            <PageHeader />
-            <ProjectSection />
-            <TrackingSection />
-            <Contact />
-            <Footer />
-        </div>
+                <Header pathname={this.props.location.pathname} background={true}/>
+                <PageHeader />
+                <ProjectSection />
+                <TrackingSection />
+                <Contact />
+                <Footer />
+            </div>
          );
     }
 }

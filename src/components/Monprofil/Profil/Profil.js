@@ -3,7 +3,7 @@ import { Col, Container, Card, CardImg, CardText, CardTitle } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import ReactFileReader from 'react-file-reader'
 import axios from 'axios'
-import Button from '../../Button/Button'
+import Button from '../../UI/Button/Button';
 import Tab from '../../Header/Tab/Tab'
 import phonesquarealtsolid from '../../../assets/icons/phonesquarealtsolid.svg'
 import atsolid from '../../../assets/icons/atsolid.svg'
@@ -17,7 +17,9 @@ import addresscardsolid from '../../../assets/icons/addresscardsolid.svg'
 import caraltsolid from '../../../assets/icons/caraltsolid.svg'
 import portraitsolid from '../../../assets/icons/portraitsolid.svg'
 import blacktiebrands from '../../../assets/icons/blacktiebrands.svg'
+import Loader from '../../UI/Loader/Loader'
 import "./Profil.scss"
+
 
 const config = require('../../../config/config')
 
@@ -47,11 +49,12 @@ class Profil extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return (<div>chargement</div>)
+      return (<Loader />)
     } else {
       const data = this.state.result[0]
       return (
         <section id="project" className="project-section bg-light">
+          <Loader triggerAnim={true} />
           <Container>
             <div className="row align-items-center no-gutters mb-4 mb-lg-5">
               <Col xl="2" lg="2">
