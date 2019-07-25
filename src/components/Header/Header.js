@@ -51,6 +51,8 @@ class Header extends Component {
                 return false
             case "/mycardisplay":
                 return false
+            case "/ProfilUpdate":
+                return false
             default:
                 return true
         }
