@@ -84,7 +84,6 @@ class CheckBoxList extends Component {
     if (process.env.NODE_ENV === 'production') {
       pathApi = process.env.REACT_APP_PATH_API_PROD + '/users/'
     }
-    console.log(uuid)
     axios({
         method: "Put",
         url: `${pathApi}${uuid}`,
