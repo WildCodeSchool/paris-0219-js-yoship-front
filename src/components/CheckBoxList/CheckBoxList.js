@@ -80,10 +80,14 @@ class CheckBoxList extends Component {
   postVerified = () => {
     const token = localStorage.getItem('token');
     const uuid = String(this.props.uuid); 
+    let pathApi = process.env.REACT_APP_PATH_API_DEV + '/users/'
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD + '/users/'
+    }
     console.log(uuid)
     axios({
         method: "Put",
-        url: `http://localhost:${config.port}/users/${uuid}`,
+        url: `${pathApi}${uuid}`,
         headers: {
           "x-access-token": `${token}`
         },

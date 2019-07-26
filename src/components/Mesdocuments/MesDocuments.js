@@ -25,9 +25,13 @@ class Mesdocuments extends React.Component {
   getDataPapers = () => {
     const uuid = localStorage.getItem("uuid")
     const token = localStorage.getItem("token")
+    let pathApi = process.env.REACT_APP_PATH_API_DEV + '/users/'
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD + '/users/'
+    }
     axios({
       method: "GET",
-      url: `http://localhost:${config.port}/users/${uuid}/driverPapers`,
+      url: `${pathApi}${uuid}/driverPapers`,
       headers: {
         "x-access-token": token
       }
@@ -56,8 +60,12 @@ class Mesdocuments extends React.Component {
     formData.append(fileType, this.state.selectFile)
     // Checking if the user already has a document table
     let hasDocuments;
+    let pathApi = process.env.REACT_APP_PATH_API_DEV + '/users/'
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD + '/users/'
+    }
     await axios
-      .get(`http://localhost:${config.port}/users/${uuid}/driverPapers`, {
+      .get(`${pathApi}${uuid}/driverPapers`, {
         headers: { "x-access-token": token }
       })
       .then(res => {
@@ -74,9 +82,13 @@ class Mesdocuments extends React.Component {
   }
 
   postDocument(uuid, token, formData) {
+    let pathApi = process.env.REACT_APP_PATH_API_DEV + '/users/'
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD + '/users/'
+    }
     axios({
       method: "POST",
-      url: `http://localhost:${config.port}/users/${uuid}/driverPapers`,
+      url: `${pathApi}${uuid}/driverPapers`,
       headers: {
         "x-access-token": token
       },
@@ -92,9 +104,13 @@ class Mesdocuments extends React.Component {
   }
 
   updateDocument(uuid, token, fileType, formData) {
+    let pathApi = process.env.REACT_APP_PATH_API_DEV + '/users/'
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD + '/users/'
+    }
     axios({
       method: "PUT",
-      url: `http://localhost:${config.port}/users/${uuid}/driverPapers/${fileType}`,
+      url: `${pathApi}${uuid}/driverPapers/${fileType}`,
       headers: {
         "x-access-token": token
       },
@@ -112,9 +128,13 @@ class Mesdocuments extends React.Component {
   getData = () => {
     const token = localStorage.getItem("token")
     const uuid = localStorage.getItem("uuid")
+    let pathApi = process.env.REACT_APP_PATH_API_DEV + '/users/'
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD + '/users/'
+    }
     axios({
       method: 'Get',
-      url: `http://localhost:${config.port}/users/${uuid}`,
+      url: `${pathApi}${uuid}`,
       headers: {
         'x-access-token': `${token}`
       }
