@@ -1,26 +1,11 @@
-
-.buttoncenter {
-    justify-content: center;
-    display: flex;
-   
-.MyProfilUpdateButton {
-    background-color: #c9a959 !important;
-    color: white;
-    cursor: pointer;
-    box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1);
-    padding: 1.25rem 2rem;
-    font-family: 'Varela Round', sans-serif!important;
-    font-family: 'Varela Round', sans-serif;
-    font-size: 80%;
-    line-height: 1.5;
-    text-transform: uppercase;
-    border-radius: .25rem;
-    letter-spacing: .15rem;
-    border: 0;
-    width: 100%;
-  }
-    transition: background-color 250ms;
-    
-
-  }
+.login-button {
+  background-color: #c9a959 !important;
+  border-color:  #c9a959 !important;
+  margin: 0 50%;
   
+
+
+  }
+  h4{
+    line-height: 1.2;
+    }
