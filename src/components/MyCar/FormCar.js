@@ -58,8 +58,12 @@ class FormCar extends React.Component {
       licencePlate: this.state.license_plate,
       modelYear: this.state.model_year
     }
+    let pathApi = process.env.REACT_APP_PATH_API_DEV + '/users/'
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD + '/users/'
+    }
 
-    axios.post(`http://localhost:${config.port}/users/${uuid}/cars`, (dataTosend),
+    axios.post(`${pathApi}${uuid}/cars`, (dataTosend),
       {
         headers: {
           'x-access-token': `${token}`

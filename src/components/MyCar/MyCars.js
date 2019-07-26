@@ -25,9 +25,13 @@ class MyCars extends React.Component {
   getData = async () => {
     const token = localStorage.getItem("token")
     const uuid = localStorage.getItem("uuid")
+    let pathApi = process.env.REACT_APP_PATH_API_DEV + '/users/'
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD + '/users/'
+    }
     const res = await axios({
       method: 'Get',
-      url: `http://localhost:${config.port}/users/${uuid}`,
+      url: `${pathApi}${uuid}`,
       headers: {
         'x-access-token': `${token}`
       }
@@ -37,7 +41,7 @@ class MyCars extends React.Component {
 
     let resCar = await axios({
       method: 'Get',
-      url: `http://localhost:${config.port}/users/${uuid}/cars`,
+      url: `${pathApi}${uuid}/cars`,
       headers: {
         'x-access-token': `${token}`
       }

@@ -24,9 +24,13 @@ class DisplayCar extends React.Component {
   getData = () => {
     const token = localStorage.getItem("token")
     const uuid = localStorage.getItem("uuid")
+    let pathApi = process.env.REACT_APP_PATH_API_DEV + '/users/'
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD + '/users/'
+    }
     axios({
       method: 'Get',
-      url: `http://localhost:${config.port}/users/${uuid}`,
+      url: `${pathApi}${uuid}`,
       headers: {
         'x-access-token': `${token}`
       }

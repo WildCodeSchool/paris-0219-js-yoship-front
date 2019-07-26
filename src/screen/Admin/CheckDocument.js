@@ -38,10 +38,13 @@ class CheckDocument extends Component {
   getDataDriver = async () => {
     const uuid = this.props.match.params.uuid;
     const token = localStorage.getItem('token')  
-    
+    let pathApi = process.env.REACT_APP_PATH_API_DEV 
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD 
+    }
     await axios({
         method: "Get",
-        url: `http://localhost:${config.port}/users/${uuid}`,
+        url: `${pathApi}/users/${uuid}`,
         headers: {
           "x-access-token": `${token}`
         }
@@ -66,7 +69,7 @@ class CheckDocument extends Component {
     
         await axios({
             method: "Get",
-            url: `http://localhost:${config.port}/users/${uuid}/driverPapers`,
+            url: `${pathApi}/users/${uuid}/driverPapers`,
             headers: {
               "x-access-token": `${token}`
             }
@@ -89,7 +92,7 @@ class CheckDocument extends Component {
 
         await axios({
           method: "Get",
-          url: `http://localhost:${config.port}/uploads/${this.state.dataDocuments.identityCard}`,
+          url: `${pathApi}/uploads/${this.state.dataDocuments.identityCard}`,
           headers: {
             "x-access-token": `${token}`
           }

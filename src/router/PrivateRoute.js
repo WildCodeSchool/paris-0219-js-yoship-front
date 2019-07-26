@@ -23,10 +23,13 @@ class PrivateRoute extends Component {
         // Getting localStorage data
         const token = localStorage.getItem("token");
         const config = require("../config/config");
-        
+        let pathApi = process.env.REACT_APP_PATH_API_DEV + '/verify/'
+        if (process.env.NODE_ENV === 'production') {
+          pathApi = process.env.REACT_APP_PATH_API_PROD + '/verify/'
+        }
         axios({
             method: "Get",
-            url: `http://localhost:${config.port}/verify/${this.props.permission}`,
+            url: `${pathApi}${this.props.permission}`,
             headers: {
                 "x-access-token": `${token}`
             }
