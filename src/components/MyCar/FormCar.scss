@@ -1,0 +1,146 @@
+/* GENERAL TAG CSS */
+@font-face {
+    font-family: 'Varela Round', sans-serif;
+    src: url("https://fonts.googleapis.com/css?family=Varela+Round&display=swap") format("woff2"),
+}
+
+// COLORS HSL //
+$background-color: #f1f1f1;
+$black: black; 
+$white: white;
+$grey: grey;
+$blue: #9f9fd8;
+$red: red;
+$green: #58D68D;
+$brown: #873600;
+$orange: #F39C12;
+$yellow: #F4D03F;
+$beige: #FAD7A0;
+$purple: #BB8FCE;
+$pink: #F5B7B1;
+$amount: 20%;
+
+// CIRCLE BORDER //
+
+$color-border: 0.5px solid grey;
+
+// CIRCLE TEMPLATE //
+.car-circle {
+    border-radius: 50%;
+    height: 5px;
+    margin: 5px;
+    padding: 7px;
+    width: 5px;
+}
+
+#beige, #black, #blue, #bordeaux, #brown, #dark-blue, 
+#dark-red, #dark-green, #dark-grey, #dark-red, #green, 
+#grey, #orange, #pink, #purple, #red, #white, #yellow {
+    display: flex;
+}
+
+.car-beige {
+    @extend .car-circle;
+    background-color: $beige;
+}
+
+.car-black {
+    @extend .car-circle;
+    background-color: $black;
+}
+
+.car-blue {
+    @extend .car-circle;
+    background-color: $blue;
+}
+
+.car-bordeaux {
+    @extend .car-circle;
+    background-color: darken($red, $amount);
+}
+
+.car-brown {
+    @extend .car-circle;
+    background-color: $brown;
+}
+
+.car-dark-blue {
+    @extend .car-circle;
+    background-color: darken($blue, $amount);
+}
+
+.car-dark-green {
+    @extend .car-circle;
+    background-color: darken($green, $amount);
+}
+
+.car-green {
+    @extend .car-circle;
+    background-color: $green;
+}
+
+.car-red {
+    @extend .car-circle;
+    background-color: $red;
+}
+
+.car-white {
+    @extend .car-circle;
+    background-color: $white;
+    border: $color-border;
+}
+
+.car-orange {
+    @extend .car-circle;
+    background-color: $orange;
+}
+
+.car-yellow {
+    @extend .car-circle;
+    background-color: $yellow;
+
+}
+
+.car-purple {
+    @extend .car-circle;
+    background-color: $purple;
+}
+
+.car-pink {
+    @extend .car-circle;
+    background-color: $pink;
+}
+
+
+
+.car-dark-grey {
+    @extend .car-circle;
+    background-color: darken($grey, $amount);
+}
+
+.car-grey {
+    @extend .car-circle;
+    background-color: $grey;
+}
+
+
+.colorcolor {
+    padding: 0px 0px 0px 25px;
+}
+.MyFormCarsButton {
+    display: flex;
+    justify-content: center;
+}
+.FormCarCarburant {
+     padding-top: 14px;
+}
+
+.cardescriptionh1
+{
+    text-align: center;
+}
+
+
+.form-car-wrapper {
+    margin-bottom: 2em;
+}

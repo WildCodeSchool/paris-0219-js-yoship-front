@@ -1,0 +1,193 @@
+body {
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 0.0625em;
+}
+
+.container-section {
+    padding: 10rem 0;
+    background: linear-gradient(to bottom, rgba(22, 22, 22, 0.6) 0%, rgba(22, 22, 22, 0.8) 75%, #161616 100%), url("../../assets/images/tracking-background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover; 
+    width: 100%;
+}
+
+.form_inline {
+    display: grid;
+    grid-template-columns: 563.08px 158.92px;
+    grid-template-rows: 59px;
+    width: 730px;
+    height: 59px;
+    position: relative;
+    top: -17px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.form_control {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    margin-right: 8px;
+}
+.tracking_section .form_inline button {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    padding: 20px 32px;
+    font-size: 60%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    left: -8em;
+
+
+}
+
+.logo_white {
+    color: white;
+}
+
+
+
+.tracking_section {
+    width: 760px;
+    height: 249px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+    
+
+
+.container-section, ::after, ::before {
+    box-sizing: border-box;
+    text-align: center;
+}
+
+
+.tracking_section .form_inline input {
+    box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+    padding: 20px 32px;
+    font-family: 'Varela Round', 'sans-serif';
+    font-size: 60%;
+    text-transform: uppercase;
+    letter-spacing: .15rem;
+    border: 0;
+    border-radius: .25rem;
+    line-height: 1.8;
+}
+    
+
+.text-white {
+    color: white;
+    text-align: center!important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    position: relative;
+    font-family: 'Nunito', sans-serif;
+}
+
+.tracking_section h2 {
+    font-size: 2rem;
+    letter-spacing: .0625em;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.tracking_section p {
+    font-size: 12.8px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    letter-spacing: .0625em;
+    line-height: 2em;
+}
+
+@media (max-width: 1199px) {
+    .form_inline {
+        display: grid;
+        grid-template-columns: 443.06px 158.92px;
+        grid-template-rows: 59px;
+        width: 610px;
+        height: 59px;
+    }
+    .tracking_section {
+        margin-left: auto;
+        margin-right: auto;
+        width:   639.98px;   
+    }
+
+} 
+
+@media (max-width: 991px) {
+    .tracking_section {
+        margin-left: auto;
+        margin-right: auto;
+        width:   600px;   
+    }
+    .form_inline {
+        display: grid;
+        grid-template-columns: 403.08px 158.92px;
+        grid-template-rows: 59px;
+        width: 570px;
+        height: 59px;
+    }
+}
+
+@media (max-width:768px) {
+    .tracking_section {
+        margin-left: auto;
+        margin-right: auto;
+        width:   540px;   
+    }
+    .form_inline {
+        display: grid;
+        grid-template-columns: 343.08px 158.92px;
+        grid-template-rows: 59px;
+        width: 510px;
+        height: 59px;
+    }
+}
+
+@media (max-width:576px) {
+    .tracking_section {
+        margin-left: auto;
+        margin-right: auto;
+        width: 95%;   
+    }
+    .form_inline {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 59px 59px;
+        width: 95%;
+        height: 59px;
+    }
+    .tracking_section .form_inline button {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        padding: 20px 32px;
+        font-size: 60%;
+        width: 159px;
+        height: 59px;
+    }
+    .form_control {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        margin-right:0;
+        height: 59px;
+        position: relative;
+        top: -16px;
+    }  
+    
+
+}
+
+

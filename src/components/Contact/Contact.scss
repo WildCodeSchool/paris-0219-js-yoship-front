@@ -1,0 +1,103 @@
+/* GENERAL TAG SCSS */
+@font-face {
+    font-family: 'Varela Round', sans-serif;
+    src: url("https://fonts.googleapis.com/css?family=Varela+Round&display=swap") format("woff2"),
+}
+$fontStyle: 'Nunito', sans-serif;
+$logoColor: #212529;
+$backgroundColor: #f1f1f1;
+
+/* CONTACT FORM SCSS */
+
+#contact-wrapper {
+    background-color: $backgroundColor;
+    display: grid;
+    font-size: 1rem !important;
+    flex-wrap: nowrap;
+    font-family: $fontStyle;
+    grid-template-columns: repeat(2, 42%);
+    grid-template-rows: repeat(7, auto);
+    grid-column-gap: 10px;
+    grid-row-gap: 15px;
+    justify-content: center;
+    letter-spacing: 0.0625em
+}
+
+.contact-logo {
+    color: $logoColor;
+    grid-column-start: 1;
+    grid-column-end:3; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo-plane {
+    background-size: 30px 30px;
+    color: $logoColor;
+    margin-top: 150px;
+    max-height: 30px;
+    max-width: 30px;
+}
+
+.contact-title {
+    grid-column-start: 1;
+    grid-column-end: 3; 
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-email,
+.contact-firstname {
+    grid-column-end: 2;
+    grid-column-start: 1;
+} 
+
+.contact-lastname,
+.contact-phone {
+    grid-column-end: 3;
+    grid-column-start: 2;
+} 
+
+.contact-status {
+    grid-column-start: 1;
+    grid-column-end: 3; 
+} 
+
+.contact-status select {
+    width: 100%;
+}
+
+.contact-message {
+    grid-column-end: 3;
+    grid-column-start: 1;
+    margin-top: -15px;
+} 
+
+.contact-button {
+    grid-column-end: 3; 
+    grid-column-start: 1;
+    justify-self: center;
+    margin-bottom: 50px;
+}
+
+@media screen and (max-width: 576px) {
+    #contact-wrapper {
+        grid-template-columns: repeat(1, 90%);
+    }
+    .contact-button,
+    .contact-firstname,
+    .contact-email,
+    .contact-lastname,
+    .contact-logo,
+    .contact-message,
+    .contact-phone,
+    .contact-status,
+    .contact-title {
+        grid-column-start: 1;
+        grid-column-end: 2;   
+    }
+}
+
+
+

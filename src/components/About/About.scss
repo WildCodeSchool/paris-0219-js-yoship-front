@@ -1,0 +1,34 @@
+.titreabout {
+    padding:  0 0 50px 0;
+    text-align: center;
+}
+.buttonabout{
+    justify-content: center;
+    display: flex;
+}
+.test {
+    padding: 0 0 0 2rem;
+    border-left: 0.5rem solid #C9A959;
+}
+
+.ColorContainer {
+    position: relative;
+    top:-1.5em
+}
+
+@media (min-width: 992px) and (max-width: 1200px){
+    .ColorContainer {
+        position: relative;
+        top:-3em
+    }
+}
+
+
+@media (min-width: 992px)
+{
+   
+  .BorderColorAbout {
+    padding: 0 0 0 2rem;
+    border-left: 0.5rem solid #C9A959;
+  }
+  }

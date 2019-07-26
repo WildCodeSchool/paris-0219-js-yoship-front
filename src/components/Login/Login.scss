@@ -1,0 +1,69 @@
+.card-img {
+    
+    border-radius: calc(.25rem - 1px);
+}
+
+
+.login {
+    background-color:#f8f9fa;
+    padding: 10rem 0rem 5rem 0rem;
+}
+
+.row {
+    justify-content: space-between;
+}
+.checkbox {
+    justify-content: center;
+    display: grid;
+    padding-top:20px;
+
+    margin: 2em 0;
+}
+
+.button-login-submit {
+    background-color: #C9A959!important;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1);
+    padding: 1.25rem 2rem;
+    font-family: 'Varela Round', sans-serif!important;
+    font-size: 80%;
+    line-height: 1.5;
+    text-transform: uppercase;
+    border-radius: .25rem;
+    letter-spacing: .15rem;
+    border: 0;
+    width: 100%;
+
+}
+
+.label-password-login{
+    padding-top: 10px;
+ }
+
+.not-member {
+    background-color: #C9A959;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1);
+    padding: 1.25rem 2rem;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 80%;
+    line-height: 1.5;
+    text-transform: uppercase;
+    border-radius: .25rem;
+    letter-spacing: .15rem;
+    border: 0;
+
+
+}
+.not {
+
+    justify-content: center;
+    display: flex;
+}
+
+.error-msg {
+    color: red;
+    margin: 0.5em;
+  }
