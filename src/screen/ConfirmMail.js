@@ -15,10 +15,13 @@ class ConfirmMail extends Component {
 
   componentDidMount = async () => {
     const token = this.props.match.params.token
-
+    let pathApi = process.env.REACT_APP_PATH_API_DEV + '/confirmation/'
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_DEV + '/confirmation/'
+    }
     await axios({
       method: 'PUT',
-      url: `http://localhost:${config.port}/confirmation/${token}`,
+      url: `${pathApi}${token}`,
       headers: {
         'x-access-token': `${token}`,
       },

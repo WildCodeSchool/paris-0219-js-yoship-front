@@ -21,8 +21,12 @@ class Login extends React.Component {
       onSubmit = e => {
           console.log("test")
         e.preventDefault();
+        let pathApi = process.env.REACT_APP_PATH_API_DEV + '/login'
+        if (process.env.NODE_ENV === 'production') {
+          pathApi = process.env.REACT_APP_PATH_API_PROD + '/login'
+        }
         axios
-          .post(`http://localhost:${config.port}/login`, {
+          .post(`${pathApi}`, {
             password: e.target.password.value,
             mail: e.target.email.value
           })

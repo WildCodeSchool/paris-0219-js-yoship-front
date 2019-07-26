@@ -80,10 +80,13 @@ class CheckBoxList extends Component {
   postVerified = () => {
     const token = localStorage.getItem('token');
     const uuid = String(this.props.uuid); 
-    console.log(uuid)
+    let pathApi = process.env.REACT_APP_PATH_API_DEV + '/users/'
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD + '/users/'
+    }
     axios({
         method: "Put",
-        url: `http://localhost:${config.port}/users/${uuid}`,
+        url: `${pathApi}${uuid}`,
         headers: {
           "x-access-token": `${token}`
         },
@@ -140,6 +143,10 @@ class CheckBoxList extends Component {
             value: nSiret
         }
       ];
+      let pathApi = process.env.REACT_APP_PATH_API_DEV 
+      if (process.env.NODE_ENV === 'production') {
+        pathApi = process.env.REACT_APP_PATH_API_PROD 
+      }
       if (!redirect) {
           return (
             <>
@@ -168,10 +175,10 @@ class CheckBoxList extends Component {
                     />
                     <ListItemText primary={item.name} />
                     <ListItemSecondaryAction>
-                      <IconButton edge="end" aria-label="Comments" onClick={ () => {window.open(`http://localhost:${config.port}/${item.value}`)}}>
+                      <IconButton edge="end" aria-label="Comments" onClick={ () => {window.open(`${pathApi}/${item.value}`)}}>
                         <Print />
                       </IconButton>
-                      <IconButton edge="end" aria-label="Comments" onClick={ () => {download(`http://localhost:${config.port}/${item.value}`)}}> 
+                      <IconButton edge="end" aria-label="Comments" onClick={ () => {download(`${pathApi}/${item.value}`)}}> 
                         <CloudDownload color="primary" />
                       </IconButton>
                     </ListItemSecondaryAction>

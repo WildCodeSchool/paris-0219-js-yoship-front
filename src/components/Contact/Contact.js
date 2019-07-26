@@ -43,7 +43,11 @@ class Contact extends React.Component {
 
     submitForm(event) {
         event.preventDefault();
-        axios.post(`http://localhost:${config.port}/contact`, this.state)
+        let pathApi = process.env.REACT_APP_PATH_API_DEV + '/contact'
+        if (process.env.NODE_ENV === 'production') {
+          pathApi = process.env.REACT_APP_PATH_API_PROD + '/contact'
+        }
+        axios.post(`${pathApi}`, this.state)
             .then(res => {
                 if (res.error) {
                     alert(res.error);

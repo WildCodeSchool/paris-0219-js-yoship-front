@@ -33,10 +33,13 @@ class DriverList extends Component {
     const uuid = localStorage.getItem("uuid");
 
     let dataDocs = [];
-    
+    let pathApi = process.env.REACT_APP_PATH_API_DEV + '/users'
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD + '/users'
+    }
     await axios({
       method: "Get",
-      url: `http://localhost:${config.port}/users`,
+      url: `${pathApi}`,
       headers: {
         "x-access-token": `${token}`
       }
@@ -57,9 +60,13 @@ class DriverList extends Component {
     const driversUuid = this.state.driverData.map(driver => driver.uuid)
 
     for (let i = 0; i < driversUuid.length; i++) {
+      let pathApi = process.env.REACT_APP_PATH_API_DEV + '/users/'
+    if (process.env.NODE_ENV === 'production') {
+      pathApi = process.env.REACT_APP_PATH_API_PROD + '/users/'
+    }
       await axios({
         method: "Get",
-        url: `http://localhost:${config.port}/users/${this.state.driverData[i].uuid}/driverPapers`,
+        url: `${pathApi}${this.state.driverData[i].uuid}/driverPapers`,
         headers: {
           "x-access-token": `${token}`
         }
