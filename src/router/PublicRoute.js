@@ -36,9 +36,13 @@ class PublicRoute extends Component {
       this.setState({
         isLoading: true
       })
+      let pathApi = process.env.REACT_APP_PATH_API_DEV + '/verify'
+      if (process.env.NODE_ENV === 'production') {
+        pathApi = process.env.REACT_APP_PATH_API_PROD + '/verify'
+      }
       axios({
         method: "Get",
-        url: `http://localhost:${config.port}/verify`,
+        url: `${pathApi}`,
         headers: {
           "x-access-token": `${token}`
         }
