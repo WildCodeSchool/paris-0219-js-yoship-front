@@ -50,8 +50,11 @@ class Register extends React.Component {
                 country: data.country.value,
                 role: "driver"
             }
-
-            axios.post(`http://localhost:${config.port}/register`, (dataToSend))
+            let pathApi = process.env.REACT_APP_PATH_API_DEV + '/register'
+            if (process.env.NODE_ENV === 'production') {
+              pathApi = process.env.REACT_APP_PATH_API_PROD + '/register'
+            }
+            axios.post(`${pathApi}`, (dataToSend))
                 .then(res => {
                     console.log(res);
                     console.log(res.data);
