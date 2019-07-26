@@ -13,7 +13,14 @@
 
 .ColorContainer {
     position: relative;
-    top:-50px
+    top:-1.5em
+}
+
+@media (min-width: 992px) and (max-width: 1200px){
+    .ColorContainer {
+        position: relative;
+        top:-3em
+    }
 }
 
 
